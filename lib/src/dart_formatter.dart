@@ -48,7 +48,8 @@ final class DartFormatter {
 
   /// The page width that the formatter tries to fit code inside if no other
   /// width is specified.
-  static const defaultPageWidth = 80;
+  /// Changed from default JR June 2026
+  static const defaultPageWidth = 110;                                                                       
 
   /// The Dart language version that formatted code should be parsed as.
   ///
