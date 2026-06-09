@@ -36,125 +36,115 @@ import 'piece.dart';
 ///         case pattern
 ///         when cond) ...
 final class IfCasePiece extends Piece {
-  /// Split before the `when` guard clause.
-  static const State _beforeWhen = State(1);
+    /// Split before the `when` guard clause.
+    static const State _beforeWhen = State(1);
 
-  /// Split before the `case` pattern clause.
-  static const State _beforeCase = State(2);
+    /// Split before the `case` pattern clause.
+    static const State _beforeCase = State(2);
 
-  /// Split before the `case` pattern clause and the `when` guard clause.
-  static const State _beforeCaseAndWhen = State(3);
+    /// Split before the `case` pattern clause and the `when` guard clause.
+    static const State _beforeCaseAndWhen = State(3);
 
-  /// The value expression being matched.
-  final Piece _value;
+    /// The value expression being matched.
+    final Piece _value;
 
-  /// The pattern the value is matched against along with the leading `case`.
-  final Piece _pattern;
+    /// The pattern the value is matched against along with the leading `case`.
+    final Piece _pattern;
 
-  /// If there is a `when` clause, that clause.
-  final Piece? _guard;
+    /// If there is a `when` clause, that clause.
+    final Piece? _guard;
 
-  /// Whether the pattern can be block formatted.
-  final bool _canBlockSplitPattern;
+    /// Whether the pattern can be block formatted.
+    final bool _canBlockSplitPattern;
 
-  factory IfCasePiece(
-    Piece value,
-    Piece pattern,
-    Piece? guard, {
-    required bool canBlockSplitPattern,
-    required bool canBlockFormatPatternWithGuard,
-  }) {
-    if (canBlockFormatPatternWithGuard) {
-      return _IfCasePieceBlockFormatWithGuard(
-        value,
-        pattern,
-        guard,
-        canBlockSplitPattern: canBlockSplitPattern,
-      );
-    } else {
-      return IfCasePiece._(
-        value,
-        pattern,
-        guard,
-        canBlockSplitPattern: canBlockSplitPattern,
-      );
-    }
-  }
-
-  IfCasePiece._(
-    this._value,
-    this._pattern,
-    this._guard, {
-    required bool canBlockSplitPattern,
-  }) : _canBlockSplitPattern = canBlockSplitPattern;
-
-  @override
-  List<State> get additionalStates => [
-    if (_guard != null) _beforeWhen,
-    _beforeCase,
-    if (_guard != null) _beforeCaseAndWhen,
-  ];
-
-  @override
-  Set<Shape> allowedChildShapes(State state, Piece child) {
-    return switch (state) {
-      // When not splitting before `case` or `when`, we only allow splitting a
-      // block-formatted pattern if there is no guard.
-      State.unsplit
-          when child == _pattern && _canBlockSplitPattern && _guard == null =>
-        Shape.inlineOrBlock,
-
-      // Allow newlines only in the guard if we split before `when`.
-      _beforeWhen when child == _guard => Shape.all,
-
-      // If there's no guard, then we can split anywhere in the pattern when
-      // splitting after `case`.
-      _beforeCase when child == _pattern && _guard == null => Shape.all,
-
-      // If there is a guard, then the entire pattern and guard must fit on
-      // one line, but the value expression can split.
-      _beforeCase when child == _value => Shape.all,
-
-      // Once we split at both `case` and `when`, then splits are allowed
-      // everywhere.
-      _beforeCaseAndWhen => Shape.all,
-
-      _ => Shape.onlyInline,
-    };
-  }
-
-  @override
-  void format(CodeWriter writer, State state) {
-    if (state != State.unsplit) writer.pushIndent(Indent.expression);
-
-    writer.format(_value);
-
-    // The case clause and pattern.
-    writer.splitIf(state == _beforeCase || state == _beforeCaseAndWhen);
-
-    if (!_canBlockSplitPattern) {
-      writer.pushCollapsibleIndent();
+    factory IfCasePiece(
+        Piece value,
+        Piece pattern,
+        Piece? guard, {
+        required bool canBlockSplitPattern,
+        required bool canBlockFormatPatternWithGuard,
+    }) {
+        if (canBlockFormatPatternWithGuard) {
+            return _IfCasePieceBlockFormatWithGuard(
+                value,
+                pattern,
+                guard,
+                canBlockSplitPattern: canBlockSplitPattern,
+            );
+        } else {
+            return IfCasePiece._(value, pattern, guard, canBlockSplitPattern: canBlockSplitPattern);
+        }
     }
 
-    writer.format(_pattern);
+    IfCasePiece._(this._value, this._pattern, this._guard, {required bool canBlockSplitPattern})
+        : _canBlockSplitPattern = canBlockSplitPattern;
 
-    if (!_canBlockSplitPattern) writer.popIndent();
+    @override
+    List<State> get additionalStates => [
+        if (_guard != null) _beforeWhen,
+        _beforeCase,
+        if (_guard != null) _beforeCaseAndWhen,
+    ];
 
-    // The guard clause.
-    if (_guard case var guard?) {
-      writer.splitIf(state == _beforeWhen || state == _beforeCaseAndWhen);
-      writer.format(guard);
+    @override
+    Set<Shape> allowedChildShapes(State state, Piece child) {
+        return switch (state) {
+            // When not splitting before `case` or `when`, we only allow splitting a
+            // block-formatted pattern if there is no guard.
+            State.unsplit when child == _pattern && _canBlockSplitPattern && _guard == null =>
+                Shape.inlineOrBlock,
+
+            // Allow newlines only in the guard if we split before `when`.
+            _beforeWhen when child == _guard => Shape.all,
+
+            // If there's no guard, then we can split anywhere in the pattern when
+            // splitting after `case`.
+            _beforeCase when child == _pattern && _guard == null => Shape.all,
+
+            // If there is a guard, then the entire pattern and guard must fit on
+            // one line, but the value expression can split.
+            _beforeCase when child == _value => Shape.all,
+
+            // Once we split at both `case` and `when`, then splits are allowed
+            // everywhere.
+            _beforeCaseAndWhen => Shape.all,
+
+            _ => Shape.onlyInline,
+        };
     }
 
-    if (state != State.unsplit) writer.popIndent();
-  }
+    @override
+    void format(CodeWriter writer, State state) {
+        if (state != State.unsplit) writer.pushIndent(Indent.expression);
 
-  @override
-  void forEachChild(void Function(Piece piece) callback) {
-    callback(_value);
-    callback(_pattern);
-    if (_guard case var guard?) callback(guard);
-  }
+        writer.format(_value);
+
+        // The case clause and pattern.
+        writer.splitIf(state == _beforeCase || state == _beforeCaseAndWhen);
+
+        if (!_canBlockSplitPattern) {
+            writer.pushCollapsibleIndent();
+        }
+
+        writer.format(_pattern);
+
+        if (!_canBlockSplitPattern) writer.popIndent();
+
+        // The guard clause.
+        if (_guard case var guard?) {
+            writer.splitIf(state == _beforeWhen || state == _beforeCaseAndWhen);
+            writer.format(guard);
+        }
+
+        if (state != State.unsplit) writer.popIndent();
+    }
+
+    @override
+    void forEachChild(void Function(Piece piece) callback) {
+        callback(_value);
+        callback(_pattern);
+        if (_guard case var guard?) callback(guard);
+    }
 }
 
 /// An [IfCasePiece] for language versions older than 3.13.
@@ -199,30 +189,28 @@ final class IfCasePiece extends Piece {
 /// The change is language-versioned and this class implements the previous
 /// behavior.
 final class _IfCasePieceBlockFormatWithGuard extends IfCasePiece {
-  _IfCasePieceBlockFormatWithGuard(
-    super.value,
-    super.pattern,
-    super.guard, {
-    required super.canBlockSplitPattern,
-  }) : super._();
+    _IfCasePieceBlockFormatWithGuard(
+        super.value,
+        super.pattern,
+        super.guard, {
+        required super.canBlockSplitPattern,
+    }) : super._();
 
-  @override
-  Set<Shape> allowedChildShapes(State state, Piece child) {
-    return switch (state) {
-      // When not splitting before `case` or `when`, we only allow newlines
-      // in block-formatted patterns.
-      State.unsplit when child == _pattern => Shape.anyIf(
-        _canBlockSplitPattern,
-      ),
+    @override
+    Set<Shape> allowedChildShapes(State state, Piece child) {
+        return switch (state) {
+            // When not splitting before `case` or `when`, we only allow newlines
+            // in block-formatted patterns.
+            State.unsplit when child == _pattern => Shape.anyIf(_canBlockSplitPattern),
 
-      // Allow newlines only in the guard if we split before `when`.
-      IfCasePiece._beforeWhen when child == _guard => Shape.all,
+            // Allow newlines only in the guard if we split before `when`.
+            IfCasePiece._beforeWhen when child == _guard => Shape.all,
 
-      // Only allow the guard on the same line as the pattern if it doesn't
-      // split.
-      IfCasePiece._beforeCase when child != _guard => Shape.all,
-      IfCasePiece._beforeCaseAndWhen => Shape.all,
-      _ => Shape.onlyInline,
-    };
-  }
+            // Only allow the guard on the same line as the pattern if it doesn't
+            // split.
+            IfCasePiece._beforeCase when child != _guard => Shape.all,
+            IfCasePiece._beforeCaseAndWhen => Shape.all,
+            _ => Shape.onlyInline,
+        };
+    }
 }

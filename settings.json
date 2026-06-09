@@ -1,0 +1,7 @@
+{
+    "dart.enableSdkFormatter": false,
+    "dart.lineLength": 150,
+    "[dart]": {
+        "editor.rulers": [110]
+    }
+}

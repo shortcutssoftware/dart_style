@@ -27,384 +27,341 @@ const _unsupportedMarker = '(unsupported)';
 
 /// Get the absolute local file path to the dart_style package's root directory.
 Future<String> findPackageDirectory() async {
-  var libraryPath = (await Isolate.resolvePackageUri(
-    Uri.parse('package:dart_style/src/testing/test_file.dart'),
-  ))?.toFilePath();
+    var libraryPath = (await Isolate.resolvePackageUri(
+        Uri.parse('package:dart_style/src/testing/test_file.dart'),
+    ))?.toFilePath();
 
-  // Fallback, if we can't resolve the package URI because we're running in an
-  // AOT snapshot, just assume we're running from the root directory of the
-  // package.
-  libraryPath ??= 'lib/src/testing/test_file.dart';
+    // Fallback, if we can't resolve the package URI because we're running in an
+    // AOT snapshot, just assume we're running from the root directory of the
+    // package.
+    libraryPath ??= 'lib/src/testing/test_file.dart';
 
-  return p.normalize(p.join(p.dirname(libraryPath), '../../..'));
+    return p.normalize(p.join(p.dirname(libraryPath), '../../..'));
 }
 
 /// Get the absolute local file path to the package's "test" directory.
 Future<String> findTestDirectory() async {
-  return p.normalize(p.join(await findPackageDirectory(), 'test'));
+    return p.normalize(p.join(await findPackageDirectory(), 'test'));
 }
 
 /// A file containing a series of formatting tests.
 final class TestFile {
-  /// Finds all test files in the given directory relative to the package's
-  /// `test/` directory.
-  static Future<List<TestFile>> listDirectory(String name) async {
-    var testDir = await findTestDirectory();
-    var entries = Directory(
-      p.join(testDir, name),
-    ).listSync(recursive: true, followLinks: false);
-    entries.sort((a, b) => a.path.compareTo(b.path));
+    /// Finds all test files in the given directory relative to the package's
+    /// `test/` directory.
+    static Future<List<TestFile>> listDirectory(String name) async {
+        var testDir = await findTestDirectory();
+        var entries = Directory(p.join(testDir, name)).listSync(recursive: true, followLinks: false);
+        entries.sort((a, b) => a.path.compareTo(b.path));
 
-    return [
-      for (var entry in entries)
-        if (entry is File &&
-            (entry.path.endsWith('.stmt') || entry.path.endsWith('.unit')))
-          TestFile._load(entry, p.relative(entry.path, from: testDir)),
-    ];
-  }
-
-  /// Reads the test file from [path], which is relative to the package's
-  /// `test/` directory.
-  static Future<TestFile> read(String path) async {
-    var testDir = await findTestDirectory();
-    var file = File(p.join(testDir, path));
-    return TestFile._load(file, p.relative(file.path, from: testDir));
-  }
-
-  /// Reads the test file from [file].
-  factory TestFile._load(File file, String relativePath) {
-    var lines = file.readAsLinesSync();
-
-    var isCompilationUnit = file.path.endsWith('.unit');
-
-    // The first line may have a "|" to indicate the page width.
-    var i = 0;
-    int? pageWidth;
-    if (lines[i].endsWith('|')) {
-      pageWidth = lines[i].indexOf('|');
-      i++;
+        return [
+            for (var entry in entries)
+                if (entry is File && (entry.path.endsWith('.stmt') || entry.path.endsWith('.unit')))
+                    TestFile._load(entry, p.relative(entry.path, from: testDir)),
+        ];
     }
 
-    // Optional line to configure options for all tests in the file.
-    TestOptions fileOptions;
-    if (!lines[i].startsWith('###') && !lines[i].startsWith('>>>')) {
-      (fileOptions, _) = _parseOptions(lines[i]);
-      i++;
-    } else {
-      fileOptions = TestOptions(null, null, const []);
+    /// Reads the test file from [path], which is relative to the package's
+    /// `test/` directory.
+    static Future<TestFile> read(String path) async {
+        var testDir = await findTestDirectory();
+        var file = File(p.join(testDir, path));
+        return TestFile._load(file, p.relative(file.path, from: testDir));
     }
 
-    var tests = <FormatTest>[];
+    /// Reads the test file from [file].
+    factory TestFile._load(File file, String relativePath) {
+        var lines = file.readAsLinesSync();
 
-    List<String> readComments() {
-      var comments = <String>[];
-      while (i < lines.length && lines[i].startsWith('###')) {
-        comments.add(lines[i]);
-        i++;
-      }
+        var isCompilationUnit = file.path.endsWith('.unit');
 
-      return comments;
+        // The first line may have a "|" to indicate the page width.
+        var i = 0;
+        int? pageWidth;
+        if (lines[i].endsWith('|')) {
+            pageWidth = lines[i].indexOf('|');
+            i++;
+        }
+
+        // Optional line to configure options for all tests in the file.
+        TestOptions fileOptions;
+        if (!lines[i].startsWith('###') && !lines[i].startsWith('>>>')) {
+            (fileOptions, _) = _parseOptions(lines[i]);
+            i++;
+        } else {
+            fileOptions = TestOptions(null, null, const []);
+        }
+
+        var tests = <FormatTest>[];
+
+        List<String> readComments() {
+            var comments = <String>[];
+            while (i < lines.length && lines[i].startsWith('###')) {
+                comments.add(lines[i]);
+                i++;
+            }
+
+            return comments;
+        }
+
+        String readLine() => lines[i++];
+
+        var fileComments = readComments();
+
+        while (i < lines.length) {
+            var lineNumber = i + 1;
+            var line = readLine().replaceAll('>>>', '');
+            var (options, description) = _parseOptions(line);
+            description = description.trim();
+
+            var inputComments = readComments();
+            var inputBuffer = StringBuffer();
+            while (i < lines.length && !lines[i].startsWith('<<<')) {
+                inputBuffer.writeln(readLine());
+            }
+
+            var inputCode = _extractSelection(
+                _unescapeUnicode(inputBuffer.toString()),
+                isCompilationUnit: isCompilationUnit,
+            );
+
+            var input = TestEntry(description, inputComments, inputCode);
+
+            // Read the outputs. A single test should have outputs in one of two
+            // forms:
+            //
+            // - One single unversioned output which is the expected output across
+            //   all supported versions.
+            // - One or more versioned outputs, each of which defines the expected
+            //   output at that language version or later until reaching the next
+            //   output's version.
+            //
+            // The parser here collects all of the outputs, versioned and unversioned
+            // and then reports an error if the result is not one of those two styles.
+            void fail(String error) {
+                throw FormatException('Test format error in $relativePath, line $lineNumber: $error');
+            }
+
+            var outputs = <Version, TestEntry>{};
+            Version? unsupportedVersion;
+            while (i < lines.length && lines[i].startsWith('<<<')) {
+                var match = _outputPattern.firstMatch(readLine())!;
+                var outputVersion = Version(int.parse(match[1]!), int.parse(match[2]!), 0);
+                var outputDescription = match[3]!.trim();
+
+                if (outputDescription.endsWith(_unsupportedMarker)) {
+                    unsupportedVersion = outputVersion;
+
+                    // There should not be any lines after an (unsupported) marker.
+                    if (i < lines.length && !lines[i].startsWith('>>>') && !lines[i].startsWith('<<<')) {
+                        fail('Shouldn\'t have any output lines after "(unsupported)".');
+                    }
+
+                    continue;
+                }
+
+                var outputComments = readComments();
+
+                var outputBuffer = StringBuffer();
+                while (i < lines.length && !lines[i].startsWith('>>>') && !lines[i].startsWith('<<<')) {
+                    var line = readLine();
+                    outputBuffer.writeln(line);
+                }
+
+                // The output always has a trailing newline. When formatting a
+                // statement, the formatter (correctly) doesn't output trailing
+                // newlines when formatting a statement, so remove it from the
+                // expectation to match.
+                var outputText = outputBuffer.toString();
+                if (!isCompilationUnit) {
+                    assert(outputText.endsWith('\n'));
+                    outputText = outputText.substring(0, outputText.length - 1);
+                }
+                var outputCode = _extractSelection(
+                    _unescapeUnicode(outputText),
+                    isCompilationUnit: isCompilationUnit,
+                );
+
+                if (outputs.containsKey(outputVersion)) {
+                    fail('Multiple outputs with the same version $outputVersion.');
+                }
+
+                outputs[outputVersion] = TestEntry(outputDescription.trim(), outputComments, outputCode);
+            }
+
+            if (outputs.isEmpty) fail('Test must have at least one output.');
+
+            tests.add(FormatTest(lineNumber, options, input, outputs, unsupportedVersion));
+        }
+
+        return TestFile._(relativePath, pageWidth, fileOptions, fileComments, tests);
     }
 
-    String readLine() => lines[i++];
+    /// Parses all of the test option syntax like `(indent 3)` from [line].
+    ///
+    /// Returns the options and the text remaining on the line after the options
+    /// are removed.
+    static (TestOptions, String) _parseOptions(String line) {
+        // Let the test specify a leading indentation. This is handy for
+        // regression tests which often come from a chunk of nested code.
+        int? leadingIndent;
+        line = line.replaceAllMapped(_indentPattern, (match) {
+            leadingIndent = int.parse(match[1]!);
+            return '';
+        });
 
-    var fileComments = readComments();
+        // Let the test enable experiments for features that are supported but not
+        // released yet.
+        var experiments = <String>[];
+        line = line.replaceAllMapped(_experimentPattern, (match) {
+            experiments.add(match[1]!);
+            return '';
+        });
 
-    while (i < lines.length) {
-      var lineNumber = i + 1;
-      var line = readLine().replaceAll('>>>', '');
-      var (options, description) = _parseOptions(line);
-      description = description.trim();
+        TrailingCommas? trailingCommas;
+        line = line.replaceAllMapped(_preserveTrailingCommasPattern, (match) {
+            trailingCommas = TrailingCommas.preserve;
+            return '';
+        });
 
-      var inputComments = readComments();
-      var inputBuffer = StringBuffer();
-      while (i < lines.length && !lines[i].startsWith('<<<')) {
-        inputBuffer.writeln(readLine());
-      }
-
-      var inputCode = _extractSelection(
-        _unescapeUnicode(inputBuffer.toString()),
-        isCompilationUnit: isCompilationUnit,
-      );
-
-      var input = TestEntry(description, inputComments, inputCode);
-
-      // Read the outputs. A single test should have outputs in one of two
-      // forms:
-      //
-      // - One single unversioned output which is the expected output across
-      //   all supported versions.
-      // - One or more versioned outputs, each of which defines the expected
-      //   output at that language version or later until reaching the next
-      //   output's version.
-      //
-      // The parser here collects all of the outputs, versioned and unversioned
-      // and then reports an error if the result is not one of those two styles.
-      void fail(String error) {
-        throw FormatException(
-          'Test format error in $relativePath, line $lineNumber: $error',
-        );
-      }
-
-      var outputs = <Version, TestEntry>{};
-      Version? unsupportedVersion;
-      while (i < lines.length && lines[i].startsWith('<<<')) {
-        var match = _outputPattern.firstMatch(readLine())!;
-        var outputVersion = Version(
-          int.parse(match[1]!),
-          int.parse(match[2]!),
-          0,
-        );
-        var outputDescription = match[3]!.trim();
-
-        if (outputDescription.endsWith(_unsupportedMarker)) {
-          unsupportedVersion = outputVersion;
-
-          // There should not be any lines after an (unsupported) marker.
-          if (i < lines.length &&
-              !lines[i].startsWith('>>>') &&
-              !lines[i].startsWith('<<<')) {
-            fail('Shouldn\'t have any output lines after "(unsupported)".');
-          }
-
-          continue;
-        }
-
-        var outputComments = readComments();
-
-        var outputBuffer = StringBuffer();
-        while (i < lines.length &&
-            !lines[i].startsWith('>>>') &&
-            !lines[i].startsWith('<<<')) {
-          var line = readLine();
-          outputBuffer.writeln(line);
-        }
-
-        // The output always has a trailing newline. When formatting a
-        // statement, the formatter (correctly) doesn't output trailing
-        // newlines when formatting a statement, so remove it from the
-        // expectation to match.
-        var outputText = outputBuffer.toString();
-        if (!isCompilationUnit) {
-          assert(outputText.endsWith('\n'));
-          outputText = outputText.substring(0, outputText.length - 1);
-        }
-        var outputCode = _extractSelection(
-          _unescapeUnicode(outputText),
-          isCompilationUnit: isCompilationUnit,
-        );
-
-        if (outputs.containsKey(outputVersion)) {
-          fail('Multiple outputs with the same version $outputVersion.');
-        }
-
-        outputs[outputVersion] = TestEntry(
-          outputDescription.trim(),
-          outputComments,
-          outputCode,
-        );
-      }
-
-      if (outputs.isEmpty) fail('Test must have at least one output.');
-
-      tests.add(
-        FormatTest(lineNumber, options, input, outputs, unsupportedVersion),
-      );
+        return (TestOptions(leadingIndent, trailingCommas, experiments), line);
     }
 
-    return TestFile._(
-      relativePath,
-      pageWidth,
-      fileOptions,
-      fileComments,
-      tests,
-    );
-  }
+    TestFile._(this.path, this.pageWidth, this.options, this.comments, this.tests);
 
-  /// Parses all of the test option syntax like `(indent 3)` from [line].
-  ///
-  /// Returns the options and the text remaining on the line after the options
-  /// are removed.
-  static (TestOptions, String) _parseOptions(String line) {
-    // Let the test specify a leading indentation. This is handy for
-    // regression tests which often come from a chunk of nested code.
-    int? leadingIndent;
-    line = line.replaceAllMapped(_indentPattern, (match) {
-      leadingIndent = int.parse(match[1]!);
-      return '';
-    });
+    /// The path to the test file, relative to the `test/` directory.
+    final String path;
 
-    // Let the test enable experiments for features that are supported but not
-    // released yet.
-    var experiments = <String>[];
-    line = line.replaceAllMapped(_experimentPattern, (match) {
-      experiments.add(match[1]!);
-      return '';
-    });
+    /// The page width for tests in this file or `null` if the default should be
+    /// used.
+    final int? pageWidth;
 
-    TrailingCommas? trailingCommas;
-    line = line.replaceAllMapped(_preserveTrailingCommasPattern, (match) {
-      trailingCommas = TrailingCommas.preserve;
-      return '';
-    });
+    /// The default options used by all tests in this file.
+    final TestOptions options;
 
-    return (TestOptions(leadingIndent, trailingCommas, experiments), line);
-  }
+    /// The `###` comment lines at the beginning of the test file before any
+    /// tests.
+    final List<String> comments;
 
-  TestFile._(
-    this.path,
-    this.pageWidth,
-    this.options,
-    this.comments,
-    this.tests,
-  );
+    /// The tests in this file.
+    final List<FormatTest> tests;
 
-  /// The path to the test file, relative to the `test/` directory.
-  final String path;
+    bool get isCompilationUnit => path.endsWith('.unit');
 
-  /// The page width for tests in this file or `null` if the default should be
-  /// used.
-  final int? pageWidth;
+    /// Whether the test uses the tall or short style.
+    bool get isTall => p.split(path).contains('tall');
 
-  /// The default options used by all tests in this file.
-  final TestOptions options;
+    /// Creates a [DartFormatter] configured with all of the options that should
+    /// be applied for [test] in this test file.
+    ///
+    /// If [version] is given, then it specifies the language version to run the
+    /// test at. Otherwise, the test's default version is used.
+    DartFormatter formatterForTest(FormatTest test, [Version? version]) {
+        var defaultLanguageVersion = isTall
+            ? DartFormatter.latestLanguageVersion
+            : DartFormatter.latestShortStyleLanguageVersion;
 
-  /// The `###` comment lines at the beginning of the test file before any
-  /// tests.
-  final List<String> comments;
-
-  /// The tests in this file.
-  final List<FormatTest> tests;
-
-  bool get isCompilationUnit => path.endsWith('.unit');
-
-  /// Whether the test uses the tall or short style.
-  bool get isTall => p.split(path).contains('tall');
-
-  /// Creates a [DartFormatter] configured with all of the options that should
-  /// be applied for [test] in this test file.
-  ///
-  /// If [version] is given, then it specifies the language version to run the
-  /// test at. Otherwise, the test's default version is used.
-  DartFormatter formatterForTest(FormatTest test, [Version? version]) {
-    var defaultLanguageVersion = isTall
-        ? DartFormatter.latestLanguageVersion
-        : DartFormatter.latestShortStyleLanguageVersion;
-
-    return DartFormatter(
-      languageVersion: version ?? defaultLanguageVersion,
-      pageWidth: pageWidth,
-      indent: test.options.leadingIndent ?? options.leadingIndent ?? 0,
-      experimentFlags: [
-        ...options.experimentFlags,
-        ...test.options.experimentFlags,
-      ],
-      trailingCommas:
-          test.options.trailingCommas ??
-          options.trailingCommas ??
-          TrailingCommas.automate,
-    );
-  }
+        return DartFormatter(
+            languageVersion: version ?? defaultLanguageVersion,
+            pageWidth: pageWidth,
+            indent: test.options.leadingIndent ?? options.leadingIndent ?? 0,
+            experimentFlags: [...options.experimentFlags, ...test.options.experimentFlags],
+            trailingCommas: test.options.trailingCommas ?? options.trailingCommas ?? TrailingCommas.automate,
+        );
+    }
 }
 
 /// A single formatting test inside a [TestFile].
 final class FormatTest {
-  /// The 1-based index of the line where this test begins.
-  final int line;
+    /// The 1-based index of the line where this test begins.
+    final int line;
 
-  /// The options specific to this test.
-  final TestOptions options;
+    /// The options specific to this test.
+    final TestOptions options;
 
-  /// The unformatted input.
-  final TestEntry input;
+    /// The unformatted input.
+    final TestEntry input;
 
-  /// The expected output by version.
-  ///
-  /// Each key is the lowest version where that output is expected. If there are
-  /// supported versions lower than the lowest key here, then the test is not
-  /// run on those versions at all. These tests represent new syntax that isn't
-  /// supported in later versions. For example, if the map has only a single
-  /// entry whose key is 3.8, then the test is skipped on 3.7, run at 3.8, and
-  /// should be valid at any higher version.
-  ///
-  /// If there are multiple entries in the map, they represent versions where
-  /// the formatting style has changed.
-  final Map<Version, TestEntry> outputs;
+    /// The expected output by version.
+    ///
+    /// Each key is the lowest version where that output is expected. If there are
+    /// supported versions lower than the lowest key here, then the test is not
+    /// run on those versions at all. These tests represent new syntax that isn't
+    /// supported in later versions. For example, if the map has only a single
+    /// entry whose key is 3.8, then the test is skipped on 3.7, run at 3.8, and
+    /// should be valid at any higher version.
+    ///
+    /// If there are multiple entries in the map, they represent versions where
+    /// the formatting style has changed.
+    final Map<Version, TestEntry> outputs;
 
-  /// The language version at which point this test is no longer supported, or
-  /// `null` if the test has no upper bound for language support.
-  final Version? unsupportedVersion;
+    /// The language version at which point this test is no longer supported, or
+    /// `null` if the test has no upper bound for language support.
+    final Version? unsupportedVersion;
 
-  FormatTest(
-    this.line,
-    this.options,
-    this.input,
-    this.outputs,
-    this.unsupportedVersion,
-  );
+    FormatTest(this.line, this.options, this.input, this.outputs, this.unsupportedVersion);
 
-  /// The line and description of the test.
-  String get label {
-    if (input.description.isEmpty) return 'line $line';
-    return 'line $line: ${input.description}';
-  }
+    /// The line and description of the test.
+    String get label {
+        if (input.description.isEmpty) return 'line $line';
+        return 'line $line: ${input.description}';
+    }
 }
 
 /// A single test input or output.
 final class TestEntry {
-  /// Any remark on the "<<<" or ">>>" line.
-  final String description;
+    /// Any remark on the "<<<" or ">>>" line.
+    final String description;
 
-  /// The `###` comment lines appearing after the header line before the code.
-  final List<String> comments;
+    /// The `###` comment lines appearing after the header line before the code.
+    final List<String> comments;
 
-  final SourceCode code;
+    final SourceCode code;
 
-  TestEntry(this.description, this.comments, this.code);
+    TestEntry(this.description, this.comments, this.code);
 }
 
 /// Options for configuring all tests in a file or an individual test.
 final class TestOptions {
-  /// The number of spaces of leading indentation that should be added to each
-  /// line.
-  final int? leadingIndent;
+    /// The number of spaces of leading indentation that should be added to each
+    /// line.
+    final int? leadingIndent;
 
-  /// The trailing comma handling configuration.
-  final TrailingCommas? trailingCommas;
+    /// The trailing comma handling configuration.
+    final TrailingCommas? trailingCommas;
 
-  /// Experiments that should be enabled when running this test.
-  final List<String> experimentFlags;
+    /// Experiments that should be enabled when running this test.
+    final List<String> experimentFlags;
 
-  TestOptions(this.leadingIndent, this.trailingCommas, this.experimentFlags);
+    TestOptions(this.leadingIndent, this.trailingCommas, this.experimentFlags);
 }
 
 extension SourceCodeExtensions on SourceCode {
-  /// If the source code has a selection, returns its text with `‹` and `›`
-  /// inserted at the selection begin and end points.
-  ///
-  /// Otherwise, returns the code as-is.
-  String get textWithSelectionMarkers {
-    if (selectionStart == null) return text;
-    return '$textBeforeSelection‹$selectedText›$textAfterSelection';
-  }
+    /// If the source code has a selection, returns its text with `‹` and `›`
+    /// inserted at the selection begin and end points.
+    ///
+    /// Otherwise, returns the code as-is.
+    String get textWithSelectionMarkers {
+        if (selectionStart == null) return text;
+        return '$textBeforeSelection‹$selectedText›$textAfterSelection';
+    }
 }
 
 /// Given a source string that contains ‹ and › to indicate a selection, returns
 /// a [SourceCode] with the text (with the selection markers removed) and the
 /// correct selection range.
 SourceCode _extractSelection(String source, {bool isCompilationUnit = false}) {
-  var start = source.indexOf('‹');
-  source = source.replaceAll('‹', '');
+    var start = source.indexOf('‹');
+    source = source.replaceAll('‹', '');
 
-  var end = source.indexOf('›');
-  source = source.replaceAll('›', '');
+    var end = source.indexOf('›');
+    source = source.replaceAll('›', '');
 
-  return SourceCode(
-    source,
-    isCompilationUnit: isCompilationUnit,
-    selectionStart: start == -1 ? null : start,
-    selectionLength: end == -1 ? null : end - start,
-  );
+    return SourceCode(
+        source,
+        isCompilationUnit: isCompilationUnit,
+        selectionStart: start == -1 ? null : start,
+        selectionLength: end == -1 ? null : end - start,
+    );
 }
 
 /// Turn the special Unicode escape marker syntax used in the tests into real
@@ -413,15 +370,15 @@ SourceCode _extractSelection(String source, {bool isCompilationUnit = false}) {
 /// This does not use Dart's own string escape sequences so that we don't
 /// accidentally modify the Dart code being formatted.
 String _unescapeUnicode(String input) {
-  return input.replaceAllMapped(_unicodeUnescapePattern, (match) {
-    var codePoint = int.parse(match[1]!, radix: 16);
-    return String.fromCharCode(codePoint);
-  });
+    return input.replaceAllMapped(_unicodeUnescapePattern, (match) {
+        var codePoint = int.parse(match[1]!, radix: 16);
+        return String.fromCharCode(codePoint);
+    });
 }
 
 /// Turn the few Unicode characters used in tests back to their escape syntax.
 String escapeUnicode(String input) {
-  return input.replaceAllMapped(_unicodeEscapePattern, (match) {
-    return '×${match[0]!.codeUnitAt(0).toRadixString(16)}';
-  });
+    return input.replaceAllMapped(_unicodeEscapePattern, (match) {
+        return '×${match[0]!.codeUnitAt(0).toRadixString(16)}';
+    });
 }

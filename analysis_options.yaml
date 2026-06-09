@@ -3,6 +3,7 @@ include: package:dart_flutter_team_lints/analysis_options.yaml
 analyzer:
   errors:
     comment_references: ignore
+    lines_longer_than_80_chars: ignore
 linter:
   rules:
     # Either "unnecessary_final" or "prefer_final_locals" should be used so
