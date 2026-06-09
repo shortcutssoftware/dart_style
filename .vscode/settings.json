@@ -1,0 +1,18 @@
+{
+    "dart.enableSdkFormatter": false,
+    "dart.lineLength": 110,
+    "[dart]": {
+        "editor.rulers": [110],
+        "editor.formatOnType": false,
+        "editor.formatOnSave": false
+    },
+
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": "\\.dart$",
+                "cmd": "${workspaceFolder}/.vscode/format.exe ${file}"
+            }
+        ]
+    }
+}
