@@ -7,10 +7,10 @@ class C {
 }
 <<< 3.7
 class C {
-  @override
-  String get message =>
-      'Unrecognized keys: [${unrecognizedKeys.join(', ')}]; supported keys: '
-      '[${allowedKeys.join(', ')}]';
+    @override
+    String get message =>
+        'Unrecognized keys: [${unrecognizedKeys.join(', ')}]; supported keys: '
+        '[${allowedKeys.join(', ')}]';
 }
 >>>
 String _link(String version, String owner, String name) =>

@@ -4,6 +4,6 @@ var failed = [
 ];
 <<< 3.7
 var failed = [
-  for (var e in _restResultEvents)
-    if (!e.isSuccess) e.message,
+    for (var e in _restResultEvents)
+        if (!e.isSuccess) e.message,
 ];

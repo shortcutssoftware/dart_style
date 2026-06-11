@@ -236,9 +236,11 @@ final class ChunkBuilder {
         //     library foo;
         //
         //     /* a */ /* b */ import 'a.dart';
-        if (linesBeforeToken == 0 &&
-            _pendingNewlines > comments.first.linesBefore &&
-            comments.every((comment) => comment.type == CommentType.inlineBlock)) {
+        if (
+            linesBeforeToken == 0
+            && _pendingNewlines > comments.first.linesBefore
+            && comments.every((comment) => comment.type == CommentType.inlineBlock)
+        ) {
             comments.first.linesBefore = _pendingNewlines;
         }
 
@@ -260,8 +262,9 @@ final class ChunkBuilder {
             } else {
                 // Split before the comment if it starts a line.
                 if (_pendingNewlines == 0) {
-                    if (comment.linesBefore > 0 &&
-                        (_afterComment || comment.type != CommentType.inlineBlock)) {
+                    if (
+                        comment.linesBefore > 0 && (_afterComment || comment.type != CommentType.inlineBlock)
+                    ) {
                         writeNewline(
                             isDouble: _needsBlankLineBeforeComment(comment),
                             flushLeft: comment.flushLeft,
@@ -870,8 +873,9 @@ final class ChunkBuilder {
             for (var other in rule.constrainedRules) {
                 if (other == rule) continue;
 
-                if (!other.isHardened &&
-                    rule.constrain(rule.fullySplitValue, other) == other.fullySplitValue) {
+                if (
+                    !other.isHardened && rule.constrain(rule.fullySplitValue, other) == other.fullySplitValue
+                ) {
                     walkConstraints(other);
                 }
             }

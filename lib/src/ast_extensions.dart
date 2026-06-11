@@ -148,8 +148,8 @@ extension AstIterableExtensions on Iterable<AstNode> {
     ///
     /// Comments within an element are ignored.
     bool containsLineComments([Token? rightBracket]) =>
-        any((element) => element.beginToken.hasLineCommentBefore) ||
-        (rightBracket?.hasLineCommentBefore ?? false);
+        any((element) => element.beginToken.hasLineCommentBefore)
+        || (rightBracket?.hasLineCommentBefore ?? false);
 }
 
 extension ExpressionExtensions on Expression {

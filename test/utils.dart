@@ -264,8 +264,9 @@ SourceCode _validateFormat(
             'Formatting $reason. Expected:\n'
             '${expected.text}\nActual:\n${actual.text}',
         );
-    } else if (actual.selectionStart != expected.selectionStart ||
-        actual.selectionLength != expected.selectionLength) {
+    } else if (
+        actual.selectionStart != expected.selectionStart || actual.selectionLength != expected.selectionLength
+    ) {
         fail(
             'Selection $reason. Expected:\n'
             '${expected.textWithSelectionMarkers}\n'

@@ -386,10 +386,12 @@ final class SolveState {
                 // by construction. Instead, this outlaws it by penalizing it very
                 // heavily if it happens to get this far.
                 var totalIndent = chunk.nesting.totalUsedIndent;
-                if (previousNesting != null &&
-                    totalIndent != 0 &&
-                    totalIndent == previousNesting.totalUsedIndent &&
-                    !identical(chunk.nesting, previousNesting)) {
+                if (
+                    previousNesting != null
+                    && totalIndent != 0
+                    && totalIndent == previousNesting.totalUsedIndent
+                    && !identical(chunk.nesting, previousNesting)
+                ) {
                     _overflowChars += 10000;
                 }
 

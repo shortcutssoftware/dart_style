@@ -7,15 +7,15 @@ e = switch (y) {};
 e = switch (c) { 0 => a, 1 => b };
 <<< 3.7
 e = switch (c) {
-  0 => a,
-  1 => b,
+    0 => a,
+    1 => b,
 };
 >>> One case per line.
 e = switch (c) { 0 => first, 1 => second };
 <<< 3.7
 e = switch (c) {
-  0 => first,
-  1 => second,
+    0 => first,
+    1 => second,
 };
 >>> Split some cases at "=>" but not all.
 e = switch (c) {
@@ -25,10 +25,10 @@ e = switch (c) {
 };
 <<< 3.7
 e = switch (c) {
-  first => a,
-  second =>
-    veryLongExpression + thatSplits,
-  third => c,
+    first => a,
+    second =>
+        veryLongExpression + thatSplits,
+    third => c,
 };
 >>> Remove blank lines before first and last case. Preserve one between.
 e = switch (obj) {
@@ -47,11 +47,11 @@ e = switch (obj) {
 };
 <<< 3.7
 e = switch (obj) {
-  0 => a,
+    0 => a,
 
-  1 => b,
+    1 => b,
 
-  2 => c,
+    2 => c,
 };
 >>> Don't split at parentheses.
 e = switch ("a long string that must wrap") {
@@ -59,7 +59,7 @@ e = switch ("a long string that must wrap") {
 };
 <<< 3.7
 e = switch ("a long string that must wrap") {
-  0 => "ok",
+    0 => "ok",
 };
 >>> Split in delimited value expression.
 e = switch ([veryLongElement,veryLongElement,veryLongElement,]) {
@@ -67,11 +67,11 @@ e = switch ([veryLongElement,veryLongElement,veryLongElement,]) {
 };
 <<< 3.7
 e = switch ([
-  veryLongElement,
-  veryLongElement,
-  veryLongElement,
+    veryLongElement,
+    veryLongElement,
+    veryLongElement,
 ]) {
-  0 => "ok",
+    0 => "ok",
 };
 >>> Split in case expression.
 e = switch (obj) {
@@ -79,9 +79,9 @@ e = switch (obj) {
 };
 <<< 3.7
 e = switch (obj) {
-  1 =>
-    veryLongExpression +
-        thatStillMustSplit,
+    1 =>
+        veryLongExpression +
+            thatStillMustSplit,
 };
 >>> Prefer to split after "=>" instead of body.
 e = switch (obj) {
@@ -89,8 +89,8 @@ e = switch (obj) {
 };
 <<< 3.7
 e = switch (obj) {
-  longConstant =>
-    longExpression + thatMustSplit,
+    longConstant =>
+        longExpression + thatMustSplit,
 };
 >>> Split after "=>" and in body.
 e = switch (obj) {
@@ -98,9 +98,9 @@ e = switch (obj) {
 };
 <<< 3.7
 e = switch (obj) {
-  longConstant =>
-    veryLongLongExpression +
-        thatMustSplit,
+    longConstant =>
+        veryLongLongExpression +
+            thatMustSplit,
 };
 >>> Expression split in pattern.
 e = switch (obj) {
@@ -108,9 +108,9 @@ e = switch (obj) {
 };
 <<< 3.7
 e = switch (obj) {
-  veryVeryLongPattern &&
-      reallyMustSplit =>
-    body,
+    veryVeryLongPattern &&
+        reallyMustSplit =>
+        body,
 };
 >>> Outermost logic-or patterns are indented like parallel cases.
 e = switch (obj) {
@@ -118,9 +118,9 @@ e = switch (obj) {
 };
 <<< 3.7
 e = switch (obj) {
-  oneConstant ||
-  twoConstant ||
-  threeConstant => body,
+    oneConstant ||
+    twoConstant ||
+    threeConstant => body,
 };
 >>> Nested logic-or operands are indented.
 e = switch (obj) {
@@ -128,12 +128,12 @@ e = switch (obj) {
 };
 <<< 3.7
 e = switch (obj) {
-  [
-    oneConstant ||
-        twoConstant ||
-        threeConstant,
-  ] =>
-    body,
+    [
+        oneConstant ||
+            twoConstant ||
+            threeConstant,
+    ] =>
+        body,
 };
 >>> Block split in pattern.
 e = switch (obj) {
@@ -141,12 +141,12 @@ e = switch (obj) {
 };
 <<< 3.7
 e = switch (obj) {
-  [
-    veryLongElement,
-    veryLongElement,
-    veryLongElement,
-  ] =>
-    body,
+    [
+        veryLongElement,
+        veryLongElement,
+        veryLongElement,
+    ] =>
+        body,
 };
 >>> Unsplit pattern with trailing block split body.
 e = switch (obj) {
@@ -154,11 +154,11 @@ e = switch (obj) {
 };
 <<< 3.7
 e = switch (obj) {
-  pattern => function(
-    veryLongElement,
-    veryLongElement,
-    veryLongElement,
-  ),
+    pattern => function(
+        veryLongElement,
+        veryLongElement,
+        veryLongElement,
+    ),
 };
 >>> Split pattern with block split body.
 e = switch (obj) {
@@ -166,14 +166,14 @@ e = switch (obj) {
 };
 <<< 3.7
 e = switch (obj) {
-  pattern &&
-      anotherPattern &&
-      aThirdOne =>
-    function(
-      veryLongElement,
-      veryLongElement,
-      veryLongElement,
-    ),
+    pattern &&
+        anotherPattern &&
+        aThirdOne =>
+        function(
+            veryLongElement,
+            veryLongElement,
+            veryLongElement,
+        ),
 };
 >>> Prefer to split `||` pattern instead of case body.
 e = switch (obj) {
@@ -183,6 +183,6 @@ e = switch (obj) {
 };
 <<< 3.7
 e = switch (obj) {
-  pattern ||
-  another => function(argument),
+    pattern ||
+    another => function(argument),
 };

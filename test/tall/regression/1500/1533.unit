@@ -6,10 +6,5 @@ void main() {
 }
 <<< 3.7
 void main() {
-  ComplexSelector(
-    complex.leadingCombinators,
-    [component],
-    complex.span,
-    lineBreak: false,
-  );
+    ComplexSelector(complex.leadingCombinators, [component], complex.span, lineBreak: false);
 }

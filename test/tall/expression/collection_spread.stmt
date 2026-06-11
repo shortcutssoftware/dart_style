@@ -8,7 +8,7 @@ var list = [...a, ...b, ...c];
 var list = [...comicallyLongIdentifierThatOverflows];
 <<< 3.7
 var list = [
-  ...comicallyLongIdentifierThatOverflows,
+    ...comicallyLongIdentifierThatOverflows,
 ];
 >>> Null-aware.
 var list = [  ...?  a,...?b,  ...?
@@ -19,47 +19,47 @@ var list = [...?a, ...?b, ...?c];
 var list = [...?comicallyLongIdentifierThatOverflows];
 <<< 3.7
 var list = [
-  ...?comicallyLongIdentifierThatOverflows,
+    ...?comicallyLongIdentifierThatOverflows,
 ];
 >>> Split inside spread expression.
 var list = [1, ...some + very + long + spread + expression, 3];
 <<< 3.7
 var list = [
-  1,
-  ...some +
-      very +
-      long +
-      spread +
-      expression,
-  3,
+    1,
+    ...some +
+        very +
+        long +
+        spread +
+        expression,
+    3,
 ];
 >>> Spread function expression.
 var list = [1, ...() { body; }, 4];
 <<< 3.7
 var list = [
-  1,
-  ...() {
-    body;
-  },
-  4,
+    1,
+    ...() {
+        body;
+    },
+    4,
 ];
 >>> Spread immediately invoked function expression.
 var list = [1, ...() sync* { yield thing; }(), 4];
 <<< 3.7
 var list = [
-  1,
-  ...() sync* {
-    yield thing;
-  }(),
-  4,
+    1,
+    ...() sync* {
+        yield thing;
+    }(),
+    4,
 ];
 >>> Spread cascade.
 var list = [1, ...thing..cascade()..another(), 4];
 <<< 3.7
 var list = [
-  1,
-  ...thing
-    ..cascade()
-    ..another(),
-  4,
+    1,
+    ...thing
+        ..cascade()
+        ..another(),
+    4,
 ];

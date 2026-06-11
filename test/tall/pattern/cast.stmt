@@ -3,7 +3,7 @@
 if (object case x as int) {;}
 <<< 3.7
 if (object case x as int) {
-  ;
+    ;
 }
 >>> More complex type.
 if (o case   1   as   List < int > ?  ) {}
@@ -15,15 +15,15 @@ if (obj case value as SomeLongClass<FirstTypeArgument, SecondTypeArgument>) {}
 if (obj
     case value
         as SomeLongClass<
-          FirstTypeArgument,
-          SecondTypeArgument
+            FirstTypeArgument,
+            SecondTypeArgument
         >) {}
 >>> Split before 'case'.
 if (object case constant as VeryLongType) {;}
 <<< 3.7
 if (object
     case constant as VeryLongType) {
-  ;
+    ;
 }
 >>> Split before 'as'.
 if (object case veryLongConstant as VeryLongType) {;}
@@ -31,5 +31,5 @@ if (object case veryLongConstant as VeryLongType) {;}
 if (object
     case veryLongConstant
         as VeryLongType) {
-  ;
+    ;
 }

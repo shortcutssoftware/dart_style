@@ -10,14 +10,14 @@ abstract interface class TypeAnalyzerOperations<
 }
 <<< 3.7
 abstract interface class TypeAnalyzerOperations<
-  TypeStructure extends SharedTypeStructure<TypeStructure>,
-  Variable extends Object,
-  TypeParameterStructure extends SharedTypeParameterStructure<TypeStructure>,
-  TypeDeclarationType extends Object,
-  TypeDeclaration extends Object
+    TypeStructure extends SharedTypeStructure<TypeStructure>,
+    Variable extends Object,
+    TypeParameterStructure extends SharedTypeParameterStructure<TypeStructure>,
+    TypeDeclarationType extends Object,
+    TypeDeclaration extends Object
 >
     implements FlowAnalysisOperations<Variable, SharedTypeView<TypeStructure>> {
-  // ...
+    // ...
 }
 >>> Make some type arguments longer to force it to split.
 abstract interface class TypeAnalyzerOperations<
@@ -31,15 +31,14 @@ abstract interface class TypeAnalyzerOperations<
 }
 <<< 3.7
 abstract interface class TypeAnalyzerOperations<
-  TypeStructure extends SharedTypeStructure<TypeStructure>,
-  Variable extends Object,
-  TypeParameterStructure
-      extends SharedTypeParameterStructure<LongerTypeStructure>,
-  TypeDeclarationType extends Object,
-  TypeDeclaration extends Object
+    TypeStructure extends SharedTypeStructure<TypeStructure>,
+    Variable extends Object,
+    TypeParameterStructure extends SharedTypeParameterStructure<LongerTypeStructure>,
+    TypeDeclarationType extends Object,
+    TypeDeclaration extends Object
 >
     implements FlowAnalysisOperations<Variable, SharedTypeView<TypeStructure>> {
-  // ...
+    // ...
 }
 >>> Even longer for more splitting.
 abstract interface class TypeAnalyzerOperations<
@@ -53,15 +52,12 @@ abstract interface class TypeAnalyzerOperations<
 }
 <<< 3.7
 abstract interface class TypeAnalyzerOperations<
-  TypeStructure extends SharedTypeStructure<TypeStructure>,
-  Variable extends Object,
-  TypeParameterStructure extends SharedTypeParameterStructure<
-    LongerTypeStructure,
-    AnotherTypeArgument
-  >,
-  TypeDeclarationType extends Object,
-  TypeDeclaration extends Object
+    TypeStructure extends SharedTypeStructure<TypeStructure>,
+    Variable extends Object,
+    TypeParameterStructure extends SharedTypeParameterStructure<LongerTypeStructure, AnotherTypeArgument>,
+    TypeDeclarationType extends Object,
+    TypeDeclaration extends Object
 >
     implements FlowAnalysisOperations<Variable, SharedTypeView<TypeStructure>> {
-  // ...
+    // ...
 }

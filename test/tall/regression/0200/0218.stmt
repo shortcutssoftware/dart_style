@@ -3,9 +3,9 @@
       [{"font-size": "500px"}, {"font-size": fontSize}], {"duration": 100});
 <<< 3.7
   var player = body.animate(
-    [
-      {"font-size": "500px"},
-      {"font-size": fontSize},
-    ],
-    {"duration": 100},
+      [
+          {"font-size": "500px"},
+          {"font-size": fontSize},
+      ],
+      {"duration": 100},
   );

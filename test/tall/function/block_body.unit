@@ -19,7 +19,7 @@ void main() {}
 f  (  )  {  body  ;  }
 <<< 3.7
 f() {
-  body;
+    body;
 }
 >>> Async.
 f  (  )  async  {  }

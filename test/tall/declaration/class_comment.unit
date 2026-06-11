@@ -4,7 +4,7 @@ class C { // comment
 }
 <<< 3.7
 class C {
-  // comment
+    // comment
 }
 >>> Indent line comment in body.
 ### Note: The old formatter had a special rule that line comments starting at
@@ -15,13 +15,13 @@ class C {
 }
 <<< 3.7
 class C {
-  // comment
+    // comment
 }
 >>> Empty class containing inline block comment.
 class C {   /* comment */  }
 <<< 3.7
 class C {
-  /* comment */
+    /* comment */
 }
 >>> Empty class containing non-inline block comment.
 class C {
@@ -32,14 +32,14 @@ class C {
 }
 <<< 3.7
 class C {
-  /* comment */
+    /* comment */
 }
 >>> Empty class containing multi-line block comment.
 class C {   /* comment
 line */  }
 <<< 3.7
 class C {
-  /* comment
+    /* comment
 line */
 }
 >>>
@@ -52,7 +52,7 @@ line */
 }
 <<< 3.7
 class C {
-  /* comment
+    /* comment
 line */
 }
 >>> Remove blank lines before and after comments at end of class.
@@ -67,7 +67,7 @@ class C {
 }
 <<< 3.7
 class C {
-  // comment
+    // comment
 }
 >>> Force blank line before doc comment between classes.
 class Foo {} /// Doc comment.
@@ -100,8 +100,8 @@ class C {
 }
 <<< 3.7
 class C {
-  a() {
-    ;
-  }
-  // comment
+    a() {
+        ;
+    }
+    // comment
 }

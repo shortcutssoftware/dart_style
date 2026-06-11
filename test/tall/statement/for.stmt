@@ -4,7 +4,7 @@
 for  (  ;  ;  )  {  body;  }
 <<< 3.7
 for (;;) {
-  body;
+    body;
 }
 >>> Single line for body without braces.
 for (i = 0; i < 10; i) something(i);
@@ -14,58 +14,58 @@ for (i = 0; i < 10; i) something(i);
 for (i = 0; i < 10; i) somethingLonger(i);
 <<< 3.7
 for (i = 0; i < 10; i)
-  somethingLonger(i);
+    somethingLonger(i);
 >>> Expression split in pattern.
 for (var (longIdentifier && anotherLongOne) = obj; cond; inc) {;}
 <<< 3.7
 for (
-  var (longIdentifier &&
-          anotherLongOne) =
-      obj;
-  cond;
-  inc
+    var (longIdentifier &&
+            anotherLongOne) =
+        obj;
+    cond;
+    inc
 ) {
-  ;
+    ;
 }
 >>> Block split in pattern.
 for (var [longIdentifier, anotherReallyLongOne] = obj; cond; inc) {;}
 <<< 3.7
 for (
-  var [
-    longIdentifier,
-    anotherReallyLongOne,
-  ] = obj;
-  cond;
-  inc
+    var [
+        longIdentifier,
+        anotherReallyLongOne,
+    ] = obj;
+    cond;
+    inc
 ) {
-  ;
+    ;
 }
 >>> With pattern, split in initializer.
 for (var (first, second, third) = longValueExpression + anotherOperand +
 aThirdOperand; cond; inc) {;}
 <<< 3.7
 for (
-  var (first, second, third) =
-      longValueExpression +
-      anotherOperand +
-      aThirdOperand;
-  cond;
-  inc
+    var (first, second, third) =
+        longValueExpression +
+        anotherOperand +
+        aThirdOperand;
+    cond;
+    inc
 ) {
-  ;
+    ;
 }
 >>> Split in pattern and initializer.
 for (var (longIdentifier && anotherAlsoLongOne) = longValueExpression +
 anotherOperand + aThirdOperand; cond; inc) {;}
 <<< 3.7
 for (
-  var (longIdentifier &&
-          anotherAlsoLongOne) =
-      longValueExpression +
-      anotherOperand +
-      aThirdOperand;
-  cond;
-  inc
+    var (longIdentifier &&
+            anotherAlsoLongOne) =
+        longValueExpression +
+        anotherOperand +
+        aThirdOperand;
+    cond;
+    inc
 ) {
-  ;
+    ;
 }

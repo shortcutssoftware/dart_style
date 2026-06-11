@@ -32,25 +32,25 @@ veryLongFunction() =>
 function() => [element, element, element];
 <<< 3.7
 function() => [
-  element,
-  element,
-  element,
+    element,
+    element,
+    element,
 ];
 >>> Prefer block-like splitting for maps.
 function() => {1: element, 2: element, 3: element};
 <<< 3.7
 function() => {
-  1: element,
-  2: element,
-  3: element,
+    1: element,
+    2: element,
+    3: element,
 };
 >>> Prefer block-like splitting for records.
 function() => (longElement, longElement, longElement);
 <<< 3.7
 function() => (
-  longElement,
-  longElement,
-  longElement,
+    longElement,
+    longElement,
+    longElement,
 );
 >>> Avoid block-like splitting for function calls.
 function() => another(argument, argument);
@@ -61,19 +61,19 @@ function() =>
 function() => switch (value) { 1 => 'one', 2 => 'two' };
 <<< 3.7
 function() => switch (value) {
-  1 => 'one',
-  2 => 'two',
+    1 => 'one',
+    2 => 'two',
 };
 >>> Don't indent block-like body when parameters split.
 function(longParameter, anotherParameter) => [longElement, longElement, longElement];
 <<< 3.7
 function(
-  longParameter,
-  anotherParameter,
+    longParameter,
+    anotherParameter,
 ) => [
-  longElement,
-  longElement,
-  longElement,
+    longElement,
+    longElement,
+    longElement,
 ];
 >>> Prefer splitting at `=>` instead of parameters.
 LongReturnType function(parameter) => longFunctionBody;

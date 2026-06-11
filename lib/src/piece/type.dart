@@ -178,16 +178,16 @@ final class PrimaryTypePiece extends Piece {
 
         // Indent all of the clauses if any will start a line.
         var indent =
-            state == _beforeClauses ||
-            state == _betweenClauses && _clauses.length > 1 ||
-            state == State.split;
+            state == _beforeClauses
+            || state == _betweenClauses && _clauses.length > 1
+            || state == State.split;
         if (indent) writer.pushIndent(Indent.infix);
 
         for (var clause in _clauses) {
             writer.splitIf(
-                state == _beforeClauses ||
-                    state == _betweenClauses && clause != _clauses.first ||
-                    state == State.split,
+                state == _beforeClauses
+                    || state == _betweenClauses && clause != _clauses.first
+                    || state == State.split,
             );
             writer.format(clause);
         }

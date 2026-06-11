@@ -4,55 +4,55 @@
 var set = {if (c) ...{1, 2}};
 <<< 3.7
 var set = {
-  if (c) ...{1, 2},
+    if (c) ...{1, 2},
 };
 >>> Spread else stays unsplit if it fits.
 var set = {if (c) 1 else ...{2, 3}};
 <<< 3.7
 var set = {
-  if (c) 1 else ...{2, 3},
+    if (c) 1 else ...{2, 3},
 };
 >>> Spread then and else stay unsplit if they fit.
 var set = {if (c) ...{1, 2} else ...{3, 4}};
 <<< 3.7
 var set = {
-  if (c) ...{1, 2} else ...{3, 4},
+    if (c) ...{1, 2} else ...{3, 4},
 };
 >>> Spread then formats like block if it splits.
 var set = {if (c) ...{element1, element2, element3}};
 <<< 3.7
 var set = {
-  if (c) ...{
-    element1,
-    element2,
-    element3,
-  },
+    if (c) ...{
+        element1,
+        element2,
+        element3,
+    },
 };
 >>> Both spreads split if then spread splits.
 var set = {if (c) ...{element1, element2, element3} else ...{1, 2}};
 <<< 3.7
 var set = {
-  if (c) ...{
-    element1,
-    element2,
-    element3,
-  } else ...{
-    1,
-    2,
-  },
+    if (c) ...{
+        element1,
+        element2,
+        element3,
+    } else ...{
+        1,
+        2,
+    },
 };
 >>> Both spreads split if else spread splits.
 var set = {if (c) ...{1, 2} else ...{element1, element2, element3}};
 <<< 3.7
 var set = {
-  if (c) ...{
-    1,
-    2,
-  } else ...{
-    element1,
-    element2,
-    element3,
-  },
+    if (c) ...{
+        1,
+        2,
+    } else ...{
+        element1,
+        element2,
+        element3,
+    },
 };
 >>> An empty spread then is not treated like block.
 var set = {
@@ -60,13 +60,13 @@ var set = {
 };
 <<< 3.7
 var set = {
-  if (condition)
-    ...{}
-  else ...{
-    veryLongElement,
-    veryLongElement,
-    veryLongElement,
-  },
+    if (condition)
+        ...{}
+    else ...{
+        veryLongElement,
+        veryLongElement,
+        veryLongElement,
+    },
 };
 >>> An empty spread else is not treated like block.
 var set = {
@@ -74,12 +74,12 @@ var set = {
 };
 <<< 3.7
 var set = {
-  if (condition) ...{
-    veryLongElement,
-    veryLongElement,
-    veryLongElement,
-  } else
-    ...{},
+    if (condition) ...{
+        veryLongElement,
+        veryLongElement,
+        veryLongElement,
+    } else
+        ...{},
 };
 >>> An empty spread then doesn't split.
 var set = {
@@ -87,10 +87,10 @@ var set = {
 };
 <<< 3.7
 var set = {
-  if (condition)
-    ...{}
-  else
-    veryLongIdentifier,
+    if (condition)
+        ...{}
+    else
+        veryLongIdentifier,
 };
 >>> An empty spread else doesn't split.
 var set = {
@@ -98,10 +98,10 @@ var set = {
 };
 <<< 3.7
 var set = {
-  if (condition)
-    veryLongIdentifier
-  else
-    ...{},
+    if (condition)
+        veryLongIdentifier
+    else
+        ...{},
 };
 >>> An empty spread then with a comment is treated like a block.
 var set = {
@@ -110,13 +110,13 @@ var set = {
 };
 <<< 3.7
 var set = {
-  if (condition) ...{
-    // c
-  } else ...{
-    veryLongElement,
-    veryLongElement,
-    veryLongElement,
-  },
+    if (condition) ...{
+        // c
+    } else ...{
+        veryLongElement,
+        veryLongElement,
+        veryLongElement,
+    },
 };
 >>> An empty spread else with a comment treated like a block.
 var set = {
@@ -125,82 +125,82 @@ var set = {
 };
 <<< 3.7
 var set = {
-  if (condition) ...{
-    veryLongElement,
-    veryLongElement,
-    veryLongElement,
-  } else ...{
-    // c
-  },
+    if (condition) ...{
+        veryLongElement,
+        veryLongElement,
+        veryLongElement,
+    } else ...{
+        // c
+    },
 };
 >>> A single-line list that isn't spread.
 var set = {if (a) {b}};
 <<< 3.7
 var set = {
-  if (a) {b},
+    if (a) {b},
 };
 >>> A collection that isn't spread wraps and indents.
 var set = {if (condition) {element1, element2, element3}};
 <<< 3.7
 var set = {
-  if (condition)
-    {element1, element2, element3},
+    if (condition)
+        {element1, element2, element3},
 };
 >>>
 var set = {if (c) {element1, element2, element3, element4}};
 <<< 3.7
 var set = {
-  if (c)
-    {
-      element1,
-      element2,
-      element3,
-      element4,
-    },
+    if (c)
+        {
+            element1,
+            element2,
+            element3,
+            element4,
+        },
 };
 >>>
 var set = {if (c) {element1, element2, element3} else thing};
 <<< 3.7
 var set = {
-  if (c)
-    {element1, element2, element3}
-  else
-    thing,
+    if (c)
+        {element1, element2, element3}
+    else
+        thing,
 };
 >>>
 var set = {if (c) {element1, element2, element3, element4} else thing};
 <<< 3.7
 var set = {
-  if (c)
-    {
-      element1,
-      element2,
-      element3,
-      element4,
-    }
-  else
-    thing,
+    if (c)
+        {
+            element1,
+            element2,
+            element3,
+            element4,
+        }
+    else
+        thing,
 };
 >>>
 var set = {if (c) thing else {element1, element2, element3}};
 <<< 3.7
 var set = {
-  if (c)
-    thing
-  else
-    {element1, element2, element3},
+    if (c)
+        thing
+    else
+        {element1, element2, element3},
 };
 >>>
 var set = {if (c) thing else {element1, element2, element3, element4}};
 <<< 3.7
 var set = {
-  if (c)
-    thing
-  else
-    {
-      element1,
-      element2,
-      element3,
-      element4,
-    },
+    if (c)
+        thing
+    else
+        {
+            element1,
+            element2,
+            element3,
+            element4,
+        },
 };

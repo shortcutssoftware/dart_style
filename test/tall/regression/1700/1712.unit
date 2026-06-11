@@ -21,41 +21,41 @@ class C {
 }
 <<< 3.7
 class C {
-  @override
-  Widget build(BuildContext context) {
-    return PlatformProvider(
-      builder:
-          (context) => PlatformTheme(
+    @override
+    Widget build(BuildContext context) {
+        return PlatformProvider(
             builder:
-                (context) => PlatformApp(
-                  localizationsDelegates: <LocalizationsDelegate<dynamic>>[
-                    DefaultMaterialLocalizations.delegate,
-                    DefaultWidgetsLocalizations.delegate,
-                    DefaultCupertinoLocalizations.delegate,
-                  ],
-                  title: 'Flutter Platform Widgets',
-                  home: MyHomePage(title: 'Flutter Platform Widgets Demo'),
+                (context) => PlatformTheme(
+                    builder:
+                        (context) => PlatformApp(
+                            localizationsDelegates: <LocalizationsDelegate<dynamic>>[
+                                DefaultMaterialLocalizations.delegate,
+                                DefaultWidgetsLocalizations.delegate,
+                                DefaultCupertinoLocalizations.delegate,
+                            ],
+                            title: 'Flutter Platform Widgets',
+                            home: MyHomePage(title: 'Flutter Platform Widgets Demo'),
+                        ),
                 ),
-          ),
-    );
-  }
+        );
+    }
 }
 <<< 3.8
 class C {
-  @override
-  Widget build(BuildContext context) {
-    return PlatformProvider(
-      builder: (context) => PlatformTheme(
-        builder: (context) => PlatformApp(
-          localizationsDelegates: <LocalizationsDelegate<dynamic>>[
-            DefaultMaterialLocalizations.delegate,
-            DefaultWidgetsLocalizations.delegate,
-            DefaultCupertinoLocalizations.delegate,
-          ],
-          title: 'Flutter Platform Widgets',
-          home: MyHomePage(title: 'Flutter Platform Widgets Demo'),
-        ),
-      ),
-    );
-  }
+    @override
+    Widget build(BuildContext context) {
+        return PlatformProvider(
+            builder: (context) => PlatformTheme(
+                builder: (context) => PlatformApp(
+                    localizationsDelegates: <LocalizationsDelegate<dynamic>>[
+                        DefaultMaterialLocalizations.delegate,
+                        DefaultWidgetsLocalizations.delegate,
+                        DefaultCupertinoLocalizations.delegate,
+                    ],
+                    title: 'Flutter Platform Widgets',
+                    home: MyHomePage(title: 'Flutter Platform Widgets Demo'),
+                ),
+            ),
+        );
+    }
 }

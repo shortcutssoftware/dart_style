@@ -132,6 +132,26 @@ final class PieceWriter {
         add(piece);
     }
 
+    /// Outputs the source text from [start] (inclusive) to [end] (exclusive)
+    /// verbatim, preserving any internal whitespace and newlines exactly as
+    /// they appear in the original source.
+    ///
+    /// Used when the formatter intentionally skips reformatting a section of
+    /// source — for example, when extra parentheses signal that the programmer
+    /// wants to control the inner layout. The caller is responsible for first
+    /// consuming (via [CommentWriter.takeCommentsBefore]) any comments that
+    /// appear inside the range, so that they are not output a second time by
+    /// subsequent token-writing calls.
+    void verbatimRange(int start, int end) {
+        var text = _source.text.substring(start, end);
+        _flushSpace();
+        var piece = CodePiece([]);
+        _write(piece, text, start, multiline: text.contains('\n'));
+        _previousCode = piece;
+        _pieces.last.add(piece);
+        _currentCode = null;
+    }
+
     /// Visits [node] if not `null` and writes the result.
     void visit(
         AstNode? node, {

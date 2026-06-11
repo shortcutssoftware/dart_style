@@ -35,7 +35,7 @@ var longVariableName_______________ =
 var record = (veryLongRecordField________________,);
 <<< 3.7
 var record = (
-  veryLongRecordField________________,
+    veryLongRecordField________________,
 );
 >>> Single-element named record doesn't have comma added.
 var record = (a: b);
@@ -49,14 +49,14 @@ var record = (a: b);
 var record = (longFieldName: longRecordFieldValue);
 <<< 3.7
 var record = (
-  longFieldName: longRecordFieldValue,
+    longFieldName: longRecordFieldValue,
 );
 >>> Long single-element named record splits at name.
 var record = (longFieldName: veryLongRecordFieldValue);
 <<< 3.7
 var record = (
-  longFieldName:
-      veryLongRecordFieldValue,
+    longFieldName:
+        veryLongRecordFieldValue,
 );
 >>> Exactly 40 characters.
 (first, second, third, fourth, seventh);
@@ -66,12 +66,12 @@ var record = (
 (first, second, third, fourth, fifth, sixth);
 <<< 3.7
 (
-  first,
-  second,
-  third,
-  fourth,
-  fifth,
-  sixth,
+    first,
+    second,
+    third,
+    fourth,
+    fifth,
+    sixth,
 );
 >>> Don't force outer record to split.
 ((first,), (second, third));
@@ -90,17 +90,17 @@ var record = (
     eleventh));
 <<< 3.7
 (
-  first,
-  (second, third, fourth),
-  fifth,
-  (
-    sixth,
-    seventh,
-    eighth,
-    nine,
-    tenth,
-    eleventh,
-  ),
+    first,
+    (second, third, fourth),
+    fifth,
+    (
+        sixth,
+        seventh,
+        eighth,
+        nine,
+        tenth,
+        eleventh,
+    ),
 );
 >>> Trailing comma in single-element does not split.
 (1,);
@@ -110,23 +110,23 @@ var record = (
 var record = (argument, argument, argument, recordFieldName: (veryLongElement__________,));
 <<< 3.7
 var record = (
-  argument,
-  argument,
-  argument,
-  recordFieldName: (
-    veryLongElement__________,
-  ),
+    argument,
+    argument,
+    argument,
+    recordFieldName: (
+        veryLongElement__________,
+    ),
 );
 >>> Force split because of contained block.
 (first, () {"fn";},third,fourth);
 <<< 3.7
 (
-  first,
-  () {
-    "fn";
-  },
-  third,
-  fourth,
+    first,
+    () {
+        "fn";
+    },
+    third,
+    fourth,
 );
 >>> Remove blank lines before first and last entries. Preserve one between.
 var record = (
@@ -146,11 +146,11 @@ var record = (
 );
 <<< 3.7
 var record = (
-  firstField: 1,
+    firstField: 1,
 
-  secondField: 2,
+    secondField: 2,
 
-  thirdField: 3,
+    thirdField: 3,
 );
 >>> Discard blank lines if doesn't need to split.
 var record = (

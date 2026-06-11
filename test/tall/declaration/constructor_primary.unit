@@ -33,22 +33,22 @@ with Mixin1, Mixin2
 implements Interface1, Interface2, Interface3 { void body() {} }
 <<< 3.13
 class const C<
-  T1 extends TypeBound,
-  T2 extends TypeBound
+    T1 extends TypeBound,
+    T2 extends TypeBound
 >.named(
-  final int parameter1, {
-  required var String parameter2,
+    final int parameter1, {
+    required var String parameter2,
 }) extends
         Superclass<
-          TypeArgument1,
-          TypeArgument2
+            TypeArgument1,
+            TypeArgument2
         >
     with Mixin1, Mixin2
     implements
         Interface1,
         Interface2,
         Interface3 {
-  void body() {}
+    void body() {}
 }
 >>> On enum type with everything.
 enum const C<T1 extends TypeBound, T2 extends TypeBound>.named
@@ -61,54 +61,54 @@ c.named(3, parameter2: 'c');
 void body() {} }
 <<< 3.13
 enum const C<
-  T1 extends TypeBound,
-  T2 extends TypeBound
+    T1 extends TypeBound,
+    T2 extends TypeBound
 >.named(
-  final int parameter1, {
-  required var String parameter2,
+    final int parameter1, {
+    required var String parameter2,
 }) with Mixin1, Mixin2
     implements
         Interface1,
         Interface2,
         Interface3 {
-  a.named(1, parameter2: 'a'),
-  b.named(2, parameter2: 'd'),
-  c.named(3, parameter2: 'c');
+    a.named(1, parameter2: 'a'),
+    b.named(2, parameter2: 'd'),
+    c.named(3, parameter2: 'c');
 
-  void body() {}
+    void body() {}
 }
 >>> Enums always split if there is a primary constructor.
 enum const C(int x) { a, b, c }
 <<< 3.13
 enum const C(int x) {
-  a,
-  b,
-  c
+    a,
+    b,
+    c
 }
 >>> With optional parameters.
 class Foo(int a, int b, [int? c, int? d]);
 <<< 3.13
 class Foo(
-  int a,
-  int b, [
-  int? c,
-  int? d,
+    int a,
+    int b, [
+    int? c,
+    int? d,
 ]);
 >>> With named parameters.
 class Foo(int a, int b, {int? c, required int d});
 <<< 3.13
 class Foo(
-  int a,
-  int b, {
-  int? c,
-  required int d,
+    int a,
+    int b, {
+    int? c,
+    required int d,
 });
 >>> Prefer splitting parameters instead of type parameters.
 class C<Type1, Type2>(int param1, int param2) {}
 <<< 3.13
 class C<Type1, Type2>(
-  int param1,
-  int param2,
+    int param1,
+    int param2,
 ) {}
 >>> Prefer splitting before `extends` instead of parameters.
 class C(int param1, int param2) extends S {}
@@ -120,8 +120,8 @@ class C(int param1, int param2)
 extends Superclass<TypeArg1,TypeArg2> {}
 <<< 3.13
 class C(
-  int param1,
-  int param2,
+    int param1,
+    int param2,
 ) extends
     Superclass<TypeArg1, TypeArg2> {}
 >>> Prefer splitting before `with` instead of parameters.
@@ -156,21 +156,21 @@ class Class<TypeParameter1, TypeParameter2>
 (var int parameter1, final String parameter2);
 <<< 3.13
 class Class<
-  TypeParameter1,
-  TypeParameter2
+    TypeParameter1,
+    TypeParameter2
 >(
-  var int parameter1,
-  final String parameter2,
+    var int parameter1,
+    final String parameter2,
 );
 >>> Split parameter list with unsplit `extends` clause.
 class C(var int parameter1, final String parameter2) extends S<int>
 { body() {} }
 <<< 3.13
 class C(
-  var int parameter1,
-  final String parameter2,
+    var int parameter1,
+    final String parameter2,
 ) extends S<int> {
-  body() {}
+    body() {}
 }
 >>> Split parameter list with split `extends` clause.
 class C(var int parameter1,final String parameter2)
@@ -178,24 +178,24 @@ extends Superclass<TypeArgument1, TypeArgument2>
 { body() {} }
 <<< 3.13
 class C(
-  var int parameter1,
-  final String parameter2,
+    var int parameter1,
+    final String parameter2,
 ) extends
     Superclass<
-      TypeArgument1,
-      TypeArgument2
+        TypeArgument1,
+        TypeArgument2
     > {
-  body() {}
+    body() {}
 }
 >>> Split parameter list with unsplit `with` clause.
 class C(var int parameter1, final String parameter2) with M<int>, Mixin2
 { body() {} }
 <<< 3.13
 class C(
-  var int parameter1,
-  final String parameter2,
+    var int parameter1,
+    final String parameter2,
 ) with M<int>, Mixin2 {
-  body() {}
+    body() {}
 }
 >>> Split parameter list with split `with` clause.
 class C(var int parameter1,final String parameter2)
@@ -203,25 +203,25 @@ with Mixin1, Mixin2, Mixin3, Mixin4, Mixin5
 { body() {} }
 <<< 3.13
 class C(
-  var int parameter1,
-  final String parameter2,
+    var int parameter1,
+    final String parameter2,
 ) with
     Mixin1,
     Mixin2,
     Mixin3,
     Mixin4,
     Mixin5 {
-  body() {}
+    body() {}
 }
 >>> Split parameter list with unsplit `implements` clause.
 class C(var int parameter1, final String parameter2) implements I<int>, I2
 { body() {} }
 <<< 3.13
 class C(
-  var int parameter1,
-  final String parameter2,
+    var int parameter1,
+    final String parameter2,
 ) implements I<int>, I2 {
-  body() {}
+    body() {}
 }
 >>> Split parameter list with split `implements` clause.
 class C(var int parameter1,final String parameter2)
@@ -229,23 +229,23 @@ implements Interface1, Interface2, Interface3
 { body() {} }
 <<< 3.13
 class C(
-  var int parameter1,
-  final String parameter2,
+    var int parameter1,
+    final String parameter2,
 ) implements
     Interface1,
     Interface2,
     Interface3 {
-  body() {}
+    body() {}
 }
 >>> Split parameter list with multiple unsplit `implements` clauses.
 class C(var int parameter1, final String parameter2) extends S with M implements I
 { body() {} }
 <<< 3.13
 class C(
-  var int parameter1,
-  final String parameter2,
+    var int parameter1,
+    final String parameter2,
 ) extends S with M implements I {
-  body() {}
+    body() {}
 }
 >>> Split parameter list with multiple split clauses.
 class C(var int parameter1,final String parameter2)
@@ -255,100 +255,100 @@ implements Interface1, Interface2, Interface3
 { body() {} }
 <<< 3.13
 class C(
-  var int parameter1,
-  final String parameter2,
+    var int parameter1,
+    final String parameter2,
 ) extends Superclass
     with Mixin1, Mixin2, Mixin3
     implements
         Interface1,
         Interface2,
         Interface3 {
-  body() {}
+    body() {}
 }
 >>> Split type parameters, empty parameter list, extends clause.
 class C<TypeParam1, TypeParam2, TypeParam3>() extends Superclass { body() {} }
 <<< 3.13
 class C<
-  TypeParam1,
-  TypeParam2,
-  TypeParam3
+    TypeParam1,
+    TypeParam2,
+    TypeParam3
 >() extends Superclass {
-  body() {}
+    body() {}
 }
 >>> Split type parameters, unsplit parameter list, extends clause.
 class C<TypeParam1, TypeParam2, TypeParam3>(int x, int y)
 extends Superclass { body() {} }
 <<< 3.13
 class C<
-  TypeParam1,
-  TypeParam2,
-  TypeParam3
+    TypeParam1,
+    TypeParam2,
+    TypeParam3
 >(int x, int y) extends Superclass {
-  body() {}
+    body() {}
 }
 >>> Split type parameters, empty parameter list, with clause.
 class C<TypeParam1, TypeParam2, TypeParam3>() with Mixin1, Mixin2 { body() {} }
 <<< 3.13
 class C<
-  TypeParam1,
-  TypeParam2,
-  TypeParam3
+    TypeParam1,
+    TypeParam2,
+    TypeParam3
 >() with Mixin1, Mixin2 {
-  body() {}
+    body() {}
 }
 >>> Split type parameters, unsplit parameter list, with clause.
 class C<TypeParam1, TypeParam2, TypeParam3>(int x, int y)
 with Mixin1, Mixin2 { body() {} }
 <<< 3.13
 class C<
-  TypeParam1,
-  TypeParam2,
-  TypeParam3
+    TypeParam1,
+    TypeParam2,
+    TypeParam3
 >(int x, int y) with Mixin1, Mixin2 {
-  body() {}
+    body() {}
 }
 >>> Split type parameters, empty parameter list, implements clause.
 class C<TypeParam1, TypeParam2, TypeParam3>() implements Interface1, Interface2 { body() {} }
 <<< 3.13
 class C<
-  TypeParam1,
-  TypeParam2,
-  TypeParam3
+    TypeParam1,
+    TypeParam2,
+    TypeParam3
 >() implements Interface1, Interface2 {
-  body() {}
+    body() {}
 }
 >>> Split type parameters, unsplit parameter list, implements clause.
 class C<TypeParam1, TypeParam2, TypeParam3>(int x, int y)
 implements I1, I2 { body() {} }
 <<< 3.13
 class C<
-  TypeParam1,
-  TypeParam2,
-  TypeParam3
+    TypeParam1,
+    TypeParam2,
+    TypeParam3
 >(int x, int y) implements I1, I2 {
-  body() {}
+    body() {}
 }
 >>> Split type parameters, empty parameter list, multiple unsplit clauses.
 class C<TypeParam1, TypeParam2, TypeParam3>()
 extends S with M1 implements I1 { body() {} }
 <<< 3.13
 class C<
-  TypeParam1,
-  TypeParam2,
-  TypeParam3
+    TypeParam1,
+    TypeParam2,
+    TypeParam3
 >() extends S with M1 implements I1 {
-  body() {}
+    body() {}
 }
 >>> Split type parameters, unsplit parameter list, multiple unsplit clauses.
 class C<TypeParam1, TypeParam2, TypeParam3>(s)
 extends S with M implements I { body() {} }
 <<< 3.13
 class C<
-  TypeParam1,
-  TypeParam2,
-  TypeParam3
+    TypeParam1,
+    TypeParam2,
+    TypeParam3
 >(s) extends S with M implements I {
-  body() {}
+    body() {}
 }
 >>> Split type parameters, empty parameter list, multiple split clauses.
 class C<TypeParam1, TypeParam2, TypeParam3>()
@@ -356,9 +356,9 @@ extends Superclass with Mixin1, Mixin2, Mixin3
 implements Interface1, Interface2, Interface3 { body() {} }
 <<< 3.13
 class C<
-  TypeParam1,
-  TypeParam2,
-  TypeParam3
+    TypeParam1,
+    TypeParam2,
+    TypeParam3
 >()
     extends Superclass
     with Mixin1, Mixin2, Mixin3
@@ -366,7 +366,7 @@ class C<
         Interface1,
         Interface2,
         Interface3 {
-  body() {}
+    body() {}
 }
 >>> Split type parameters, unsplit parameter list, multiple split clauses.
 class C<TypeParam1, TypeParam2, TypeParam3>(int x, int y)
@@ -374,9 +374,9 @@ extends Superclass with Mixin1, Mixin2, Mixin3
 implements Interface1, Interface2, Interface3 { body() {} }
 <<< 3.13
 class C<
-  TypeParam1,
-  TypeParam2,
-  TypeParam3
+    TypeParam1,
+    TypeParam2,
+    TypeParam3
 >(int x, int y)
     extends Superclass
     with Mixin1, Mixin2, Mixin3
@@ -384,5 +384,5 @@ class C<
         Interface1,
         Interface2,
         Interface3 {
-  body() {}
+    body() {}
 }

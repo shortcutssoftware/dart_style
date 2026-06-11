@@ -5,12 +5,12 @@ function(@Annotation longParameter,
 @Annotation @Other @Third longParameter2,) {}
 <<< 3.7
 function(
-  @Annotation longParameter,
-  // Comment.
-  @Annotation
-  @Other
-  @Third
-  longParameter2,
+    @Annotation longParameter,
+    // Comment.
+    @Annotation
+    @Other
+    @Third
+    longParameter2,
 ) {}
 >>> Split after metadata.
 @meta foo() {}
@@ -37,31 +37,31 @@ foo(@a @b param) {}
 class A { function(@Annotation @VeryLongMetadataAnnotation covariant longParameter) {} }
 <<< 3.7
 class A {
-  function(
-    @Annotation
-    @VeryLongMetadataAnnotation
-    covariant longParameter,
-  ) {}
+    function(
+        @Annotation
+        @VeryLongMetadataAnnotation
+        covariant longParameter,
+    ) {}
 }
 >>> Keep "required" with parameter.
 class A { function({@Annotation @VeryLongMetadataAnnotation required longParameter}) {} }
 <<< 3.7
 class A {
-  function({
-    @Annotation
-    @VeryLongMetadataAnnotation
-    required longParameter,
-  }) {}
+    function({
+        @Annotation
+        @VeryLongMetadataAnnotation
+        required longParameter,
+    }) {}
 }
 >>> On function-typed formal parameter.
 withReturnType(@foo @bar int fn(@foo param)) {}
 withoutReturnType(@foo @bar fn(@foo param)) {}
 <<< 3.7
 withReturnType(
-  @foo @bar int fn(@foo param),
+    @foo @bar int fn(@foo param),
 ) {}
 withoutReturnType(
-  @foo @bar fn(@foo param),
+    @foo @bar fn(@foo param),
 ) {}
 >>> On default formal parameter.
 positional([@foo bar]) {}
@@ -75,7 +75,7 @@ class Foo {
 }
 <<< 3.7
 class Foo {
-  Foo(@bar this.field);
+    Foo(@bar this.field);
 }
 >>> On "super." parameter.
 class Foo {
@@ -83,18 +83,18 @@ class Foo {
 }
 <<< 3.7
 class Foo {
-  Foo(
-    @bar super.field, [
-    @foo() @baz super.another,
-  ]);
+    Foo(
+        @bar super.field, [
+        @foo() @baz super.another,
+    ]);
 }
 >>> Function typed parameter with default value.
 f([@metadata @another(argument, argument) callback() = constantFunction]) {}
 <<< 3.7
 f([
-  @metadata
-  @another(argument, argument)
-  callback() = constantFunction,
+    @metadata
+    @another(argument, argument)
+    callback() = constantFunction,
 ]) {}
 >>> Don't split return type if comment after metadata.
 @meta
@@ -104,5 +104,5 @@ int f() {;}
 @meta
 // Comment.
 int f() {
-  ;
+    ;
 }

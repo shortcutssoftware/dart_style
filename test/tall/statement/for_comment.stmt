@@ -4,12 +4,12 @@ for  (  // comment
 init  ;  cond  ;  incr  )  {  body;  }
 <<< 3.7
 for (
-  // comment
-  init;
-  cond;
-  incr
+    // comment
+    init;
+    cond;
+    incr
 ) {
-  body;
+    body;
 }
 >>> Non-hanging line comment before initializer expression.
 for  (
@@ -17,24 +17,24 @@ for  (
 init  ;  cond  ;  incr  )  {  body;  }
 <<< 3.7
 for (
-  // comment
-  init;
-  cond;
-  incr
+    // comment
+    init;
+    cond;
+    incr
 ) {
-  body;
+    body;
 }
 >>> Hanging line comment before absent initializer expression.
 for  (  // comment
 ;  cond  ;  incr  )  {  body;  }
 <<< 3.7
 for (
-  // comment
-  ;
-  cond;
-  incr
+    // comment
+    ;
+    cond;
+    incr
 ) {
-  body;
+    body;
 }
 >>> Non-hanging line comment before absent initializer expression.
 for  (
@@ -42,12 +42,12 @@ for  (
 ;  cond  ;  incr  )  {  body;  }
 <<< 3.7
 for (
-  // comment
-  ;
-  cond;
-  incr
+    // comment
+    ;
+    cond;
+    incr
 ) {
-  body;
+    body;
 }
 >>> Hanging line comment after initializer expression.
 for  (  init  // comment
@@ -55,12 +55,12 @@ for  (  init  // comment
 <<< 3.7
 ### Looks weird, but users don't tend to put comments here.
 for (
-  init // comment
-  ;
-  cond;
-  incr
+    init // comment
+    ;
+    cond;
+    incr
 ) {
-  body;
+    body;
 }
 >>> Non-hanging line comment after initializer expression.
 for  (  init
@@ -69,24 +69,24 @@ for  (  init
 <<< 3.7
 ### Looks weird, but users don't tend to put comments here.
 for (
-  init
-  // comment
-  ;
-  cond;
-  incr
+    init
+    // comment
+    ;
+    cond;
+    incr
 ) {
-  body;
+    body;
 }
 >>> Hanging line comment before condition expression.
 for  (  init  ;  // comment
 cond  ;  incr  )  {  body;  }
 <<< 3.7
 for (
-  init; // comment
-  cond;
-  incr
+    init; // comment
+    cond;
+    incr
 ) {
-  body;
+    body;
 }
 >>> Non-hanging line comment before condition expression.
 for  (  init  ;
@@ -94,23 +94,23 @@ for  (  init  ;
 cond  ;  incr  )  {  body;  }
 <<< 3.7
 for (
-  init;
-  // comment
-  cond;
-  incr
+    init;
+    // comment
+    cond;
+    incr
 ) {
-  body;
+    body;
 }
 >>> Hanging line comment before absent condition expression.
 for  (  init  ;  // comment
 ;  incr  )  {  body;  }
 <<< 3.7
 for (
-  init; // comment
-  ;
-  incr
+    init; // comment
+    ;
+    incr
 ) {
-  body;
+    body;
 }
 >>> Non-hanging line comment before absent condition expression.
 for  (  init  ;
@@ -118,12 +118,12 @@ for  (  init  ;
 ;  incr  )  {  body;  }
 <<< 3.7
 for (
-  init;
-  // comment
-  ;
-  incr
+    init;
+    // comment
+    ;
+    incr
 ) {
-  body;
+    body;
 }
 >>> Hanging line comment after condition expression.
 for  (  init  ;  cond  // comment
@@ -131,12 +131,12 @@ for  (  init  ;  cond  // comment
 <<< 3.7
 ### Looks weird, but users don't tend to put comments here.
 for (
-  init;
-  cond // comment
-  ;
-  incr
+    init;
+    cond // comment
+    ;
+    incr
 ) {
-  body;
+    body;
 }
 >>> Non-hanging line comment after condition expression.
 for  (  init  ;  cond
@@ -145,24 +145,24 @@ for  (  init  ;  cond
 <<< 3.7
 ### Looks weird, but users don't tend to put comments here.
 for (
-  init;
-  cond
-  // comment
-  ;
-  incr
+    init;
+    cond
+    // comment
+    ;
+    incr
 ) {
-  body;
+    body;
 }
 >>> Hanging line comment before increment expression.
 for  (  init  ;  cond  ;  // comment
 incr  )  {  body;  }
 <<< 3.7
 for (
-  init;
-  cond; // comment
-  incr
+    init;
+    cond; // comment
+    incr
 ) {
-  body;
+    body;
 }
 >>> Non-hanging line comment before increment expression.
 for  (  init  ;  cond  ;
@@ -170,22 +170,22 @@ for  (  init  ;  cond  ;
 incr  )  {  body;  }
 <<< 3.7
 for (
-  init;
-  cond;
-  // comment
-  incr
+    init;
+    cond;
+    // comment
+    incr
 ) {
-  body;
+    body;
 }
 >>> Hanging line comment before absent increment expression.
 for  (  init  ;  cond  ;  // comment
 )  {  body;  }
 <<< 3.7
 for (
-  init;
-  cond; // comment
+    init;
+    cond; // comment
 ) {
-  body;
+    body;
 }
 >>> Non-hanging line comment before absent increment expression.
 for  (  init  ;  cond  ;
@@ -193,22 +193,22 @@ for  (  init  ;  cond  ;
 )  {  body;  }
 <<< 3.7
 for (
-  init;
-  cond;
-  // comment
+    init;
+    cond;
+    // comment
 ) {
-  body;
+    body;
 }
 >>> Hanging line comment after increment expression.
 for  (  init  ;  cond  ;  incr  // comment
   )  {  body;  }
 <<< 3.7
 for (
-  init;
-  cond;
-  incr // comment
+    init;
+    cond;
+    incr // comment
 ) {
-  body;
+    body;
 }
 >>> Non-hanging line comment increment expression.
 for  (  init  ;  cond  ;  incr
@@ -216,12 +216,12 @@ for  (  init  ;  cond  ;  incr
 )  {  body;  }
 <<< 3.7
 for (
-  init;
-  cond;
-  incr
-  // comment
+    init;
+    cond;
+    incr
+    // comment
 ) {
-  body;
+    body;
 }
 >>> Preserve comments around discarded increment trailing comma.
 for (
@@ -233,40 +233,40 @@ for (
 }
 <<< 3.7
 for (
-  init;
-  cond;
-  incr /* c1 */ /* c2 */
+    init;
+    cond;
+    incr /* c1 */ /* c2 */
 ) {
-  body;
+    body;
 }
 >>> Line comment before first `;` in fully empty clauses.
 for  (  // comment
 ;  ;  )  {  body;  }
 <<< 3.7
 for (
-  // comment
-  ;
-  ;
+    // comment
+    ;
+    ;
 ) {
-  body;
+    body;
 }
 >>> Line comment before second `;` in fully empty clauses.
 for  (  ;  // comment
 ;)  {  body;  }
 <<< 3.7
 for (
-  ; // comment
-  ;
+    ; // comment
+    ;
 ) {
-  body;
+    body;
 }
 >>> Line comment after second `;` in fully empty clauses.
 for  (  ;  ;  // comment
 )  {  body;  }
 <<< 3.7
 for (
-  ;
-  ; // comment
+    ;
+    ; // comment
 ) {
-  body;
+    body;
 }

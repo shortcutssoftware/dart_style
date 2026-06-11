@@ -4,7 +4,7 @@
 var C(a:x,) = obj;
 <<< 3.7
 var C(
-  a: x,
+    a: x,
 ) = obj;
 >>> Doesn't force split without trailing comma.
 var C(a:x,b:y,c:z) = obj;
@@ -14,7 +14,7 @@ var C(a: x, b: y, c: z) = obj;
 var C(a: element1, b: element2, c: element3) = obj;
 <<< 3.7
 var C(
-  a: element1,
-  b: element2,
-  c: element3,
+    a: element1,
+    b: element2,
+    c: element3,
 ) = obj;

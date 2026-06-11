@@ -4,7 +4,7 @@
 super(1,);
 <<< 3.7
 super(
-  1,
+    1,
 );
 >>> Doesn't force split without trailing comma.
 super(1,2,3);
@@ -14,14 +14,14 @@ super(1, 2, 3);
 super(argument1, argument2, argument3, argument4);
 <<< 3.7
 super(
-  argument1,
-  argument2,
-  argument3,
-  argument4,
+    argument1,
+    argument2,
+    argument3,
+    argument4,
 );
 >>> Named super call.
 super.named(1,);
 <<< 3.7
 super.named(
-  1,
+    1,
 );

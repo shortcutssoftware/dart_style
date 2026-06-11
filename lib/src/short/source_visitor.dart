@@ -164,10 +164,12 @@ final class SourceVisitor extends ThrowingAstVisitor {
             if (parent.message != node && parent.message is StringLiteral) {
                 shouldNest = true;
             }
-        } else if (parent is VariableDeclaration ||
-            parent is AssignmentExpression &&
-                parent.rightHandSide == node &&
-                parent.parent is ExpressionStatement) {
+        } else if (
+            parent is VariableDeclaration
+            || parent is AssignmentExpression
+                && parent.rightHandSide == node
+                && parent.parent is ExpressionStatement
+        ) {
             // Don't add extra indentation in a variable initializer or assignment:
             //
             //     var variable =
@@ -408,10 +410,10 @@ final class SourceVisitor extends ThrowingAstVisitor {
         _endBody(
             node.rightBracket,
             forceSplit:
-                semicolon != null ||
-                trailingComma != null ||
-                node.members.isNotEmpty ||
-                node.constants.containsLineComments(),
+                semicolon != null
+                || trailingComma != null
+                || node.members.isNotEmpty
+                || node.constants.containsLineComments(),
         );
     }
 
@@ -693,9 +695,9 @@ final class SourceVisitor extends ThrowingAstVisitor {
         var needsDouble = true;
         for (var declaration in node.declarations) {
             var hasBody =
-                declaration is ClassDeclaration ||
-                declaration is EnumDeclaration ||
-                declaration is ExtensionDeclaration;
+                declaration is ClassDeclaration
+                || declaration is EnumDeclaration
+                || declaration is ExtensionDeclaration;
 
             // Add a blank line before types with bodies.
             if (hasBody) needsDouble = true;
@@ -861,8 +863,10 @@ final class SourceVisitor extends ThrowingAstVisitor {
             space();
             if (node.initializers.length > 1) {
                 var padding = '  ';
-                if (node.parameters.parameters.last.isNamed ||
-                    node.parameters.parameters.last.isOptionalPositional) {
+                if (
+                    node.parameters.parameters.last.isNamed
+                    || node.parameters.parameters.last.isOptionalPositional
+                ) {
                     padding = ' ';
                 }
                 _writeText(padding, node.separator!);
@@ -2317,8 +2321,9 @@ final class SourceVisitor extends ThrowingAstVisitor {
         // Edge case: put a space after "-" if the operand is "-" or "--" so we
         // don't merge the operators.
         var operand = node.operand;
-        if (operand is PrefixExpression &&
-            (operand.operator.lexeme == '-' || operand.operator.lexeme == '--')) {
+        if (
+            operand is PrefixExpression && (operand.operator.lexeme == '-' || operand.operator.lexeme == '--')
+        ) {
             space();
         }
 
@@ -3942,8 +3947,10 @@ final class SourceVisitor extends ThrowingAstVisitor {
         var quoteStart = line.startsWith('r') ? 1 : 0;
         var quoteEnd = quoteStart + 3;
         var backslashCount = 0;
-        if (line.length > quoteEnd &&
-            (line.startsWith("'''", quoteStart) || line.startsWith('"""', quoteStart))) {
+        if (
+            line.length > quoteEnd
+            && (line.startsWith("'''", quoteStart) || line.startsWith('"""', quoteStart))
+        ) {
             // Start of a multiline string literal.
             // Check if rest of the line is whitespace, possibly preceded by
             // backslash, or has a single trailing backslash preceding the newline.
@@ -4141,8 +4148,9 @@ final class SourceVisitor extends ThrowingAstVisitor {
             }
 
             var type = CommentType.block;
-            if (text.startsWith('///') && !text.startsWith('////') ||
-                text.startsWith('/**') && text != '/**/') {
+            if (
+                text.startsWith('///') && !text.startsWith('////') || text.startsWith('/**') && text != '/**/'
+            ) {
                 type = CommentType.doc;
             } else if (comment.type == TokenType.SINGLE_LINE_COMMENT) {
                 type = CommentType.line;

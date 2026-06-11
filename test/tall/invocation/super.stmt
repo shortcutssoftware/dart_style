@@ -30,8 +30,8 @@ super.name = value;
 }
 <<< 3.7
 {
-  super == other;
-  super != other;
+    super == other;
+    super != other;
 }
 >>> Comparison operators.
 {
@@ -42,10 +42,10 @@ super.name = value;
 }
 <<< 3.7
 {
-  super < other;
-  super <= other;
-  super > other;
-  super >= other;
+    super < other;
+    super <= other;
+    super > other;
+    super >= other;
 }
 >>> Bitwise operators.
 {
@@ -55,9 +55,9 @@ super.name = value;
 }
 <<< 3.7
 {
-  super & other;
-  super ^ other;
-  super | other;
+    super & other;
+    super ^ other;
+    super | other;
 }
 >>> Shift operators.
 {
@@ -67,9 +67,9 @@ super.name = value;
 }
 <<< 3.7
 {
-  super << other;
-  super >> other;
-  super >>> other;
+    super << other;
+    super >> other;
+    super >>> other;
 }
 >>> Additive operators.
 {
@@ -78,8 +78,8 @@ super.name = value;
 }
 <<< 3.7
 {
-  super + other;
-  super - other;
+    super + other;
+    super - other;
 }
 >>> Multiplicative operators.
 {
@@ -90,10 +90,10 @@ super.name = value;
 }
 <<< 3.7
 {
-  super * other;
-  super / other;
-  super % other;
-  super ~/ other;
+    super * other;
+    super / other;
+    super % other;
+    super ~/ other;
 }
 >>> Unary operators.
 {
@@ -102,8 +102,8 @@ super.name = value;
 }
 <<< 3.7
 {
-  -super;
-  ~super;
+    -super;
+    ~super;
 }
 >>> Don't remove all spaces between multiple unary minuses.
 -  -  -  super;

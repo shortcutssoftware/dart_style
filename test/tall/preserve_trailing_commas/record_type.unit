@@ -5,13 +5,13 @@ typedef R = (int,int,);
 <<< 3.7
 typedef R =
     (
-      int,
-      int,
+        int,
+        int,
     );
 <<< 3.8
 typedef R = (
-  int,
-  int,
+    int,
+    int,
 );
 >>> Doesn't force split with one positional field.
 typedef R = (int,);
@@ -26,24 +26,24 @@ typedef R = ({int name,});
 <<< 3.7
 typedef R =
     ({
-      int name,
+        int name,
     });
 <<< 3.8
 typedef R = ({
-  int name,
+    int name,
 });
 >>> May still split without trailing comma if doesn't fit.
 typedef R = (int element1, int element2, int element3);
 <<< 3.7
 typedef R =
     (
-      int element1,
-      int element2,
-      int element3,
+        int element1,
+        int element2,
+        int element3,
     );
 <<< 3.8
 typedef R = (
-  int element1,
-  int element2,
-  int element3,
+    int element1,
+    int element2,
+    int element3,
 );

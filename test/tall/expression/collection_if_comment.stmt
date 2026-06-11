@@ -5,9 +5,9 @@ if // comment
 (c) e];
 <<< 3.7
 var list = [
-  if // comment
-  (c)
-    e,
+    if // comment
+    (c)
+        e,
 ];
 >>> Line comment before condition.
 var list = [
@@ -15,9 +15,9 @@ var list = [
 c) e];
 <<< 3.7
 var list = [
-  if ( // comment
-  c)
-    e,
+    if ( // comment
+    c)
+        e,
 ];
 >>> Line comment after condition.
 var list = [
@@ -25,9 +25,9 @@ if (c // comment
 ) e];
 <<< 3.7
 var list = [
-  if (c // comment
-  )
-    e,
+    if (c // comment
+    )
+        e,
 ];
 >>> Line comment after `)`.
 var list = [
@@ -35,8 +35,8 @@ var list = [
 e];
 <<< 3.7
 var list = [
-  if (c) // comment
-    e,
+    if (c) // comment
+        e,
 ];
 >>> Line comment after non-spread then body.
 var list = [
@@ -44,7 +44,7 @@ var list = [
 ];
 <<< 3.7
 var list = [
-  if (true) e, // comment
+    if (true) e, // comment
 ];
 >>> Line comment after spread then body.
 var list = [
@@ -52,7 +52,7 @@ var list = [
 ];
 <<< 3.7
 var list = [
-  if (true) ...[e], // comment
+    if (true) ...[e], // comment
 ];
 >>> Line comment after non-spread then body with else.
 var list = [
@@ -60,10 +60,10 @@ var list = [
 else f];
 <<< 3.7
 var list = [
-  if (true)
-    e // comment
-  else
-    f,
+    if (true)
+        e // comment
+    else
+        f,
 ];
 >>> Line comment after spread then body with else.
 var list = [
@@ -71,11 +71,11 @@ if (true) ...[e] // comment
 else f];
 <<< 3.7
 var list = [
-  if (true) ...[
-    e,
-  ] // comment
-  else
-    f,
+    if (true) ...[
+        e,
+    ] // comment
+    else
+        f,
 ];
 >>> Line comment after `else` with spread body.
 var list = [
@@ -83,12 +83,12 @@ var list = [
 ...[f]];
 <<< 3.7
 var list = [
-  if (true) ...[
-    e,
-  ] else // comment
-  ...[
-    f,
-  ],
+    if (true) ...[
+        e,
+    ] else // comment
+    ...[
+        f,
+    ],
 ];
 >>> Line comment after `else` with non-spread body.
 var list = [
@@ -96,10 +96,10 @@ if (true) e else // comment
 f];
 <<< 3.7
 var list = [
-  if (true)
-    e
-  else // comment
-    f,
+    if (true)
+        e
+    else // comment
+        f,
 ];
 >>> Line comment after non-block else body.
 var list = [
@@ -107,7 +107,7 @@ var list = [
 ];
 <<< 3.7
 var list = [
-  if (true) e else f, // comment
+    if (true) e else f, // comment
 ];
 >>> Line comment after block else body.
 var list = [
@@ -115,9 +115,9 @@ if (true) ...[e] else ...[f] // comment
 ];
 <<< 3.7
 var list = [
-  if (true) ...[
-    e,
-  ] else ...[
-    f,
-  ], // comment
+    if (true) ...[
+        e,
+    ] else ...[
+        f,
+    ], // comment
 ];

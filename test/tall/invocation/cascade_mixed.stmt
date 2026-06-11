@@ -7,36 +7,36 @@ object.method().method()..c();
 object.method().method()..cascade()..cascade();
 <<< 3.7
 object.method().method()
-  ..cascade()
-  ..cascade();
+    ..cascade()
+    ..cascade();
 >>> Split cascade and chain.
 object.method().method().method().method()..cascade()..cascade()..cascade();
 <<< 3.7
 object
-    .method()
-    .method()
-    .method()
-    .method()
-  ..cascade()
-  ..cascade()
-  ..cascade();
+        .method()
+        .method()
+        .method()
+        .method()
+    ..cascade()
+    ..cascade()
+    ..cascade();
 >>> Cascade setters on chain.
 object.method().method().method().method()..x=1..y=2;
 <<< 3.7
 object
-    .method()
-    .method()
-    .method()
-    .method()
-  ..x = 1
-  ..y = 2;
+        .method()
+        .method()
+        .method()
+        .method()
+    ..x = 1
+    ..y = 2;
 >>> Postfix on cascade calls.
 object..cascade()!..cascade()[index]..cascade()(arg);
 <<< 3.7
 object
-  ..cascade()!
-  ..cascade()[index]
-  ..cascade()(arg);
+    ..cascade()!
+    ..cascade()[index]
+    ..cascade()(arg);
 >>> Chain with index target.
 object..[index].method();
 <<< 3.7
@@ -46,23 +46,23 @@ variable = target..method(argument1, argument2);
 <<< 3.7
 variable =
     target
-      ..method(argument1, argument2);
+        ..method(argument1, argument2);
 <<< 3.8
 variable = target
-  ..method(argument1, argument2);
+    ..method(argument1, argument2);
 >>> Don't treat cascade as block-shaped even if the argument list splits.
 variable = target..method(argument1, argument2, argument3);
 <<< 3.7
 variable =
     target..method(
-      argument1,
-      argument2,
-      argument3,
+        argument1,
+        argument2,
+        argument3,
     );
 <<< 3.8
 variable = target
-  ..method(
-    argument1,
-    argument2,
-    argument3,
-  );
+    ..method(
+        argument1,
+        argument2,
+        argument3,
+    );

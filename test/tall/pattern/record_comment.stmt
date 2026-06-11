@@ -3,24 +3,24 @@
 if (obj case (  /* comment */  )) {;}
 <<< 3.7
 if (obj case (/* comment */)) {
-  ;
+    ;
 }
 >>> Empty record pattern line comment.
 if (obj case (  // comment
 )) {;}
 <<< 3.7
 if (obj case (
-  // comment
+    // comment
 )) {
-  ;
+    ;
 }
 >>> Record line comment between fields.
 if (obj case ( first , // comment
 second)){;}
 <<< 3.7
 if (obj case (
-  first, // comment
-  second,
+    first, // comment
+    second,
 )) {
-  ;
+    ;
 }

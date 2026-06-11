@@ -105,8 +105,9 @@ final class CommentWriter {
             }
 
             CommentType type;
-            if (text.startsWith('///') && !text.startsWith('////') ||
-                text.startsWith('/**') && text != '/**/') {
+            if (
+                text.startsWith('///') && !text.startsWith('////') || text.startsWith('/**') && text != '/**/'
+            ) {
                 type = CommentType.doc;
             } else if (comment.type == TokenType.SINGLE_LINE_COMMENT) {
                 type = CommentType.line;

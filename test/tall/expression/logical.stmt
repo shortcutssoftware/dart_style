@@ -10,6 +10,11 @@ operand1 &&
     operand2 &&
     operand3 &&
     operand4;
+<<< 3.8
+operand1
+    && operand2
+    && operand3
+    && operand4;
 >>> If any `||` operator splits, they all do.
 operand1 || operand2 || operand3 || operand4;
 <<< 3.7
@@ -17,26 +22,100 @@ operand1 ||
     operand2 ||
     operand3 ||
     operand4;
+<<< 3.8
+operand1
+    || operand2
+    || operand3
+    || operand4;
 >>> Prefer to split `||` over `&&`.
 operand1 || operand2 && operand3 || operand4;
 <<< 3.7
 operand1 ||
     operand2 && operand3 ||
     operand4;
+<<< 3.8
+operand1
+    || operand2 && operand3
+    || operand4;
 >>>
 operand1 && operand2 || operand3 && operand4;
 <<< 3.7
 operand1 && operand2 ||
     operand3 && operand4;
+<<< 3.8
+operand1 && operand2
+    || operand3 && operand4;
 >>> Mix `&&` with other binary operators.
 operand1 > operand2 && operand3 == operand4 && operand5 + operand6;
 <<< 3.7
 operand1 > operand2 &&
     operand3 == operand4 &&
     operand5 + operand6;
+<<< 3.8
+operand1 > operand2
+    && operand3 == operand4
+    && operand5 + operand6;
 >>> Mix `||` with other binary operators.
 operand1 > operand2 || operand3 == operand4 || operand5 + operand6;
 <<< 3.7
 operand1 > operand2 ||
     operand3 == operand4 ||
     operand5 + operand6;
+<<< 3.8
+operand1 > operand2
+    || operand3 == operand4
+    || operand5 + operand6;
+>>> Parenthesized `&&` fits on one line.
+(operand1 && operand2);
+<<< 3.7
+(operand1 && operand2);
+>>> Parenthesized `&&` splits (no block style since parens are extra).
+(operand1 && operand2 && operand3 && operand4);
+<<< 3.7
+(operand1 &&
+    operand2 &&
+    operand3 &&
+    operand4);
+<<< 3.8
+(operand1
+    && operand2
+    && operand3
+    && operand4);
+>>> Parenthesized `||` splits (no block style since parens are extra).
+(operand1 || operand2 || operand3 || operand4);
+<<< 3.7
+(operand1 ||
+    operand2 ||
+    operand3 ||
+    operand4);
+<<< 3.8
+(operand1
+    || operand2
+    || operand3
+    || operand4);
+>>> Extra parens in return statement are not block-formatted.
+foo() { return (search == other.search && isActive == other.isActive && third == other.third); }
+<<< 3.7
+foo() {
+    return (search == other.search &&
+        isActive == other.isActive &&
+        third == other.third);
+}
+<<< 3.8
+foo() {
+    return (search == other.search
+        && isActive == other.isActive
+        && third == other.third);
+}
+>>> Parenthesized logical nested inside a prefix operator.
+!(operand1 || operand2 || operand3 || operand4);
+<<< 3.7
+!(operand1 ||
+    operand2 ||
+    operand3 ||
+    operand4);
+<<< 3.8
+!(operand1
+    || operand2
+    || operand3
+    || operand4);

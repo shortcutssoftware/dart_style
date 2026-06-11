@@ -23,8 +23,8 @@ var map = {?key: ?value};
 var list = [?(veryLongExpression +thatIsForcedToSplit)];
 <<< 3.8
 var list = [
-  ?(veryLongExpression +
-      thatIsForcedToSplit),
+    ?(veryLongExpression +
+        thatIsForcedToSplit),
 ];
 >>> Preserves space for dot shorthand.
 ### If the space between `?` and `.` is removed, it would become a single `?.`
@@ -36,9 +36,9 @@ var list = [
 ];
 <<< 3.10
 var list = [
-  ?.property,
-  ?.invocation(),
-  ?.new(),
+    ?.property,
+    ?.invocation(),
+    ?.new(),
 ];
 >>> Ambiguous dot shorthand versus null-aware.
 ### Because there is no space in "?.", it must be a null-aware access in a map.

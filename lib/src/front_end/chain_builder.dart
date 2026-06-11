@@ -197,9 +197,11 @@ final class ChainBuilder {
         //       return doStuffTo(element);
         //     }).toList();
         var lastCallIndex = _calls.length - 1;
-        if (!_calls[lastCallIndex].canSplit &&
-            _calls.length > 1 &&
-            _calls[lastCallIndex - 1].type == CallType.blockFormatCall) {
+        if (
+            !_calls[lastCallIndex].canSplit
+            && _calls.length > 1
+            && _calls[lastCallIndex - 1].type == CallType.blockFormatCall
+        ) {
             lastCallIndex = _calls.length - 2;
         }
 

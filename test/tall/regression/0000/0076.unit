@@ -4,24 +4,47 @@ class TokenType {
 }
 <<< 3.7
 class TokenType {
-  bool get isUserDefinableOperator =>
-      identical(lexeme, "==") ||
-      identical(lexeme, "~") ||
-      identical(lexeme, "[]") ||
-      identical(lexeme, "[]=") ||
-      identical(lexeme, "*") ||
-      identical(lexeme, "/") ||
-      identical(lexeme, "%") ||
-      identical(lexeme, "~/") ||
-      identical(lexeme, "+") ||
-      identical(lexeme, "-") ||
-      identical(lexeme, "<<") ||
-      identical(lexeme, ">>") ||
-      identical(lexeme, ">=") ||
-      identical(lexeme, ">") ||
-      identical(lexeme, "<=") ||
-      identical(lexeme, "<") ||
-      identical(lexeme, "&") ||
-      identical(lexeme, "^") ||
-      identical(lexeme, "|");
+    bool get isUserDefinableOperator =>
+        identical(lexeme, "==") ||
+        identical(lexeme, "~") ||
+        identical(lexeme, "[]") ||
+        identical(lexeme, "[]=") ||
+        identical(lexeme, "*") ||
+        identical(lexeme, "/") ||
+        identical(lexeme, "%") ||
+        identical(lexeme, "~/") ||
+        identical(lexeme, "+") ||
+        identical(lexeme, "-") ||
+        identical(lexeme, "<<") ||
+        identical(lexeme, ">>") ||
+        identical(lexeme, ">=") ||
+        identical(lexeme, ">") ||
+        identical(lexeme, "<=") ||
+        identical(lexeme, "<") ||
+        identical(lexeme, "&") ||
+        identical(lexeme, "^") ||
+        identical(lexeme, "|");
+}
+<<< 3.8
+class TokenType {
+    bool get isUserDefinableOperator =>
+        identical(lexeme, "==")
+        || identical(lexeme, "~")
+        || identical(lexeme, "[]")
+        || identical(lexeme, "[]=")
+        || identical(lexeme, "*")
+        || identical(lexeme, "/")
+        || identical(lexeme, "%")
+        || identical(lexeme, "~/")
+        || identical(lexeme, "+")
+        || identical(lexeme, "-")
+        || identical(lexeme, "<<")
+        || identical(lexeme, ">>")
+        || identical(lexeme, ">=")
+        || identical(lexeme, ">")
+        || identical(lexeme, "<=")
+        || identical(lexeme, "<")
+        || identical(lexeme, "&")
+        || identical(lexeme, "^")
+        || identical(lexeme, "|");
 }

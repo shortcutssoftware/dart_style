@@ -2,7 +2,4 @@
         localsHandler.directLocals[localsHandler
             .getTypeVariableAsLocal(typeVariable)] = param;
 <<< 3.7
-        localsHandler.directLocals[localsHandler.getTypeVariableAsLocal(
-              typeVariable,
-            )] =
-            param;
+        localsHandler.directLocals[localsHandler.getTypeVariableAsLocal(typeVariable)] = param;

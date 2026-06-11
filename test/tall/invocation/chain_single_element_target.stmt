@@ -4,7 +4,7 @@
 function(veryLongArgument).veryLongMethod();
 <<< 3.7
 function(
-  veryLongArgument,
+    veryLongArgument,
 ).veryLongMethod();
 <<< 3.13
 function(veryLongArgument)
@@ -13,14 +13,14 @@ function(veryLongArgument)
 function(argument, second).veryLongMethod();
 <<< 3.7
 function(
-  argument,
-  second,
+    argument,
+    second,
 ).veryLongMethod();
 >>> Instance creation with one argument splits the chain.
 new Thing(veryLongArgument).veryLongMethod();
 <<< 3.7
 new Thing(
-  veryLongArgument,
+    veryLongArgument,
 ).veryLongMethod();
 <<< 3.13
 new Thing(veryLongArgument)
@@ -29,8 +29,8 @@ new Thing(veryLongArgument)
 new Thing(argument, second).veryLongMethod();
 <<< 3.7
 new Thing(
-  argument,
-  second,
+    argument,
+    second,
 ).veryLongMethod();
 >>> Function expression call with one argument splits the chain.
 (function)(veryLongArgument).veryLongMethod();
@@ -39,7 +39,7 @@ new Thing(
     .veryLongMethod();
 <<< 3.8
 (function)(
-  veryLongArgument,
+    veryLongArgument,
 ).veryLongMethod();
 <<< 3.13
 (function)(veryLongArgument)
@@ -51,14 +51,14 @@ new Thing(
     .veryLongMethod();
 <<< 3.8
 (function)(
-  argument,
-  second,
+    argument,
+    second,
 ).veryLongMethod();
 >>> List literal with one element splits the chain.
 <TypeArgument>[veryLongArgument].veryLongMethod();
 <<< 3.7
 <TypeArgument>[
-  veryLongArgument,
+    veryLongArgument,
 ].veryLongMethod();
 <<< 3.13
 <TypeArgument>[veryLongArgument]
@@ -67,14 +67,14 @@ new Thing(
 <TypeArgument>[argument, second].veryLongMethod();
 <<< 3.7
 <TypeArgument>[
-  argument,
-  second,
+    argument,
+    second,
 ].veryLongMethod();
 >>> Map literal with one entry splits the chain.
 <int, String>{longKey: veryLongValue}.veryLongMethod();
 <<< 3.7
 <int, String>{
-  longKey: veryLongValue,
+    longKey: veryLongValue,
 }.veryLongMethod();
 <<< 3.13
 <int, String>{longKey: veryLongValue}
@@ -83,14 +83,14 @@ new Thing(
 <int, String>{key: value, another: another}.veryLongMethod();
 <<< 3.7
 <int, String>{
-  key: value,
-  another: another,
+    key: value,
+    another: another,
 }.veryLongMethod();
 >>> Set literal with one element splits the chain.
 <TypeArgument>{veryLongArgument}.veryLongMethod();
 <<< 3.7
 <TypeArgument>{
-  veryLongArgument,
+    veryLongArgument,
 }.veryLongMethod();
 <<< 3.13
 <TypeArgument>{veryLongArgument}
@@ -99,14 +99,14 @@ new Thing(
 <TypeArgument>{argument, second}.veryLongMethod();
 <<< 3.7
 <TypeArgument>{
-  argument,
-  second,
+    argument,
+    second,
 }.veryLongMethod();
 >>> Record literal with one field splits the chain.
 (longField: veryLongArgument).veryLongMethod();
 <<< 3.7
 (
-  longField: veryLongArgument,
+    longField: veryLongArgument,
 ).veryLongMethod();
 <<< 3.13
 (longField: veryLongArgument)
@@ -115,14 +115,14 @@ new Thing(
 (field: argument, second).veryLongMethod();
 <<< 3.7
 (
-  field: argument,
-  second,
+    field: argument,
+    second,
 ).veryLongMethod();
 >>> Wrapping the target in parentheses still applies the single-argument rule.
 (((function(veryLongArgument)))).veryLongMethod();
 <<< 3.7
 (((function(
-  veryLongArgument,
+    veryLongArgument,
 )))).veryLongMethod();
 <<< 3.13
 (((function(veryLongArgument))))
@@ -131,7 +131,7 @@ new Thing(
 (await function(veryLongArgument)).veryLongMethod();
 <<< 3.7
 (await function(
-  veryLongArgument,
+    veryLongArgument,
 )).veryLongMethod();
 <<< 3.13
 (await function(veryLongArgument))
@@ -140,7 +140,7 @@ new Thing(
 function(veryLongArgument)!.veryLongMethod();
 <<< 3.7
 function(
-  veryLongArgument,
+    veryLongArgument,
 )!.veryLongMethod();
 <<< 3.13
 function(veryLongArgument)!
@@ -149,17 +149,17 @@ function(veryLongArgument)!
 function(veryLongArgument)..veryLongMethod();
 <<< 3.7
 function(veryLongArgument)
-  ..veryLongMethod();
+    ..veryLongMethod();
 >>> Function call with two arguments splits the target.
 function(argument, second)..veryLongMethod();
 <<< 3.7
 function(argument, second)
-  ..veryLongMethod();
+    ..veryLongMethod();
 >>> The single-argument rule applies when the chain is all properties.
 function(veryLongArgument).veryLongProperty;
 <<< 3.7
 function(
-  veryLongArgument,
+    veryLongArgument,
 ).veryLongProperty;
 <<< 3.13
 function(veryLongArgument)
@@ -168,14 +168,14 @@ function(veryLongArgument)
 function(argument, second).veryLongProperty;
 <<< 3.7
 function(
-  argument,
-  second,
+    argument,
+    second,
 ).veryLongProperty;
 >>> Apply the single-argument rule to call chains with unsplit properties.
 function(veryLongArgument).prop.erty.someCall();
 <<< 3.7
 function(
-  veryLongArgument,
+    veryLongArgument,
 ).prop.erty.someCall();
 <<< 3.13
 function(veryLongArgument).prop.erty
@@ -184,6 +184,6 @@ function(veryLongArgument).prop.erty
 function(argument, second).prop.erty.someCall();
 <<< 3.7
 function(
-  argument,
-  second,
+    argument,
+    second,
 ).prop.erty.someCall();

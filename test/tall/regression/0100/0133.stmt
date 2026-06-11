@@ -5,7 +5,7 @@ testCase._error(
     '${testCase.result}.$reason');
 <<< 3.7
 testCase._error(
-  'Callback ${id}called ($actualCalls) after test case '
-  '${testCase.description} has already been marked as '
-  '${testCase.result}.$reason',
+    'Callback ${id}called ($actualCalls) after test case '
+    '${testCase.description} has already been marked as '
+    '${testCase.result}.$reason',
 );

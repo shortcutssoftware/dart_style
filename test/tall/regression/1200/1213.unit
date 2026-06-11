@@ -13,7 +13,7 @@ main() {
 }
 <<< 3.7
 main() {
-  final a = (element, element).getter;
+    final a = (element, element).getter;
 
-  final b = [element, element].getter;
+    final b = [element, element].getter;
 }

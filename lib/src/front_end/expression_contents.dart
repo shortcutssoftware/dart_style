@@ -91,9 +91,9 @@ class ExpressionContents {
         // common code like this to split:
         //
         //       Text('Item 1', style: TextStyle(color: Colors.white));
-        return contents.totalNamedArguments > 2 &&
-            contents.namedArguments > 0 &&
-            contents.nestedNamedArguments > 0;
+        return contents.totalNamedArguments > 2
+            && contents.namedArguments > 0
+            && contents.nestedNamedArguments > 0;
     }
 
     /// Begin tracking a collection literal and its contents.
@@ -132,9 +132,9 @@ class ExpressionContents {
         // in parallel with each on its own line. But that's only true when there
         // are multiple elements, so we don't eagerly split collections with just a
         // single element.
-        return elements.length > 1 &&
-            contents.type == _Type.namedCollection &&
-            contents.totalNamedArguments > 0;
+        return elements.length > 1
+            && contents.type == _Type.namedCollection
+            && contents.totalNamedArguments > 0;
     }
 
     /// Ends the most recently begun operation and returns its contents.

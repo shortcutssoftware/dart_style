@@ -2,7 +2,4 @@
     var camelSuperClass =
         superClass.split('-').map((e) => _toCamelCase(e)).join('');
 <<< 3.7
-    var camelSuperClass = superClass
-        .split('-')
-        .map((e) => _toCamelCase(e))
-        .join('');
+    var camelSuperClass = superClass.split('-').map((e) => _toCamelCase(e)).join('');

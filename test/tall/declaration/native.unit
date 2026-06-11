@@ -6,8 +6,8 @@ class Foo {
 }
 <<< 3.7
 class Foo {
-  Foo() native;
-  int bar() native;
+    Foo() native;
+    int bar() native;
 }
 >>> With strings.
 class Foo {
@@ -16,8 +16,8 @@ class Foo {
 }
 <<< 3.7
 class Foo {
-  Foo() native "Foo";
-  int bar() native "bar";
+    Foo() native "Foo";
+    int bar() native "bar";
 }
 >>> class
 class Foo    native   "Foo"  {  }

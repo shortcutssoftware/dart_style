@@ -12,14 +12,14 @@ enum A {
 }
 <<< 3.7
 enum A {
-  // comment
-  B,
+    // comment
+    B,
 
-  // comment
-  C;
+    // comment
+    C;
 
-  // comment
-  f() {}
+    // comment
+    f() {}
 }
 >>> Block comments.
 enum A {
@@ -34,14 +34,14 @@ enum A {
 }
 <<< 3.7
 enum A {
-  /* comment */
-  B,
+    /* comment */
+    B,
 
-  /* comment */
-  C;
+    /* comment */
+    C;
 
-  /* comment */
-  f() {}
+    /* comment */
+    f() {}
 }
 >>> Remove blank lines before beginning of body.
 enum A {
@@ -54,10 +54,10 @@ enum A {
 }
 <<< 3.7
 enum A {
-  // comment
-  B;
+    // comment
+    B;
 
-  f() {}
+    f() {}
 }
 >>> Remove blank lines after end of body.
 enum A {
@@ -70,10 +70,10 @@ enum A {
 }
 <<< 3.7
 enum A {
-  B;
+    B;
 
-  f() {}
-  // comment
+    f() {}
+    // comment
 }
 >>> Ensure blank line above doc comments.
 enum Foo {/// doc
@@ -84,98 +84,98 @@ var x = 1;
 void y() {}}
 <<< 3.7
 enum Foo {
-  /// doc
-  a,
+    /// doc
+    a,
 
-  /// doc
-  b;
+    /// doc
+    b;
 
-  /// doc
-  var x = 1;
+    /// doc
+    var x = 1;
 
-  /// doc
-  void y() {}
+    /// doc
+    void y() {}
 }
 >>> Block comment before removed trailing comma.
 enum E { a /* before */,;f() {} }
 <<< 3.7
 enum E {
-  a /* before */;
+    a /* before */;
 
-  f() {}
+    f() {}
 }
 >>> Block comment after removed comma.
 enum E { a, /* after */;f() {} }
 <<< 3.7
 enum E {
-  a /* after */;
+    a /* after */;
 
-  f() {}
+    f() {}
 }
 >>> Block comments before and after removed comma.
 enum E { a /* before */, /* after */;f() {} }
 <<< 3.7
 enum E {
-  a /* before */ /* after */;
+    a /* before */ /* after */;
 
-  f() {}
+    f() {}
 }
 >>> Block comment before semicolon.
 enum E { longEnumValue, anotherValue /* before */;f() {} }
 <<< 3.7
 enum E {
-  longEnumValue,
-  anotherValue /* before */;
+    longEnumValue,
+    anotherValue /* before */;
 
-  f() {}
+    f() {}
 }
 >>> Block comment after semicolon.
 enum E { longEnumValue, anotherValue; /* after */ f() {}}
 <<< 3.7
 enum E {
-  longEnumValue,
-  anotherValue; /* after */
+    longEnumValue,
+    anotherValue; /* after */
 
-  f() {}
+    f() {}
 }
 >>> Block comment before and after semicolon.
 enum E { longEnumValue, anotherValue /* before */ ; /* after */ f() {}}
 <<< 3.7
 enum E {
-  longEnumValue,
-  anotherValue /* before */; /* after */
+    longEnumValue,
+    anotherValue /* before */; /* after */
 
-  f() {}
+    f() {}
 }
 >>> Line comment before trailing comma.
 enum E { a // before
 ,;f() {}}
 <<< 3.7
 enum E {
-  a // before
-  ;
+    a // before
+    ;
 
-  f() {}
+    f() {}
 }
 >>> Line comment after trailing comma.
 enum E { a, // after
 ;f() {}}
 <<< 3.7
 enum E {
-  a // after
-  ;
+    a // after
+    ;
 
-  f() {}
+    f() {}
 }
 >>> Line comment before semicolon.
 enum E { a // before
 ;f() {}}
 <<< 3.7
 enum E {
-  a // before
-  ;
+    a // before
+    ;
 
-  f() {}
+    f() {}
 }
 >>> Line comment after semicolon.
 enum E { a; // after
@@ -183,60 +183,60 @@ f() {}
 }
 <<< 3.7
 enum E {
-  a; // after
+    a; // after
 
-  f() {}
+    f() {}
 }
 >>> Block comment before trailing comma and semicolon.
 enum E { a /* before */,;f() {} }
 <<< 3.7
 enum E {
-  a /* before */;
+    a /* before */;
 
-  f() {}
+    f() {}
 }
 >>> Block comment after trailing comma and semicolon.
 enum E { a,; /* after */f() {} }
 <<< 3.7
 enum E {
-  a; /* after */
+    a; /* after */
 
-  f() {}
+    f() {}
 }
 >>> Block comments before and after trailing comma and semicolon.
 enum E { a /* before */,; /* after */f() {} }
 <<< 3.7
 enum E {
-  a /* before */; /* after */
+    a /* before */; /* after */
 
-  f() {}
+    f() {}
 }
 >>> Line comment before trailing comma and semicolon.
 enum E { a // before
 ,;f() {}}
 <<< 3.7
 enum E {
-  a // before
-  ;
+    a // before
+    ;
 
-  f() {}
+    f() {}
 }
 >>> Line comment after trailing comma and semicolon.
 enum E { a; // after
 f() {}}
 <<< 3.7
 enum E {
-  a; // after
+    a; // after
 
-  f() {}
+    f() {}
 }
 >>> Block comments around trailing comma and semicolon.
 enum E { a /* 1 */,/* 2 */;/* 3 */f() {} }
 <<< 3.7
 enum E {
-  a /* 1 */ /* 2 */; /* 3 */
+    a /* 1 */ /* 2 */; /* 3 */
 
-  f() {}
+    f() {}
 }
 >>> Line comments around trailing comma and semicolon.
 ### This is pathological, but removed tokens are a place where it's easy to
@@ -248,11 +248,11 @@ f() {}
 }
 <<< 3.7
 enum E {
-  a // 1
-  // 2
-  ; // 3
+    a // 1
+    // 2
+    ; // 3
 
-  f() {}
+    f() {}
 }
 >>> Multiple line comments around trailing comma and semicolon.
 enum E { a // 1-1
@@ -268,23 +268,23 @@ f() {}
 }
 <<< 3.7
 enum E {
-  a // 1-1
-  // 1-2
-  // 1-3
-  // 2-1
-  // 2-2
-  // 2-3
-  ; // 3-1
+    a // 1-1
+    // 1-2
+    // 1-3
+    // 2-1
+    // 2-2
+    // 2-3
+    ; // 3-1
 
-  // 3-2
-  // 3-3
-  f() {}
+    // 3-2
+    // 3-3
+    f() {}
 }
 >>> Multiple block comments around trailing comma and semicolon.
 enum E {a/* 1 *//* 2 */,/* 3 *//* 4 */;/* 5 *//* 6 */f(){}}
 <<< 3.7
 enum E {
-  a /* 1 */ /* 2 */ /* 3 */ /* 4 */; /* 5 */ /* 6 */
+    a /* 1 */ /* 2 */ /* 3 */ /* 4 */; /* 5 */ /* 6 */
 
-  f() {}
+    f() {}
 }

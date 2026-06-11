@@ -9,23 +9,23 @@
 {a;b;c;}
 <<< 3.7
 {
-  a;
-  b;
-  c;
+    a;
+    b;
+    c;
 }
 >>> Nested blocks increase indentation.
 {a;{b;{c;}d;}e;}
 <<< 3.7
 {
-  a;
-  {
-    b;
+    a;
     {
-      c;
+        b;
+        {
+            c;
+        }
+        d;
     }
-    d;
-  }
-  e;
+    e;
 }
 >>> Allow a blank line between statements.
 {
@@ -40,12 +40,12 @@
 }
 <<< 3.7
 {
-  a;
-  b;
+    a;
+    b;
 
-  c;
+    c;
 
-  d;
+    d;
 }
 >>> Remove blank lines at beginning and end.
 {
@@ -57,14 +57,14 @@
 }
 <<< 3.7
 {
-  a;
+    a;
 }
 >>> Labelled statement.
 {label:statement;}
 <<< 3.7
 {
-  label:
-  statement;
+    label:
+    statement;
 }
 >>> Multiple labels.
 a: b:c:d:

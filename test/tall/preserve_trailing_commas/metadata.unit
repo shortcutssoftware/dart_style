@@ -5,7 +5,7 @@
 class A {}
 <<< 3.7
 @meta(
-  1,
+    1,
 )
 class A {}
 >>> Doesn't force split without trailing comma.
@@ -19,9 +19,9 @@ class A {}
 class A {}
 <<< 3.7
 @meta(
-  argument1,
-  argument2,
-  argument3,
-  argument4,
+    argument1,
+    argument2,
+    argument3,
+    argument4,
 )
 class A {}

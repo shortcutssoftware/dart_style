@@ -13,7 +13,7 @@ class C {}
 class C {}
 <<< 3.7
 @DomName(
-  'DatabaseCallback',
+    'DatabaseCallback',
 ) // deprecated
 @Experimental()
 class C {}
@@ -57,41 +57,41 @@ class C {
 }
 <<< 3.7
 class C {
-  @meta
-  // c
-  var a;
+    @meta
+    // c
+    var a;
 
-  @meta
-  // c
-  int b;
+    @meta
+    // c
+    int b;
 
-  @meta
-  // c
-  final int c;
+    @meta
+    // c
+    final int c;
 
-  @meta
-  // c
-  late var d;
+    @meta
+    // c
+    late var d;
 
-  @meta
-  // c
-  late int e;
+    @meta
+    // c
+    late int e;
 
-  @meta
-  // c
-  late final int f;
+    @meta
+    // c
+    late final int f;
 
-  @meta
-  // c
-  static var g;
+    @meta
+    // c
+    static var g;
 
-  @meta
-  // c
-  static int h;
+    @meta
+    // c
+    static int h;
 
-  @meta
-  // c
-  static final int y;
+    @meta
+    // c
+    static final int y;
 }
 >>> Comment between metadata and method doesn't force return type to split.
 class C {
@@ -105,11 +105,11 @@ class C {
 }
 <<< 3.7
 class C {
-  @meta
-  // c
-  int a() {}
+    @meta
+    // c
+    int a() {}
 
-  @meta
-  // c
-  static int b() {}
+    @meta
+    // c
+    static int b() {}
 }

@@ -9,7 +9,7 @@ do {
 } while (aLongConditionExpressionThatWraps);
 <<< 3.7
 do {
-  ;
+    ;
 } while (aLongConditionExpressionThatWraps);
 >>> Split inside condition.
 do {
@@ -17,7 +17,7 @@ do {
 } while (aLongCondition + expressionThatWraps);
 <<< 3.7
 do {
-  ;
+    ;
 } while (aLongCondition +
     expressionThatWraps);
 >>> Unbraced body.

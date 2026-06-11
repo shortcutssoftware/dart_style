@@ -8,8 +8,8 @@ class C {
 }
 <<< 3.13
 class C {
-  new(int x);
-  new named() {}
+    new(int x);
+    new named() {}
 }
 >>> External.
 class C {
@@ -18,8 +18,8 @@ class C {
 }
 <<< 3.13
 class C {
-  external new(int x);
-  external new named();
+    external new(int x);
+    external new named();
 }
 >>> Const generative.
 class C {
@@ -28,8 +28,8 @@ class C {
 }
 <<< 3.13
 class C {
-  const new(int x);
-  const new named() {}
+    const new(int x);
+    const new named() {}
 }
 >>> Redirecting.
 class C {
@@ -38,8 +38,8 @@ class C {
 }
 <<< 3.13
 class C {
-  new(int x) : this.named();
-  new named() : this(1);
+    new(int x) : this.named();
+    new named() : this(1);
 }
 >>> Const redirecting.
 class C {
@@ -48,8 +48,8 @@ class C {
 }
 <<< 3.13
 class C {
-  const new(int x) : this.named();
-  const new named() : this(1);
+    const new(int x) : this.named();
+    const new named() : this(1);
 }
 >>> In enum.
 enum C {
@@ -59,11 +59,11 @@ enum C {
 }
 <<< 3.13
 enum C {
-  a.named(),
-  b(1);
+    a.named(),
+    b(1);
 
-  const new(int x);
-  const new named() {}
+    const new(int x);
+    const new named() {}
 }
 >>> In extension type.
 extension type C._(int x) {
@@ -72,6 +72,6 @@ extension type C._(int x) {
 }
 <<< 3.13
 extension type C._(int x) {
-  new(int x) : this._(x);
-  const new named() {}
+    new(int x) : this._(x);
+    const new named() {}
 }

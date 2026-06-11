@@ -23,6 +23,10 @@ longOperand/* a */||longOperand/* b */||longOperand;
 longOperand /* a */ ||
     longOperand /* b */ ||
     longOperand;
+<<< 3.8
+longOperand /* a */
+    || longOperand /* b */
+    || longOperand;
 >>> Line comments after operators.
 1+// a
 2-// b
@@ -63,6 +67,11 @@ foo &&
 foo &&
     // comment
     bar;
+<<< 3.8
+foo
+    &&
+    // comment
+    bar;
 >>> Line comment before binary operator expression statement.
 {
       // comment
@@ -70,8 +79,8 @@ foo &&
 }
 <<< 3.7
 {
-  // comment
-  1 + 2;
+    // comment
+    1 + 2;
 }
 >>> Multiple line comments in expression.
 a + // one
@@ -105,6 +114,12 @@ firstOperand &&
     // Comment.
     longTarget.someLongProperty &&
     lastOperand;
+<<< 3.8
+firstOperand
+    &&
+    // Comment.
+    longTarget.someLongProperty
+    && lastOperand;
 >>> Comment before split call chain operand.
 firstOperand &&
     // Comment.
@@ -117,3 +132,11 @@ firstOperand &&
         .someLongProperty
         .anotherProperty &&
     lastOperand;
+<<< 3.8
+firstOperand
+    &&
+    // Comment.
+    longTarget
+        .someLongProperty
+        .anotherProperty
+    && lastOperand;

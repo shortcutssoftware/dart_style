@@ -4,9 +4,9 @@ dartSdkPath, mockSdkSources: shouldBlaBlab ? someBlaBlablab :
 null, someargn: args['blalbala'], fooBazzzz: fooBazzzz);
 <<< 3.7
 var results = blablablabla(
-  uri,
-  sdkDir: shouldMockSdk ? null : dartSdkPath,
-  mockSdkSources: shouldBlaBlab ? someBlaBlablab : null,
-  someargn: args['blalbala'],
-  fooBazzzz: fooBazzzz,
+    uri,
+    sdkDir: shouldMockSdk ? null : dartSdkPath,
+    mockSdkSources: shouldBlaBlab ? someBlaBlablab : null,
+    someargn: args['blalbala'],
+    fooBazzzz: fooBazzzz,
 );

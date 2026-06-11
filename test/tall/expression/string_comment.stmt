@@ -14,16 +14,16 @@ string
 }}
 <<< 3.7
 {
-  {
-    before +
-        // comment 1
-        // comment 2
-        // comment 3
-        """multi
+    {
+        before +
+            // comment 1
+            // comment 2
+            // comment 3
+            """multi
 line
 string
 """;
-  }
+    }
 }
 >>> Line comment after indented multi-line string.
 {{
@@ -37,16 +37,16 @@ string
 }}
 <<< 3.7
 {
-  {
-    """multi
+    {
+        """multi
 line
 string
 """ // comment 1
-        // comment 2
-        // comment 3
-        +
-        after;
-  }
+            // comment 2
+            // comment 3
+            +
+            after;
+    }
 }
 >>> Line comment after indented multi-line string.
 {{
@@ -60,13 +60,13 @@ after;
 }}
 <<< 3.7
 {
-  {
-    """multi
+    {
+        """multi
 line
 string
 """ + // comment 1
-        // comment 2
-        // comment 3
-        after;
-  }
+            // comment 2
+            // comment 3
+            after;
+    }
 }

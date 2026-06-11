@@ -65,15 +65,15 @@ someFunction(// c
 someExtremelyLongArgumentName).clamp();
 <<< 3.7
 someFunction(
-  // c
-  someExtremelyLongArgumentName,
+    // c
+    someExtremelyLongArgumentName,
 ).clamp();
 >>> Line comment in method chain argument list.
 target.method(// c
 );
 <<< 3.7
 target.method(
-  // c
+    // c
 );
 >>>
 target.first(// c1
@@ -83,13 +83,13 @@ target.first(// c1
 <<< 3.7
 target
     .first(
-      // c1
+        // c1
     )
     .second(
-      // c2
+        // c2
     )
     .third(
-      // c3
+        // c3
     );
 >>> Line comment before setter.
 target // c

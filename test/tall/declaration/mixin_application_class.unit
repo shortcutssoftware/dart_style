@@ -37,8 +37,8 @@ class C = Object with Mixin<VeryLongType, AnotherLongType>;
 class C = Object
     with
         Mixin<
-          VeryLongType,
-          AnotherLongType
+            VeryLongType,
+            AnotherLongType
         >;
 >>> Split within `with` but not `implements`.
 class C = Object with Mixin, Another, Third, Fourth, Fifth implements Interface;

@@ -7,7 +7,4 @@
     subscription = _userRepository
         .getUser()
         .takeUntil(closesStream)
-        .listen(
-          (user) => setState(DataState.loaded(user)),
-          onError: (e) => setState(DataError(e)),
-        );
+        .listen((user) => setState(DataState.loaded(user)), onError: (e) => setState(DataError(e)));

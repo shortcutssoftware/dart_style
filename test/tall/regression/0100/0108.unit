@@ -35,50 +35,47 @@ class ResolutionCopier {
 }
 <<< 3.7
 class ResolutionCopier {
-  @override
-  bool visitClassDeclaration(ClassDeclaration node) {
-    ClassDeclaration toNode = this._toNode as ClassDeclaration;
-    return javaBooleanAnd(
-      javaBooleanAnd(
-        javaBooleanAnd(
-          javaBooleanAnd(
+    @override
+    bool visitClassDeclaration(ClassDeclaration node) {
+        ClassDeclaration toNode = this._toNode as ClassDeclaration;
+        return javaBooleanAnd(
             javaBooleanAnd(
-              javaBooleanAnd(
                 javaBooleanAnd(
-                  javaBooleanAnd(
                     javaBooleanAnd(
-                      javaBooleanAnd(
                         javaBooleanAnd(
-                          _isEqualNodes(
-                            node.documentationComment,
-                            toNode.documentationComment,
-                          ),
-                          _isEqualNodeLists(node.metadata, toNode.metadata),
+                            javaBooleanAnd(
+                                javaBooleanAnd(
+                                    javaBooleanAnd(
+                                        javaBooleanAnd(
+                                            javaBooleanAnd(
+                                                javaBooleanAnd(
+                                                    _isEqualNodes(
+                                                        node.documentationComment,
+                                                        toNode.documentationComment,
+                                                    ),
+                                                    _isEqualNodeLists(node.metadata, toNode.metadata),
+                                                ),
+                                                _isEqualTokens(node.abstractKeyword, toNode.abstractKeyword),
+                                            ),
+                                            _isEqualTokens(node.classKeyword, toNode.classKeyword),
+                                        ),
+                                        _isEqualNodes(node.name, toNode.name),
+                                    ),
+                                    _isEqualNodes(node.typeParameters, toNode.typeParameters),
+                                ),
+                                _isEqualNodes(node.extendsClause, toNode.extendsClause),
+                            ),
+                            _isEqualNodes(node.withClause, toNode.withClause),
                         ),
-                        _isEqualTokens(
-                          node.abstractKeyword,
-                          toNode.abstractKeyword,
-                        ),
-                      ),
-                      _isEqualTokens(node.classKeyword, toNode.classKeyword),
+                        _isEqualNodes(node.implementsClause, toNode.implementsClause),
                     ),
-                    _isEqualNodes(node.name, toNode.name),
-                  ),
-                  _isEqualNodes(node.typeParameters, toNode.typeParameters),
+                    _isEqualTokens(node.leftBracket, toNode.leftBracket),
                 ),
-                _isEqualNodes(node.extendsClause, toNode.extendsClause),
-              ),
-              _isEqualNodes(node.withClause, toNode.withClause),
+                _isEqualNodeLists(node.members, toNode.members),
             ),
-            _isEqualNodes(node.implementsClause, toNode.implementsClause),
-          ),
-          _isEqualTokens(node.leftBracket, toNode.leftBracket),
-        ),
-        _isEqualNodeLists(node.members, toNode.members),
-      ),
-      _isEqualTokens(node.rightBracket, toNode.rightBracket),
-    );
-  }
+            _isEqualTokens(node.rightBracket, toNode.rightBracket),
+        );
+    }
 }
 >>> pathologically deep
 class ResolutionCopier {
@@ -138,117 +135,113 @@ class ResolutionCopier {
 }
 <<< 3.7
 class ResolutionCopier {
-  @override
-  bool visitClassDeclaration(ClassDeclaration node) {
-    ClassDeclaration toNode = this._toNode as ClassDeclaration;
-    return javaBooleanAnd(
-      javaBooleanAnd(
-        javaBooleanAnd(
-          javaBooleanAnd(
+    @override
+    bool visitClassDeclaration(ClassDeclaration node) {
+        ClassDeclaration toNode = this._toNode as ClassDeclaration;
+        return javaBooleanAnd(
             javaBooleanAnd(
-              javaBooleanAnd(
                 javaBooleanAnd(
-                  javaBooleanAnd(
                     javaBooleanAnd(
-                      javaBooleanAnd(
                         javaBooleanAnd(
-                          _isEqualNodes(
-                            node.documentationComment,
-                            toNode.documentationComment,
-                          ),
-                          _isEqualNodeLists(
-                            node.metadata,
-                            _isEqualNodeLists(
-                              node.metadata,
-                              _isEqualNodeLists(
-                                node.metadata,
-                                _isEqualNodeLists(
-                                  node.metadata,
-                                  _isEqualNodeLists(
-                                    node.metadata,
-                                    _isEqualNodeLists(
-                                      node.metadata,
-                                      _isEqualNodeLists(
-                                        node.metadata,
-                                        _isEqualNodeLists(
-                                          node.metadata,
-                                          _isEqualNodeLists(
-                                            node.metadata,
-                                            _isEqualNodeLists(
-                                              node.metadata,
-                                              _isEqualNodeLists(
-                                                node.metadata,
-                                                _isEqualNodeLists(
-                                                  node.metadata,
-                                                  _isEqualNodeLists(
-                                                    node.metadata,
+                            javaBooleanAnd(
+                                javaBooleanAnd(
+                                    javaBooleanAnd(
+                                        javaBooleanAnd(
+                                            javaBooleanAnd(
+                                                javaBooleanAnd(
+                                                    _isEqualNodes(
+                                                        node.documentationComment,
+                                                        toNode.documentationComment,
+                                                    ),
                                                     _isEqualNodeLists(
-                                                      node.metadata,
-                                                      _isEqualNodeLists(
                                                         node.metadata,
                                                         _isEqualNodeLists(
-                                                          node.metadata,
-                                                          _isEqualNodeLists(
                                                             node.metadata,
                                                             _isEqualNodeLists(
-                                                              node.metadata,
-                                                              _isEqualNodeLists(
                                                                 node.metadata,
                                                                 _isEqualNodeLists(
-                                                                  node.metadata,
-                                                                  _isEqualNodeLists(
                                                                     node.metadata,
                                                                     _isEqualNodeLists(
-                                                                      node.metadata,
-                                                                      toNode
-                                                                          .metadata,
+                                                                        node.metadata,
+                                                                        _isEqualNodeLists(
+                                                                            node.metadata,
+                                                                            _isEqualNodeLists(
+                                                                                node.metadata,
+                                                                                _isEqualNodeLists(
+                                                                                    node.metadata,
+                                                                                    _isEqualNodeLists(
+                                                                                        node.metadata,
+                                                                                        _isEqualNodeLists(
+                                                                                            node.metadata,
+                                                                                            _isEqualNodeLists(
+                                                                                                node.metadata,
+                                                                                                _isEqualNodeLists(
+                                                                                                    node.metadata,
+                                                                                                    _isEqualNodeLists(
+                                                                                                        node.metadata,
+                                                                                                        _isEqualNodeLists(
+                                                                                                            node.metadata,
+                                                                                                            _isEqualNodeLists(
+                                                                                                                node.metadata,
+                                                                                                                _isEqualNodeLists(
+                                                                                                                    node.metadata,
+                                                                                                                    _isEqualNodeLists(
+                                                                                                                        node.metadata,
+                                                                                                                        _isEqualNodeLists(
+                                                                                                                            node.metadata,
+                                                                                                                            _isEqualNodeLists(
+                                                                                                                                node.metadata,
+                                                                                                                                _isEqualNodeLists(
+                                                                                                                                    node.metadata,
+                                                                                                                                    _isEqualNodeLists(
+                                                                                                                                        node.metadata,
+                                                                                                                                        _isEqualNodeLists(
+                                                                                                                                            node.metadata,
+                                                                                                                                            toNode.metadata,
+                                                                                                                                        ),
+                                                                                                                                    ),
+                                                                                                                                ),
+                                                                                                                            ),
+                                                                                                                        ),
+                                                                                                                    ),
+                                                                                                                ),
+                                                                                                            ),
+                                                                                                        ),
+                                                                                                    ),
+                                                                                                ),
+                                                                                            ),
+                                                                                        ),
+                                                                                    ),
+                                                                                ),
+                                                                            ),
+                                                                        ),
                                                                     ),
-                                                                  ),
                                                                 ),
-                                                              ),
                                                             ),
-                                                          ),
                                                         ),
-                                                      ),
                                                     ),
-                                                  ),
                                                 ),
-                                              ),
+                                                _isEqualTokens(node.abstractKeyword, toNode.abstractKeyword),
                                             ),
-                                          ),
+                                            _isEqualTokens(node.classKeyword, toNode.classKeyword),
                                         ),
-                                      ),
+                                        _isEqualNodes(node.name, toNode.name),
                                     ),
-                                  ),
+                                    _isEqualNodes(node.typeParameters, toNode.typeParameters),
                                 ),
-                              ),
+                                _isEqualNodes(node.extendsClause, toNode.extendsClause),
                             ),
-                          ),
+                            _isEqualNodes(node.withClause, toNode.withClause),
                         ),
-                        _isEqualTokens(
-                          node.abstractKeyword,
-                          toNode.abstractKeyword,
-                        ),
-                      ),
-                      _isEqualTokens(node.classKeyword, toNode.classKeyword),
+                        _isEqualNodes(node.implementsClause, toNode.implementsClause),
                     ),
-                    _isEqualNodes(node.name, toNode.name),
-                  ),
-                  _isEqualNodes(node.typeParameters, toNode.typeParameters),
+                    _isEqualTokens(node.leftBracket, toNode.leftBracket),
                 ),
-                _isEqualNodes(node.extendsClause, toNode.extendsClause),
-              ),
-              _isEqualNodes(node.withClause, toNode.withClause),
+                _isEqualNodeLists(node.members, toNode.members),
             ),
-            _isEqualNodes(node.implementsClause, toNode.implementsClause),
-          ),
-          _isEqualTokens(node.leftBracket, toNode.leftBracket),
-        ),
-        _isEqualNodeLists(node.members, toNode.members),
-      ),
-      _isEqualTokens(node.rightBracket, toNode.rightBracket),
-    );
-  }
+            _isEqualTokens(node.rightBracket, toNode.rightBracket),
+        );
+    }
 }
 >>>
 class ElementBinder {
@@ -264,26 +257,20 @@ class ElementBinder {
 }
 <<< 3.7
 class ElementBinder {
-  DirectiveInjector bind(
-    View view,
-    Scope scope,
-    DirectiveInjector parentInjector,
-    dom.Node node,
-  ) {
-    if (bindAssignableProps.isNotEmpty) {
-      _bindAssignablePropsOn.forEach(
-        (String eventName) => node.addEventListener(
-          eventName,
-          (_) => zone.run(
-            () => bindAssignableProps.forEach(
-              (propAndExp) =>
-                  propAndExp[1].assign(scope.context, jsNode[propAndExp[0]]),
-            ),
-          ),
-        ),
-      );
+    DirectiveInjector bind(View view, Scope scope, DirectiveInjector parentInjector, dom.Node node) {
+        if (bindAssignableProps.isNotEmpty) {
+            _bindAssignablePropsOn.forEach(
+                (String eventName) => node.addEventListener(
+                    eventName,
+                    (_) => zone.run(
+                        () => bindAssignableProps.forEach(
+                            (propAndExp) => propAndExp[1].assign(scope.context, jsNode[propAndExp[0]]),
+                        ),
+                    ),
+                ),
+            );
+        }
     }
-  }
 }
 >>>
 async.Future<List<dom.StyleElement>> call(String tag, List<String> cssUrls, {Type type}) =>
@@ -292,30 +279,24 @@ async.Future<List<dom.StyleElement>> call(String tag, List<String> cssUrls, {Typ
 DDC$RT.type((Iterable<Future<dynamic>> _) {}), key: "Cast failed: package:angular/core_dom/component_css_loader.dart:17:25"))),
 DDC$RT.type((Future<List<StyleElement>> _) {}), key: "Cast failed: package:angular/core_dom/component_css_loader.dart:17:7"));
 <<< 3.7
-async.Future<List<dom.StyleElement>> call(
-  String tag,
-  List<String> cssUrls, {
-  Type type,
-}) => (DDC$RT.cast(
-  async.Future.wait(
-    (DDC$RT.cast(
-      cssUrls.map(
-        (url) => _styleElement(
-          tag,
-          (DDC$RT.cast(
-            url,
-            String,
-            key:
-                "Cast failed: package:angular/core_dom/component_css_loader.dart:17:65",
-          )),
-          type,
-        ),
-      ),
-      DDC$RT.type((Iterable<Future<dynamic>> _) {}),
-      key:
-          "Cast failed: package:angular/core_dom/component_css_loader.dart:17:25",
-    )),
-  ),
-  DDC$RT.type((Future<List<StyleElement>> _) {}),
-  key: "Cast failed: package:angular/core_dom/component_css_loader.dart:17:7",
+async.Future<List<dom.StyleElement>> call(String tag, List<String> cssUrls, {Type type}) => (DDC$RT.cast(
+    async.Future.wait(
+        (DDC$RT.cast(
+            cssUrls.map(
+                (url) => _styleElement(
+                    tag,
+                    (DDC$RT.cast(
+                        url,
+                        String,
+                        key: "Cast failed: package:angular/core_dom/component_css_loader.dart:17:65",
+                    )),
+                    type,
+                ),
+            ),
+            DDC$RT.type((Iterable<Future<dynamic>> _) {}),
+            key: "Cast failed: package:angular/core_dom/component_css_loader.dart:17:25",
+        )),
+    ),
+    DDC$RT.type((Future<List<StyleElement>> _) {}),
+    key: "Cast failed: package:angular/core_dom/component_css_loader.dart:17:7",
 ));

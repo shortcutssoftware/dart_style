@@ -391,9 +391,9 @@ final class CodeWriter {
                 // 3.7. The only place where the distinction between this code and the
                 // logic in the else clause comes into play is with CaseExpressionPiece.
                 invalid =
-                    child.shape != Shape.inline &&
-                    allowedShapes.length == 1 &&
-                    allowedShapes.contains(Shape.inline);
+                    child.shape != Shape.inline
+                    && allowedShapes.length == 1
+                    && allowedShapes.contains(Shape.inline);
             } else {
                 invalid = !allowedShapes.contains(child.shape);
             }

@@ -8,7 +8,7 @@ var record = (  // comment
 );
 <<< 3.7
 var record = (
-  // comment
+    // comment
 );
 >>> Single-element record block comment, after comma.
 var record = ( element , /* comment */  );
@@ -22,27 +22,27 @@ var record = (element /* comment */,);
 var record = ( element /* very long adhered to element */ , );
 <<< 3.7
 var record = (
-  element /* very long adhered to element */,
+    element /* very long adhered to element */,
 );
 >>> Long single-element record block comment, after comma.
 var record = ( element, /* very long adhered to element */ );
 <<< 3.7
 var record = (
-  element /* very long adhered to element */,
+    element /* very long adhered to element */,
 );
 >>> Single-element record line comment, before comma.
 var record = ( element , // comment
 );
 <<< 3.7
 var record = (
-  element, // comment
+    element, // comment
 );
 >>> Single-element record line comment, after comma.
 var record = ( element // comment
 ,);
 <<< 3.7
 var record = (
-  element, // comment
+    element, // comment
 );
 >>> Multi-element record block comment, before comma.
 var record = ( 1 /* comment */ , 2  );
@@ -57,16 +57,16 @@ var record = ( 1 // comment
 , 2  );
 <<< 3.7
 var record = (
-  1, // comment
-  2,
+    1, // comment
+    2,
 );
 >>> Multi-element record line comment, after comma.
 var record = ( 1, // comment
 2  );
 <<< 3.7
 var record = (
-  1, // comment
-  2,
+    1, // comment
+    2,
 );
 >>> Ignore line comment after the ")".
 (
@@ -96,10 +96,10 @@ var record = (
 );
 <<< 3.7
 (
-  element,
+    element,
 
-  // comment
-  element,
+    // comment
+    element,
 
-  element,
+    element,
 );

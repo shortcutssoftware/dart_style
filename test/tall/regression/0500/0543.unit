@@ -10,11 +10,11 @@
       }
 <<< 3.7
       main() {
-        HInstruction result = new HInvokeDynamicMethod(
-          selector,
-          input.instructionType, // receiver mask.
-          <HInstruction>[input, input], // [interceptor, receiver].
-          toStringType,
-        )..sourceInformation = node.sourceInformation;
-        return result;
+          HInstruction result = new HInvokeDynamicMethod(
+              selector,
+              input.instructionType, // receiver mask.
+              <HInstruction>[input, input], // [interceptor, receiver].
+              toStringType,
+          )..sourceInformation = node.sourceInformation;
+          return result;
       }

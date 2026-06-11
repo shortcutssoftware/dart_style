@@ -99,7 +99,7 @@ void b() => body;
 
 /// Doc function.
 void c() {
-  ;
+    ;
 }
 >>> Preserve one blank line between a leading comment and declaration.
 // comment
@@ -164,6 +164,6 @@ main(){;}
 // comment
 <<< 3.7
 main() {
-  ;
+    ;
 }
 // comment

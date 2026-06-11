@@ -9,18 +9,18 @@ void d() {;}
 }
 <<< 3.7
 class Foo {
-  var a = 1;
+    var a = 1;
 
-  /// Doc A.
-  var b = 2;
+    /// Doc A.
+    var b = 2;
 
-  /// Doc c.
-  void c() => body;
+    /// Doc c.
+    void c() => body;
 
-  /// Doc d.
-  void d() {
-    ;
-  }
+    /// Doc d.
+    void d() {
+        ;
+    }
 }
 >>> Comment after `external`.
 class C {
@@ -30,9 +30,9 @@ class C {
 }
 <<< 3.7
 class C {
-  external /* c */ int x;
-  external /* c */ int f();
-  external /* c */ int get g;
+    external /* c */ int x;
+    external /* c */ int f();
+    external /* c */ int get g;
 }
 >>> Comment after `covariant` on function typed parameter.
 class C {
@@ -40,9 +40,10 @@ class C {
 }
 <<< 3.7
 class C {
-  method(
-    covariant /* c */ int Function() f,
-  ) {}
+    method(
+        covariant /* c */ int Function()
+        f,
+    ) {}
 }
 >>> Comment after `static` on method.
 class C {
@@ -50,5 +51,5 @@ class C {
 }
 <<< 3.7
 class C {
-  static /* c */ int method() {}
+    static /* c */ int method() {}
 }

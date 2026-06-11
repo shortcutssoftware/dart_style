@@ -172,9 +172,9 @@ final class ListPiece extends Piece {
             // This happens when the list is split and there is something before and
             // after the item, either brackets or other items.
             var separate =
-                state == State.split &&
-                (i > 0 || _before != null) &&
-                (i < _elements.length - 1 || _after != null);
+                state == State.split
+                && (i > 0 || _before != null)
+                && (i < _elements.length - 1 || _after != null);
             writer.format(element, separate: separate);
 
             if (state == State.unsplit && element.indentWhenBlockFormatted) {

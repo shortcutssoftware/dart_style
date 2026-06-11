@@ -4,21 +4,21 @@
 for (x = 1;true;x += 1, x += 2,) {stmt;}
 <<< 3.7
 for (
-  x = 1;
-  true;
-  x += 1,
-  x += 2,
+    x = 1;
+    true;
+    x += 1,
+    x += 2,
 ) {
-  stmt;
+    stmt;
 }
 >>> Don't add trailing comma if updaters split.
 for (x = 1;true;variable += longValue, another += value) {stmt;}
 <<< 3.7
 for (
-  x = 1;
-  true;
-  variable += longValue,
-  another += value
+    x = 1;
+    true;
+    variable += longValue,
+    another += value
 ) {
-  stmt;
+    stmt;
 }

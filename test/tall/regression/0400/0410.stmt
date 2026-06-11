@@ -9,15 +9,15 @@ test(
     }));
 <<< 3.7
 test(
-  'some test that has a very long description so the params need two lines',
-  async(() {
-    expect(
-      request.enabledApExperiments.contains(
-        ApExperimentName.SOME_VERY_LONG_ENUMS_THAT_LEADS_TO_MANY_PROBLEMS,
-      ),
-      isFalse,
-    );
-  }),
+    'some test that has a very long description so the params need two lines',
+    async(() {
+        expect(
+            request.enabledApExperiments.contains(
+                ApExperimentName.SOME_VERY_LONG_ENUMS_THAT_LEADS_TO_MANY_PROBLEMS,
+            ),
+            isFalse,
+        );
+    }),
 );
 >>> (indent 2)
 test(
@@ -30,15 +30,15 @@ test(
 }));
 <<< 3.7
   test(
-    'some test that has a very long description so the params need two lines',
-    async(() {
-      expect(
-        request.enabledApExperiments.contains(
-          ApExperimentName.SOME_VERY_LONG_ENUMS_THAT_LEADS_TO_MANY_PROBLEMS,
-        ),
-        isFalse,
-      );
-    }),
+      'some test that has a very long description so the params need two lines',
+      async(() {
+          expect(
+              request.enabledApExperiments.contains(
+                  ApExperimentName.SOME_VERY_LONG_ENUMS_THAT_LEADS_TO_MANY_PROBLEMS,
+              ),
+              isFalse,
+          );
+      }),
   );
 >>> (indent 4)
 test(
@@ -51,13 +51,13 @@ test(
     }));
 <<< 3.7
     test(
-      'some test that has a very long description so the params need two lines',
-      async(() {
-        expect(
-          request.enabledApExperiments.contains(
-            ApExperimentName.SOME_VERY_LONG_ENUMS_THAT_LEADS_TO_MANY_PROBLEMS,
-          ),
-          isFalse,
-        );
-      }),
+        'some test that has a very long description so the params need two lines',
+        async(() {
+            expect(
+                request.enabledApExperiments.contains(
+                    ApExperimentName.SOME_VERY_LONG_ENUMS_THAT_LEADS_TO_MANY_PROBLEMS,
+                ),
+                isFalse,
+            );
+        }),
     );

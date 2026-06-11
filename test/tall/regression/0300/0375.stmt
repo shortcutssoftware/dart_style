@@ -3,8 +3,4 @@
          inputIndex < inputs.length;
          statementIndex++) {}
 <<< 3.7
-    for (
-      int inputIndex = 1, statementIndex = 0;
-      inputIndex < inputs.length;
-      statementIndex++
-    ) {}
+    for (int inputIndex = 1, statementIndex = 0; inputIndex < inputs.length; statementIndex++) {}

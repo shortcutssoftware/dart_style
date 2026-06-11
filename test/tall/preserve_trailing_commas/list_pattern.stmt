@@ -4,7 +4,7 @@
 var [x,] = list;
 <<< 3.7
 var [
-  x,
+    x,
 ] = list;
 >>> Doesn't force split without trailing comma.
 var [x,y,z] = list;
@@ -14,8 +14,8 @@ var [x, y, z] = list;
 var [element1, element2, element3, element4] = list;
 <<< 3.7
 var [
-  element1,
-  element2,
-  element3,
-  element4,
+    element1,
+    element2,
+    element3,
+    element4,
 ] = list;

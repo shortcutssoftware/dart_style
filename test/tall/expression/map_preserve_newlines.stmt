@@ -8,9 +8,9 @@ var map = {
 };
 <<< 3.7
 var map = {
-  // yeah
-  a: 1, b: 2, c: 3, d: 4,
-  e: 5, f: 6, g: 7, h: 8,
+    // yeah
+    a: 1, b: 2, c: 3, d: 4,
+    e: 5, f: 6, g: 7, h: 8,
 };
 >>> Don't preserve newlines if line comment is inside an element.
 var map = {
@@ -20,11 +20,11 @@ var map = {
 };
 <<< 3.7
 var map = {
-  a: 1,
-  b: 2,
-  c: 3,
-  d: // c
-      4,
+    a: 1,
+    b: 2,
+    c: 3,
+    d: // c
+        4,
 };
 >>> Wrap between elements when newlines are preserved if they don't fit.
 var map = {
@@ -37,17 +37,17 @@ var map = {
 };
 <<< 3.7
 var map = {
-  element1: 1,
-  element2: 2,
-  element3: 3,
-  element4: 4,
-  element5: 5,
+    element1: 1,
+    element2: 2,
+    element3: 3,
+    element4: 4,
+    element5: 5,
 
-  element6: 6, element7: 7,
+    element6: 6, element7: 7,
 
-  // comment
-  element8: 8,
-  element9: 9,
-  element10: 10,
-  element11: 11,
+    // comment
+    element8: 8,
+    element9: 9,
+    element10: 10,
+    element11: 11,
 };

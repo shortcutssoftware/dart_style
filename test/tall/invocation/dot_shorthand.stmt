@@ -11,10 +11,10 @@ variable = .method(1, x: 2, 3, y: 4);
 variable = .method(one, x: two, three, y: four);
 <<< 3.10
 variable = .method(
-  one,
-  x: two,
-  three,
-  y: four,
+    one,
+    x: two,
+    three,
+    y: four,
 );
 >>> Generic method call.
 variable =  .  method  <  int  ,  String  >  (  )  ;
@@ -56,21 +56,21 @@ context(.shorthand(argument, anotherArgument, thirdArgument)
 .chain().another().third().fourthOne());
 <<< 3.10
 context(
-  .shorthand(
-        argument,
-        anotherArgument,
-        thirdArgument,
-      )
-      .chain()
-      .another()
-      .third()
-      .fourthOne(),
+    .shorthand(
+            argument,
+            anotherArgument,
+            thirdArgument,
+        )
+        .chain()
+        .another()
+        .third()
+        .fourthOne(),
 );
 >>> Nested call.
 .method(.getter,.method(.new(.new())),const.ctor());
 <<< 3.10
 .method(
-  .getter,
-  .method(.new(.new())),
-  const .ctor(),
+    .getter,
+    .method(.new(.new())),
+    const .ctor(),
 );

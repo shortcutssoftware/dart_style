@@ -7,10 +7,10 @@ Function(@a @b int c, int d) func;
 Function(@annotation int param1, int param2, @annotation int param3, int param4) func;
 <<< 3.7
 Function(
-  @annotation int param1,
-  int param2,
-  @annotation int param3,
-  int param4,
+    @annotation int param1,
+    int param2,
+    @annotation int param3,
+    int param4,
 )
 func;
 >>> On unsplit record type field.
@@ -21,8 +21,8 @@ func;
 (@anno @tation int, @annotation String s, {@annotation double d}) record;
 <<< 3.7
 (
-  @anno @tation int,
-  @annotation String s, {
-  @annotation double d,
+    @anno @tation int,
+    @annotation String s, {
+    @annotation double d,
 })
 record;

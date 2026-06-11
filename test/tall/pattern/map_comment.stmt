@@ -5,18 +5,18 @@ if (obj case {
 }) {;}
 <<< 3.7
 if (obj case {
-  // c
+    // c
 }) {
-  ;
+    ;
 }
 >>> Line comment on opening line of map.
 if (obj case {// c
 }) {;}
 <<< 3.7
 if (obj case {
-  // c
+    // c
 }) {
-  ;
+    ;
 }
 >>> Indented block comment in map.
 if (obj case {
@@ -24,23 +24,23 @@ if (obj case {
 }){;}
 <<< 3.7
 if (obj case {
-  /* comment */
+    /* comment */
 }) {
-  ;
+    ;
 }
 >>> Inline block comment in map.
 if (obj case {  /* comment */  k: v  }){;}
 <<< 3.7
 if (obj case {/* comment */ k: v}) {
-  ;
+    ;
 }
 >>> Line comment between map items.
 if (obj case {k: 'a', // comment
   m: 'b'}){;}
 <<< 3.7
 if (obj case {
-  k: 'a', // comment
-  m: 'b',
+    k: 'a', // comment
+    m: 'b',
 }) {
-  ;
+    ;
 }

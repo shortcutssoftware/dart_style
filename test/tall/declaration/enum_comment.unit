@@ -11,13 +11,13 @@ enum A {
 }
 <<< 3.7
 enum A {
-  // comment
-  B,
+    // comment
+    B,
 
-  // comment
-  C,
+    // comment
+    C,
 
-  // comment
+    // comment
 }
 >>> Block comments.
 enum A {
@@ -31,13 +31,13 @@ enum A {
 }
 <<< 3.7
 enum A {
-  /* comment */
-  B,
+    /* comment */
+    B,
 
-  /* comment */
-  C,
+    /* comment */
+    C,
 
-  /* comment */
+    /* comment */
 }
 >>> Remove blank lines before beginning of body.
 enum A {
@@ -49,8 +49,8 @@ enum A {
 }
 <<< 3.7
 enum A {
-  // comment
-  B,
+    // comment
+    B,
 }
 >>> Remove blank lines after end of body.
 enum A {
@@ -62,9 +62,9 @@ enum A {
 }
 <<< 3.7
 enum A {
-  B,
+    B,
 
-  // comment
+    // comment
 }
 >>> Ensure blank line above doc comments.
 enum Foo {/// doc
@@ -74,14 +74,14 @@ c
 }
 <<< 3.7
 enum Foo {
-  /// doc
-  a,
+    /// doc
+    a,
 
-  /// doc
-  b,
+    /// doc
+    b,
 
-  /// doc
-  c,
+    /// doc
+    c,
 }
 >>> Block comment before removed trailing comma.
 enum E { a /* before */, }
@@ -99,43 +99,43 @@ enum E { a /* before */ /* after */ }
 enum E { longEnumValue, anotherValue /* before */, }
 <<< 3.7
 enum E {
-  longEnumValue,
-  anotherValue /* before */,
+    longEnumValue,
+    anotherValue /* before */,
 }
 >>> Block comment after preserved trailing comma.
 enum E { longEnumValue, anotherValue, /* after */ }
 <<< 3.7
 enum E {
-  longEnumValue,
-  anotherValue /* after */,
+    longEnumValue,
+    anotherValue /* after */,
 }
 >>> Block comment before and after preserved trailing comma.
 enum E { longEnumValue, anotherValue /* before */ , /* after */ }
 <<< 3.7
 enum E {
-  longEnumValue,
-  anotherValue /* before */ /* after */,
+    longEnumValue,
+    anotherValue /* before */ /* after */,
 }
 >>> Block comment at inserted comma.
 enum E { longEnumValue, anotherValue /* at */ }
 <<< 3.7
 enum E {
-  longEnumValue,
-  anotherValue /* at */,
+    longEnumValue,
+    anotherValue /* at */,
 }
 >>> Line comment before trailing comma.
 enum E { a // before
 ,}
 <<< 3.7
 enum E {
-  a, // before
+    a, // before
 }
 >>> Line comment after trailing comma.
 enum E { a, // after
 }
 <<< 3.7
 enum E {
-  a, // after
+    a, // after
 }
 >>> Block comment before removed trailing semicolon.
 enum E { a /* before */; }
@@ -154,14 +154,14 @@ enum E { a // before
 ;}
 <<< 3.7
 enum E {
-  a, // before
+    a, // before
 }
 >>> Line comment after trailing semicolon.
 enum E { a; // after
 }
 <<< 3.7
 enum E {
-  a, // after
+    a, // after
 }
 >>> Block comment before removed trailing comma and semicolon.
 enum E { a /* before */,; }
@@ -180,14 +180,14 @@ enum E { a // before
 ,;}
 <<< 3.7
 enum E {
-  a, // before
+    a, // before
 }
 >>> Line comment after trailing comma and semicolon.
 enum E { a; // after
 }
 <<< 3.7
 enum E {
-  a, // after
+    a, // after
 }
 >>> Block comments around removed trailing comma and semicolon.
 enum E { a /* 1 */,/* 2 */;/* 3 */ }
@@ -202,7 +202,7 @@ enum E { a // 1
 }
 <<< 3.7
 enum E {
-  a, // 1
-  // 2
-  // 3
+    a, // 1
+    // 2
+    // 3
 }

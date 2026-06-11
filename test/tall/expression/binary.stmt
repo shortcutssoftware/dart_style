@@ -92,6 +92,13 @@ b___________________ ||
             a______________ >
                 a______________ +
                     a______________;
+<<< 3.8
+b___________________
+    || a______________
+        && a______________ ==
+            a______________ >
+                a______________ +
+                    a______________;
 >>> Mixed descending precedence.
 b___________________ + a_______________ > a______________ == a______________ &&
 a______________ || a______________;
@@ -102,6 +109,13 @@ b___________________ +
             a______________ &&
         a______________ ||
     a______________;
+<<< 3.8
+b___________________ +
+                    a_______________ >
+                a______________ ==
+            a______________
+        && a______________
+    || a______________;
 >>> Mixture of same and different precedence.
 veryLongIdentifier + veryLongIdentifier / veryLongIdentifier *
 veryLongIdentifier - veryLongIdentifier * veryLongIdentifier +
@@ -155,26 +169,26 @@ function() =>
 function(name: longOperand2 + longOperand2 + longOperand3);
 <<< 3.7
 function(
-  name:
-      longOperand2 +
-      longOperand2 +
-      longOperand3,
+    name:
+        longOperand2 +
+        longOperand2 +
+        longOperand3,
 );
 >>> Don't indent subsequent operands when split inside a map key.
 map = {key: longOperand2 + longOperand2 + longOperand3};
 <<< 3.7
 map = {
-  key:
-      longOperand2 +
-      longOperand2 +
-      longOperand3,
+    key:
+        longOperand2 +
+        longOperand2 +
+        longOperand3,
 };
 >>> Don't indent subsequent operands when split inside a named record field.
 record = (key: longOperand2 + longOperand2 + longOperand3);
 <<< 3.7
 record = (
-  key:
-      longOperand2 +
-      longOperand2 +
-      longOperand3,
+    key:
+        longOperand2 +
+        longOperand2 +
+        longOperand3,
 );

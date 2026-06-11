@@ -71,9 +71,9 @@ operand ‹›+ another;
 }
 <<< 3.7
 {
-  first();
-  sec‹ond();
-  third();
-  fou›rth();
-  fifth();
+    first();
+    sec‹ond();
+    third();
+    fou›rth();
+    fifth();
 }

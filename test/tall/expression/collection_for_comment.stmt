@@ -5,9 +5,9 @@ for // comment
 (a; b; c) e];
 <<< 3.7
 var list = [
-  for // comment
-  (a; b; c)
-    e,
+    for // comment
+    (a; b; c)
+        e,
 ];
 >>> Line comment before initializer
 var list = [
@@ -15,13 +15,13 @@ var list = [
 a; b; c) e];
 <<< 3.7
 var list = [
-  for (
-    // comment
-    a;
-    b;
-    c
-  )
-    e,
+    for (
+        // comment
+        a;
+        b;
+        c
+    )
+        e,
 ];
 >>> Line comment after initializer.
 var list = [
@@ -29,13 +29,13 @@ for (a // comment
 ; b; c) e];
 <<< 3.7
 var list = [
-  for (
-    a // comment
-    ;
-    b;
-    c
-  )
-    e,
+    for (
+        a // comment
+        ;
+        b;
+        c
+    )
+        e,
 ];
 >>> Line comment before condition.
 var list = [
@@ -43,12 +43,12 @@ for (a; // comment
 b; c) e];
 <<< 3.7
 var list = [
-  for (
-    a; // comment
-    b;
-    c
-  )
-    e,
+    for (
+        a; // comment
+        b;
+        c
+    )
+        e,
 ];
 >>> Line comment before condition.
 var list = [
@@ -57,13 +57,13 @@ for (a;
 b; c) e];
 <<< 3.7
 var list = [
-  for (
-    a;
-    // comment
-    b;
-    c
-  )
-    e,
+    for (
+        a;
+        // comment
+        b;
+        c
+    )
+        e,
 ];
 >>> Line comment after condition.
 var list = [
@@ -71,13 +71,13 @@ for (a; b// comment
 ; c) e];
 <<< 3.7
 var list = [
-  for (
-    a;
-    b // comment
-    ;
-    c
-  )
-    e,
+    for (
+        a;
+        b // comment
+        ;
+        c
+    )
+        e,
 ];
 >>> Line comment before increment.
 var list = [
@@ -85,12 +85,12 @@ for (a; b; // comment
 c) e];
 <<< 3.7
 var list = [
-  for (
-    a;
-    b; // comment
-    c
-  )
-    e,
+    for (
+        a;
+        b; // comment
+        c
+    )
+        e,
 ];
 >>>
 var list = [
@@ -99,13 +99,13 @@ for (a; b;
 c) e];
 <<< 3.7
 var list = [
-  for (
-    a;
-    b;
-    // comment
-    c
-  )
-    e,
+    for (
+        a;
+        b;
+        // comment
+        c
+    )
+        e,
 ];
 >>> Line comment after increment.
 var list = [
@@ -113,12 +113,12 @@ for (a; b; c // comment
 ) e];
 <<< 3.7
 var list = [
-  for (
-    a;
-    b;
-    c // comment
-  )
-    e,
+    for (
+        a;
+        b;
+        c // comment
+    )
+        e,
 ];
 >>>
 var list = [
@@ -127,13 +127,13 @@ for (a; b; c
 ) e];
 <<< 3.7
 var list = [
-  for (
-    a;
-    b;
-    c
-    // comment
-  )
-    e,
+    for (
+        a;
+        b;
+        c
+        // comment
+    )
+        e,
 ];
 >>> Line comment after `)`.
 var list = [
@@ -141,8 +141,8 @@ var list = [
 e];
 <<< 3.7
 var list = [
-  for (a; b; c) // comment
-    e,
+    for (a; b; c) // comment
+        e,
 ];
 >>> Line comment after non-spread body.
 var list = [
@@ -150,7 +150,7 @@ var list = [
 ];
 <<< 3.7
 var list = [
-  for (;;) e, // comment
+    for (;;) e, // comment
 ];
 >>> Line comment after spread body.
 var list = [
@@ -158,5 +158,5 @@ var list = [
 ];
 <<< 3.7
 var list = [
-  for (;;) ...[e], // comment
+    for (;;) ...[e], // comment
 ];

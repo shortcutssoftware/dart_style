@@ -119,136 +119,8 @@ var result =
                 longOperand *
                 longOperand *
                 longOperand +
-            longOperand *
-                longOperand *
-                longOperand *
-                longOperand *
-                longOperand &&
-    longOperand * longOperand * longOperand * longOperand * longOperand +
-            longOperand *
-                longOperand *
-                longOperand *
-                longOperand *
-                longOperand +
-            longOperand *
-                longOperand *
-                longOperand *
-                longOperand *
-                longOperand +
-            longOperand *
-                longOperand *
-                longOperand *
-                longOperand *
-                longOperand +
-            longOperand *
-                longOperand *
-                longOperand *
-                longOperand *
-                longOperand +
-            longOperand *
-                longOperand *
-                longOperand *
-                longOperand *
-                longOperand +
-            longOperand *
-                longOperand *
-                longOperand *
-                longOperand *
-                longOperand |
-        longOperand * longOperand * longOperand * longOperand * longOperand +
-            longOperand *
-                longOperand *
-                longOperand *
-                longOperand *
-                longOperand +
-            longOperand *
-                longOperand *
-                longOperand *
-                longOperand *
-                longOperand +
-            longOperand *
-                longOperand *
-                longOperand *
-                longOperand *
-                longOperand +
-            longOperand *
-                longOperand *
-                longOperand *
-                longOperand *
-                longOperand +
-            longOperand *
-                longOperand *
-                longOperand *
-                longOperand *
-                longOperand +
-            longOperand *
-                longOperand *
-                longOperand *
-                longOperand *
-                longOperand |
-        longOperand * longOperand * longOperand * longOperand * longOperand +
-            longOperand *
-                longOperand *
-                longOperand *
-                longOperand *
-                longOperand +
-            longOperand *
-                longOperand *
-                longOperand *
-                longOperand *
-                longOperand +
-            longOperand *
-                longOperand *
-                longOperand *
-                longOperand *
-                longOperand +
-            longOperand *
-                longOperand *
-                longOperand *
-                longOperand *
-                longOperand +
-            longOperand *
-                longOperand *
-                longOperand *
-                longOperand *
-                longOperand +
-            longOperand *
-                longOperand *
-                longOperand *
-                longOperand *
-                longOperand |
-        longOperand * longOperand * longOperand * longOperand * longOperand +
-            longOperand *
-                longOperand *
-                longOperand *
-                longOperand *
-                longOperand +
-            longOperand *
-                longOperand *
-                longOperand *
-                longOperand *
-                longOperand +
-            longOperand *
-                longOperand *
-                longOperand *
-                longOperand *
-                longOperand +
-            longOperand *
-                longOperand *
-                longOperand *
-                longOperand *
-                longOperand +
-            longOperand *
-                longOperand *
-                longOperand *
-                longOperand *
-                longOperand +
-            longOperand *
-                longOperand *
-                longOperand *
-                longOperand *
-                longOperand &&
-    longOperand * longOperand * longOperand * longOperand * longOperand +
+            longOperand * longOperand * longOperand * longOperand * longOperand
+    && longOperand * longOperand * longOperand * longOperand * longOperand +
             longOperand *
                 longOperand *
                 longOperand *
@@ -367,12 +239,128 @@ var result =
                 longOperand *
                 longOperand *
                 longOperand +
+            longOperand * longOperand * longOperand * longOperand * longOperand
+    && longOperand * longOperand * longOperand * longOperand * longOperand +
             longOperand *
                 longOperand *
                 longOperand *
                 longOperand *
-                longOperand &&
-    longOperand * longOperand * longOperand * longOperand * longOperand +
+                longOperand +
+            longOperand *
+                longOperand *
+                longOperand *
+                longOperand *
+                longOperand +
+            longOperand *
+                longOperand *
+                longOperand *
+                longOperand *
+                longOperand +
+            longOperand *
+                longOperand *
+                longOperand *
+                longOperand *
+                longOperand +
+            longOperand *
+                longOperand *
+                longOperand *
+                longOperand *
+                longOperand +
+            longOperand *
+                longOperand *
+                longOperand *
+                longOperand *
+                longOperand |
+        longOperand * longOperand * longOperand * longOperand * longOperand +
+            longOperand *
+                longOperand *
+                longOperand *
+                longOperand *
+                longOperand +
+            longOperand *
+                longOperand *
+                longOperand *
+                longOperand *
+                longOperand +
+            longOperand *
+                longOperand *
+                longOperand *
+                longOperand *
+                longOperand +
+            longOperand *
+                longOperand *
+                longOperand *
+                longOperand *
+                longOperand +
+            longOperand *
+                longOperand *
+                longOperand *
+                longOperand *
+                longOperand +
+            longOperand *
+                longOperand *
+                longOperand *
+                longOperand *
+                longOperand |
+        longOperand * longOperand * longOperand * longOperand * longOperand +
+            longOperand *
+                longOperand *
+                longOperand *
+                longOperand *
+                longOperand +
+            longOperand *
+                longOperand *
+                longOperand *
+                longOperand *
+                longOperand +
+            longOperand *
+                longOperand *
+                longOperand *
+                longOperand *
+                longOperand +
+            longOperand *
+                longOperand *
+                longOperand *
+                longOperand *
+                longOperand +
+            longOperand *
+                longOperand *
+                longOperand *
+                longOperand *
+                longOperand +
+            longOperand *
+                longOperand *
+                longOperand *
+                longOperand *
+                longOperand |
+        longOperand * longOperand * longOperand * longOperand * longOperand +
+            longOperand *
+                longOperand *
+                longOperand *
+                longOperand *
+                longOperand +
+            longOperand *
+                longOperand *
+                longOperand *
+                longOperand *
+                longOperand +
+            longOperand *
+                longOperand *
+                longOperand *
+                longOperand *
+                longOperand +
+            longOperand *
+                longOperand *
+                longOperand *
+                longOperand *
+                longOperand +
+            longOperand *
+                longOperand *
+                longOperand *
+                longOperand *
+                longOperand +
+            longOperand * longOperand * longOperand * longOperand * longOperand
+    && longOperand * longOperand * longOperand * longOperand * longOperand +
             longOperand *
                 longOperand *
                 longOperand *

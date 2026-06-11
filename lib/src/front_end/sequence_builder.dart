@@ -42,10 +42,12 @@ final class SequenceBuilder {
     Piece build({bool forceSplit = false}) {
         // If the sequence only contains a single piece, just return it directly
         // and discard the unnecessary wrapping.
-        if (_leftBracket == null &&
-            _elements.length == 1 &&
-            _elements.single.hangingComments.isEmpty &&
-            _rightBracket == null) {
+        if (
+            _leftBracket == null
+            && _elements.length == 1
+            && _elements.single.hangingComments.isEmpty
+            && _rightBracket == null
+        ) {
             return _elements.single.piece;
         }
 

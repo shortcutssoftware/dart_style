@@ -102,9 +102,11 @@ final class AstNodeVisitor extends ThrowingAstVisitor<void> with PieceFactory {
                 var needsBlank = false;
                 if (style.separateDirectiveSections) {
                     var section = _DirectiveSection.parse(directive);
-                    if (section != _DirectiveSection.none &&
-                        precedingSection != _DirectiveSection.none &&
-                        section != precedingSection) {
+                    if (
+                        section != _DirectiveSection.none
+                        && precedingSection != _DirectiveSection.none
+                        && section != precedingSection
+                    ) {
                         needsBlank = true;
                     }
 
@@ -231,10 +233,25 @@ final class AstNodeVisitor extends ThrowingAstVisitor<void> with PieceFactory {
         // and later, indentation merging accomplishes the same thing.)
         var indent = !style.is3Dot7 || _parentContext != NodeContext.assignment;
 
+        // In 3.8+ style, when a logical expression is the direct content of a
+        // block-parenthesized piece, suppress the infix indent so that
+        // continuation lines align with the first operand at the block indent
+        // level and don't get double-indented.
+        if (!style.is3Dot7 && _parentContext == NodeContext.blockParenthesizedContent) {
+            indent = false;
+        }
+
+        // In 3.8+ style, logical operators (`&&`, `||`) use leading-operator
+        // style so the operator appears at the start of the continuation line.
+        var opType = node.operator.type;
+        var leadingOperator =
+            !style.is3Dot7 && (opType == TokenType.AMPERSAND_AMPERSAND || opType == TokenType.BAR_BAR);
+
         writeInfixChain<BinaryExpression>(
             node,
             precedence: node.operator.type.precedence,
             indent: indent,
+            leadingOperator: leadingOperator,
             (expression) => (expression.leftOperand, expression.operator, expression.rightOperand),
         );
     }
@@ -392,9 +409,11 @@ final class AstNodeVisitor extends ThrowingAstVisitor<void> with PieceFactory {
 
         // If conditional expressions are directly nested, force them all to split,
         // both parents and children.
-        if (_parentContext == NodeContext.conditionalBranch ||
-            node.thenExpression is ConditionalExpression ||
-            node.elseExpression is ConditionalExpression) {
+        if (
+            _parentContext == NodeContext.conditionalBranch
+            || node.thenExpression is ConditionalExpression
+            || node.elseExpression is ConditionalExpression
+        ) {
             piece.pin(State.split);
         }
 
@@ -563,9 +582,7 @@ final class AstNodeVisitor extends ThrowingAstVisitor<void> with PieceFactory {
         pieces.space();
         pieces.token(node.whileKeyword);
         pieces.space();
-        pieces.token(node.leftParenthesis);
-        pieces.visit(node.condition);
-        pieces.token(node.rightParenthesis);
+        writeConditionParens(node.leftParenthesis, node.condition, node.rightParenthesis);
         pieces.token(node.semicolon);
     }
 
@@ -1705,8 +1722,8 @@ final class AstNodeVisitor extends ThrowingAstVisitor<void> with PieceFactory {
         pieces.add(
             builder.build(
                 forceSplit:
-                    !isSinglePositional &&
-                    style.preserveTrailingCommaBefore(rightDelimiter ?? node.rightParenthesis),
+                    !isSinglePositional
+                    && style.preserveTrailingCommaBefore(rightDelimiter ?? node.rightParenthesis),
             ),
         );
         pieces.token(node.question);
@@ -2115,12 +2132,9 @@ final class AstNodeVisitor extends ThrowingAstVisitor<void> with PieceFactory {
     @override
     void visitWhileStatement(WhileStatement node) {
         var condition = pieces.build(() {
-            writeControlFlowStart(
-                node.whileKeyword,
-                node.leftParenthesis,
-                node.condition,
-                node.rightParenthesis,
-            );
+            pieces.token(node.whileKeyword);
+            pieces.space();
+            writeConditionParens(node.leftParenthesis, node.condition, node.rightParenthesis);
             pieces.space();
         });
 

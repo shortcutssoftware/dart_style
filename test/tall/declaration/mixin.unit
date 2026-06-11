@@ -23,18 +23,18 @@ mixin M {
 }
 <<< 3.7
 mixin M {
-  static const int c = 1;
-  static final int f = 1;
-  static late final int l;
-  static var v;
-  static int get g => c;
-  static set g(int i) {}
-  static int m<X>(X x) => c;
-  int x;
-  int get pr => 0;
-  set pr(int x) {}
-  int me(int x) => x;
-  int operator +(int x) => x;
+    static const int c = 1;
+    static final int f = 1;
+    static late final int l;
+    static var v;
+    static int get g => c;
+    static set g(int i) {}
+    static int m<X>(X x) => c;
+    int x;
+    int get pr => 0;
+    set pr(int x) {}
+    int me(int x) => x;
+    int operator +(int x) => x;
 }
 >>> Modifiers.
 mixin  class  M1  {  }

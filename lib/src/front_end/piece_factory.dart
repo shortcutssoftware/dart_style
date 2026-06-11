@@ -8,6 +8,7 @@ import '../ast_extensions.dart';
 import '../back_end/code_writer.dart';
 import '../piece/adjacent.dart';
 import '../piece/assign.dart';
+import '../piece/block_parenthesized.dart';
 import '../piece/assign_3_dot_7.dart';
 import '../piece/clause.dart';
 import '../piece/control_flow.dart';
@@ -80,6 +81,13 @@ enum NodeContext {
 
     /// The child is the outermost pattern in a switch expression case.
     switchExpressionCase,
+
+    /// The child is a logical (`&&` or `||`) expression that is the direct
+    /// content of a [BlockParenthesizedPiece].
+    ///
+    /// Used to prevent double-indentation: the block parentheses already add
+    /// one level of indentation, so the inner infix chain should use none.
+    blockParenthesizedContent,
 }
 
 /// Utility methods for creating pieces that share formatting logic across
@@ -798,6 +806,75 @@ mixin PieceFactory {
         pieces.token(rightBracket);
     }
 
+    /// Writes syntactically-required condition parentheses (for `if`, `while`,
+    /// and `do`/`while`).
+    ///
+    /// When the expression directly inside is a logical binary expression
+    /// (`&&` or `||`) in 3.8+ style, uses a block-split layout so the content
+    /// is on indented lines with the closing bracket on its own line:
+    ///
+    ///     if (
+    ///         a
+    ///         && b
+    ///     )
+    ///
+    /// If the expression is itself parenthesized (i.e. the programmer wrote
+    /// extra brackets around the whole condition), the entire inner expression
+    /// is output verbatim from the original source without any reformatting.
+    /// The extra brackets are treated as an explicit opt-out of the formatter's
+    /// logical-expression layout:
+    ///
+    ///     if ((a && b))      // extra brackets → inner expression output verbatim
+    void writeConditionParens(Token leftParen, Expression expression, Token rightParen) {
+        if (!style.is3Dot7 && expression is BinaryExpression) {
+            var opType = expression.operator.type;
+            if (opType == TokenType.AMPERSAND_AMPERSAND || opType == TokenType.BAR_BAR) {
+                pieces.add(
+                    BlockParenthesizedPiece(
+                        pieces.build(() => pieces.token(leftParen)),
+                        pieces.build(
+                            () => pieces.visit(expression, context: NodeContext.blockParenthesizedContent),
+                        ),
+                        pieces.build(() => pieces.token(rightParen)),
+                    ),
+                );
+                return;
+            }
+        }
+
+        // In 3.8+ style, if the condition is wrapped in extra parentheses
+        // containing a logical expression, output the inner expression verbatim.
+        // The programmer added the extra brackets as a signal that they want to
+        // manage the inner formatting themselves — the formatter skips it entirely.
+        if (!style.is3Dot7 && expression is ParenthesizedExpression) {
+            var inner = expression.expression;
+            if (inner is BinaryExpression) {
+                var opType = inner.operator.type;
+                if (opType == TokenType.AMPERSAND_AMPERSAND || opType == TokenType.BAR_BAR) {
+                    // Consume every comment inside the verbatim range so they
+                    // are not output a second time by subsequent token writes.
+                    var t = expression.leftParenthesis;
+                    while (true) {
+                        comments.takeCommentsBefore(t);
+                        if (t == expression.rightParenthesis) break;
+                        t = t.next!;
+                    }
+
+                    pieces.token(leftParen);
+                    // Output everything from the inner `(` through the inner `)`
+                    // verbatim, preserving all internal whitespace and newlines.
+                    pieces.verbatimRange(leftParen.end, expression.rightParenthesis.end);
+                    pieces.token(rightParen);
+                    return;
+                }
+            }
+        }
+
+        pieces.token(leftParen);
+        pieces.visit(expression);
+        pieces.token(rightParen);
+    }
+
     /// Writes a piece for the header -- everything from the `if` keyword to the
     /// closing `)` -- of an if statement, if element, if-case statement, or
     /// if-case element.
@@ -810,9 +887,10 @@ mixin PieceFactory {
     ) {
         pieces.token(ifKeyword);
         pieces.space();
-        pieces.token(leftParenthesis);
 
         if (caseClause != null) {
+            pieces.token(leftParenthesis);
+
             var expressionPiece = nodePiece(expression);
 
             var casePiece = pieces.build(() {
@@ -832,11 +910,11 @@ mixin PieceFactory {
                     canBlockFormatPatternWithGuard: style.blockFormatIfCaseWithGuard,
                 ),
             );
-        } else {
-            pieces.visit(expression);
-        }
 
-        pieces.token(rightParenthesis);
+            pieces.token(rightParenthesis);
+        } else {
+            writeConditionParens(leftParenthesis, expression, rightParenthesis);
+        }
     }
 
     /// Writes a [TryPiece] for try statement.
@@ -1043,42 +1121,84 @@ mixin PieceFactory {
     ///
     /// If [precedence] is given, then this only flattens binary nodes with that
     /// same precedence.
+    ///
+    /// If [leadingOperator] is `true`, the operator is placed at the beginning
+    /// of each operand piece (except the first) instead of at the end. This
+    /// produces leading-operator style, e.g.:
+    ///
+    ///     a
+    ///         && b
+    ///         && c
+    ///
+    /// instead of the default trailing-operator style:
+    ///
+    ///     a &&
+    ///         b &&
+    ///         c
     void writeInfixChain<T extends AstNode>(
         T node,
         BinaryOperation Function(T node) destructure, {
         int? precedence,
         bool indent = true,
+        bool leadingOperator = false,
     }) {
         var operands = <Piece>[];
 
         void traverse(AstNode e) {
-            // If the node is one if our infix operators, then recurse into the
+            // If the node is one of our infix operators, then recurse into the
             // operands.
             if (e is T) {
                 var (left, operator, right) = destructure(e);
                 if (precedence == null || operator.type.precedence == precedence) {
-                    operands.add(
-                        pieces.build(() {
-                            traverse(left);
-                            pieces.space();
-                            pieces.token(operator);
-                        }),
-                    );
-
-                    traverse(right);
+                    if (leadingOperator) {
+                        // For leading operators: process left first (adds all left
+                        // operands), then add right with the operator at the beginning.
+                        traverse(left);
+                        operands.add(
+                            pieces.build(() {
+                                pieces.token(operator);
+                                pieces.space();
+                                pieces.visit(right);
+                            }),
+                        );
+                    } else {
+                        // For trailing operators: add left with the operator at the end,
+                        // then process right.
+                        operands.add(
+                            pieces.build(() {
+                                traverse(left);
+                                pieces.space();
+                                pieces.token(operator);
+                            }),
+                        );
+                        traverse(right);
+                    }
                     return;
                 }
             }
 
-            // Otherwise, just write the node itself.
-            pieces.visit(e);
+            if (leadingOperator) {
+                // Leaf node: wrap in its own piece and add directly to operands.
+                operands.add(
+                    pieces.build(() {
+                        pieces.visit(e);
+                    }),
+                );
+            } else {
+                // Otherwise, just write the node itself into the enclosing build.
+                pieces.visit(e);
+            }
         }
 
-        operands.add(
-            pieces.build(() {
-                traverse(node);
-            }),
-        );
+        if (leadingOperator) {
+            traverse(node);
+        } else {
+            operands.add(
+                pieces.build(() {
+                    traverse(node);
+                }),
+            );
+        }
 
         pieces.add(InfixPiece(operands, indent: indent ? Indent.infix : Indent.none, is3Dot7: style.is3Dot7));
     }
@@ -1128,8 +1248,8 @@ mixin PieceFactory {
                 // If we are always writing a trailing comma (because it's a
                 // single-element record), then the comma shouldn't force a split.
                 forceSplit:
-                    style.commas != Commas.alwaysTrailing &&
-                    this.style.preserveTrailingCommaBefore(rightBracket),
+                    style.commas != Commas.alwaysTrailing
+                    && this.style.preserveTrailingCommaBefore(rightBracket),
                 blockShaped: blockShaped,
             ),
         );

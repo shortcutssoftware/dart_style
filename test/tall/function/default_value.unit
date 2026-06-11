@@ -18,33 +18,33 @@ doStuff([parameter = veryLongDefaultValueThatSplits, another =
 veryLongDefaultValue, third = alsoQuiteLongDefaultValue]) {}
 <<< 3.7
 doStuff([
-  parameter =
-      veryLongDefaultValueThatSplits,
-  another = veryLongDefaultValue,
-  third = alsoQuiteLongDefaultValue,
+    parameter =
+        veryLongDefaultValueThatSplits,
+    another = veryLongDefaultValue,
+    third = alsoQuiteLongDefaultValue,
 ]) {}
 >>> Split on named default.
 doStuff({parameter = veryLongDefaultValueThatSplits, another =
 veryLongDefaultValue, third = alsoAQuiteLongDefaultValue}) {}
 <<< 3.7
 doStuff({
-  parameter =
-      veryLongDefaultValueThatSplits,
-  another = veryLongDefaultValue,
-  third = alsoAQuiteLongDefaultValue,
+    parameter =
+        veryLongDefaultValueThatSplits,
+    another = veryLongDefaultValue,
+    third = alsoAQuiteLongDefaultValue,
 }) {}
 >>> Prefer block-like splitting for collection default values.
 function([param = [element, element, element, element]]) { body; }
 <<< 3.7
 function([
-  param = [
-    element,
-    element,
-    element,
-    element,
-  ],
+    param = [
+        element,
+        element,
+        element,
+        element,
+    ],
 ]) {
-  body;
+    body;
 }
 >>> Function typed parameter with default value.
 f([callback() = constantFunction]) {}
@@ -54,27 +54,28 @@ f([callback() = constantFunction]) {}
 f([callback(SomeLongType longParameter, AnotherType anotherParameter) = constantFunction]) {}
 <<< 3.7
 f([
-  callback(
-        SomeLongType longParameter,
-        AnotherType anotherParameter,
-      ) =
-      constantFunction,
+    callback(
+            SomeLongType longParameter,
+            AnotherType
+            anotherParameter,
+        ) =
+        constantFunction,
 ]) {}
 <<< 3.13
 f([
-  callback(
-    SomeLongType longParameter,
-    AnotherType anotherParameter,
-  ) = constantFunction,
+    callback(
+        SomeLongType longParameter,
+        AnotherType anotherParameter,
+    ) = constantFunction,
 ]) {}
 >>> Split in function typed parameter default value.
 f([callback(SomeType parameter) = const CallableClass(someLongConstantArgument, anotherConstantArgument)]) {}
 <<< 3.7
 f([
-  callback(
-    SomeType parameter,
-  ) = const CallableClass(
-    someLongConstantArgument,
-    anotherConstantArgument,
-  ),
+    callback(
+        SomeType parameter,
+    ) = const CallableClass(
+        someLongConstantArgument,
+        anotherConstantArgument,
+    ),
 ]) {}

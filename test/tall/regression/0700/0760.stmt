@@ -7,9 +7,9 @@ main() {
 }
 <<< 3.7
 main() {
-  foo.bar.create(
-    Thing()
-      ..a = b
-      ..c = d,
-  )..method().chain((_) => lambda);
+    foo.bar.create(
+        Thing()
+            ..a = b
+            ..c = d,
+    )..method().chain((_) => lambda);
 }

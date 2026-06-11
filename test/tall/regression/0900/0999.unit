@@ -7,9 +7,9 @@ void main() {
 }
 <<< 3.7
 void main() {
-  final object = outer(
-    inner()
-      ..innerProperty1 = 1
-      ..innerProperty2 = 2,
-  )..outerProperty = 3;
+    final object = outer(
+        inner()
+            ..innerProperty1 = 1
+            ..innerProperty2 = 2,
+    )..outerProperty = 3;
 }

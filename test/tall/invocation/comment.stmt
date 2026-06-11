@@ -7,14 +7,14 @@ function(/* comment */);
 veryLongFunction ( /* very long comment */ ) ;
 <<< 3.7
 veryLongFunction(
-  /* very long comment */
+    /* very long comment */
 );
 >>> Split empty argument list with line comment.
 function ( // comment
 ) ;
 <<< 3.7
 function(
-  // comment
+    // comment
 );
 >>> Split empty argument list with block comment.
 function ( /* multi
@@ -22,7 +22,7 @@ line
 comment */) ;
 <<< 3.7
 function(
-  /* multi
+    /* multi
 line
 comment */
 );
@@ -37,10 +37,10 @@ another,
 );
 <<< 3.7
 function(
-  argument,
+    argument,
 
-  // comment
-  another,
+    // comment
+    another,
 );
 >>> Preserve one blank line between line comments.
 function(argument,
@@ -59,16 +59,16 @@ another,
 );
 <<< 3.7
 function(
-  argument,
-  // one
-  // two
+    argument,
+    // one
+    // two
 
-  // three
+    // three
 
-  // four
+    // four
 
-  // five
-  another,
+    // five
+    another,
 );
 >>> Don't preserve newlines in argument lists with line comment.
 ### For collection literals, a line comment is a signal to preserve the user's
@@ -80,11 +80,11 @@ fourth, fifth,
 sixth);
 <<< 3.7
 function(
-  // yeah
-  first,
-  second,
-  third,
-  fourth,
-  fifth,
-  sixth,
+    // yeah
+    first,
+    second,
+    third,
+    fourth,
+    fifth,
+    sixth,
 );

@@ -13,8 +13,4 @@ stuff = [
   extremelyGratuitouslyLongElementThatDoesNotFit,
 ];
 <<< 3.7
-stuff = [
-  extremelyGratuitouslyLongElementThatDoesNotFit,
-
-  extremelyGratuitouslyLongElementThatDoesNotFit,
-];
+stuff = [extremelyGratuitouslyLongElementThatDoesNotFit, extremelyGratuitouslyLongElementThatDoesNotFit];

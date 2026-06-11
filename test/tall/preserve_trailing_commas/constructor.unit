@@ -6,9 +6,9 @@ class A {
 }
 <<< 3.7
 class A {
-  A(
-    int x,
-  );
+    A(
+        int x,
+    );
 }
 >>> Doesn't force split parameter list without trailing comma.
 class A {
@@ -16,7 +16,7 @@ class A {
 }
 <<< 3.7
 class A {
-  A(int x, int y);
+    A(int x, int y);
 }
 >>> May still split without trailing comma if doesn't fit.
 class A {
@@ -24,11 +24,11 @@ class A {
 }
 <<< 3.7
 class A {
-  A(
-    int parameter1,
-    int parameter2,
-    int parameter3,
-  );
+    A(
+        int parameter1,
+        int parameter2,
+        int parameter3,
+    );
 }
 >>> Parameter list splits with trailing comma after optional parameter.
 class A {
@@ -36,10 +36,10 @@ class A {
 }
 <<< 3.7
 class A {
-  A(
-    int x, [
-    int y,
-  ]);
+    A(
+        int x, [
+        int y,
+    ]);
 }
 >>> Parameter list splits with trailing comma after named parameter.
 class A {
@@ -47,10 +47,10 @@ class A {
 }
 <<< 3.7
 class A {
-  A(
-    int x, {
-    int y,
-  });
+    A(
+        int x, {
+        int y,
+    });
 }
 >>> Redirecting constructor argument list splits with trailing comma.
 class A {
@@ -59,14 +59,14 @@ class A {
 }
 <<< 3.7
 class A {
-  A(int x)
-    : this.named(
-        x,
-      );
-  A.named(int x)
-    : this(
-        x,
-      );
+    A(int x)
+        : this.named(
+              x,
+          );
+    A.named(int x)
+        : this(
+              x,
+          );
 }
 >>> Doesn't force split redirecting constructor argument list without trailing comma.
 class A {
@@ -75,14 +75,14 @@ class A {
 }
 <<< 3.7
 class A {
-  A(int x) : this.named(x);
-  A.named(int x) : this(x);
+    A(int x) : this.named(x);
+    A.named(int x) : this(x);
 }
 >>> (experiment primary-constructors) Primary constructor parameter list splits with trailing comma.
 class A(int x,);
 <<< 3.7
 class A(
-  int x,
+    int x,
 );
 >>> (experiment primary-constructors) Doesn't force split primary constructor parameter list without trailing comma.
 class A(int x, int y);
@@ -92,7 +92,7 @@ class A(int x, int y);
 class A(int parameter1, int parameter2, int parameter3);
 <<< 3.11
 class A(
-  int parameter1,
-  int parameter2,
-  int parameter3,
+    int parameter1,
+    int parameter2,
+    int parameter3,
 );

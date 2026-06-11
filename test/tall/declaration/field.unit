@@ -6,8 +6,8 @@ class Foo {
 }
 <<< 3.7
 class Foo {
-  covariant var bar;
-  covariant int baz;
+    covariant var bar;
+    covariant int baz;
 }
 >>> Late.
 class Foo {
@@ -22,14 +22,14 @@ covariant    late   int i;
 }
 <<< 3.7
 class Foo {
-  static late final int i;
-  static late int i;
-  static late var i;
-  covariant late var i;
-  covariant late int i;
-  late final int i;
-  late int i;
-  late var i;
+    static late final int i;
+    static late int i;
+    static late var i;
+    covariant late var i;
+    covariant late int i;
+    late final int i;
+    late int i;
+    late var i;
 }
 >>> Abstract.
 class Foo {
@@ -39,9 +39,9 @@ abstract  covariant     var  a  , b   ;
 }
 <<< 3.7
 class Foo {
-  abstract covariant var a, b;
-  abstract final int c;
-  abstract int i;
+    abstract covariant var a, b;
+    abstract final int c;
+    abstract int i;
 }
 >>> Don't split after `covariant`.
 class Foo {
@@ -50,9 +50,9 @@ class Foo {
 }
 <<< 3.7
 class Foo {
-  covariant var soMuchSoVeryLongFieldNameHere;
-  covariant VeryLongTypeAnnotation
-  field;
+    covariant var soMuchSoVeryLongFieldNameHere;
+    covariant VeryLongTypeAnnotation
+    field;
 }
 >>> Don't split after `abstract`.
 class Foo {
@@ -61,9 +61,9 @@ class Foo {
 }
 <<< 3.7
 class Foo {
-  abstract var soMuchSoVeryLongFieldNameHere;
-  abstract SuperLongTypeAnnotation
-  field;
+    abstract var soMuchSoVeryLongFieldNameHere;
+    abstract SuperLongTypeAnnotation
+    field;
 }
 >>> Constant.
 class Foo {
@@ -75,9 +75,11 @@ class Foo {
 }
 <<< 3.7
 class Foo {
-  static const uptyped = 123;
-  static const String typed = 'string';
+    static const uptyped = 123;
+    static const String typed =
+        'string';
 
-  const uptypedInstance = 123;
-  const StringInstance typed = 'string';
+    const uptypedInstance = 123;
+    const StringInstance typed =
+        'string';
 }

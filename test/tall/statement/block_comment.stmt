@@ -4,13 +4,13 @@
 }
 <<< 3.7
 {
-  // comment
+    // comment
 }
 >>> Empty block containing inline block comment.
 {   /* comment */  }
 <<< 3.7
 {
-  /* comment */
+    /* comment */
 }
 >>> Empty block containing non-inline block comment.
 {
@@ -21,14 +21,14 @@
 }
 <<< 3.7
 {
-  /* comment */
+    /* comment */
 }
 >>> Empty block containing multi-line block comment.
 {   /* comment
 line */  }
 <<< 3.7
 {
-  /* comment
+    /* comment
 line */
 }
 >>>
@@ -41,7 +41,7 @@ line */
 }
 <<< 3.7
 {
-  /* comment
+    /* comment
 line */
 }
 >>> Remove blank lines before and after comments at end of block.
@@ -56,7 +56,7 @@ line */
 }
 <<< 3.7
 {
-  // comment
+    // comment
 }
 >>> Preserve one blank line between line comments and statements.
 {
@@ -77,16 +77,16 @@ line */
 }
 <<< 3.7
 {
-  // comment
-  a;
+    // comment
+    a;
 
-  // comment
+    // comment
 
-  b;
+    b;
 
-  // comment
+    // comment
 
-  c;
+    c;
 }
 >>> Comment before labeled statement.
 {
@@ -94,10 +94,10 @@ line */
 }
 <<< 3.7
 {
-  /* c */
-  a:
-  b:
-  c;
+    /* c */
+    a:
+    b:
+    c;
 }
 >>> Preserve one blank line between a leading comment and statement.
 {
@@ -112,7 +112,7 @@ a;
 }
 <<< 3.7
 {
-  // comment
+    // comment
 
-  a;
+    a;
 }

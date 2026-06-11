@@ -5,18 +5,18 @@ if (obj case [
 ]) {;}
 <<< 3.7
 if (obj case [
-  // c
+    // c
 ]) {
-  ;
+    ;
 }
 >>> Line comment on opening line of list.
 if (obj case [// c
 ]) {;}
 <<< 3.7
 if (obj case [
-  // c
+    // c
 ]) {
-  ;
+    ;
 }
 >>> Indented block comment in list.
 if (obj case [
@@ -24,23 +24,23 @@ if (obj case [
 ]){;}
 <<< 3.7
 if (obj case [
-  /* comment */
+    /* comment */
 ]) {
-  ;
+    ;
 }
 >>> Inline block comment in list.
 if (obj case [  /* comment */  e  ]){;}
 <<< 3.7
 if (obj case [/* comment */ e]) {
-  ;
+    ;
 }
 >>> Line comment between list items.
 if (obj case ['a', // comment
   'b']){;}
 <<< 3.7
 if (obj case [
-  'a', // comment
-  'b',
+    'a', // comment
+    'b',
 ]) {
-  ;
+    ;
 }

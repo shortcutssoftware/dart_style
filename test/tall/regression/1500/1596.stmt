@@ -1,15 +1,8 @@
 >>>
 if (node.parent case MethodInvocation(:var target) when target is SimpleIdentifier?) {;}
 <<< 3.7
-if (node.parent case MethodInvocation(
-  :var target,
-) when target is SimpleIdentifier?) {
-  ;
-}
-<<< 3.13
-if (node.parent case MethodInvocation(:var target)
-    when target is SimpleIdentifier?) {
-  ;
+if (node.parent case MethodInvocation(:var target) when target is SimpleIdentifier?) {
+    ;
 }
 >>>
 if (err
@@ -24,26 +17,22 @@ if (err
 }
 <<< 3.7
 if (err
-    case DioException(
-          type: DioExceptionType.badCertificate || DioExceptionType.cancel,
-        ) ||
+    case DioException(type: DioExceptionType.badCertificate || DioExceptionType.cancel) ||
         DioException(
-          type: DioExceptionType.badResponse,
-          response: Response(statusCode: != null && >= 200 && <= 500),
+            type: DioExceptionType.badResponse,
+            response: Response(statusCode: != null && >= 200 && <= 500),
         ) when Random().nextInt(100) > 10) {
-  return super.onError(err, handler);
+    return super.onError(err, handler);
 }
 <<< 3.13
 if (err
-    case DioException(
-          type: DioExceptionType.badCertificate || DioExceptionType.cancel,
-        ) ||
+    case DioException(type: DioExceptionType.badCertificate || DioExceptionType.cancel) ||
         DioException(
-          type: DioExceptionType.badResponse,
-          response: Response(statusCode: != null && >= 200 && <= 500),
+            type: DioExceptionType.badResponse,
+            response: Response(statusCode: != null && >= 200 && <= 500),
         )
     when Random().nextInt(100) > 10) {
-  return super.onError(err, handler);
+    return super.onError(err, handler);
 }
 >>>
 if (nodeElement.kind
@@ -52,10 +41,9 @@ if (nodeElement.kind
   // Something
 }
 <<< 3.7
-if (nodeElement.kind
-    case ElementKind.LOCAL_VARIABLE || ElementKind.TOP_LEVEL_VARIABLE
+if (nodeElement.kind case ElementKind.LOCAL_VARIABLE || ElementKind.TOP_LEVEL_VARIABLE
     when target.kind == ElementKind.FIELD) {
-  // Something
+    // Something
 }
 >>>
 if (nodeElement.kind
@@ -64,7 +52,6 @@ if (nodeElement.kind
   // Something
 }
 <<< 3.7
-if (nodeElement.kind
-    case ElementKind.LOCAL_VARIABLE || ElementKind.TOP_LEVEL_VARIABLE) {
-  // Something
+if (nodeElement.kind case ElementKind.LOCAL_VARIABLE || ElementKind.TOP_LEVEL_VARIABLE) {
+    // Something
 }

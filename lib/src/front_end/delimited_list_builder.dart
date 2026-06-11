@@ -346,9 +346,11 @@ final class DelimitedListBuilder {
 
         // Edge case: A line comment on the same line as the preceding element
         // but after the comma is treated as hanging.
-        if (commentsBeforeElement.isNotEmpty &&
-            commentsBeforeElement[0].type == CommentType.line &&
-            commentsBeforeElement.linesBefore(0) == 0) {
+        if (
+            commentsBeforeElement.isNotEmpty
+            && commentsBeforeElement[0].type == CommentType.line
+            && commentsBeforeElement.linesBefore(0) == 0
+        ) {
             var (hanging, remaining) = commentsBeforeElement.splitAt(1);
             _commentsBeforeComma = _commentsBeforeComma.concatenate(hanging);
             commentsBeforeElement = remaining;
@@ -365,8 +367,10 @@ final class DelimitedListBuilder {
         if (_elements.isNotEmpty) {
             while (inlineCommentCount < _commentsBeforeComma.length) {
                 // Once we hit a single non-inline comment, the rest won't be either.
-                if (!_commentsBeforeComma.isHanging(inlineCommentCount) ||
-                    _commentsBeforeComma[inlineCommentCount].type != CommentType.inlineBlock) {
+                if (
+                    !_commentsBeforeComma.isHanging(inlineCommentCount)
+                    || _commentsBeforeComma[inlineCommentCount].type != CommentType.inlineBlock
+                ) {
                     break;
                 }
 
@@ -493,9 +497,11 @@ final class DelimitedListBuilder {
         //         'that splits into multiple lines.', () {
         //       expect(1 + 2, 3);
         //     });
-        if (candidateIndex == 1 &&
-            arguments[1].blockFormatType == BlockFormat.function &&
-            arguments[0] is! NamedArgument) {
+        if (
+            candidateIndex == 1
+            && arguments[1].blockFormatType == BlockFormat.function
+            && arguments[0] is! NamedArgument
+        ) {
             var firstArgumentFormatType = arguments[0].blockFormatType;
             if (firstArgumentFormatType
                 case BlockFormat.unindentedAdjacentStrings || BlockFormat.indentedAdjacentStrings) {

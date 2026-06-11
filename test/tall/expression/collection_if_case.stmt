@@ -5,11 +5,11 @@ if (veryLongExpression + anotherVeryLongOne case someCaseConstant || anotherCase
 ];
 <<< 3.7
 var list = [
-  if (veryLongExpression +
-          anotherVeryLongOne
-      case someCaseConstant ||
-          anotherCaseConstant)
-    element,
+    if (veryLongExpression +
+            anotherVeryLongOne
+        case someCaseConstant ||
+            anotherCaseConstant)
+        element,
 ];
 >>> Block formatted pattern.
 var list = [
@@ -17,12 +17,12 @@ if (expression case const [veryLongElement,veryLongElement,veryLongElement,]) el
 ];
 <<< 3.7
 var list = [
-  if (expression case const [
-    veryLongElement,
-    veryLongElement,
-    veryLongElement,
-  ])
-    element,
+    if (expression case const [
+        veryLongElement,
+        veryLongElement,
+        veryLongElement,
+    ])
+        element,
 ];
 >>> With guard.
 var list = [
@@ -30,10 +30,19 @@ if (veryLongExpression + anotherVeryLongOne case someCase when someGuardConditio
 ];
 <<< 3.7
 var list = [
-  if (veryLongExpression +
-          anotherVeryLongOne
-      case someCase
-      when someGuardCondition ||
-          otherCondition)
-    element,
+    if (veryLongExpression +
+            anotherVeryLongOne
+        case someCase
+        when someGuardCondition ||
+            otherCondition)
+        element,
+];
+<<< 3.8
+var list = [
+    if (veryLongExpression +
+            anotherVeryLongOne
+        case someCase
+        when someGuardCondition
+            || otherCondition)
+        element,
 ];
