@@ -23,3 +23,11 @@ bool f(bool b, int i) {
         // Check i.
         i.isEven;
 }
+<<< 3.8
+bool f(bool b, int i) {
+    return // Check b.
+    b == true
+        ||
+        // Check i.
+        i.isEven;
+}

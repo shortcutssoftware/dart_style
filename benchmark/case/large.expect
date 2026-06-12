@@ -313,13 +313,13 @@ class BacktrackingSolver {
 
         // A deeply nested statement that's hard on the formatter.
         isTwoWay =
-            !isEvent &&
-            bindings.isWhole &&
-            (isCustomTag ||
-                tag == 'input' && (name == 'value' || name == 'checked') ||
-                tag == 'select' &&
-                    (name == 'selectedindex' || name == 'value') ||
-                tag == 'textarea' && name == 'value');
+            !isEvent
+            && bindings.isWhole
+            && (isCustomTag
+                || tag == 'input' && (name == 'value' || name == 'checked')
+                || tag == 'select'
+                    && (name == 'selectedindex' || name == 'value')
+                || tag == 'textarea' && name == 'value');
 
         // Even more deeply nested pathological example.
         if (javaBooleanAnd(
@@ -572,8 +572,10 @@ class BacktrackingSolver {
             // If the failure is a disjoint version range, then no possible versions
             // for that package can match and there's no reason to try them. Instead,
             // just backjump past it.
-            if (failure is DisjointConstraintException &&
-                selected.name == failure.package) {
+            if (
+                failure is DisjointConstraintException
+                && selected.name == failure.package
+            ) {
                 logSolve("skipping past disjoint selected ${selected.name}");
                 continue;
             }
@@ -774,8 +776,10 @@ class Traverser {
 
                 // Make sure the package doesn't have any bad dependencies.
                 for (var dep in deps) {
-                    if (!dep.isRoot &&
-                        _solver.sources[dep.source] is UnknownSource) {
+                    if (
+                        !dep.isRoot
+                        && _solver.sources[dep.source] is UnknownSource
+                    ) {
                         throw new UnknownSourceException(id.name, [
                             new Dependency(id.name, id.version, dep),
                         ]);

@@ -37,3 +37,12 @@ var list = [
             otherCondition)
         element,
 ];
+<<< 3.8
+var list = [
+    if (veryLongExpression +
+            anotherVeryLongOne
+        case someCase
+        when someGuardCondition
+            || otherCondition)
+        element,
+];

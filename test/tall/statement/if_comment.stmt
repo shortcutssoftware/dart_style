@@ -112,6 +112,13 @@ if (
 a && b) {
     body;
 }
+<<< 3.8
+if (
+    // comment
+    a && b
+) {
+    body;
+}
 >>> Hanging line comment before infix chain condition.
 if (// comment
 a && b && c) { body; }
@@ -130,5 +137,12 @@ a && b && c) { body; }
 if (
 // comment
 a && b && c) {
+    body;
+}
+<<< 3.8
+if (
+    // comment
+    a && b && c
+) {
     body;
 }

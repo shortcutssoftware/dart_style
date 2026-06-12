@@ -91,7 +91,7 @@ void main() {
             await process.stdin.close();
 
             // Preserves trailing commas.
-            await expectLater(process.stdout, emitsInOrder(['var x = function(', '  argument,', ');']));
+            await expectLater(process.stdout, emitsInOrder(['var x = function(', '    argument,', ');']));
             await process.shouldExit(0);
         });
 
@@ -107,7 +107,7 @@ void main() {
             await process.stdin.close();
 
             // Preserves trailing commas.
-            await expectLater(process.stdout, emitsInOrder(['var x = function(', '  argument,', ');']));
+            await expectLater(process.stdout, emitsInOrder(['var x = function(', '    argument,', ');']));
             await process.shouldExit(0);
         });
     });
@@ -119,7 +119,7 @@ var x = function(argument,);
 
 const _formattedPreserve = '''
 var x = function(
-  argument,
+    argument,
 );
 ''';
 

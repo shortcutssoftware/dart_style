@@ -3,8 +3,8 @@ void securityItem() {
         itemSecurityScheme.securitySchemeType == SecuritySchemeType.QueryAPIKey
             ? Constants.oneTwoThreeTxt
             : itemSecurityScheme.securitySchemeType ==
-                        SecuritySchemeType.HeaderAPIKey ||
-                    itemSecurityScheme.securitySchemeType ==
+                        SecuritySchemeType.HeaderAPIKey
+                    || itemSecurityScheme.securitySchemeType ==
                         SecuritySchemeType.CookieAPIKey
             ? Constants.oneTwoThreeTxt
             : itemSecurityScheme.securitySchemeType ==
@@ -17,8 +17,8 @@ void securityItem() {
                     SecuritySchemeType.DigestHTTP
             ? Constants.digestDemoTxt
             : itemSecurityScheme.securitySchemeType ==
-                        SecuritySchemeType.OAuth2PasswordFlow ||
-                    itemSecurityScheme.securitySchemeType ==
+                        SecuritySchemeType.OAuth2PasswordFlow
+                    || itemSecurityScheme.securitySchemeType ==
                         SecuritySchemeType.OAuth2ClientFlow
             ? Constants.emptyTxt
             : itemSecurityScheme.securitySchemeType ==

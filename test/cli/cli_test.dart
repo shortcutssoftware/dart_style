@@ -118,7 +118,7 @@ void main() {
 
             await expectLater(
                 process.stdout,
-                emitsInOrder(['   main() {', "     '''", "a flush left multi-line string''';", '   }']),
+                emitsInOrder(['   main() {', "       '''", "a flush left multi-line string''';", '   }']),
             );
             await process.shouldExit(0);
         });

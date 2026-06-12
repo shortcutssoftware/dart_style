@@ -22,7 +22,7 @@ extension type Meters(int value) {
 
         const extensionTypeAfter = '''
 extension type Meters(int value) {
-  Meters operator +(Meters other) => Meters(value + other.value);
+    Meters operator +(Meters other) => Meters(value + other.value);
 }
 ''';
 
@@ -40,10 +40,10 @@ extension type Meters(int value) {
 
             const after = '''
 main() {
-  switch (o) {
-    case 1 + 2:
-      break;
-  }
+    switch (o) {
+        case 1 + 2:
+            break;
+    }
 }
 ''';
 
@@ -128,9 +128,9 @@ main() {
                 d.file('main.dart', '''
 // @dart=2.19
 main() {
-  switch (obj) {
-    case 1 + 2: // Error in 3.1.
-  }
+    switch (obj) {
+        case 1 + 2: // Error in 3.1.
+    }
 }
 '''),
             ]).validate();
@@ -149,7 +149,7 @@ main() {
             await d.dir('foo', [
                 d.file('main.dart', '''
 main() {
-  var (a, b) = (1, 2);
+    var (a, b) = (1, 2);
 }
 '''),
             ]).validate();
@@ -171,7 +171,14 @@ main() {
 
             await expectLater(
                 process.stdout,
-                emitsInOrder(['main() {', '  switch (o) {', '    case 1 + 2:', '      break;', '  }', '}']),
+                emitsInOrder([
+                    'main() {',
+                    '    switch (o) {',
+                    '        case 1 + 2:',
+                    '            break;',
+                    '    }',
+                    '}',
+                ]),
             );
             await process.shouldExit(0);
         });
@@ -193,7 +200,14 @@ main() {
 
             await expectLater(
                 process.stdout,
-                emitsInOrder(['main() {', '  switch (o) {', '    case 1 + 2:', '      break;', '  }', '}']),
+                emitsInOrder([
+                    'main() {',
+                    '    switch (o) {',
+                    '        case 1 + 2:',
+                    '            break;',
+                    '    }',
+                    '}',
+                ]),
             );
             await process.shouldExit(0);
         });
@@ -206,7 +220,7 @@ main() {
             process.stdin.writeln('main() {var (a,b)=(1,2);}');
             await process.stdin.close();
 
-            await expectLater(process.stdout, emitsInOrder(['main() {', '  var (a, b) = (1, 2);', '}']));
+            await expectLater(process.stdout, emitsInOrder(['main() {', '    var (a, b) = (1, 2);', '}']));
             await process.shouldExit(0);
         });
     });
@@ -216,9 +230,9 @@ main() {
             const before = 'main() { f(argument, // comment\nanother);}';
             const after = '''
 main() {
-  f(
-      argument, // comment
-      another);
+    f(
+        argument, // comment
+        another);
 }
 ''';
 
@@ -234,10 +248,10 @@ main() {
             const before = 'main() { x = cond ? a // comment\n: b;}';
             const after = '''
 main() {
-  x =
-      cond
-          ? a // comment
-          : b;
+    x =
+        cond
+            ? a // comment
+            : b;
 }
 ''';
 
@@ -253,9 +267,9 @@ main() {
             const before = 'main() { x = cond ? a // comment\n: b;}';
             const after = '''
 main() {
-  x = cond
-      ? a // comment
-      : b;
+    x = cond
+        ? a // comment
+        : b;
 }
 ''';
 
@@ -276,9 +290,9 @@ another);}
             const after = '''
 // @dart=3.6
 main() {
-  f(
-      argument, // comment
-      another);
+    f(
+        argument, // comment
+        another);
 }
 ''';
 
@@ -309,10 +323,10 @@ another);}
             const after = '''
 // @dart=3.7
 main() {
-  f(
-    argument, // comment
-    another,
-  );
+    f(
+        argument, // comment
+        another,
+    );
 }
 ''';
 

@@ -103,6 +103,17 @@ if (obj
         longConstant) {
     ;
 }
+<<< 3.8
+if (obj
+    case const [
+        veryLongElement,
+        veryLongElement,
+        veryLongElement,
+    ]
+    when veryLongConstant
+        || longConstant) {
+    ;
+}
 >>> Block-format split in guard but not pattern.
 if (obj
 case veryLongConstant || longConstant when

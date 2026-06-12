@@ -12,6 +12,13 @@ if (veryLongCondition ||
     anotherLongCondition) {
     body;
 }
+<<< 3.8
+if (
+    veryLongCondition
+    || anotherLongCondition
+) {
+    body;
+}
 >>> Condition expressions can use block formatting.
 if ([element, element, element, element]) { body; }
 <<< 3.7
@@ -116,6 +123,12 @@ if (veryLongCondition || veryLongExpression) body;
 <<< 3.7
 if (veryLongCondition ||
     veryLongExpression)
+    body;
+<<< 3.8
+if (
+    veryLongCondition
+    || veryLongExpression
+)
     body;
 >>> Split in then statement forces unbraced if to split.
 if (condition) veryLongExpression + anotherLongExpression;

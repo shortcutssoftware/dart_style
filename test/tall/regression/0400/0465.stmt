@@ -27,3 +27,19 @@
                 propagatedType.displayName,
             ]);
         }
+<<< 3.8
+        if (_shouldReportMissingMember(staticType, staticMethod)) {
+            _recordUndefinedToken(staticType.element, StaticTypeWarningCode.UNDEFINED_METHOD, operator, [
+                methodName,
+                staticType.displayName,
+            ]);
+        } else if (
+            _enableHints
+            && _shouldReportMissingMember(propagatedType, propagatedMethod)
+            && !_memberFoundInSubclass(propagatedType.element, methodName, true, false)
+        ) {
+            _recordUndefinedToken(propagatedType.element, HintCode.UNDEFINED_METHOD, operator, [
+                methodName,
+                propagatedType.displayName,
+            ]);
+        }
