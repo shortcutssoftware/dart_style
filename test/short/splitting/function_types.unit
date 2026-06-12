@@ -100,8 +100,8 @@ Function<Argument>(String)
 Function(first, second,) f;
 <<< 3.6
 Function(
-  first,
-  second,
+    first,
+    second,
 ) f;
 >>> split inside type argument
 GenericClass<Function(first, second, third, fourth, fifth)> f;
@@ -114,8 +114,8 @@ GenericClass<Function(first, second,)> f;
 <<< 3.6
 GenericClass<
     Function(
-      first,
-      second,
+        first,
+        second,
     )> f;
 >>> inside parameter list
 outer(Function(first, second, third, fourth, fifth) fn) {;}
@@ -124,67 +124,67 @@ outer(
     Function(first, second, third,
             fourth, fifth)
         fn) {
-  ;
+    ;
 }
 >>> trailing comma inside parameter list
 outer(Function(first,) fn) {;}
 <<< 3.6
 outer(
     Function(
-      first,
+        first,
     ) fn) {
-  ;
+    ;
 }
 >>> optional parameter trailing comma inside parameter list
 outer(Function([first,]) fn) {;}
 <<< 3.6
 outer(
     Function([
-      first,
+        first,
     ]) fn) {
-  ;
+    ;
 }
 >>> named parameter trailing comma inside parameter list
 outer(Function({int first,}) fn) {;}
 <<< 3.6
 outer(
     Function({
-      int first,
+        int first,
     }) fn) {
-  ;
+    ;
 }
 >>> field formal parameter trailing comma inside parameter list
 class C { C(Function(first,) this.fn) {;} }
 <<< 3.6
 class C {
-  C(
-      Function(
-        first,
-      ) this.fn) {
-    ;
-  }
+    C(
+        Function(
+            first,
+        ) this.fn) {
+        ;
+    }
 }
 >>> inside trailing comma parameter list
 outer(Function(first, second, third, fourth, fifth) fn,) {;}
 <<< 3.6
 outer(
-  Function(first, second, third, fourth,
-          fifth)
-      fn,
+    Function(first, second, third,
+            fourth, fifth)
+        fn,
 ) {
-  ;
+    ;
 }
 >>> trailing comma inside trailing comma parameter list
 outer(Function(first, second, third, fourth, fifth,) fn,) {;}
 <<< 3.6
 outer(
-  Function(
-    first,
-    second,
-    third,
-    fourth,
-    fifth,
-  ) fn,
+    Function(
+        first,
+        second,
+        third,
+        fourth,
+        fifth,
+    ) fn,
 ) {
-  ;
+    ;
 }

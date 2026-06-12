@@ -2,5 +2,5 @@
 shadowRoot.querySelector("#slide-out")..onKeyDown.listen(_hideOnEsc)..onClick.listen(hide);
 <<< 3.6
 shadowRoot.querySelector("#slide-out")
-  ..onKeyDown.listen(_hideOnEsc)
-  ..onClick.listen(hide);
+    ..onKeyDown.listen(_hideOnEsc)
+    ..onClick.listen(hide);

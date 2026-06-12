@@ -10,14 +10,11 @@ class Foo {
 }
 <<< 3.6
 class Foo {
-  static Column column(Handler onSelection) =>
-      (Column.defaultBuilder(videoMsg())
+    static Column column(Handler onSelection) => (Column.defaultBuilder(videoMsg())
             ..id = 'VIDEO'
-            ..segment = ((row) => row.segmentedStats
-                .map((s) => s.get(Stats.SEGMENTATION))
-                .toList())
+            ..segment = ((row) => row.segmentedStats.map((s) => s.get(Stats.SEGMENTATION)).toList())
             ..cell = new Cell(onSelection))
-          .build();
+        .build();
 }
 >>>
 void _updateChart() {
@@ -33,16 +30,15 @@ void _updateChart() {
 }
 <<< 3.6
 void _updateChart() {
-  if (_model.settings != null) {
-    _chart.update((ChartSettings.builder()
-          ..ids.addAll(_model.ids)
-          ..statusFilter = StatusFilter.ALL
-          ..dateRange =
-              chartDates.toChartDateRange(_model.settings.dateRange.value)
-          ..segmentationDimension = _model.segmentation
-          ..context = ChartContext.empty)
-        .build());
-  }
+    if (_model.settings != null) {
+        _chart.update((ChartSettings.builder()
+                ..ids.addAll(_model.ids)
+                ..statusFilter = StatusFilter.ALL
+                ..dateRange = chartDates.toChartDateRange(_model.settings.dateRange.value)
+                ..segmentationDimension = _model.segmentation
+                ..context = ChartContext.empty)
+            .build());
+    }
 }
 >>> (indent 2)
   void _updateChart() {
@@ -58,16 +54,15 @@ void _updateChart() {
   }
 <<< 3.6
   void _updateChart() {
-    if (_model.settings != null) {
-      _chart.update((ChartSettings.builder()
-            ..ids.addAll(_model.ids)
-            ..statusFilter = StatusFilter.ALL
-            ..dateRange =
-                chartDates.toChartDateRange(_model.settings.dateRange.value)
-            ..segmentationDimension = _model.segmentation
-            ..context = ChartContext.empty)
-          .build());
-    }
+      if (_model.settings != null) {
+          _chart.update((ChartSettings.builder()
+                  ..ids.addAll(_model.ids)
+                  ..statusFilter = StatusFilter.ALL
+                  ..dateRange = chartDates.toChartDateRange(_model.settings.dateRange.value)
+                  ..segmentationDimension = _model.segmentation
+                  ..context = ChartContext.empty)
+              .build());
+      }
   }
 >>>
 trackEvent(String category, String action,
@@ -80,10 +75,10 @@ trackEvent(String category, String action,
 <<< 3.6
 trackEvent(String category, String action, {String label: '', int value: 0}) =>
     eventsTracked.add(new AnalyticsEvent()
-      ..category = category
-      ..action = action
-      ..label = label
-      ..value = value);
+        ..category = category
+        ..action = action
+        ..label = label
+        ..value = value);
 >>>
 main() {
   (new OrderBy()
@@ -94,10 +89,8 @@ main() {
 }
 <<< 3.6
 main() {
-  (new OrderBy()
-        ..field = s.column
-        ..sortOrder = s.isAscending
-            ? OrderBySortOrder.ASCENDING
-            : OrderBySortOrder.DESCENDING)
-      .toList();
+    (new OrderBy()
+            ..field = s.column
+            ..sortOrder = s.isAscending ? OrderBySortOrder.ASCENDING : OrderBySortOrder.DESCENDING)
+        .toList();
 }

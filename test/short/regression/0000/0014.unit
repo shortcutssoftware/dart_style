@@ -9,11 +9,11 @@ class A {
 }
 <<< 3.6
 class A {
-  final Map x;
-  A()
-      : x = {
-          // comment
-          'foo': 1,
-          'bar': 2,
-        };
+    final Map x;
+    A()
+        : x = {
+              // comment
+              'foo': 1,
+              'bar': 2,
+          };
 }

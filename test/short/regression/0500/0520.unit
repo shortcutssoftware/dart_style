@@ -11,8 +11,8 @@ class Foo {
 import 'package:meta/meta.dart';
 
 class Foo {
-  final int bar;
-  Foo({
-    @required this.bar,
-  });
+    final int bar;
+    Foo({
+        @required this.bar,
+    });
 }

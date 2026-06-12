@@ -12,15 +12,12 @@ class Foo {
 }
 <<< 3.6
 class Foo {
-  void init(String entityType) {
-    _schemaUtils
-        .computeSchema(
-            entityType,
-            _schemaContext,
-            new Context.fromParent(_schemaContext.Context)
-              ..setPropertyValue('entityType', entityType))
-        .then((ComputedSchema computedSchema) {
-      //
-    });
-  }
+    void init(String entityType) {
+        _schemaUtils
+            .computeSchema(entityType, _schemaContext,
+                new Context.fromParent(_schemaContext.Context)..setPropertyValue('entityType', entityType))
+            .then((ComputedSchema computedSchema) {
+            //
+        });
+    }
 }

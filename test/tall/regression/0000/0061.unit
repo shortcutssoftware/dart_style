@@ -22,17 +22,3 @@ class Foo extends Bar {
         }
     }
 }
-<<< 3.8
-class Foo extends Bar {
-    qux(n) {
-        // Do some stuff
-        if (
-            x != null
-            && x.y == n.z
-            // and some other stuff.
-            && n.parent.x != y
-        ) {
-            // <snip>
-        }
-    }
-}

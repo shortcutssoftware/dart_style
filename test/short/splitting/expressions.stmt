@@ -96,7 +96,7 @@ first + second + () {body;} + third + fourth;
 first +
     second +
     () {
-      body;
+        body;
     } +
     third +
     fourth;

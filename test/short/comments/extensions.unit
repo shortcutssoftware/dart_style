@@ -5,14 +5,14 @@ extension A on B {
 }
 <<< 3.6
 extension A on B {
-  // comment
+    // comment
 }
 >>> line comment on opening line
 extension A on B { // comment
 }
 <<< 3.6
 extension A on B {
-  // comment
+    // comment
 }
 >>> indented block comment
 extension A on B {
@@ -20,21 +20,21 @@ extension A on B {
 }
 <<< 3.6
 extension A on B {
-  /* comment */
+    /* comment */
 }
 >>> block comment with trailing newline
 extension A on B {/* comment */
 }
 <<< 3.6
 extension A on B {
-  /* comment */
+    /* comment */
 }
 >>> block comment with leading newline
 extension A on B {
   /* comment */}
 <<< 3.6
 extension A on B {
-  /* comment */
+    /* comment */
 }
 >>> inline block comment
 extension A on B {  /* comment */  }
@@ -45,7 +45,7 @@ extension A on B { /* first */ // second
 }
 <<< 3.6
 extension A on B {
-  /* first */ // second
+    /* first */ // second
 }
 >>> multiple inline block comments
 extension A on B {  /*1*/   /*2*/   /*3*/  }
@@ -56,7 +56,7 @@ extension A on B {  /* comment
 */  }
 <<< 3.6
 extension A on B {
-  /* comment
+    /* comment
 */
 }
 >>> lines comments at the start of the line in body
@@ -69,7 +69,7 @@ extension A on B {
 extension A on B {
 //  a() => 1;
 //  b() => 2;
-  c() => 3;
+    c() => 3;
 }
 >>> block comment
 extension A on B/* is cool */{
@@ -77,7 +77,7 @@ extension A on B/* is cool */{
 }
 <<< 3.6
 extension A on B /* is cool */ {
-  /* int */ foo(/* comment */) => 42;
+    /* int */ foo(/* comment */) => 42;
 }
 >>> block comments in odd places
 extension/*1*/A/*2*/on B {}
@@ -113,7 +113,7 @@ library foo;
  * Comment
 */
 extension A on B /* is cool */ {
-  /* int */ foo() => 42;
+    /* int */ foo() => 42;
 }
 >>> ensure blank line above doc comments
 extension A on B {a() => 1;
@@ -121,10 +121,10 @@ extension A on B {a() => 1;
 b() => 2;}
 <<< 3.6
 extension A on B {
-  a() => 1;
+    a() => 1;
 
-  /// doc
-  b() => 2;
+    /// doc
+    b() => 2;
 }
 >>> remove blank lines before beginning of body
 extension A on B {
@@ -135,7 +135,7 @@ extension A on B {
 }
 <<< 3.6
 extension A on B {
-  // comment
+    // comment
 }
 >>> remove blank lines after end of body
 extension A on B {
@@ -146,7 +146,7 @@ extension A on B {
 }
 <<< 3.6
 extension A on B {
-  // comment
+    // comment
 }
 >>> nested flush left comment
 extension A on B {
@@ -156,9 +156,9 @@ extension A on B {
 }
 <<< 3.6
 extension A on B {
-  method() {
+    method() {
 // flush
-  }
+    }
 }
 >>> nested flush left after non-nested
 extension A on B {
@@ -169,10 +169,10 @@ extension A on B {
 }
 <<< 3.6
 extension A on B {
-  method() {
-    // ...
+    method() {
+        // ...
 // flush
-  }
+    }
 }
 >>> force doc comment between extensions to have two newlines before
 extension A on B {} /**

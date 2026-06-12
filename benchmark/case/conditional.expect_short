@@ -1,32 +1,32 @@
 void securityItem() {
-  return SelectableText(
-    itemSecurityScheme.securitySchemeType == SecuritySchemeType.QueryAPIKey
-        ? Constants.oneTwoThreeTxt
-        : itemSecurityScheme.securitySchemeType ==
-                    SecuritySchemeType.HeaderAPIKey ||
-                itemSecurityScheme.securitySchemeType ==
-                    SecuritySchemeType.CookieAPIKey
+    return SelectableText(
+        itemSecurityScheme.securitySchemeType == SecuritySchemeType.QueryAPIKey
             ? Constants.oneTwoThreeTxt
             : itemSecurityScheme.securitySchemeType ==
-                    SecuritySchemeType.BasicHTTP
-                ? Constants.demoUsernameTxt
+                        SecuritySchemeType.HeaderAPIKey ||
+                    itemSecurityScheme.securitySchemeType ==
+                        SecuritySchemeType.CookieAPIKey
+                ? Constants.oneTwoThreeTxt
                 : itemSecurityScheme.securitySchemeType ==
-                        SecuritySchemeType.BearerHTTP
-                    ? Constants.oneTwoThreeTxt
+                        SecuritySchemeType.BasicHTTP
+                    ? Constants.demoUsernameTxt
                     : itemSecurityScheme.securitySchemeType ==
-                            SecuritySchemeType.DigestHTTP
-                        ? Constants.digestDemoTxt
+                            SecuritySchemeType.BearerHTTP
+                        ? Constants.oneTwoThreeTxt
                         : itemSecurityScheme.securitySchemeType ==
-                                    SecuritySchemeType.OAuth2PasswordFlow ||
-                                itemSecurityScheme.securitySchemeType ==
-                                    SecuritySchemeType.OAuth2ClientFlow
-                            ? Constants.emptyTxt
+                                SecuritySchemeType.DigestHTTP
+                            ? Constants.digestDemoTxt
                             : itemSecurityScheme.securitySchemeType ==
-                                    SecuritySchemeType.OAuth2ImplicitFlow
+                                        SecuritySchemeType.OAuth2PasswordFlow ||
+                                    itemSecurityScheme.securitySchemeType ==
+                                        SecuritySchemeType.OAuth2ClientFlow
                                 ? Constants.emptyTxt
                                 : itemSecurityScheme.securitySchemeType ==
-                                        SecuritySchemeType.OAuth2CodeFlow
+                                        SecuritySchemeType.OAuth2ImplicitFlow
                                     ? Constants.emptyTxt
-                                    : Constants.emptyTxt,
-  );
+                                    : itemSecurityScheme.securitySchemeType ==
+                                            SecuritySchemeType.OAuth2CodeFlow
+                                        ? Constants.emptyTxt
+                                        : Constants.emptyTxt,
+    );
 }

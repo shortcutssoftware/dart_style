@@ -69,10 +69,10 @@ main() { switch (o) { case 1+2: break; } }
             const after = '''
 // @dart=2.19
 main() {
-  switch (o) {
-    case 1 + 2:
-      break;
-  }
+    switch (o) {
+        case 1 + 2:
+            break;
+    }
 }
 ''';
 
@@ -93,9 +93,9 @@ another);}
         const after = '''
 // @dart=3.6
 main() {
-  f(
-      argument, // comment
-      another);
+    f(
+        argument, // comment
+        another);
 }
 ''';
 
@@ -126,10 +126,10 @@ another);}
         const after = '''
 // @dart=3.7
 main() {
-  f(
-    argument, // comment
-    another,
-  );
+    f(
+        argument, // comment
+        another,
+    );
 }
 ''';
 
@@ -232,7 +232,7 @@ var variable =
             formatter.formatStatement('if (foo) {bar;}'),
             equals(
                 '   if (foo) {\n'
-                '     bar;\n'
+                '       bar;\n'
                 '   }',
             ),
         );

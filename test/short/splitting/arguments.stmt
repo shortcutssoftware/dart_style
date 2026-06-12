@@ -146,11 +146,11 @@ method(function([veryLongElement, veryLongElement], [veryLongElement, veryLongEl
 <<< 3.6
 method(
     function([
-      veryLongElement,
-      veryLongElement
+        veryLongElement,
+        veryLongElement
     ], [
-      veryLongElement,
-      veryLongElement
+        veryLongElement,
+        veryLongElement
     ]),
     argument);
 >>> trailing collections are not indented
@@ -160,27 +160,27 @@ function(argument, argument, argument, argument,
 <<< 3.6
 function(argument, argument, argument,
     argument, [
-  element,
-  element,
-  element,
-  element
+    element,
+    element,
+    element,
+    element
 ], {
-  'key': value,
-  'other key': value,
-  'third key': value
+    'key': value,
+    'other key': value,
+    'third key': value
 });
 >>> all trailing collections
 function([element, element, element, element], {'key': value, 'other key': value, 'third key': value});
 <<< 3.6
 function([
-  element,
-  element,
-  element,
-  element
+    element,
+    element,
+    element,
+    element
 ], {
-  'key': value,
-  'other key': value,
-  'third key': value
+    'key': value,
+    'other key': value,
+    'third key': value
 });
 >>> non-collection non-preceding argument forces all collections to indent
 function([element, element, element, element], argument,
@@ -188,33 +188,33 @@ function([element, element, element, element], argument,
 <<< 3.6
 function(
     [
-      element,
-      element,
-      element,
-      element
+        element,
+        element,
+        element,
+        element
     ],
     argument,
     {
-      'key': value,
-      'other key': value,
-      'third key': value
+        'key': value,
+        'other key': value,
+        'third key': value
     }, () {
-  ;
+    ;
 });
 >>> trailing comma
 fn(argument,argument  ,argument  ,  );
 <<< 3.6
 fn(
-  argument,
-  argument,
-  argument,
+    argument,
+    argument,
+    argument,
 );
 >>> trailing comma in named argument list
 fn(named: argument,another:argument,  );
 <<< 3.6
 fn(
-  named: argument,
-  another: argument,
+    named: argument,
+    another: argument,
 );
 >>> many arguments mixed named
 method(first, name1: second, third, name2: fourth, name3: fifth, sixth,
@@ -296,29 +296,29 @@ function(
     argument,
     b: argument,
     [
-      element,
-      element,
-      element,
-      element
+        element,
+        element,
+        element,
+        element
     ],
     c: {
-      'key': value,
-      'other key': value,
-      'third key': value
+        'key': value,
+        'other key': value,
+        'third key': value
     });
 >>> all trailing collections
 function([element, element], name: [element, element], {'key': value, 'other key': value, 'third key': value});
 <<< 3.6
 function([
-  element,
-  element
+    element,
+    element
 ], name: [
-  element,
-  element
+    element,
+    element
 ], {
-  'key': value,
-  'other key': value,
-  'third key': value
+    'key': value,
+    'other key': value,
+    'third key': value
 });
 >>> non-collection non-preceding argument forces all collections to indent
 function([element, element, element, element], name: argument,
@@ -326,26 +326,26 @@ function([element, element, element, element], name: argument,
 <<< 3.6
 function(
     [
-      element,
-      element,
-      element,
-      element
+        element,
+        element,
+        element,
+        element
     ],
     name: argument,
     {
-      'key': value,
-      'other key': value,
-      'third key': value
+        'key': value,
+        'other key': value,
+        'third key': value
     }, () {
-  ;
+    ;
 });
 >>> trailing comma with mixed named
 fn(argument,name: argument  ,argument  ,  );
 <<< 3.6
 fn(
-  argument,
-  name: argument,
-  argument,
+    argument,
+    name: argument,
+    argument,
 );
 >>> preserve line breaks in trailing comma argument list with line comment
 function(// yeah
@@ -354,8 +354,8 @@ fourth, fifth,
 sixth,);
 <<< 3.6
 function(
-  // yeah
-  first, second, third,
-  fourth, fifth,
-  sixth,
+    // yeah
+    first, second, third,
+    fourth, fifth,
+    sixth,
 );

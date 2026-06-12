@@ -24,10 +24,10 @@ external    static  final    Set < int  >  a ,  b  ;
 }
 <<< 3.6
 class C {
-  external static final a, b;
-  external static final Set<int> a, b;
-  external static var a;
-  external static List<int> a;
+    external static final a, b;
+    external static final Set<int> a, b;
+    external static var a;
+    external static List<int> a;
 }
 >>> instance field
 class C {
@@ -38,8 +38,8 @@ class C {
 }
 <<< 3.6
 class C {
-  external final a, b;
-  external final Set<String> a, b;
-  external var a;
-  external List<int> a;
+    external final a, b;
+    external final Set<String> a, b;
+    external var a;
+    external List<int> a;
 }

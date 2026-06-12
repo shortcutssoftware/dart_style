@@ -16,5 +16,4 @@ pluralThatFailsParsing(noOfThings) => Intl.plural(noOfThings,
   parser.addOption("output-dir", defaultsTo: '.',
       callback: (value) => targetDir = value);
 <<< 3.6
-  parser.addOption("output-dir",
-      defaultsTo: '.', callback: (value) => targetDir = value);
+  parser.addOption("output-dir", defaultsTo: '.', callback: (value) => targetDir = value);

@@ -8,7 +8,7 @@ var record = (  // comment
 );
 <<< 3.6
 var record = (
-  // comment
+    // comment
 );
 >>> single-element record block comment
 var record = ( element , /* comment */  );
@@ -22,28 +22,28 @@ var record = (element /* comment */,);
 var record = ( element /* very long adhered to element */ , );
 <<< 3.6
 var record = (
-  element /* very long adhered to element */,
+    element /* very long adhered to element */,
 );
 >>> long single-element record block comment
 var record = ( element, /* very long adhered to element */ );
 <<< 3.6
 var record = (
-  element, /* very long adhered to element */
+    element, /* very long adhered to element */
 );
 >>> single-element record line comment
 var record = ( element , // comment
 );
 <<< 3.6
 var record = (
-  element, // comment
+    element, // comment
 );
 >>> single-element record line comment
 var record = ( element // comment
 ,);
 <<< 3.6
 var record = (
-  element // comment
-  ,
+    element // comment
+    ,
 );
 >>> multi-element record block comment
 var record = ( 1 /* comment */ , 2  );
@@ -58,15 +58,15 @@ var record = ( 1 // comment
 , 2  );
 <<< 3.6
 var record = (
-  1 // comment
-  ,
-  2
+    1 // comment
+    ,
+    2
 );
 >>> multi-element record line comment
 var record = ( 1, // comment
 2  );
 <<< 3.6
 var record = (
-  1, // comment
-  2
+    1, // comment
+    2
 );

@@ -9,11 +9,9 @@ class Bar {
 }
 <<< 3.6
 class Bar {
-  void foo() {
-    blah
-        .method(someLongArgument, andAnotherOne, andAThirdOne, andOneMore)
-        .then((var x) {
-      var y = x * 2;
-    });
-  }
+    void foo() {
+        blah.method(someLongArgument, andAnotherOne, andAThirdOne, andOneMore).then((var x) {
+            var y = x * 2;
+        });
+    }
 }

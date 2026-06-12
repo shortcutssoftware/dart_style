@@ -76,21 +76,21 @@ final documentChanges =
                 : (throw '''${json['documentChanges']} was not one of (List<TextDocumentEdit>, List<Either4<TextDocumentEdit, CreateFile, RenameFile, DeleteFile>>)''')));
 <<< 3.8
 final documentChanges =
-    (json['documentChanges'] is List
-        && (json['documentChanges'].every((item) => TextDocumentEdit.canParse(item, nullLspJsonReporter))))
+    (json['documentChanges'] is List &&
+        (json['documentChanges'].every((item) => TextDocumentEdit.canParse(item, nullLspJsonReporter))))
     ? Either2<List<TextDocumentEdit>, List<Either4<TextDocumentEdit, CreateFile, RenameFile, DeleteFile>>>.t1(
             json['documentChanges']
                 ?.map((item) => item != null ? TextDocumentEdit.fromJson(item) : null)
                 ?.cast<TextDocumentEdit>()
                 ?.toList(),
         )
-    : ((json['documentChanges'] is List
-                && (json['documentChanges'].every(
+    : ((json['documentChanges'] is List &&
+                (json['documentChanges'].every(
                     (item) =>
-                        (TextDocumentEdit.canParse(item, nullLspJsonReporter)
-                        || CreateFile.canParse(item, nullLspJsonReporter)
-                        || RenameFile.canParse(item, nullLspJsonReporter)
-                        || DeleteFile.canParse(item, nullLspJsonReporter)),
+                        (TextDocumentEdit.canParse(item, nullLspJsonReporter) ||
+                        CreateFile.canParse(item, nullLspJsonReporter) ||
+                        RenameFile.canParse(item, nullLspJsonReporter) ||
+                        DeleteFile.canParse(item, nullLspJsonReporter)),
                 )))
             ? Either2<
                     List<TextDocumentEdit>,

@@ -5,10 +5,8 @@ setSelectionRange(
   ;
 }
 <<< 3.6
-setSelectionRange(
-    /* TextInputElement | TextAreaElement */ Element input, int start, int end,
-    [direction]) {
-  ;
+setSelectionRange(/* TextInputElement | TextAreaElement */ Element input, int start, int end, [direction]) {
+    ;
 }
 >>>
 setSelectionRange(/* TextInputElement | TextAreaElement */ Element input, int start, int end,
@@ -16,10 +14,8 @@ setSelectionRange(/* TextInputElement | TextAreaElement */ Element input, int st
   ;
 }
 <<< 3.6
-setSelectionRange(
-    /* TextInputElement | TextAreaElement */ Element input, int start, int end,
-    [direction]) {
-  ;
+setSelectionRange(/* TextInputElement | TextAreaElement */ Element input, int start, int end, [direction]) {
+    ;
 }
 >>>
 Future<void> signOutGoogle() async {}

@@ -9,11 +9,10 @@
       onDone: () { print('file is now closed'); },
       onError: (e) { print(e.toString()); });
 <<< 3.6
-  inputStream.transform(utf8.decoder).transform(new LineSplitter()).listen(
-      (String line) {
-    print('Got ${line.length} characters from stream');
+  inputStream.transform(utf8.decoder).transform(new LineSplitter()).listen((String line) {
+      print('Got ${line.length} characters from stream');
   }, onDone: () {
-    print('file is now closed');
+      print('file is now closed');
   }, onError: (e) {
-    print(e.toString());
+      print(e.toString());
   });

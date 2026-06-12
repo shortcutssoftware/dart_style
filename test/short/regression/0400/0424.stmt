@@ -6,8 +6,7 @@ obj.functionWithTwoParameters(firstParameterGenerator()
 <<< 3.6
 obj.functionWithTwoParameters(
     firstParameterGenerator()
-      ..id = myId
-      ..teamId = myTeamId
-      ..startTime =
-          new Time(getEndOfDate(clock.currentTime()).millisecondsSinceEpoch),
+        ..id = myId
+        ..teamId = myTeamId
+        ..startTime = new Time(getEndOfDate(clock.currentTime()).millisecondsSinceEpoch),
     secondParameterGenerator());

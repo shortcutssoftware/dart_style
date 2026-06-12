@@ -52,12 +52,6 @@ while (veryLongCondition || veryLongExpression) body;
 while (veryLongCondition ||
     veryLongExpression)
     body;
-<<< 3.8
-while (
-    veryLongCondition
-    || veryLongExpression
-)
-    body;
 >>> Split in body forces split before body.
 while (condition) veryLongExpression + anotherLongExpression;
 <<< 3.7

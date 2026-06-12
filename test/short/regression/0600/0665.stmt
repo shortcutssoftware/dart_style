@@ -9,9 +9,9 @@ when(
    .thenReturn(new Future<MockProcessResult>.value(new MockProcessResult()));
 <<< 3.6
 when(
-  runner.call(
-    typed(captureAny),
-    typed(captureAny),
-    workingDirectory: typed(captureAny, named: "workingDirectory"),
-  ),
+    runner.call(
+        typed(captureAny),
+        typed(captureAny),
+        workingDirectory: typed(captureAny, named: "workingDirectory"),
+    ),
 ).thenReturn(new Future<MockProcessResult>.value(new MockProcessResult()));

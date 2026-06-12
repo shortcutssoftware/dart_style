@@ -3,21 +3,21 @@
 class A {void x(){}}
 <<< 3.6
 class A {
-  void x() {}
+    void x() {}
 }
 >>>
 class A{static bool x(){return true;}}
 <<< 3.6
 class A {
-  static bool x() {
-    return true;
-  }
+    static bool x() {
+        return true;
+    }
 }
 >>>
 class A{int x()=>42+3;}
 <<< 3.6
 class A {
-  int x() => 42 + 3;
+    int x() => 42 + 3;
 }
 >>> method body
 class A {
@@ -29,11 +29,11 @@ class A {
 }
 <<< 3.6
 class A {
-  foo(path) {
-    var buffer = new StringBuffer();
-    var file = new File(path);
-    return file;
-  }
+    foo(path) {
+        var buffer = new StringBuffer();
+        var file = new File(path);
+        return file;
+    }
 }
 >>> covariant
 class A {
@@ -44,10 +44,11 @@ class A {
 }
 <<< 3.6
 class A {
-  pos(covariant int a, covariant b);
-  opt([covariant int a, covariant b]);
-  named({covariant int a, covariant b});
-  fn(covariant int f(bool b));
+    pos(covariant int a, covariant b);
+    opt([covariant int a, covariant b]);
+    named(
+        {covariant int a, covariant b});
+    fn(covariant int f(bool b));
 }
 >>> covariant in initializing formal (not valid, but dart format should accept)
 class A {
@@ -55,7 +56,7 @@ class A {
 }
 <<< 3.6
 class A {
-  A(covariant this.foo);
+    A(covariant this.foo);
 }
 >>> discard trailing newlines in method body
 class Foo {
@@ -69,7 +70,7 @@ class Foo {
 }
 <<< 3.6
 class Foo {
-  bar() {
-    baz();
-  }
+    bar() {
+        baz();
+    }
 }

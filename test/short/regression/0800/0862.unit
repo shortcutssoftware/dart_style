@@ -8,11 +8,9 @@ class JsonCodec {
 }
 <<< 3.6
 class JsonCodec {
-  const JsonCodec(
-      {Object? reviver(Object? key, Object? value)?,
-      Object? toEncodable(dynamic object)?})
-      : _reviver = reviver,
-        _toEncodable = toEncodable;
+    const JsonCodec({Object? reviver(Object? key, Object? value)?, Object? toEncodable(dynamic object)?})
+        : _reviver = reviver,
+          _toEncodable = toEncodable;
 }
 >>>
 class JsonUtf8Encoder {
@@ -24,11 +22,10 @@ class JsonUtf8Encoder {
 }
 <<< 3.6
 class JsonUtf8Encoder {
-  JsonUtf8Encoder(
-      [String? indent, dynamic toEncodable(dynamic object)?, int? bufferSize])
-      : _indent = _utf8Encode(indent),
-        _toEncodable = toEncodable,
-        _bufferSize = bufferSize ?? _defaultBufferSize;
+    JsonUtf8Encoder([String? indent, dynamic toEncodable(dynamic object)?, int? bufferSize])
+        : _indent = _utf8Encode(indent),
+          _toEncodable = toEncodable,
+          _bufferSize = bufferSize ?? _defaultBufferSize;
 }
 >>> comma between parameters
 mandatory(f()?,i) {}
@@ -44,13 +41,13 @@ optional([f()?,]) {}
 named({f()?,}) {}
 <<< 3.6
 mandatory(
-  f()?,
+    f()?,
 ) {}
 optional([
-  f()?,
+    f()?,
 ]) {}
 named({
-  f()?,
+    f()?,
 }) {}
 >>> constructor initializer trailing comma
 class C {
@@ -58,7 +55,7 @@ class C {
 }
 <<< 3.6
 class C {
-  C(
-    f()?,
-  ) : field = 3;
+    C(
+        f()?,
+    ) : field = 3;
 }

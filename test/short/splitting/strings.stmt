@@ -35,7 +35,7 @@ multiline
 }
 <<< 3.6
 {
-  """
+    """
 multiline
 """;
 }
@@ -129,14 +129,14 @@ someMethod("""
   some
   text
 """, () {
-  some;
-  function;
+    some;
+    function;
 }, [
-  "some",
-  "collection",
-  "with",
-  "many",
-  "elements"
+    "some",
+    "collection",
+    "with",
+    "many",
+    "elements"
 ]);
 >>> interpolation is not split even when line is too long
 someMethod("some text that is pretty long ${    interpolate +
@@ -165,9 +165,9 @@ someMethod(
 someMethod("before ${(){statement();statement();statement();}} after");
 <<< 3.6
 someMethod("before ${() {
-  statement();
-  statement();
-  statement();
+    statement();
+    statement();
+    statement();
 }} after");
 >>> collections split in interpolation if needed
 method(
@@ -177,11 +177,11 @@ method(
 method(
     "b ${[1, 2, 3, 4, 5, 6]} a",
     "before ${[
-      first,
-      second,
-      third,
-      fourth,
-      {fifth: sixth}
+        first,
+        second,
+        third,
+        fourth,
+        {fifth: sixth}
     ]} after");
 >>> nested multiline strings are not merged in interpolation
 "before ${"""a
@@ -217,10 +217,10 @@ j ${k + l}''';
 c"""; d(); }} after";
 <<< 3.6
 "before ${() {
-  a();
-  """b
+    a();
+    """b
 c""";
-  d();
+    d();
 }} after";
 >>> comment inside interpolation
 "before ${// comment

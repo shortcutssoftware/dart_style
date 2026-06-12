@@ -7,8 +7,8 @@ enum _ElementLifecycle {
 }
 <<< 3.6
 enum _ElementLifecycle {
-  initial,
-  active,
-  inactive,
-  defunct,
+    initial,
+    active,
+    inactive,
+    defunct,
 }

@@ -76,7 +76,7 @@ var x =
 SomeType a = () {;}, b;
 <<< 3.6
 SomeType a = () {
-      ;
+        ;
     },
     b;
 >>> prefer to split at "=" instead of pattern
@@ -93,39 +93,39 @@ var (longIdentifier &&
 var [first, second, third, fourth, fifth] = value;
 <<< 3.6
 var [
-  first,
-  second,
-  third,
-  fourth,
-  fifth
+    first,
+    second,
+    third,
+    fourth,
+    fifth
 ] = value;
 >>> split in map pattern
 var {first: second, third: fourth, fifth: sixth} = value;
 <<< 3.6
 var {
-  first: second,
-  third: fourth,
-  fifth: sixth
+    first: second,
+    third: fourth,
+    fifth: sixth
 } = value;
 >>> split in record pattern
 var (first, second, third, fourth, fifth) = value;
 <<< 3.6
 var (
-  first,
-  second,
-  third,
-  fourth,
-  fifth
+    first,
+    second,
+    third,
+    fourth,
+    fifth
 ) = value;
 >>> split in object pattern
 var Foo(:first, :second, :third, :fourth, :fifth) = value;
 <<< 3.6
 var Foo(
-  :first,
-  :second,
-  :third,
-  :fourth,
-  :fifth
+    :first,
+    :second,
+    :third,
+    :fourth,
+    :fifth
 ) = value;
 >>> split in value
 var (first, second, third) = longValueExpression + anotherOperand + aThirdOperand;
@@ -146,37 +146,37 @@ var (longIdentifier &&
 var (first, second, third, fourth, fifth) = (first, second, third, fourth, fifth);
 <<< 3.6
 var (
-  first,
-  second,
-  third,
-  fourth,
-  fifth
+    first,
+    second,
+    third,
+    fourth,
+    fifth
 ) = (
-  first,
-  second,
-  third,
-  fourth,
-  fifth
+    first,
+    second,
+    third,
+    fourth,
+    fifth
 );
 >>> expression split in pattern, collection-like in value
 var (longIdentifier && anotherAlsoLongOne) = (first, second, third, fourth, fifth);
 <<< 3.6
 var (longIdentifier &&
     anotherAlsoLongOne) = (
-  first,
-  second,
-  third,
-  fourth,
-  fifth
+    first,
+    second,
+    third,
+    fourth,
+    fifth
 );
 >>> expression split in pattern, collection-like in value
 var (longIdentifier && anotherAlsoLongOne) = (first, second, third, fourth, fifth);
 <<< 3.6
 var (longIdentifier &&
     anotherAlsoLongOne) = (
-  first,
-  second,
-  third,
-  fourth,
-  fifth
+    first,
+    second,
+    third,
+    fourth,
+    fifth
 );

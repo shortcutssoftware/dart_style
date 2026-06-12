@@ -25,26 +25,3 @@ class TokenType {
         identical(lexeme, "^") ||
         identical(lexeme, "|");
 }
-<<< 3.8
-class TokenType {
-    bool get isUserDefinableOperator =>
-        identical(lexeme, "==")
-        || identical(lexeme, "~")
-        || identical(lexeme, "[]")
-        || identical(lexeme, "[]=")
-        || identical(lexeme, "*")
-        || identical(lexeme, "/")
-        || identical(lexeme, "%")
-        || identical(lexeme, "~/")
-        || identical(lexeme, "+")
-        || identical(lexeme, "-")
-        || identical(lexeme, "<<")
-        || identical(lexeme, ">>")
-        || identical(lexeme, ">=")
-        || identical(lexeme, ">")
-        || identical(lexeme, "<=")
-        || identical(lexeme, "<")
-        || identical(lexeme, "&")
-        || identical(lexeme, "^")
-        || identical(lexeme, "|");
-}

@@ -68,15 +68,15 @@ foo() {
 }
 <<< 3.6
 foo() {
-  @meta
-  var a;
+    @meta
+    var a;
 
-  @meta
-  var b;
+    @meta
+    var b;
 
-  @a
-  @b
-  var c;
+    @a
+    @b
+    var c;
 }
 >>> force newline before function
 @meta foo() {}
@@ -98,14 +98,14 @@ class X {
 }
 <<< 3.6
 class X {
-  @meta
-  var _x;
-  @meta
-  X.y();
-  @meta
-  factory X(x) => null;
-  @meta
-  int x() => null;
+    @meta
+    var _x;
+    @meta
+    X.y();
+    @meta
+    factory X(x) => null;
+    @meta
+    int x() => null;
 }
 >>> multiple annotations before members get own line
 class X {
@@ -116,18 +116,18 @@ class X {
 }
 <<< 3.6
 class X {
-  @meta
-  @another
-  var _x;
-  @meta
-  @another
-  X.y();
-  @meta
-  @another
-  factory X(x) => null;
-  @meta
-  @another
-  int x() => null;
+    @meta
+    @another
+    var _x;
+    @meta
+    @another
+    X.y();
+    @meta
+    @another
+    factory X(x) => null;
+    @meta
+    @another
+    int x() => null;
 }
 >>> collapse newlines between annotations
 @a
@@ -207,7 +207,7 @@ class Foo {
 }
 <<< 3.6
 class Foo {
-  Foo(@bar this.field);
+    Foo(@bar this.field);
 }
 >>> metadata on "super." parameter
 class Foo {
@@ -215,8 +215,8 @@ class Foo {
 }
 <<< 3.6
 class Foo {
-  Foo(@bar super.field,
-      [@foo() @baz super.another]);
+    Foo(@bar super.field,
+        [@foo() @baz super.another]);
 }
 >>> metadata on function-typed formal parameter
 withReturnType(@foo @bar int fn(@foo param)) {}
@@ -243,36 +243,36 @@ function(
 function(@Annotation longParameter,@Annotation @Other longParameter2,) {}
 <<< 3.6
 function(
-  @Annotation longParameter,
-  @Annotation @Other longParameter2,
+    @Annotation longParameter,
+    @Annotation @Other longParameter2,
 ) {}
 >>> split with trailing commas
 function(@Annotation longParameter,@Annotation @Other @Third longParameter2,) {}
 <<< 3.6
 function(
-  @Annotation longParameter,
-  @Annotation
-  @Other
-  @Third
-  longParameter2,
+    @Annotation longParameter,
+    @Annotation
+    @Other
+    @Third
+    longParameter2,
 ) {}
 >>> keep "covariant" with parameter
 class A { function(@Annotation @VeryLongMetadataAnnotation covariant longParameter) {} }
 <<< 3.6
 class A {
-  function(
-      @Annotation
-      @VeryLongMetadataAnnotation
-      covariant longParameter) {}
+    function(
+        @Annotation
+        @VeryLongMetadataAnnotation
+        covariant longParameter) {}
 }
 >>> keep "required" with parameter
 class A { function({@Annotation @VeryLongMetadataAnnotation required longParameter}) {} }
 <<< 3.6
 class A {
-  function(
-      {@Annotation
-      @VeryLongMetadataAnnotation
-      required longParameter}) {}
+    function(
+        {@Annotation
+        @VeryLongMetadataAnnotation
+        required longParameter}) {}
 }
 >>> metadata on function typedef
 @foo typedef Fn = Function();
@@ -290,9 +290,9 @@ main() {
 }
 <<< 3.6
 main() {
-  for (@a var i in list) {
-    ;
-  }
+    for (@a var i in list) {
+        ;
+    }
 }
 >>> multiple metadata on for-in loop variable
 main() {
@@ -300,9 +300,9 @@ main() {
 }
 <<< 3.6
 main() {
-  for (@a @b var i in list) {
-    ;
-  }
+    for (@a @b var i in list) {
+        ;
+    }
 }
 >>> long metadata on for-in loop variable
 main() {
@@ -310,12 +310,13 @@ main() {
 }
 <<< 3.6
 main() {
-  for (@Annotation
-      @VeryLongMetadataAnnotation(1, 2)
-      var i in veryLong.iterator +
-          expression) {
-    ;
-  }
+    for (@Annotation
+        @VeryLongMetadataAnnotation(
+            1, 2)
+        var i in veryLong.iterator +
+            expression) {
+        ;
+    }
 }
 >>> single metadata on for loop
 main() {
@@ -323,9 +324,9 @@ main() {
 }
 <<< 3.6
 main() {
-  for (@a var i = x;;) {
-    ;
-  }
+    for (@a var i = x;;) {
+        ;
+    }
 }
 >>> multiple metadata on for loop
 main() {
@@ -333,9 +334,9 @@ main() {
 }
 <<< 3.6
 main() {
-  for (@a @b var i = x;;) {
-    ;
-  }
+    for (@a @b var i = x;;) {
+        ;
+    }
 }
 >>> long metadata on for loop
 main() {
@@ -343,12 +344,13 @@ main() {
 }
 <<< 3.6
 main() {
-  for (@Annotation
-      @VeryLongMetadataAnnotation(1, 2)
-      var i = veryLong.iterator +
-          expression;;) {
-    ;
-  }
+    for (@Annotation
+        @VeryLongMetadataAnnotation(
+            1, 2)
+        var i = veryLong.iterator +
+            expression;;) {
+        ;
+    }
 }
 >>> single metadata on pattern for-in loop
 main() {
@@ -356,9 +358,9 @@ main() {
 }
 <<< 3.6
 main() {
-  for (@a var [i] in list) {
-    ;
-  }
+    for (@a var [i] in list) {
+        ;
+    }
 }
 >>> multiple metadata on pattern for-in loop
 main() {
@@ -366,9 +368,9 @@ main() {
 }
 <<< 3.6
 main() {
-  for (@a @b var [i] in list) {
-    ;
-  }
+    for (@a @b var [i] in list) {
+        ;
+    }
 }
 >>> long metadata on pattern for-in loop
 main() {
@@ -376,12 +378,13 @@ main() {
 }
 <<< 3.6
 main() {
-  for (@Annotation
-      @VeryLongMetadataAnnotation(1, 2)
-      var [i] in veryLong.iterator +
-          expression) {
-    ;
-  }
+    for (@Annotation
+        @VeryLongMetadataAnnotation(
+            1, 2)
+        var [i] in veryLong.iterator +
+            expression) {
+        ;
+    }
 }
 >>> single metadata on pattern for loop
 main() {
@@ -389,9 +392,9 @@ main() {
 }
 <<< 3.6
 main() {
-  for (@a var [i] = x;;) {
-    ;
-  }
+    for (@a var [i] = x;;) {
+        ;
+    }
 }
 >>> multiple metadata on pattern for loop
 main() {
@@ -399,9 +402,9 @@ main() {
 }
 <<< 3.6
 main() {
-  for (@a @b var [i] = x;;) {
-    ;
-  }
+    for (@a @b var [i] = x;;) {
+        ;
+    }
 }
 >>> long metadata on pattern for loop
 main() {
@@ -409,23 +412,24 @@ main() {
 }
 <<< 3.6
 main() {
-  for (@Annotation
-      @VeryLongMetadataAnnotation(1, 2)
-      var [i] = veryLong.iterator +
-          expression;;) {
-    ;
-  }
+    for (@Annotation
+        @VeryLongMetadataAnnotation(
+            1, 2)
+        var [i] = veryLong.iterator +
+            expression;;) {
+        ;
+    }
 }
 >>> metadata on enum cases
 enum Foo { a, @meta b, @meta1 @meta2 c}
 <<< 3.6
 enum Foo {
-  a,
-  @meta
-  b,
-  @meta1
-  @meta2
-  c
+    a,
+    @meta
+    b,
+    @meta1
+    @meta2
+    c
 }
 >>> preserve blank line before enum case with metadata
 enum Foo { a,
@@ -433,10 +437,10 @@ enum Foo { a,
 @meta b}
 <<< 3.6
 enum Foo {
-  a,
+    a,
 
-  @meta
-  b
+    @meta
+    b
 }
 >>> metadata on mixin
 @meta   mixin M {}
@@ -466,12 +470,12 @@ class B {
 late int a;
 
 class B {
-  @meta
-  late int c;
-  method() {
     @meta
-    late int d;
-  }
+    late int c;
+    method() {
+        @meta
+        late int d;
+    }
 }
 >>> on external variable
 @meta  external var x;
@@ -485,10 +489,10 @@ class C {
 }
 <<< 3.6
 class C {
-  @meta
-  external static var x;
-  @meta
-  external var x;
+    @meta
+    external static var x;
+    @meta
+    external var x;
 }
 >>> on abstract field
 class C {
@@ -496,8 +500,8 @@ class C {
 }
 <<< 3.6
 class C {
-  @meta
-  abstract var x;
+    @meta
+    abstract var x;
 }
 >>> annotation with type arguments
 @A<int,String>()int x;

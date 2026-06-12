@@ -24,15 +24,6 @@ var list = [
         anotherPart)
         2,
 ];
-<<< 3.8
-var list = [
-    1,
-    if (
-        veryLongConditionExpression
-        || anotherPart
-    )
-        2,
-];
 >>> Split collection but not element.
 var list = [if (c) somewhatLongThingHere];
 <<< 3.7

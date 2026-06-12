@@ -3,10 +3,10 @@
 var list = [1, if (veryLongConditionExpression || anotherPart) 2];
 <<< 3.6
 var list = [
-  1,
-  if (veryLongConditionExpression ||
-      anotherPart)
-    2
+    1,
+    if (veryLongConditionExpression ||
+        anotherPart)
+      2
 ];
 >>> without else on one line
 var list = [1, if (c) 2, 3];
@@ -20,182 +20,182 @@ var list = [1, if (c) 2 else 2, 3];
 var list = [if (c) somewhatLongThingHere];
 <<< 3.6
 var list = [
-  if (c) somewhatLongThingHere
+    if (c) somewhatLongThingHere
 ];
 >>> one line in multi-line
 var list = [veryLongThingThatForcesASplit, if (c) 2, 3];
 <<< 3.6
 var list = [
-  veryLongThingThatForcesASplit,
-  if (c) 2,
-  3
+    veryLongThingThatForcesASplit,
+    if (c) 2,
+    3
 ];
 >>> one line in multi-line with else
 var list = [veryLongThingThatForcesASplit, if (c) 2 else 2, 3];
 <<< 3.6
 var list = [
-  veryLongThingThatForcesASplit,
-  if (c) 2 else 2,
-  3
+    veryLongThingThatForcesASplit,
+    if (c) 2 else 2,
+    3
 ];
 >>> long then branch forces split
 var list = [1, if (condition) veryLongThingThatForcesASplit, 3];
 <<< 3.6
 var list = [
-  1,
-  if (condition)
-    veryLongThingThatForcesASplit,
-  3
+    1,
+    if (condition)
+      veryLongThingThatForcesASplit,
+    3
 ];
 >>> long then branch forces both to split
 var list = [1, if (condition) veryLongThingThatForcesASplit else 2, 3];
 <<< 3.6
 var list = [
-  1,
-  if (condition)
-    veryLongThingThatForcesASplit
-  else
-    2,
-  3
+    1,
+    if (condition)
+      veryLongThingThatForcesASplit
+    else
+      2,
+    3
 ];
 >>> long else branch forces both to split
 var list = [1, if (condition) 2 else veryLongThingThatForcesASplit, 3];
 <<< 3.6
 var list = [
-  1,
-  if (condition)
-    2
-  else
-    veryLongThingThatForcesASplit,
-  3
+    1,
+    if (condition)
+      2
+    else
+      veryLongThingThatForcesASplit,
+    3
 ];
 >>> split inside then
 var list = [1, if (condition) veryLongThingThatForcesASplit + anotherLongThing, 3];
 <<< 3.6
 var list = [
-  1,
-  if (condition)
-    veryLongThingThatForcesASplit +
-        anotherLongThing,
-  3
+    1,
+    if (condition)
+      veryLongThingThatForcesASplit +
+          anotherLongThing,
+    3
 ];
 >>> split inside else
 var list = [1, if (condition) ok else veryLongThingThatForcesASplit + anotherLongThing, 3];
 <<< 3.6
 var list = [
-  1,
-  if (condition)
-    ok
-  else
-    veryLongThingThatForcesASplit +
-        anotherLongThing,
-  3
+    1,
+    if (condition)
+      ok
+    else
+      veryLongThingThatForcesASplit +
+          anotherLongThing,
+    3
 ];
 >>> trailing comma
 var list = [if (c) 2,];
 <<< 3.6
 var list = [
-  if (c) 2,
+    if (c) 2,
 ];
 >>> spread list inside if stays on one line if it fits
 var list = [if (c) ...[1, 2]];
 <<< 3.6
 var list = [
-  if (c) ...[1, 2]
+    if (c) ...[1, 2]
 ];
 >>> spread list inside if formats like block if it splits
 var list = [if (c) ...[1, 2,]];
 <<< 3.6
 var list = [
-  if (c) ...[
-    1,
-    2,
-  ]
+    if (c) ...[
+        1,
+        2,
+    ]
 ];
 >>> both spreads split if then must
 var list = [if (c) ...[1, 2,] else ...[1, 2]];
 <<< 3.6
 var list = [
-  if (c) ...[
-    1,
-    2,
-  ] else ...[
-    1,
-    2
-  ]
+    if (c) ...[
+        1,
+        2,
+    ] else ...[
+        1,
+        2
+    ]
 ];
 >>> both spreads split if else must
 var list = [if (c) ...[1, 2] else ...[1, 2,]];
 <<< 3.6
 var list = [
-  if (c) ...[
-    1,
-    2
-  ] else ...[
-    1,
-    2,
-  ]
+    if (c) ...[
+        1,
+        2
+    ] else ...[
+        1,
+        2,
+    ]
 ];
 >>> a split collection that isn't spread wraps and indents
 var list = [if (c) [1,2,]];
 <<< 3.6
 var list = [
-  if (c)
-    [
-      1,
-      2,
-    ]
+    if (c)
+      [
+          1,
+          2,
+      ]
 ];
 >>> a split collection that isn't spread wraps and indents
 var list = [if (c) [1,2,] else thing];
 <<< 3.6
 var list = [
-  if (c)
-    [
-      1,
-      2,
-    ]
-  else
-    thing
+    if (c)
+      [
+          1,
+          2,
+      ]
+    else
+      thing
 ];
 >>> a split collection that isn't spread wraps and indents
 var list = [if (c) thing else [1,2,]];
 <<< 3.6
 var list = [
-  if (c)
-    thing
-  else
-    [
-      1,
-      2,
-    ]
+    if (c)
+      thing
+    else
+      [
+          1,
+          2,
+      ]
 ];
 >>> lambda inside then
 var list = [if (c) () { body; }];
 <<< 3.6
 var list = [
-  if (c)
-    () {
-      body;
-    }
+    if (c)
+      () {
+          body;
+      }
 ];
 >>> lambda inside else
 var list = [if (c) thing else () { body; }];
 <<< 3.6
 var list = [
-  if (c)
-    thing
-  else
-    () {
-      body;
-    }
+    if (c)
+      thing
+    else
+      () {
+          body;
+      }
 ];
 >>> split if child is if
 var list = [if (c) if (d) thing];
 <<< 3.6
 var list = [
-  if (c)
-    if (d) thing
+    if (c)
+      if (d) thing
 ];
 >>> split if child is for
 var list = [
@@ -203,39 +203,40 @@ var list = [
 ];
 <<< 3.6
 var list = [
-  if (a)
-    for (var b in c) thing
+    if (a)
+      for (var b in c) thing
 ];
 >>> split collection before body
 var list = [if (c) longThingHereThatIsLong];
 <<< 3.6
 var list = [
-  if (c) longThingHereThatIsLong
+    if (c) longThingHereThatIsLong
 ];
 >>> just split outer if
 var list = [if (condition) if (another) longThingHereThatIsLong];
 <<< 3.6
 var list = [
-  if (condition)
-    if (another) longThingHereThatIsLong
+    if (condition)
+      if (another)
+        longThingHereThatIsLong
 ];
 >>> nested list inside if element
 var list = [if (a) [b]];
 <<< 3.6
 var list = [
-  if (a) [b]
+    if (a) [b]
 ];
 >>> nested spread list inside if element
 var list = [if (a) ...[b]];
 <<< 3.6
 var list = [
-  if (a) ...[b]
+    if (a) ...[b]
 ];
 >>> nested if inside list
 var list = [if (a) [if (b) c]];
 <<< 3.6
 var list = [
-  if (a) [if (b) c]
+    if (a) [if (b) c]
 ];
 >>> nested for inside list
 var l = [
@@ -243,59 +244,59 @@ var l = [
 ];
 <<< 3.6
 var l = [
-  if (a) [for (var b in c) d]
+    if (a) [for (var b in c) d]
 ];
 >>> split inside condition
 var list = [if (veryLongCondition + thatNeedsToSplit) thing];
 <<< 3.6
 var list = [
-  if (veryLongCondition +
-      thatNeedsToSplit)
-    thing
+    if (veryLongCondition +
+        thatNeedsToSplit)
+      thing
 ];
 >>> chained if-else
 var list = [if (condition1) thing1 else if (condition2) thing2];
 <<< 3.6
 var list = [
-  if (condition1)
-    thing1
-  else if (condition2)
-    thing2
+    if (condition1)
+      thing1
+    else if (condition2)
+      thing2
 ];
 >>> chained if-else with else at end
 var list = [if (condition1) thing1 else if (condition2) thing2 else thing3];
 <<< 3.6
 var list = [
-  if (condition1)
-    thing1
-  else if (condition2)
-    thing2
-  else
-    thing3
+    if (condition1)
+      thing1
+    else if (condition2)
+      thing2
+    else
+      thing3
 ];
 >>> long chained if-else
 var list = [if (condition1) thing1 else if (condition2) thing2 else if (condition3) thing3];
 <<< 3.6
 var list = [
-  if (condition1)
-    thing1
-  else if (condition2)
-    thing2
-  else if (condition3)
-    thing3
+    if (condition1)
+      thing1
+    else if (condition2)
+      thing2
+    else if (condition3)
+      thing3
 ];
 >>> long chained if-else with else at end
 var list = [if (condition1) thing1 else if (condition2) thing2 else if (condition3) thing3 else thing4];
 <<< 3.6
 var list = [
-  if (condition1)
-    thing1
-  else if (condition2)
-    thing2
-  else if (condition3)
-    thing3
-  else
-    thing4
+    if (condition1)
+      thing1
+    else if (condition2)
+      thing2
+    else if (condition3)
+      thing3
+    else
+      thing4
 ];
 >>> chained if-else with spread and unspread collections
 var list = [
@@ -311,15 +312,15 @@ var list = [
 ];
 <<< 3.6
 var list = [
-  if (condition1) ...[
-    spreadList
-  ] else if (condition2)
-    [notSpread]
-  else if (condition3)
-    thing1
-  else ...{
-    spreadSet
-  }
+    if (condition1) ...[
+        spreadList
+    ] else if (condition2)
+      [notSpread]
+    else if (condition3)
+      thing1
+    else ...{
+        spreadSet
+    }
 ];
 >>> nested chained if-else
 var list = [
@@ -334,23 +335,23 @@ var list = [
 ];
 <<< 3.6
 var list = [
-  if (condition1)
-    if (condition2) a else b
-  else if (condition4)
-    if (condition5)
-      c
-    else if (condition6)
-      d
-    else
-      e
-  else if (condition7)
-    if (condition8) ...[
-      f
-    ] else if (condition9)
-      [g]
-    else ...{
-      h
-    }
+    if (condition1)
+      if (condition2) a else b
+    else if (condition4)
+      if (condition5)
+        c
+      else if (condition6)
+        d
+      else
+        e
+    else if (condition7)
+      if (condition8) ...[
+          f
+      ] else if (condition9)
+        [g]
+      else ...{
+          h
+      }
 ];
 >>> empty then spread not treated like block
 var list = [
@@ -358,11 +359,11 @@ var list = [
 ];
 <<< 3.6
 var list = [
-  if (condition)
-    ...[]
-  else ...[
-    a,
-  ]
+    if (condition)
+      ...[]
+    else ...[
+        a,
+    ]
 ];
 >>> empty else spread not treated like block
 var list = [
@@ -370,10 +371,10 @@ var list = [
 ];
 <<< 3.6
 var list = [
-  if (condition) ...[
-    a,
-  ] else
-    ...[]
+    if (condition) ...[
+        a,
+    ] else
+      ...[]
 ];
 >>> empty then spread does not split
 var list = [
@@ -381,10 +382,10 @@ var list = [
 ];
 <<< 3.6
 var list = [
-  if (condition)
-    ...[]
-  else
-    veryLongIdentifier
+    if (condition)
+      ...[]
+    else
+      veryLongIdentifier
 ];
 >>> empty else spread does not split
 var list = [
@@ -392,10 +393,10 @@ var list = [
 ];
 <<< 3.6
 var list = [
-  if (condition)
-    veryLongIdentifier
-  else
-    ...[]
+    if (condition)
+      veryLongIdentifier
+    else
+      ...[]
 ];
 >>> empty then spread with comment treated like block
 var list = [
@@ -404,11 +405,11 @@ var list = [
 ];
 <<< 3.6
 var list = [
-  if (condition) ...[
-    // c
-  ] else ...[
-    a,
-  ]
+    if (condition) ...[
+        // c
+    ] else ...[
+        a,
+    ]
 ];
 >>> empty else spread with comment treated like block
 var list = [
@@ -417,11 +418,11 @@ var list = [
 ];
 <<< 3.6
 var list = [
-  if (condition) ...[
-    a,
-  ] else ...[
-    // c
-  ]
+    if (condition) ...[
+        a,
+    ] else ...[
+        // c
+    ]
 ];
 >>> empty then spread with comment splits
 var list = [
@@ -430,10 +431,10 @@ var list = [
 ];
 <<< 3.6
 var list = [
-  if (condition) ...[
-    // c
-  ] else
-    veryLongIdentifier
+    if (condition) ...[
+        // c
+    ] else
+      veryLongIdentifier
 ];
 >>> empty else spread with comment splits
 var list = [
@@ -442,11 +443,11 @@ var list = [
 ];
 <<< 3.6
 var list = [
-  if (condition)
-    veryLongIdentifier
-  else ...[
-    // c
-  ]
+    if (condition)
+      veryLongIdentifier
+    else ...[
+        // c
+    ]
 ];
 >>> collection if-case
 var list = [
@@ -454,11 +455,11 @@ if (veryLongExpression + anotherVeryLongOne case someCaseConstant || anotherCase
 ];
 <<< 3.6
 var list = [
-  if (veryLongExpression +
-          anotherVeryLongOne
-      case someCaseConstant ||
-          anotherCaseConstant)
-    element
+    if (veryLongExpression +
+            anotherVeryLongOne
+        case someCaseConstant ||
+            anotherCaseConstant)
+      element
 ];
 >>> collection if-case with guard
 var list = [
@@ -466,12 +467,12 @@ if (veryLongExpression + anotherVeryLongOne case someCase when someGuardConditio
 ];
 <<< 3.6
 var list = [
-  if (veryLongExpression +
-          anotherVeryLongOne
-      case someCase
-      when someGuardCondition ||
-          otherCondition)
-    element
+    if (veryLongExpression +
+            anotherVeryLongOne
+        case someCase
+        when someGuardCondition ||
+            otherCondition)
+      element
 ];
 >>> block formatted pattern in if-case
 var list = [
@@ -479,9 +480,9 @@ if (expression case const [element,]) element
 ];
 <<< 3.6
 var list = [
-  if (expression
-      case const [
-        element,
-      ])
-    element
+    if (expression
+        case const [
+            element,
+        ])
+      element
 ];

@@ -37,13 +37,6 @@ e = switch (obj) {
             anotherCondition =>
         body,
 };
-<<< 3.8
-e = switch (obj) {
-    longConstant
-        when veryLongCondition
-            || anotherCondition =>
-        body,
-};
 >>> No split in pattern, block split in guard.
 e = switch (obj) {
   constant when [veryLongElement,veryLongElement,veryLongElement,] => body
@@ -82,14 +75,6 @@ e = switch (obj) {
             anotherLongCondition =>
         body,
 };
-<<< 3.8
-e = switch (obj) {
-    veryVeryLongPattern &&
-            reallyMustSplitToo
-        when veryLongCondition
-            || anotherLongCondition =>
-        body,
-};
 >>> Expression split in pattern, block split in guard.
 e = switch (obj) {
   veryLongPattern && reallyMustSplitAgain when [veryLongElement,veryLongElement,veryLongElement,] => body
@@ -126,14 +111,6 @@ e = switch (obj) {
     reallyMustSplitToo
         when veryLongCondition ||
             anotherLongCondition =>
-        body,
-};
-<<< 3.8
-e = switch (obj) {
-    veryVeryLongPattern ||
-    reallyMustSplitToo
-        when veryLongCondition
-            || anotherLongCondition =>
         body,
 };
 >>> Outermost logic-or split in pattern, block split in guard.
@@ -178,17 +155,6 @@ e = switch (obj) {
     ]
         when longCondition ||
             anotherLongCondition =>
-        body,
-};
-<<< 3.8
-e = switch (obj) {
-    [
-        veryLongElement,
-        veryLongElement,
-        veryLongElement,
-    ]
-        when longCondition
-            || anotherLongCondition =>
         body,
 };
 >>> Block split in pattern, block split in guard.

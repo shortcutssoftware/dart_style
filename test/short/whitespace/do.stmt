@@ -8,5 +8,5 @@ do
 {;} while (true);
 <<< 3.6
 do {
-  ;
+    ;
 } while (true);

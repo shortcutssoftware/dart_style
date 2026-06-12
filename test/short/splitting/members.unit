@@ -5,8 +5,8 @@ class Foo {
 }
 <<< 3.6
 class Foo {
-  Stream methodName(AssetId id) =>
-      methodBodyHereItIs;
+    Stream methodName(AssetId id) =>
+        methodBodyHereItIs;
 }
 >>> can split on getter
 class Foo {
@@ -14,8 +14,8 @@ class Foo {
 }
 <<< 3.6
 class Foo {
-  VeryLongTypeAnnotation
-      get veryLongGetter => null;
+    VeryLongTypeAnnotation
+        get veryLongGetter => null;
 }
 >>> can split on setter
 class Foo {
@@ -23,8 +23,8 @@ class Foo {
 }
 <<< 3.6
 class Foo {
-  VeryLongTypeAnnotation
-      set veryLongSetter(v) {}
+    VeryLongTypeAnnotation
+        set veryLongSetter(v) {}
 }
 >>> do not split after "covariant" in field
 class Foo {
@@ -33,9 +33,9 @@ class Foo {
 }
 <<< 3.6
 class Foo {
-  covariant var soMuchSoVeryLongFieldNameHere;
-  covariant VeryLongTypeAnnotation
-      field;
+    covariant var soMuchSoVeryLongFieldNameHere;
+    covariant VeryLongTypeAnnotation
+        field;
 }
 >>> do not split after "external" in field
 class Foo {
@@ -44,9 +44,9 @@ class Foo {
 }
 <<< 3.6
 class Foo {
-  external var soMuchSoVeryLongFieldNameHere;
-  external SuperLongTypeAnnotation
-      field;
+    external var soMuchSoVeryLongFieldNameHere;
+    external SuperLongTypeAnnotation
+        field;
 }
 >>> do not split after "abstract" in field
 class Foo {
@@ -55,7 +55,7 @@ class Foo {
 }
 <<< 3.6
 class Foo {
-  abstract var soMuchSoVeryLongFieldNameHere;
-  abstract SuperLongTypeAnnotation
-      field;
+    abstract var soMuchSoVeryLongFieldNameHere;
+    abstract SuperLongTypeAnnotation
+        field;
 }

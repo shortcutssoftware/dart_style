@@ -19,13 +19,13 @@ switch (obj) {
 }
 <<< 3.6
 switch (obj) {
-  case == other:
-  case != other:
-  case < other:
-  case <= other:
-  case > other:
-  case >= other:
-    body;
+    case == other:
+    case != other:
+    case < other:
+    case <= other:
+    case > other:
+    case >= other:
+        body;
 }
 >>> relational as subpattern
 if (o case  >  1  &&  <   2 && (  ==   3 )) {}
@@ -59,17 +59,17 @@ case  #symbol  :
 }
 <<< 3.6
 switch (obj) {
-  case true:
-  case false:
-  case null:
-  case 123:
-  case 12.34:
-  case -123:
-  case -12.34:
-  case 'string':
-  case 's$tr${ing}':
-  case #symbol:
-    ok;
+    case true:
+    case false:
+    case null:
+    case 123:
+    case 12.34:
+    case -123:
+    case -12.34:
+    case 'string':
+    case 's$tr${ing}':
+    case #symbol:
+        ok;
 }
 >>> identifiers
 switch (obj) {
@@ -81,11 +81,11 @@ case  prefixed  .  qualified  .  name  :
 }
 <<< 3.6
 switch (obj) {
-  case _:
-  case name:
-  case qualified.name:
-  case prefixed.qualified.name:
-    ok;
+    case _:
+    case name:
+    case qualified.name:
+    case prefixed.qualified.name:
+        ok;
 }
 >>> variables
 switch (obj) {
@@ -98,12 +98,12 @@ case  final  (  int  ,  String  )  name  :
 }
 <<< 3.6
 switch (obj) {
-  case int? _:
-  case List<String> name:
-  case var name:
-  case final name:
-  case final (int, String) name:
-    ok;
+    case int? _:
+    case List<String> name:
+    case var name:
+    case final name:
+    case final (int, String) name:
+        ok;
 }
 >>> list
 switch (obj) {
@@ -121,21 +121,21 @@ case  [  ...  ,  ]  :
 }
 <<< 3.6
 switch (obj) {
-  case []:
-  case <int>[]:
-  case [_]:
-  case [
-      _,
-    ]:
-  case [_, _]:
-  case [...]:
-  case [..._]:
-  case [_, ...]:
-  case [..., _]:
-  case [
-      ...,
-    ]:
-    ok;
+    case []:
+    case <int>[]:
+    case [_]:
+    case [
+            _,
+        ]:
+    case [_, _]:
+    case [...]:
+    case [..._]:
+    case [_, ...]:
+    case [..., _]:
+    case [
+            ...,
+        ]:
+        ok;
 }
 >>> map
 switch (obj) {
@@ -150,16 +150,16 @@ case  {  k  :  _  ,  ...  }  :
 }
 <<< 3.6
 switch (obj) {
-  case {}:
-  case <int, String>{}:
-  case {k: _}:
-  case {
-      k: _,
-    }:
-  case {k: 1, m: 2}:
-  case {...}:
-  case {k: _, ...}:
-    ok;
+    case {}:
+    case <int, String>{}:
+    case {k: _}:
+    case {
+            k: _,
+        }:
+    case {k: 1, m: 2}:
+    case {...}:
+    case {k: _, ...}:
+        ok;
 }
 >>> record
 switch (obj) {
@@ -172,12 +172,12 @@ switch (obj) {
 }
 <<< 3.6
 switch (obj) {
-  case ():
-  case (value,):
-  case (first, second, third):
-  case (first: 1, 2, third: 3):
-  case (:var x, :var y):
-    ok;
+    case ():
+    case (value,):
+    case (first, second, third):
+    case (first: 1, 2, third: 3):
+    case (:var x, :var y):
+        ok;
 }
 >>> object
 switch (obj) {
@@ -191,15 +191,18 @@ ok;
 }
 <<< 3.6
 switch (obj) {
-  case Foo():
-  case Foo(getter: pattern):
-  case Foo(
-      getter: pattern,
-    ):
-  case Foo(a: 1, b: 2, c: 3):
-  case Foo(:var x, :var y):
-  case Foo<int, String>(:var x, :var y):
-    ok;
+    case Foo():
+    case Foo(getter: pattern):
+    case Foo(
+            getter: pattern,
+        ):
+    case Foo(a: 1, b: 2, c: 3):
+    case Foo(:var x, :var y):
+    case Foo<int, String>(
+            :var x,
+            :var y
+        ):
+        ok;
 }
 >>> object
 switch (obj) {
@@ -213,15 +216,18 @@ ok;
 }
 <<< 3.6
 switch (obj) {
-  case Foo():
-  case Foo(getter: pattern):
-  case Foo(
-      getter: pattern,
-    ):
-  case Foo(a: 1, b: 2, c: 3):
-  case Foo(:var x, :var y):
-  case Foo<int, String>(:var x, :var y):
-    ok;
+    case Foo():
+    case Foo(getter: pattern):
+    case Foo(
+            getter: pattern,
+        ):
+    case Foo(a: 1, b: 2, c: 3):
+    case Foo(:var x, :var y):
+    case Foo<int, String>(
+            :var x,
+            :var y
+        ):
+        ok;
 }
 >>> constant collections
 switch (obj) {
@@ -237,15 +243,15 @@ case  const  {  1  :  's'  ,  2  :  't'  }  :
 }
 <<< 3.6
 switch (obj) {
-  case const []:
-  case const <int>[]:
-  case const [1, 2]:
-  case const {}:
-  case const <int>{}:
-  case const {1, 2}:
-  case const <int, String>{}:
-  case const {1: 's', 2: 't'}:
-    ok;
+    case const []:
+    case const <int>[]:
+    case const [1, 2]:
+    case const {}:
+    case const <int>{}:
+    case const {1, 2}:
+    case const <int, String>{}:
+    case const {1: 's', 2: 't'}:
+        ok;
 }
 >>> constant constructor
 switch (obj) {
@@ -258,14 +264,14 @@ ok;
 }
 <<< 3.6
 switch (obj) {
-  case const Foo():
-  case const Foo(field, another):
-  case const Foo(field: value):
-  case const Foo(
-      field: value,
-    ):
-  case const Foo<int, String>(field):
-    ok;
+    case const Foo():
+    case const Foo(field, another):
+    case const Foo(field: value):
+    case const Foo(
+            field: value,
+        ):
+    case const Foo<int, String>(field):
+        ok;
 }
 >>> parenthesized constant expression
 switch (obj) {
@@ -275,7 +281,7 @@ ok;
 }
 <<< 3.6
 switch (obj) {
-  case const (1):
-  case const (-foo * bar):
-    ok;
+    case const (1):
+    case const (-foo * bar):
+        ok;
 }

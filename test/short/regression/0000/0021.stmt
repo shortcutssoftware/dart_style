@@ -29,19 +29,19 @@ var map = {
 };
 <<< 3.6
 var map = {
-  "nestedMessage": "{combinedGender,select, "
-      "other{"
-      "{number,plural, "
-      "=0{Personne n'avait allé à la {place}}"
-      "=1{{names} était allé à la {place}}"
-      "other{{names} étaient allés à la {place}}"
-      "}"
-      "}"
-      "female{"
-      "{number,plural, "
-      "=1{{names} était allée à la {place}}"
-      "other{{names} étaient allées à la {place}}"
-      "}"
-      "}"
-      "}",
+    "nestedMessage": "{combinedGender,select, "
+        "other{"
+        "{number,plural, "
+        "=0{Personne n'avait allé à la {place}}"
+        "=1{{names} était allé à la {place}}"
+        "other{{names} étaient allés à la {place}}"
+        "}"
+        "}"
+        "female{"
+        "{number,plural, "
+        "=1{{names} était allée à la {place}}"
+        "other{{names} étaient allées à la {place}}"
+        "}"
+        "}"
+        "}",
 };

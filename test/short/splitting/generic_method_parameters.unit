@@ -73,5 +73,5 @@ longFunctionName(
             AnotherTypeParam>(
         LongTypeParameter parameter,
         AnotherTypeParam another)) {
-  ;
+    ;
 }

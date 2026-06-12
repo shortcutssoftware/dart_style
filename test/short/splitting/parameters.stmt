@@ -18,7 +18,7 @@ method(
     tenth,
     eleventh,
     twelfth) {
-  print('42');
+    print('42');
 }
 >>> parameters fit but ) does not
 method(int firstArgument, int argumentTo) {
@@ -27,7 +27,7 @@ method(int firstArgument, int argumentTo) {
 <<< 3.6
 method(
     int firstArgument, int argumentTo) {
-  print('42');
+    print('42');
 }
 >>> parameters fit but } does not
 method(int firstArgument, int argument) {
@@ -36,7 +36,7 @@ method(int firstArgument, int argument) {
 <<< 3.6
 method(
     int firstArgument, int argument) {
-  print('42');
+    print('42');
 }
 >>> no split after "(" in lambda
 var meth = (
@@ -46,7 +46,7 @@ var meth = (
 <<< 3.6
 var meth = (int firstArgument,
     int argumentTo) {
-  print('42');
+    print('42');
 };
 >>> keep mandatory and positional on same line
 foo(param, [foo, bar]) {}

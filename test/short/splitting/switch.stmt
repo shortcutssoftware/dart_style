@@ -7,8 +7,8 @@ switch ("a long string that must wrap") {
 <<< 3.6
 switch (
     "a long string that must wrap") {
-  case 0:
-    return "ok";
+    case 0:
+        return "ok";
 }
 >>> block split in value
 switch ([1,]) {
@@ -17,10 +17,10 @@ switch ([1,]) {
 }
 <<< 3.6
 switch ([
-  1,
+    1,
 ]) {
-  case 0:
-    return "ok";
+    case 0:
+        return "ok";
 }
 >>> empty cases always get their own line
 switch (obj) {
@@ -30,9 +30,9 @@ switch (obj) {
 }
 <<< 3.6
 switch (obj) {
-  case 1:
-  case 2:
-    a();
+    case 1:
+    case 2:
+        a();
 }
 >>> single-statement cases split
 switch (obj) {
@@ -42,12 +42,12 @@ switch (obj) {
 }
 <<< 3.6
 switch (obj) {
-  case 1:
-    a();
-  case 2:
-    b();
-  default:
-    c();
+    case 1:
+        a();
+    case 2:
+        b();
+    default:
+        c();
 }
 >>> multiple statement cases split
 switch (obj) {
@@ -57,15 +57,15 @@ switch (obj) {
 }
 <<< 3.6
 switch (obj) {
-  case 1:
-    a();
-    b();
-  case 2:
-    c();
-    d();
-  default:
-    d();
-    e();
+    case 1:
+        a();
+        b();
+    case 2:
+        c();
+        d();
+    default:
+        d();
+        e();
 }
 >>> cases always split
 switch (obj) {
@@ -76,16 +76,16 @@ switch (obj) {
 }
 <<< 3.6
 switch (obj) {
-  case 1:
-    a();
-    b();
-  case 2:
-    c();
-  case 3:
-    d();
-    e();
-  default:
-    f();
+    case 1:
+        a();
+        b();
+    case 2:
+        c();
+    case 3:
+        d();
+        e();
+    default:
+        f();
 }
 >>> long body statement splits after ":"
 switch (obj) {
@@ -95,12 +95,12 @@ switch (obj) {
 }
 <<< 3.6
 switch (obj) {
-  case 1:
-    longExpression + thatMustSplit;
-  case 2:
-    b();
-  default:
-    c();
+    case 1:
+        longExpression + thatMustSplit;
+    case 2:
+        b();
+    default:
+        c();
 }
 >>> split in body statement splits after ":"
 switch (obj) {
@@ -110,13 +110,13 @@ switch (obj) {
 }
 <<< 3.6
 switch (obj) {
-  case 1:
-    longExpression +
-        thatMustSplitAndAgain;
-  case 2:
-    b();
-  default:
-    c();
+    case 1:
+        longExpression +
+            thatMustSplitAndAgain;
+    case 2:
+        b();
+    default:
+        c();
 }
 >>> pattern and guard on same line
 switch (obj) {
@@ -124,8 +124,8 @@ switch (obj) {
 }
 <<< 3.6
 switch (obj) {
-  case constant when condition:
-    body;
+    case constant when condition:
+        body;
 }
 >>> pattern and guard on same line, split after ":"
 switch (obj) {
@@ -133,8 +133,8 @@ switch (obj) {
 }
 <<< 3.6
 switch (obj) {
-  case constant when condition:
-    longBody;
+    case constant when condition:
+        longBody;
 }
 >>> prefer to split guard before case
 switch (obj) {
@@ -142,9 +142,9 @@ switch (obj) {
 }
 <<< 3.6
 switch (obj) {
-  case veryLongConstant
-      when longCondition:
-    body;
+    case veryLongConstant
+        when longCondition:
+        body;
 }
 >>> no split in pattern, expression split in guard
 switch (obj) {
@@ -152,10 +152,10 @@ switch (obj) {
 }
 <<< 3.6
 switch (obj) {
-  case longConstant
-      when condition ||
-          anotherCondition:
-    body;
+    case longConstant
+        when condition ||
+            anotherCondition:
+        body;
 }
 >>> no split in pattern, block split in guard
 switch (obj) {
@@ -163,11 +163,11 @@ switch (obj) {
 }
 <<< 3.6
 switch (obj) {
-  case constant
-      when [
-        element,
-      ]:
-    body;
+    case constant
+        when [
+            element,
+        ]:
+        body;
 }
 >>> expression split in pattern
 switch (obj) {
@@ -175,9 +175,9 @@ switch (obj) {
 }
 <<< 3.6
 switch (obj) {
-  case veryLongPattern ||
-        reallyMustSplit:
-    body;
+    case veryLongPattern ||
+            reallyMustSplit:
+        body;
 }
 >>> expression split in pattern forces guard to split
 switch (obj) {
@@ -185,10 +185,10 @@ switch (obj) {
 }
 <<< 3.6
 switch (obj) {
-  case veryLongPattern ||
-          reallyMustSplit
-      when true:
-    body;
+    case veryLongPattern ||
+            reallyMustSplit
+        when true:
+        body;
 }
 >>> expression split in pattern, expression split in guard
 switch (obj) {
@@ -197,11 +197,11 @@ switch (obj) {
 }
 <<< 3.6
 switch (obj) {
-  case veryLongPattern ||
-          reallyMustSplit
-      when veryLongCondition ||
-          anotherLongCondition:
-    body;
+    case veryLongPattern ||
+            reallyMustSplit
+        when veryLongCondition ||
+            anotherLongCondition:
+        body;
 }
 >>> expression split in pattern, block split in guard
 switch (obj) {
@@ -209,12 +209,12 @@ switch (obj) {
 }
 <<< 3.6
 switch (obj) {
-  case veryLongPattern ||
-          reallyMustSplit
-      when [
-        element,
-      ]:
-    body;
+    case veryLongPattern ||
+            reallyMustSplit
+        when [
+            element,
+        ]:
+        body;
 }
 >>> block split in pattern
 switch (obj) {
@@ -222,10 +222,10 @@ switch (obj) {
 }
 <<< 3.6
 switch (obj) {
-  case [
-      element,
-    ]:
-    body;
+    case [
+            element,
+        ]:
+        body;
 }
 >>> block split in pattern forces guard to split
 switch (obj) {
@@ -233,11 +233,11 @@ switch (obj) {
 }
 <<< 3.6
 switch (obj) {
-  case [
-        element,
-      ]
-      when true:
-    body;
+    case [
+            element,
+        ]
+        when true:
+        body;
 }
 >>> block split in pattern, expression split in guard
 switch (obj) {
@@ -245,12 +245,12 @@ switch (obj) {
 }
 <<< 3.6
 switch (obj) {
-  case [
-        element,
-      ]
-      when longCondition ||
-          anotherLongCondition:
-    body;
+    case [
+            element,
+        ]
+        when longCondition ||
+            anotherLongCondition:
+        body;
 }
 >>> block split in pattern, block split in guard
 switch (obj) {
@@ -258,13 +258,13 @@ switch (obj) {
 }
 <<< 3.6
 switch (obj) {
-  case [
-        element,
-      ]
-      when [
-        element,
-      ]:
-    body;
+    case [
+            element,
+        ]
+        when [
+            element,
+        ]:
+        body;
 }
 >>> indent || patterns when outermost in switch statement (as opposed to expr)
 switch (obj) {
@@ -272,8 +272,8 @@ switch (obj) {
 }
 <<< 3.6
 switch (obj) {
-  case oneConstant ||
-        twoConstant ||
-        threeConstant:
-    body;
+    case oneConstant ||
+            twoConstant ||
+            threeConstant:
+        body;
 }

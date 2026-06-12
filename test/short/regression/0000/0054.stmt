@@ -9,8 +9,8 @@ httpClient.getUrl(url)
   });
 <<< 3.6
 httpClient.getUrl(url).then((HttpClientRequest request) {
-  print('have request');
-  return request.close();
+    print('have request');
+    return request.close();
 }).then((HttpClientResponse response) {
-  body;
+    body;
 });

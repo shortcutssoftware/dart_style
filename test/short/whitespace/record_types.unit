@@ -27,22 +27,22 @@
 ( int  value  ,  String  label  , ) x;
 <<< 3.6
 (
-  int value,
-  String label,
+    int value,
+    String label,
 ) x;
 >>> unnamed positional fields trailing comma
 ( int    ,  String   ,  ) x;
 <<< 3.6
 (
-  int,
-  String,
+    int,
+    String,
 ) x;
 >>> named fields trailing comma
 (  {  int  value  ,  String  label  ,  } ) x;
 <<< 3.6
 ({
-  int value,
-  String label,
+    int value,
+    String label,
 }) x;
 >>> nullable record type
 (  int  ,   bool  )   ?  x;

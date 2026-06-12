@@ -49,15 +49,15 @@ callSomeMethod(
 [item, obj.method(argument).method(argument).method(() {body;}).another().another()];
 <<< 3.6
 [
-  item,
-  obj
-      .method(argument)
-      .method(argument)
-      .method(() {
-        body;
-      })
-      .another()
-      .another()
+    item,
+    obj
+        .method(argument)
+        .method(argument)
+        .method(() {
+            body;
+        })
+        .another()
+        .another()
 ];
 >>> function inside an argument list
 function(argument, obj.method(argument).method(argument).method(() {body;}).another().another());
@@ -68,7 +68,7 @@ function(
         .method(argument)
         .method(argument)
         .method(() {
-          body;
+            body;
         })
         .another()
         .another());
@@ -76,7 +76,7 @@ function(
 function(argument, function(() {;}));
 <<< 3.6
 function(argument, function(() {
-  ;
+    ;
 }));
 >>> nested function inside nested expression
 function(argument, function(() {;}, argument, () {;}));
@@ -85,11 +85,11 @@ function(
     argument,
     function(
         () {
-          ;
+            ;
         },
         argument,
         () {
-          ;
+            ;
         }));
 >>> wrap before =>
 receiver.firstMethod().next((parameter) => longIdentifier == veryLongIdentifier);
@@ -114,18 +114,18 @@ receiver.firstMethod().next(
 receiver.first([listItem, secondItem, thirdItem]).second();
 <<< 3.6
 receiver.first([
-  listItem,
-  secondItem,
-  thirdItem
+    listItem,
+    secondItem,
+    thirdItem
 ]).second();
 >>> list at end of method chain
 receiver.first().second([listItem, secondItem, thirdItem, fourthItem]);
 <<< 3.6
 receiver.first().second([
-  listItem,
-  secondItem,
-  thirdItem,
-  fourthItem
+    listItem,
+    secondItem,
+    thirdItem,
+    fourthItem
 ]);
 >>> binary operators in ascending precedence
 {
@@ -133,12 +133,12 @@ receiver.first().second([
 }
 <<< 3.6
 {
-  b___________________ ||
-      a______________ &&
-          a______________ ==
-              a______________ >
-                  a______________ +
-                      a______________;
+    b___________________ ||
+        a______________ &&
+            a______________ ==
+                a______________ >
+                    a______________ +
+                        a______________;
 }
 >>> binary operators in descending precedence
 {
@@ -146,12 +146,12 @@ receiver.first().second([
 }
 <<< 3.6
 {
-  b___________________ +
-                      a______________ >
-                  a______________ ==
-              a______________ &&
-          a______________ ||
-      a______________;
+    b___________________ +
+                        a______________ >
+                    a______________ ==
+                a______________ &&
+            a______________ ||
+        a______________;
 }
 >>> mixed multiplicative operators
 longName * longName / longName % longName ~/ longName;

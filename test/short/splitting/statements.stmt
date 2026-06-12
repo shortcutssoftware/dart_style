@@ -32,14 +32,14 @@ assert(
 assert(condition,);
 <<< 3.6
 assert(
-  condition,
+    condition,
 );
 >>> split assert with trailing comma and message
 assert(condition, "some message",);
 <<< 3.6
 assert(
-  condition,
-  "some message",
+    condition,
+    "some message",
 );
 >>> split in do-while condition
 do {} while ("some long string that wraps");
@@ -64,36 +64,36 @@ if (condition) {
 try {;} catch (err) {} finally {;}
 <<< 3.6
 try {
-  ;
+    ;
 } catch (err) {
 } finally {
-  ;
+    ;
 }
 >>> split empty on if there is a finally
 try {;} on Exception {} finally {;}
 <<< 3.6
 try {
-  ;
+    ;
 } on Exception {
 } finally {
-  ;
+    ;
 }
 >>> split all empty catches if there is a finally
 try {;} catch (err1) {} catch (err2) {} catch (err3) {} finally {;}
 <<< 3.6
 try {
-  ;
+    ;
 } catch (err1) {
 } catch (err2) {
 } catch (err3) {
 } finally {
-  ;
+    ;
 }
 >>> split leading empty catches if there are multiple
 try {;} catch (err1) {} catch (err2) {} catch (err3) {}
 <<< 3.6
 try {
-  ;
+    ;
 } catch (err1) {
 } catch (err2) {
 } catch (err3) {}

@@ -14,8 +14,8 @@ class C {
 }
 <<< 3.6
 class C {
-  static int f/*<S, T>*/(int x) => 3;
-  int m/*<S, T>*/(int x) => 3;
+    static int f/*<S, T>*/(int x) => 3;
+    int m/*<S, T>*/(int x) => 3;
 }
 >>> function type parameter
 void foo(int f/*<S>*/(int x)) {}
@@ -39,9 +39,9 @@ main() {
 }
 <<< 3.6
 main() {
-  /*=S*/ foo/*<S>*/(/*=S*/ x) {
-    return x;
-  }
+    /*=S*/ foo/*<S>*/(/*=S*/ x) {
+        return x;
+    }
 }
 >>> var
 void foo/*<S>*/(var /*=S*/ x) {
@@ -49,5 +49,5 @@ void foo/*<S>*/(var /*=S*/ x) {
 }
 <<< 3.6
 void foo/*<S>*/(var/*=S*/ x) {
-  var/*=S*/ y = x;
+    var/*=S*/ y = x;
 }

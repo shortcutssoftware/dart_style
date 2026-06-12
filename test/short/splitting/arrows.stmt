@@ -11,8 +11,8 @@ doSomethingWithFn((argument) =>
 }
 <<< 3.6
 {
-  () => one;
-  () => two;
+    () => one;
+    () => two;
 }
 >>> indent entire block body
 SomeLongFunctionName(
@@ -23,10 +23,10 @@ SomeLongFunctionName(
 );
 <<< 3.6
 SomeLongFunctionName(
-  (longParameterName______) =>
-      <LongTypeArgument>[
-    longListElement,
-  ],
+    (longParameterName______) =>
+        <LongTypeArgument>[
+        longListElement,
+    ],
 );
 >>>
 SomeLongFunctionName(
@@ -37,8 +37,8 @@ SomeLongFunctionName(
 );
 <<< 3.6
 SomeLongFunctionName(
-  (longParameterName______) =>
-      switch (value) {
-    constant => body,
-  },
+    (longParameterName______) =>
+        switch (value) {
+        constant => body,
+    },
 );
