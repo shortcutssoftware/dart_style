@@ -150,6 +150,10 @@ return switch (value) {
     element3,
     element4,
 ])).method().chain();
+<<< 3.8
+(([element1, element2, element3, element4]))
+    .method()
+    .chain();
 >>> Split in other target expression forces chain to fully split.
 (operand1 + operand2 + operand3 + operand4).method().chain(argument);
 <<< 3.7

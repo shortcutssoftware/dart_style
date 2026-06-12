@@ -260,6 +260,9 @@ var variableName = ([
     element,
     element,
 ]);
+<<< 3.8
+var variableName =
+    ([element, element, element]);
 >>>
 var variableName = (notDelimited + expression);
 <<< 3.7

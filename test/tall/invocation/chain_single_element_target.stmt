@@ -124,7 +124,7 @@ new Thing(
 (((function(
     veryLongArgument,
 )))).veryLongMethod();
-<<< 3.13
+<<< 3.8
 (((function(veryLongArgument))))
     .veryLongMethod();
 >>> Wrapping the target in await still applies the single-argument rule.

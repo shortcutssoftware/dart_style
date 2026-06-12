@@ -17,6 +17,14 @@ expression
 )  );
 <<< 3.7
 ((expression));
+<<< 3.8
+(  (
+
+
+expression
+
+
+)  );
 >>> This.
 this  ;
 <<< 3.7

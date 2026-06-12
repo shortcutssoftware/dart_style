@@ -221,6 +221,10 @@ function(([
     element2,
     element3,
 ]));
+<<< 3.8
+function(
+    ([element1, element2, element3]),
+);
 >>> List literal.
 function([veryLongElement, anotherLongElement]);
 <<< 3.7

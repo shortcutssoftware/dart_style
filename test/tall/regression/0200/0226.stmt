@@ -2,3 +2,5 @@
 test('Bad Request${(detail!='' ? ': ' : '')}$detail');
 <<< 3.7
 test('Bad Request${(detail != '' ? ': ' : '')}$detail');
+<<< 3.8
+test('Bad Request${(detail!='' ? ': ' : '')}$detail');

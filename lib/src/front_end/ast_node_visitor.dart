@@ -1501,6 +1501,14 @@ final class AstNodeVisitor extends ThrowingAstVisitor<void> with PieceFactory {
 
     @override
     void visitParenthesizedExpression(ParenthesizedExpression node) {
+        // If the parentheses are syntactically redundant, the developer added
+        // them as an explicit signal to skip formatting: output the entire
+        // parenthesized expression verbatim, preserving the original layout.
+        if (!style.is3Dot7 && node.hasRedundantParens) {
+            writeVerbatim(node.leftParenthesis, node.rightParenthesis);
+            return;
+        }
+
         writeParenthesized(node.leftParenthesis, node.expression, node.rightParenthesis);
     }
 

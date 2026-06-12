@@ -16,8 +16,8 @@ void main() {
 void main() {
     model
         ..account = (new Account()
-            ..accountId = new Int64(111)
-            ..tags = (new Account_Tags()..accountHotlist.add(new Hotlist()..hotlistId = new Int64(10))));
+    ..accountId = new Int64(111)
+    ..tags = (new Account_Tags()..accountHotlist.add(new Hotlist()..hotlistId = new Int64(10))));
 }
 >>> (indent 4)
 main() {

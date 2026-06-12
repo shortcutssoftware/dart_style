@@ -174,8 +174,8 @@ aaaa() {
                                 .aaaa] =
                             aaaa
                         ..aaaaaaaaAaaaaaAaaaa.aaaaaaa(AaaaaaaaAaaaaaAaaaaAaaaa.aaaaaaa())
-                        ..aaaaaaaaAaaaa.aaaaaaaa = (Aaaaaaaa()
-                            ..aaaaaaaaAaaa = (AaaaaaaaAaaa()..aaAaaaaaa = aaaaa)),
+                        ..aaaaaaaaAaaaa.aaaaaaaa =
+                            (Aaaaaaaa()..aaaaaaaaAaaa = (AaaaaaaaAaaa()..aaAaaaaaa = aaaaa)),
                 );
             }
         }

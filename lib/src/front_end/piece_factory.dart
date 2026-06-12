@@ -806,6 +806,24 @@ mixin PieceFactory {
         pieces.token(rightBracket);
     }
 
+    /// Writes [first] (handling any comments preceding it normally), then
+    /// outputs everything after it through the end of [last] verbatim from the
+    /// original source, preserving all internal whitespace, newlines, and
+    /// comments exactly as written.
+    void writeVerbatim(Token first, Token last) {
+        // Mark every comment inside the verbatim range as handled so it isn't
+        // also written by a later token.
+        var token = first.next!;
+        while (true) {
+            comments.takeCommentsBefore(token);
+            if (token == last) break;
+            token = token.next!;
+        }
+
+        pieces.token(first);
+        pieces.verbatimRange(first.end, last.end);
+    }
+
     /// Writes syntactically-required condition parentheses (for `if`, `while`,
     /// and `do`/`while`).
     ///
@@ -822,7 +840,7 @@ mixin PieceFactory {
     /// extra brackets around the whole condition), the entire inner expression
     /// is output verbatim from the original source without any reformatting.
     /// The extra brackets are treated as an explicit opt-out of the formatter's
-    /// logical-expression layout:
+    /// layout (see [ParenthesizedExpressionExtensions.hasRedundantParens]):
     ///
     ///     if ((a && b))      // extra brackets → inner expression output verbatim
     void writeConditionParens(Token leftParen, Expression expression, Token rightParen) {
@@ -842,34 +860,9 @@ mixin PieceFactory {
             }
         }
 
-        // In 3.8+ style, if the condition is wrapped in extra parentheses
-        // containing a logical expression, output the inner expression verbatim.
-        // The programmer added the extra brackets as a signal that they want to
-        // manage the inner formatting themselves — the formatter skips it entirely.
-        if (!style.is3Dot7 && expression is ParenthesizedExpression) {
-            var inner = expression.expression;
-            if (inner is BinaryExpression) {
-                var opType = inner.operator.type;
-                if (opType == TokenType.AMPERSAND_AMPERSAND || opType == TokenType.BAR_BAR) {
-                    // Consume every comment inside the verbatim range so they
-                    // are not output a second time by subsequent token writes.
-                    var t = expression.leftParenthesis;
-                    while (true) {
-                        comments.takeCommentsBefore(t);
-                        if (t == expression.rightParenthesis) break;
-                        t = t.next!;
-                    }
-
-                    pieces.token(leftParen);
-                    // Output everything from the inner `(` through the inner `)`
-                    // verbatim, preserving all internal whitespace and newlines.
-                    pieces.verbatimRange(leftParen.end, expression.rightParenthesis.end);
-                    pieces.token(rightParen);
-                    return;
-                }
-            }
-        }
-
+        // If the condition is wrapped in extra parentheses, the nested
+        // ParenthesizedExpression is output verbatim by
+        // [AstNodeVisitor.visitParenthesizedExpression].
         pieces.token(leftParen);
         pieces.visit(expression);
         pieces.token(rightParen);

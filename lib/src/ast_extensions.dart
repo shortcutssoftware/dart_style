@@ -376,6 +376,71 @@ extension ExpressionExtensions on Expression {
     }
 }
 
+extension ParenthesizedExpressionExtensions on ParenthesizedExpression {
+    /// Whether the parentheses around this expression are syntactically
+    /// redundant: the surrounding context would accept the inner expression
+    /// directly without changing how the code parses.
+    ///
+    /// Redundant parentheses are treated as an explicit signal from the
+    /// developer that the formatter should leave the expression's internal
+    /// formatting alone and output it verbatim.
+    bool get hasRedundantParens {
+        var parent = this.parent;
+        return switch (parent) {
+            // Doubled parentheses are always redundant.
+            ParenthesizedExpression() => true,
+
+            // Condition and header contexts already have their own required
+            // parentheses, so an immediately nested pair is redundant.
+            IfStatement() => parent.expression == this,
+            IfElement() => parent.expression == this,
+            WhileStatement() => parent.condition == this,
+            DoStatement() => parent.condition == this,
+            SwitchStatement() => parent.expression == this,
+            SwitchExpression() => parent.expression == this,
+
+            // Contexts that accept any expression, so parentheses are never
+            // needed for precedence.
+            ReturnStatement() => true,
+            YieldStatement() => true,
+            ThrowExpression() => true,
+
+            // At statement level, parentheses around a set or map literal are
+            // required to prevent the `{` from parsing as a block, and an
+            // expression statement can't start with a function expression, so
+            // only treat the parentheses as redundant for other expressions.
+            ExpressionStatement() => switch (expression) {
+                SetOrMapLiteral() => false,
+                FunctionExpression() => false,
+                _ => true,
+            },
+            ExpressionFunctionBody() => true,
+            VariableDeclaration() => parent.initializer == this,
+            AssignmentExpression() => parent.rightHandSide == this,
+            ArgumentList() => true,
+            NamedArgument() => parent.argumentExpression == this,
+            InterpolationExpression() => true,
+            ListLiteral() => true,
+            SetOrMapLiteral() => true,
+            MapLiteralEntry() => true,
+            RecordLiteral() => true,
+            SpreadElement() => true,
+            FormalParameterDefaultClause() => parent.value == this,
+            ConstructorFieldInitializer() => parent.expression == this,
+            ForEachParts() => parent.iterable == this,
+            ForParts() => true,
+            WhenClause() => true,
+            Assertion() => true,
+
+            // In any other context (binary operands, method targets, `!`,
+            // `as`, `is`, cascades, conditionals, etc.) the parentheses may
+            // affect precedence, so they aren't treated as a formatting
+            // opt-out.
+            _ => false,
+        };
+    }
+}
+
 extension CascadeExpressionExtensions on CascadeExpression {
     /// Whether a cascade should be allowed to be inline with the target as
     /// opposed to moving the sections to the next line.
