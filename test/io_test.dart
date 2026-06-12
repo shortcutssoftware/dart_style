@@ -69,7 +69,8 @@ void main() {
         await d.dir('.code', [d.file('a.dart', formattedSource)]).validate();
     });
 
-    test("doesn't follow directory symlinks by default", () async {
+    // Skipped on Windows: creating symlinks requires elevated privileges (Developer Mode).
+    test("doesn't follow directory symlinks by default", skip: Platform.isWindows, () async {
         await d.dir('code', [d.file('a.dart', unformattedSource)]).create();
 
         await d.dir('target_dir', [d.file('b.dart', unformattedSource)]).create();
@@ -85,7 +86,8 @@ void main() {
         ]).validate();
     });
 
-    test("follows directory symlinks when 'followLinks' is true", () async {
+    // Skipped on Windows: creating symlinks requires elevated privileges (Developer Mode).
+    test("follows directory symlinks when 'followLinks' is true", skip: Platform.isWindows, () async {
         await d.dir('code', [d.file('a.dart', unformattedSource)]).create();
 
         await d.dir('target_dir', [d.file('b.dart', unformattedSource)]).create();
