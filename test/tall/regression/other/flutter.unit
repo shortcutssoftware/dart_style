@@ -7,10 +7,10 @@ main() {
 }
 <<< 3.7
 main() {
-  htmlElement
-    ..style.width = '100%'
-    ..style.height = '100%'
-    ..classList.add(_kClassName);
+    htmlElement
+        ..style.width = '100%'
+        ..style.height = '100%'
+        ..classList.add(_kClassName);
 }
 >>>
 ### When a subtree is formatted separately, the mergeSubtree() step mostly has
@@ -36,19 +36,15 @@ class C {
 }
 <<< 3.7
 class C {
-  void paint(PaintingContext context, Offset offset) {
-    final (
-      double visualPosition,
-      Color leftColor,
-      Color rightColor,
-    ) = switch (textDirection) {
-      TextDirection.rtl => (1.0 - _position.value, _activeColor, trackColor),
-      TextDirection.ltr => (_position.value, trackColor, _activeColor),
-    };
+    void paint(PaintingContext context, Offset offset) {
+        final (double visualPosition, Color leftColor, Color rightColor) = switch (textDirection) {
+            TextDirection.rtl => (1.0 - _position.value, _activeColor, trackColor),
+            TextDirection.ltr => (_position.value, trackColor, _activeColor),
+        };
 
-    final double trackCenter = offset.dy + size.height / 2.0;
-    final double trackLeft = offset.dx + _trackLeft;
-  }
+        final double trackCenter = offset.dy + size.height / 2.0;
+        final double trackLeft = offset.dx + _trackLeft;
+    }
 }
 >>> Eager argument list splitting shouldn't be too eager.
 main() {
@@ -56,7 +52,7 @@ main() {
 }
 <<< 3.7
 main() {
-  Text('Item 1', style: TextStyle(color: Colors.white));
+    Text('Item 1', style: TextStyle(color: Colors.white));
 }
 >>> Eager argument list splitting shouldn't be too eager.
 main() {
@@ -67,7 +63,7 @@ main() {
 }
 <<< 3.7
 main() {
-  return Container(height: 70, child: Center(child: contents));
+    return Container(height: 70, child: Center(child: contents));
 }
 >>> Eager argument list splitting shouldn't be too eager.
 main() {
@@ -79,7 +75,7 @@ main() {
 }
 <<< 3.7
 main() {
-  Stack(children: <Matcher>[matchesSemantics(label: 'inner')]);
+    Stack(children: <Matcher>[matchesSemantics(label: 'inner')]);
 }
 >>> Eager argument list splitting shouldn't be too eager.
 main() {
@@ -89,5 +85,5 @@ main() {
 }
 <<< 3.7
 main() {
-  Padding(padding: EdgeInsets.only(top: 20.zR));
+    Padding(padding: EdgeInsets.only(top: 20.zR));
 }

@@ -107,17 +107,17 @@ var a = 1; b() {;} c() => null; get d {;} get e => null; set f(value) {;
 <<< 3.6
 var a = 1;
 b() {
-  ;
+    ;
 }
 
 c() => null;
 get d {
-  ;
+    ;
 }
 
 get e => null;
 set f(value) {
-  ;
+    ;
 }
 
 set g(value) => null;

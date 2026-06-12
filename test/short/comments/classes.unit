@@ -5,14 +5,14 @@ class A {
 }
 <<< 3.6
 class A {
-  // comment
+    // comment
 }
 >>> line comment on opening line
 class A { // comment
 }
 <<< 3.6
 class A {
-  // comment
+    // comment
 }
 >>> indented block comment
 class A {
@@ -20,21 +20,21 @@ class A {
 }
 <<< 3.6
 class A {
-  /* comment */
+    /* comment */
 }
 >>> block comment with trailing newline
 class A {/* comment */
 }
 <<< 3.6
 class A {
-  /* comment */
+    /* comment */
 }
 >>> block comment with leading newline
 class A {
   /* comment */}
 <<< 3.6
 class A {
-  /* comment */
+    /* comment */
 }
 >>> inline block comment
 class A {  /* comment */  }
@@ -45,7 +45,7 @@ class A { /* first */ // second
 }
 <<< 3.6
 class A {
-  /* first */ // second
+    /* first */ // second
 }
 >>> multiple inline block comments
 class A {  /* 1 */   /* 2 */   /* 3 */  }
@@ -56,7 +56,7 @@ class A {  /* comment
 */  }
 <<< 3.6
 class A {
-  /* comment
+    /* comment
 */
 }
 >>> lines comments at the start of the line in a class body
@@ -69,7 +69,7 @@ class A {
 class A {
 //  int a;
 //  int b;
-  int c;
+    int c;
 }
 >>> block comment
 class C/* is cool */{
@@ -77,7 +77,7 @@ class C/* is cool */{
 }
 <<< 3.6
 class C /* is cool */ {
-  /* int */ foo(/* comment */) => 42;
+    /* int */ foo(/* comment */) => 42;
 }
 >>> block comment
 library foo;
@@ -94,7 +94,7 @@ library foo;
  * Comment
 */
 class C /* is cool */ {
-  /* int */ foo() => 42;
+    /* int */ foo() => 42;
 }
 >>> ensure blank line above doc comments
 class Foo {var a = 1;
@@ -102,10 +102,10 @@ class Foo {var a = 1;
 var b = 2;}
 <<< 3.6
 class Foo {
-  var a = 1;
+    var a = 1;
 
-  /// doc
-  var b = 2;
+    /// doc
+    var b = 2;
 }
 >>> remove blank lines before beginning of body
 class A {
@@ -116,7 +116,7 @@ class A {
 }
 <<< 3.6
 class A {
-  // comment
+    // comment
 }
 >>> remove blank lines after end of body
 class A {
@@ -127,7 +127,7 @@ class A {
 }
 <<< 3.6
 class A {
-  // comment
+    // comment
 }
 >>> nested flush left comment
 class Foo {
@@ -137,9 +137,9 @@ class Foo {
 }
 <<< 3.6
 class Foo {
-  method() {
+    method() {
 // flush
-  }
+    }
 }
 >>> nested flush left after non-nested
 class Foo {
@@ -150,10 +150,10 @@ class Foo {
 }
 <<< 3.6
 class Foo {
-  method() {
-    // ...
+    method() {
+        // ...
 // flush
-  }
+    }
 }
 >>> flush left after member
 class Foo {
@@ -163,9 +163,9 @@ class Foo {
 }
 <<< 3.6
 class Foo {
-  var x = 1;
+    var x = 1;
 // comment
-  var y = 2;
+    var y = 2;
 }
 >>> force doc comment between classes to have two newlines before
 class Foo {} /**

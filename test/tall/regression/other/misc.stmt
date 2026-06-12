@@ -7,8 +7,8 @@ someLongExpression..prop.cascade(
 );
 <<< 3.7
 someLongExpression
-  ..prop.cascade(
-    argument,
-    argument,
-    argument,
-  );
+    ..prop.cascade(
+        argument,
+        argument,
+        argument,
+    );

@@ -5,8 +5,6 @@
           body);
 <<< 3.7
       body = combineStatements(
-        new ExpressionStatement(
-          lvalue.buildAssignment(new VariableGet(variable), voidContext: true),
-        ),
-        body,
+          new ExpressionStatement(lvalue.buildAssignment(new VariableGet(variable), voidContext: true)),
+          body,
       );

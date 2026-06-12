@@ -4,6 +4,4 @@
             .buildDeclaration(element));
 <<< 3.6
     return new js.Fun(parameters, body, asyncModifier: asyncModifier)
-        .withSourceInformation(sourceInformationFactory
-            .forContext(element)
-            .buildDeclaration(element));
+        .withSourceInformation(sourceInformationFactory.forContext(element).buildDeclaration(element));

@@ -12,13 +12,13 @@ f() {
 }
 <<< 3.7
 f() {
-  a.b().m(
-    t: '', // comment to force split
-  );
-  a.b.m(
-    t: '', // comment to force split
-  );
-  a.m(
-    t: '', // comment to force split
-  );
+    a.b().m(
+        t: '', // comment to force split
+    );
+    a.b.m(
+        t: '', // comment to force split
+    );
+    a.m(
+        t: '', // comment to force split
+    );
 }

@@ -16,9 +16,9 @@ function(
     "string",);
 <<< 3.6
 function(
-  notString,
-  "adjacent"
-  "string",
+    notString,
+    "adjacent"
+    "string",
 );
 >>> do indent adjacent strings if other arg is string
 function(
@@ -40,10 +40,10 @@ function(
     "string",);
 <<< 3.6
 function(
-  "string",
-  notString,
-  "adjacent"
-      "string",
+    "string",
+    notString,
+    "adjacent"
+        "string",
 );
 >>> do indent adjacent strings if other arg is string interpolation
 function(
@@ -81,11 +81,11 @@ var list = [
 ];
 <<< 3.6
 var list = [
-  "adjacent"
-      "string",
-  "another"
-      "adjacent"
-      "string"
+    "adjacent"
+        "string",
+    "another"
+        "adjacent"
+        "string"
 ];
 >>> always indent adjacent strings in map key
 var map = {
@@ -97,11 +97,11 @@ var map = {
 };
 <<< 3.6
 var map = {
-  "adjacent"
-      "string": value,
-  "another"
-      "adjacent"
-      "string": value
+    "adjacent"
+        "string": value,
+    "another"
+        "adjacent"
+        "string": value
 };
 >>> always indent adjacent strings in map value
 var map = {
@@ -113,11 +113,11 @@ var map = {
 };
 <<< 3.6
 var map = {
-  key: "adjacent"
-      "string",
-  key: "another"
-      "adjacent"
-      "string"
+    key: "adjacent"
+        "string",
+    key: "another"
+        "adjacent"
+        "string"
 };
 >>> always indent adjacent strings in set
 var set = {
@@ -129,11 +129,11 @@ var set = {
 };
 <<< 3.6
 var set = {
-  "adjacent"
-      "string",
-  "another"
-      "adjacent"
-      "string"
+    "adjacent"
+        "string",
+    "another"
+        "adjacent"
+        "string"
 };
 >>> don't indent in => body
 main() => "adjacent"
@@ -250,11 +250,11 @@ another: "adjacent"
 "more",);
 <<< 3.6
 function(
-  named: "adjacent"
-      "string",
-  another: "adjacent"
-      "string"
-      "more",
+    named: "adjacent"
+        "string",
+    another: "adjacent"
+        "string"
+        "more",
 );
 >>> inside interpolation
 var x = '${"a" "b"}';

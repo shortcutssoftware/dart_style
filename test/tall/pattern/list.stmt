@@ -10,41 +10,41 @@ case  [  2  ,  3  ]  :
 }
 <<< 3.7
 switch (obj) {
-  case []:
-  case <int>[]:
-  case [2]:
-  case [2]:
-  case [2, 3]:
-    ok;
+    case []:
+    case <int>[]:
+    case [2]:
+    case [2]:
+    case [2, 3]:
+        ok;
 }
 >>> Unsplit list.
 if (obj case [1, ...var x, 3]) {;}
 <<< 3.7
 if (obj case [1, ...var x, 3]) {
-  ;
+    ;
 }
 >>> If it splits anywhere in the list, it splits at every element.
 if (obj case [first,second,third,fourth]) {;}
 <<< 3.7
 if (obj case [
-  first,
-  second,
-  third,
-  fourth,
+    first,
+    second,
+    third,
+    fourth,
 ]) {
-  ;
+    ;
 }
 >>> Unsplit short list even with a comma.
 if (obj case [1,]) {;}
 <<< 3.7
 if (obj case [1]) {
-  ;
+    ;
 }
 >>> Nested list patterns don't force outer to split
 if (obj case [[1, 2], [[3]]]) {;}
 <<< 3.7
 if (obj case [[1, 2], [[3]]]) {
-  ;
+    ;
 }
 >>> Split all elements and keep line comment on newline.
 if (obj case [
@@ -54,82 +54,82 @@ if (obj case [
 ]) {;}
 <<< 3.7
 if (obj case [
-  // yeah
-  a,
-  b,
-  c,
-  d,
-  e,
-  f,
+    // yeah
+    a,
+    b,
+    c,
+    d,
+    e,
+    f,
 ]) {
-  ;
+    ;
 }
 >>> Split in type argument, but not in the body.
 if (obj case <Map<VeryLongTypeArgument, VeryLongTypeArgument>>[e]) {;}
 <<< 3.7
 if (obj case <
-  Map<
-    VeryLongTypeArgument,
-    VeryLongTypeArgument
-  >
+    Map<
+        VeryLongTypeArgument,
+        VeryLongTypeArgument
+    >
 >[e]) {
-  ;
+    ;
 }
 <<< 3.13
 if (obj
     case <
-      Map<
-        VeryLongTypeArgument,
-        VeryLongTypeArgument
-      >
+        Map<
+            VeryLongTypeArgument,
+            VeryLongTypeArgument
+        >
     >[e]) {
-  ;
+    ;
 }
 >>> Split in type argument and body.
 if (obj case <Map<VeryLongTypeArgument, VeryLongTypeArgument>>[element,VeryLongElementElementElement]) {;}
 <<< 3.7
 if (obj case <
-  Map<
-    VeryLongTypeArgument,
-    VeryLongTypeArgument
-  >
+    Map<
+        VeryLongTypeArgument,
+        VeryLongTypeArgument
+    >
 >[
-  element,
-  VeryLongElementElementElement,
+    element,
+    VeryLongElementElementElement,
 ]) {
-  ;
+    ;
 }
 <<< 3.13
 if (obj
     case <
-      Map<
-        VeryLongTypeArgument,
-        VeryLongTypeArgument
-      >
+        Map<
+            VeryLongTypeArgument,
+            VeryLongTypeArgument
+        >
     >[
-      element,
-      VeryLongElementElementElement,
+        element,
+        VeryLongElementElementElement,
     ]) {
-  ;
+    ;
 }
 >>> Split inside element forces list to split.
 if (obj case [first,secondLongPattern ||thirdVeryLongPattern]) {;}
 <<< 3.7
 if (obj case [
-  first,
-  secondLongPattern ||
-      thirdVeryLongPattern,
+    first,
+    secondLongPattern ||
+        thirdVeryLongPattern,
 ]) {
-  ;
+    ;
 }
 >>> Split in rest element does not split after "...".
 if (obj case [...firstPattern || secondVeryLongPattern]) {;}
 <<< 3.7
 if (obj case [
-  ...firstPattern ||
-      secondVeryLongPattern,
+    ...firstPattern ||
+        secondVeryLongPattern,
 ]) {
-  ;
+    ;
 }
 >>> A nested non-empty list pattern doesn't force the list pattern to split.
 var [[v]] = value;
@@ -161,13 +161,13 @@ if (obj case [
 ]) {;}
 <<< 3.7
 if (obj case [
-  firstElement,
+    firstElement,
 
-  secondElement,
+    secondElement,
 
-  thirdElement,
+    thirdElement,
 ]) {
-  ;
+    ;
 }
 >>> Discard blank lines if doesn't need to split.
 if (obj case [
@@ -187,5 +187,5 @@ if (obj case [
 ]) {;}
 <<< 3.7
 if (obj case [1, 2, 3]) {
-  ;
+    ;
 }

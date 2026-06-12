@@ -5,7 +5,7 @@ class A {
 }
 <<< 3.6
 class A {
-  A();
+    A();
 }
 >>> redirecting factory constructor
 class A {
@@ -13,7 +13,7 @@ class A {
 }
 <<< 3.6
 class A {
-  const factory A() = B;
+    const factory A() = B;
 }
 >>> initializing formals
 class A {
@@ -22,8 +22,8 @@ class A {
 }
 <<< 3.6
 class A {
-  int _a;
-  A(this._a);
+    int _a;
+    A(this._a);
 }
 >>> constructor initialization list
 class X {
@@ -32,10 +32,10 @@ class X {
 }
 <<< 3.6
 class X {
-  var x, y;
-  X()
-      : x = 1,
-        y = 2;
+    var x, y;
+    X()
+        : x = 1,
+          y = 2;
 }
 >>> DO format constructor initialization lists with each field on its own line.
 class MyClass {
@@ -44,10 +44,10 @@ class MyClass {
 }
 <<< 3.6
 class MyClass {
-  MyClass()
-      : first = "some value",
-        second = "another",
-        third = "last";
+    MyClass()
+        : first = "some value",
+          second = "another",
+          third = "last";
 }
 >>> DO format constructor initialization lists with each field on its own line.
 class MyClass {
@@ -56,10 +56,10 @@ class MyClass {
 }
 <<< 3.6
 class MyClass {
-  MyClass(first, second)
-      : super(first, second);
-  MyClass(first, second)
-      : this(first, second);
+    MyClass(first, second)
+        : super(first, second);
+    MyClass(first, second)
+        : this(first, second);
 }
 >>> handle a comma after function typed initializing formals
 class Foo {
@@ -67,7 +67,7 @@ class Foo {
 }
 <<< 3.6
 class Foo {
-  Foo(this.bar(), baz);
+    Foo(this.bar(), baz);
 }
 >>> "super." parameters
 class Foo {
@@ -78,16 +78,16 @@ class Foo {
 }
 <<< 3.6
 class Foo {
-  Foo(super.a, int super.b,
-      int super.bar());
-  Foo.optional(
-      [super.a,
-      int super.b = 123,
-      int super.bar()]);
-  Foo.named(
-      {required super.a,
-      int super.b: 123,
-      required int super.bar()});
-  Foo.other(
-      final int super.x, super.bar()?);
+    Foo(super.a, int super.b,
+        int super.bar());
+    Foo.optional(
+        [super.a,
+        int super.b = 123,
+        int super.bar()]);
+    Foo.named(
+        {required super.a,
+        int super.b: 123,
+        required int super.bar()});
+    Foo.other(final int super.x,
+        super.bar()?);
 }

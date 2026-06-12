@@ -10,10 +10,10 @@ extension A on B {}
 extension A on B{z() => 0;f() { body; }}
 <<< 3.7
 extension A on B {
-  z() => 0;
-  f() {
-    body;
-  }
+    z() => 0;
+    f() {
+        body;
+    }
 }
 >>> Insert blank line before and after extension.
 var x = 1;
@@ -33,8 +33,8 @@ extension A<T, S> on B {}
 extension Extension<LongTypeParameter, Another> on BaseClass {}
 <<< 3.7
 extension Extension<
-  LongTypeParameter,
-  Another
+    LongTypeParameter,
+    Another
 >
     on BaseClass {}
 >>> Unnamed.
@@ -65,8 +65,8 @@ extension SomeExtension on C<VeryLongType, AnotherLongType> {}
 extension SomeExtension
     on
         C<
-          VeryLongType,
-          AnotherLongType
+            VeryLongType,
+            AnotherLongType
         > {}
 >>> (experiment primary-constructors) Empty body with semicolon.
 extension A on B;
@@ -88,8 +88,8 @@ extension A<T, S> on B;
 extension Extension<LongTypeParameter, Another> on BaseClass ;
 <<< 3.7
 extension Extension<
-  LongTypeParameter,
-  Another
+    LongTypeParameter,
+    Another
 >
     on BaseClass;
 >>> (experiment primary-constructors) Unnamed with empty body.
@@ -120,6 +120,6 @@ extension SomeExtension on C<ExtremelyLongType, AnotherLongType> ;
 extension SomeExtension
     on
         C<
-          ExtremelyLongType,
-          AnotherLongType
+            ExtremelyLongType,
+            AnotherLongType
         >;

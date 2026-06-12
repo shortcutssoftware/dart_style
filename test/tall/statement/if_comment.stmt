@@ -5,7 +5,7 @@ if // comment
 <<< 3.7
 if // comment
 (c) {
-  body;
+    body;
 }
 >>> Line comment before condition.
 if (// comment
@@ -13,7 +13,7 @@ c) { body; }
 <<< 3.7
 if ( // comment
 c) {
-  body;
+    body;
 }
 >>> Line comment after condition.
 if (c // comment
@@ -21,7 +21,7 @@ if (c // comment
 <<< 3.7
 if (c // comment
 ) {
-  body;
+    body;
 }
 >>> Line comment after `)`.
 if (c) // comment
@@ -29,7 +29,7 @@ if (c) // comment
 <<< 3.7
 if (c) // comment
 {
-  body;
+    body;
 }
 >>> Line comment after non-block then body.
 if (true) body; // comment
@@ -39,58 +39,58 @@ if (true) body; // comment
 if (true) {body;} // comment
 <<< 3.7
 if (true) {
-  body;
+    body;
 } // comment
 >>> Line comment after non-block then body with else.
 if (true) body; // comment
 else other;
 <<< 3.7
 if (true)
-  body; // comment
+    body; // comment
 else
-  other;
+    other;
 >>> Line comment after block then body with else.
 if (true) {body;} // comment
 else {other;}
 <<< 3.7
 if (true) {
-  body;
+    body;
 } // comment
 else {
-  other;
+    other;
 }
 >>> Line comment after `else` with block body.
 if (true) {body;} else // comment
 {other;}
 <<< 3.7
 if (true) {
-  body;
+    body;
 } else // comment
 {
-  other;
+    other;
 }
 >>> Line comment after `else` with non-block body.
 if (true) body; else // comment
 other;
 <<< 3.7
 if (true)
-  body;
+    body;
 else // comment
-  other;
+    other;
 >>> Line comment after non-block else body.
 if (true) body; else other; // comment
 <<< 3.7
 if (true)
-  body;
+    body;
 else
-  other; // comment
+    other; // comment
 >>> Line comment after block else body.
 if (true) {body;} else {other;} // comment
 <<< 3.7
 if (true) {
-  body;
+    body;
 } else {
-  other;
+    other;
 } // comment
 >>> Hanging line comment before infix condition.
 if (// comment
@@ -99,7 +99,7 @@ a && b) { body; }
 ### The indentation is odd here because it's an odd place for a comment.
 if ( // comment
 a && b) {
-  body;
+    body;
 }
 >>> Non-hanging line comment before infix condition.
 if (
@@ -110,7 +110,7 @@ a && b) { body; }
 if (
 // comment
 a && b) {
-  body;
+    body;
 }
 >>> Hanging line comment before infix chain condition.
 if (// comment
@@ -119,7 +119,7 @@ a && b && c) { body; }
 ### The indentation is odd here because it's an odd place for a comment.
 if ( // comment
 a && b && c) {
-  body;
+    body;
 }
 >>> Non-hanging line comment before infix chain condition.
 if (
@@ -130,5 +130,5 @@ a && b && c) { body; }
 if (
 // comment
 a && b && c) {
-  body;
+    body;
 }

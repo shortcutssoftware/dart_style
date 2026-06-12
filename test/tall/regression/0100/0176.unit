@@ -8,9 +8,9 @@ Iterable<Task> generate() sync* {
 }
 <<< 3.7
 Iterable<Task> generate() sync* {
-  int i = 0;
+    int i = 0;
 
-  while (i++ < 100) {
-    yield new Task(i, rnd.nextInt(100), calc);
-  }
+    while (i++ < 100) {
+        yield new Task(i, rnd.nextInt(100), calc);
+    }
 }

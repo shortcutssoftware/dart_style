@@ -22,15 +22,15 @@ switch (n) {
 }
 <<< 3.6
 switch (n) {
-  // comment
-  case 0:
+    // comment
+    case 0:
 
-  // comment
+    // comment
 
-  case 1:
-    body;
+    case 1:
+        body;
 
-  // comment
+    // comment
 }
 >>> line comment between cases does not force them to split
 switch (n) {
@@ -40,11 +40,11 @@ switch (n) {
 }
 <<< 3.6
 switch (n) {
-  case 0:
-    zero;
-  // comment
-  case 1:
-    one;
+    case 0:
+        zero;
+    // comment
+    case 1:
+        one;
 }
 >>> line comment at end of statement does not force split
 switch (n) {
@@ -54,12 +54,12 @@ switch (n) {
 }
 <<< 3.6
 switch (n) {
-  case 0:
-    zero; // comment
-  case 1:
-    one; // comment
-  case 2:
-    two; // comment
+    case 0:
+        zero; // comment
+    case 1:
+        one; // comment
+    case 2:
+        two; // comment
 }
 >>> line comment indentation
 switch (n) {
@@ -71,13 +71,13 @@ switch (n) {
 }
 <<< 3.6
 switch (n) {
-  // before first
-  case 0:
-    zero;
-  // between
-  case 1:
-    one;
-  // after last
+    // before first
+    case 0:
+        zero;
+    // between
+    case 1:
+        one;
+    // after last
 }
 >>> line comment in empty cases
 switch (n) {
@@ -89,11 +89,11 @@ switch (n) {
 }
 <<< 3.6
 switch (n) {
-  case 0: // comment 0
-  case 1:
-  // comment 1
-  case 2:
-  // comment 2
+    case 0: // comment 0
+    case 1:
+    // comment 1
+    case 2:
+    // comment 2
 }
 >>> keeps one blank line around case comments in switch expression
 e = switch (n) {
@@ -113,13 +113,13 @@ e = switch (n) {
 };
 <<< 3.6
 e = switch (n) {
-  // comment
-  0 => a,
-  // comment
+    // comment
+    0 => a,
+    // comment
 
-  1 => b
+    1 => b
 
-  // comment
+    // comment
 };
 >>> line comment between cases does not force them to split
 e = switch (n) {
@@ -129,9 +129,9 @@ e = switch (n) {
 };
 <<< 3.6
 e = switch (n) {
-  0 => zero,
-  // comment
-  1 => one
+    0 => zero,
+    // comment
+    1 => one
 };
 >>> line comment at end of case does not force split
 e = switch (n) {
@@ -141,9 +141,9 @@ e = switch (n) {
 };
 <<< 3.6
 e = switch (n) {
-  0 => zero, // comment
-  1 => one, // comment
-  2 => two // comment
+    0 => zero, // comment
+    1 => one, // comment
+    2 => two // comment
 };
 >>> line comment before case with guard does not force split
 e = switch (n) {
@@ -153,9 +153,9 @@ e = switch (n) {
 };
 <<< 3.6
 e = switch (n) {
-  0 => zero,
-  // comment
-  1 when true => one,
+    0 => zero,
+    // comment
+    1 when true => one,
 };
 >>> line comment
 switch (e) {
@@ -163,14 +163,14 @@ switch (e) {
 }
 <<< 3.6
 switch (e) {
-  // comment
+    // comment
 }
 >>> line comment on opening line
 switch (e) { // comment
 }
 <<< 3.6
 switch (e) {
-  // comment
+    // comment
 }
 >>> indented block comment
 switch (e) {
@@ -178,21 +178,21 @@ switch (e) {
 }
 <<< 3.6
 switch (e) {
-  /* comment */
+    /* comment */
 }
 >>> block comment with trailing newline
 switch (e) {/* comment */
 }
 <<< 3.6
 switch (e) {
-  /* comment */
+    /* comment */
 }
 >>> block comment with leading newline
 switch (e) {
   /* comment */}
 <<< 3.6
 switch (e) {
-  /* comment */
+    /* comment */
 }
 >>> inline block comment
 switch (e) {  /* comment */  }
@@ -204,14 +204,14 @@ e = switch (n) {
 };
 <<< 3.6
 e = switch (n) {
-  // comment
+    // comment
 };
 >>> line comment on opening line
 e = switch (n) { // comment
 };
 <<< 3.6
 e = switch (n) {
-  // comment
+    // comment
 };
 >>> indented block comment
 e = switch (n) {
@@ -219,21 +219,21 @@ e = switch (n) {
 };
 <<< 3.6
 e = switch (n) {
-  /* comment */
+    /* comment */
 };
 >>> block comment with trailing newline
 e = switch (n) {/* comment */
 };
 <<< 3.6
 e = switch (n) {
-  /* comment */
+    /* comment */
 };
 >>> block comment with leading newline
 e = switch (n) {
   /* comment */};
 <<< 3.6
 e = switch (n) {
-  /* comment */
+    /* comment */
 };
 >>> inline block comment
 e = switch (n) {  /* comment */  };

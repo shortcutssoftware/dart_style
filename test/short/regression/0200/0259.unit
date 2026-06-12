@@ -16,5 +16,5 @@ class TypingCapability extends TypeCapability
         _DeclarationsCapability,
         _UriCapability,
         _LibraryDependenciesCapability {
-  const TypingCapability(Type upperBound) : super(upperBound);
+    const TypingCapability(Type upperBound) : super(upperBound);
 }

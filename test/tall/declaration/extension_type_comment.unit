@@ -7,24 +7,24 @@ implements /*k*/ I1 /*l*/ , /*m*/ I2 /*n*/ { /*o*/ } /*p*/
 /*a*/
 extension /*b*/ type /*c*/ A
 /*d*/ (
-  /*e*/ @ /*f*/ override /*g*/
-  int /*h*/ a /*i*/
+    /*e*/ @ /*f*/ override /*g*/
+    int /*h*/ a /*i*/
 ) /*j*/ implements /*k*/
     I1 /*l*/, /*m*/
     I2 /*n*/ {
-  /*o*/
+    /*o*/
 } /*p*/
 <<< 3.8
 /*a*/
 extension /*b*/ type /*c*/ A
 /*d*/ (
-  /*e*/ @ /*f*/ override /*g*/
-  int /*h*/ a /*i*/
+    /*e*/ @ /*f*/ override /*g*/
+    int /*h*/ a /*i*/
 ) /*j*/
     implements /*k*/
         I1 /*l*/, /*m*/
         I2 /*n*/ {
-  /*o*/
+    /*o*/
 } /*p*/
 >>> Line comments everywhere.
 // 0
@@ -56,22 +56,22 @@ type // c
 const // d
 A // e
 <
-  // f
-  T // g
+    // f
+    T // g
 > // h
 . // i
 name // j
 (
-  // k
-  @ // l
-  required // m
-  int // n
-  a // o
+    // k
+    @ // l
+    required // m
+    int // n
+    a // o
 ) // p
 implements // q
     I // r
     {
-  // s
+    // s
 } // t
 <<< 3.8
 // 0
@@ -81,22 +81,22 @@ type // c
 const // d
 A // e
 <
-  // f
-  T // g
+    // f
+    T // g
 > // h
 . // i
 name // j
 (
-  // k
-  @ // l
-  required // m
-  int // n
-  a // o
+    // k
+    @ // l
+    required // m
+    int // n
+    a // o
 ) // p
     implements // q
         I // r
         {
-  // s
+    // s
 } // t
 >>> (experiment primary-constructors) Comment before empty body.
 extension type I(int i) // Comment.

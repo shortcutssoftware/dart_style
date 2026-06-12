@@ -21,25 +21,25 @@
     }
 <<< 3.6
     main() {
-      assert(invariant(
-          node,
-          identical(name, '+') ||
-              identical(name, '=') ||
-              identical(name, '-') ||
-              identical(name, '*') ||
-              identical(name, '/') ||
-              identical(name, '%') ||
-              identical(name, '~/') ||
-              identical(name, '|') ||
-              identical(name, '&') ||
-              identical(name, '^') ||
-              identical(name, '~') ||
-              identical(name, '<<') ||
-              identical(name, '>>') ||
-              identical(name, '<') ||
-              identical(name, '>') ||
-              identical(name, '<=') ||
-              identical(name, '>=') ||
-              identical(name, '[]'),
-          message: 'Unexpected operator $name'));
+        assert(invariant(
+            node,
+            identical(name, '+') ||
+                identical(name, '=') ||
+                identical(name, '-') ||
+                identical(name, '*') ||
+                identical(name, '/') ||
+                identical(name, '%') ||
+                identical(name, '~/') ||
+                identical(name, '|') ||
+                identical(name, '&') ||
+                identical(name, '^') ||
+                identical(name, '~') ||
+                identical(name, '<<') ||
+                identical(name, '>>') ||
+                identical(name, '<') ||
+                identical(name, '>') ||
+                identical(name, '<=') ||
+                identical(name, '>=') ||
+                identical(name, '[]'),
+            message: 'Unexpected operator $name'));
     }

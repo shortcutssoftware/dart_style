@@ -3,19 +3,19 @@
 for  (  var  file  in  files  )  {  body  ;  }
 <<< 3.7
 for (var file in files) {
-  body;
+    body;
 }
 >>> Declare with type annotation.
 for (  List  <  int  >  ints  in  intLists  )  {  body  ;  }
 <<< 3.7
 for (List<int> ints in intLists) {
-  body;
+    body;
 }
 >>> Declare variable with `final` and type.
 for (final Foo foo in foos) { body; }
 <<< 3.7
 for (final Foo foo in foos) {
-  body;
+    body;
 }
 >>> Declare variable with just `final`.
 for (final foo in foos) {
@@ -23,13 +23,13 @@ for (final foo in foos) {
 }
 <<< 3.7
 for (final foo in foos) {
-  body;
+    body;
 }
 >>> Use existing variable.
 for (  x  in  things  )  { body; }
 <<< 3.7
 for (x in things) {
-  body;
+    body;
 }
 >>> Await for with declared variable.
 foo() async {
@@ -37,9 +37,9 @@ foo() async {
 }
 <<< 3.7
 foo() async {
-  await for (var x in y) {
-    body;
-  }
+    await for (var x in y) {
+        body;
+    }
 }
 >>> Await for with existing variable.
 foo() async {
@@ -47,9 +47,9 @@ foo() async {
 }
 <<< 3.7
 foo() async {
-  await for (x in y) {
-    body;
-  }
+    await for (x in y) {
+        body;
+    }
 }
 >>> Split between variable type and name.
 for (VeryLongClassName reallyLongIdentifier in iteratableExpression) { body; }
@@ -57,14 +57,14 @@ for (VeryLongClassName reallyLongIdentifier in iteratableExpression) { body; }
 for (VeryLongClassName
     reallyLongIdentifier
     in iteratableExpression) {
-  body;
+    body;
 }
 >>> Split before `in`.
 for (var identifier in iteratableExpression) { body; }
 <<< 3.7
 for (var identifier
     in iteratableExpression) {
-  body;
+    body;
 }
 >>> Split inside initializer.
 for (var identifier in someVeryLong + iterableExpression) { body; }
@@ -72,17 +72,17 @@ for (var identifier in someVeryLong + iterableExpression) { body; }
 for (var identifier
     in someVeryLong +
         iterableExpression) {
-  body;
+    body;
 }
 >>> Prefer block-like splitting after `in`.
 for (var identifier in [element, element, element]) { body; }
 <<< 3.7
 for (var identifier in [
-  element,
-  element,
-  element,
+    element,
+    element,
+    element,
 ]) {
-  body;
+    body;
 }
 >>> Unsplit non-block body.
 for (i in sequence) something(i);
@@ -92,14 +92,14 @@ for (i in sequence) something(i);
 for (i in sequence) somethingMuchLonger(i);
 <<< 3.7
 for (i in sequence)
-  somethingMuchLonger(i);
+    somethingMuchLonger(i);
 >>> Split between type and variable name.
 for (SomeReallyLongTypeName andALongVariable in list) {;}
 <<< 3.7
 for (SomeReallyLongTypeName
     andALongVariable
     in list) {
-  ;
+    ;
 }
 >>> Expression split in pattern.
 for (var (longIdentifier && anotherLongOne) in obj) {;}
@@ -107,17 +107,17 @@ for (var (longIdentifier && anotherLongOne) in obj) {;}
 for (var (longIdentifier &&
         anotherLongOne)
     in obj) {
-  ;
+    ;
 }
 >>> Block split in pattern.
 for (var [longIdentifier, anotherLongOne] in obj) {;}
 <<< 3.7
 for (var [
-      longIdentifier,
-      anotherLongOne,
+        longIdentifier,
+        anotherLongOne,
     ]
     in obj) {
-  ;
+    ;
 }
 >>> With pattern, split in value.
 for (var (first, second, third) in longValueExpression + anotherOperand +
@@ -127,7 +127,7 @@ for (var (first, second, third)
     in longValueExpression +
         anotherOperand +
         aThirdOperand) {
-  ;
+    ;
 }
 >>> Split in pattern and value.
 for (var (longIdentifier && anotherAlsoLongOne) in longValueExpression +
@@ -138,7 +138,7 @@ for (var (longIdentifier &&
     in longValueExpression +
         anotherOperand +
         aThirdOperand) {
-  ;
+    ;
 }
 >>> If pattern doesn't block split, then split in right splits at `in` too.
 for (var [i] in veryLongIterator +
@@ -147,5 +147,5 @@ for (var [i] in veryLongIterator +
 for (var [i]
     in veryLongIterator +
         longExpression) {
-  ;
+    ;
 }

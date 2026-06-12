@@ -15,49 +15,49 @@ var x = Class<int>;
 LongClassName<First, Second, Third, Fourth>;
 <<< 3.7
 LongClassName<
-  First,
-  Second,
-  Third,
-  Fourth
+    First,
+    Second,
+    Third,
+    Fourth
 >;
 >>> Split type arguments.
 LongClassName<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth>;
 <<< 3.7
 LongClassName<
-  First,
-  Second,
-  Third,
-  Fourth,
-  Fifth,
-  Sixth,
-  Seventh,
-  Eighth
->;
->>> Split nested type arguments.
-LongClassName<First, Inner<Second, Third, Fourth, Fifth, Sixth, Seventh>, Eighth>;
-<<< 3.7
-LongClassName<
-  First,
-  Inner<
+    First,
     Second,
     Third,
     Fourth,
     Fifth,
     Sixth,
-    Seventh
-  >,
-  Eighth
+    Seventh,
+    Eighth
+>;
+>>> Split nested type arguments.
+LongClassName<First, Inner<Second, Third, Fourth, Fifth, Sixth, Seventh>, Eighth>;
+<<< 3.7
+LongClassName<
+    First,
+    Inner<
+        Second,
+        Third,
+        Fourth,
+        Fifth,
+        Sixth,
+        Seventh
+    >,
+    Eighth
 >;
 >>> Split type arguments when nested inside expression.
 veryLongFunction(argument, ConstructorTearOff<First, Second, Third, Fourth>, argument);
 <<< 3.7
 veryLongFunction(
-  argument,
-  ConstructorTearOff<
-    First,
-    Second,
-    Third,
-    Fourth
-  >,
-  argument,
+    argument,
+    ConstructorTearOff<
+        First,
+        Second,
+        Third,
+        Fourth
+    >,
+    argument,
 );

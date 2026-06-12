@@ -7,7 +7,7 @@ var set = {
 };
 <<< 3.7
 var set = {
-  // comment
+    // comment
 };
 >>> Inline block comment.
 var set = {  /* comment */  };
@@ -18,5 +18,5 @@ var set = {/* comment */};
 });
 <<< 3.7
 ({
-  element, // comment
+    element, // comment
 });

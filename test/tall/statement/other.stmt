@@ -5,7 +5,7 @@ while (true) {
 }
 <<< 3.7
 while (true) {
-  break;
+    break;
 }
 >>> Break to label.
 while (true) {
@@ -13,7 +13,7 @@ while (true) {
 }
 <<< 3.7
 while (true) {
-  break someLabel;
+    break someLabel;
 }
 >>> Continue.
 while (true) {
@@ -21,7 +21,7 @@ while (true) {
 }
 <<< 3.7
 while (true) {
-  continue;
+    continue;
 }
 >>> Continue to label.
 while (true) {
@@ -29,7 +29,7 @@ while (true) {
 }
 <<< 3.7
 while (true) {
-  continue someLabel;
+    continue someLabel;
 }
 >>> Rethrow.
 try {
@@ -38,7 +38,7 @@ try {
        rethrow    ;}
 <<< 3.7
 try {
-  throw 1;
+    throw 1;
 } catch (e) {
-  rethrow;
+    rethrow;
 }

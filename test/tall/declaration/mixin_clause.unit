@@ -92,8 +92,8 @@ mixin SomeMixin on C<VeryLongType, AnotherLongType> {}
 mixin SomeMixin
     on
         C<
-          VeryLongType,
-          AnotherLongType
+            VeryLongType,
+            AnotherLongType
         > {}
 >>> Unsplit generic superinterface.
 mixin SomeMixin implements C<int> {}
@@ -110,8 +110,8 @@ mixin SomeMixin implements C<VeryLongType, AnotherLongType> {}
 mixin SomeMixin
     implements
         C<
-          VeryLongType,
-          AnotherLongType
+            VeryLongType,
+            AnotherLongType
         > {}
 >>> Split in generic `implements` clause does not force `on` clause to split.
 mixin C on A implements B<LongTypeArgument, AnotherLongType> {}
@@ -119,8 +119,8 @@ mixin C on A implements B<LongTypeArgument, AnotherLongType> {}
 mixin C on A
     implements
         B<
-          LongTypeArgument,
-          AnotherLongType
+            LongTypeArgument,
+            AnotherLongType
         > {}
 >>> (experiment primary-constructors) Unsplit on clause with empty body.
 mixin A on B ;
@@ -215,8 +215,8 @@ mixin SomeMixin on C<ExtremelyLongType, AnotherLongType> ;
 mixin SomeMixin
     on
         C<
-          ExtremelyLongType,
-          AnotherLongType
+            ExtremelyLongType,
+            AnotherLongType
         >;
 >>> (experiment primary-constructors) Unsplit generic superinterface with empty body.
 mixin SomeMixin implements C<int> ;
@@ -233,8 +233,8 @@ mixin SomeMixin implements C<ExtremelyLongType, AnotherLongType> ;
 mixin SomeMixin
     implements
         C<
-          ExtremelyLongType,
-          AnotherLongType
+            ExtremelyLongType,
+            AnotherLongType
         >;
 >>> (experiment primary-constructors) Split in generic `implements` clause does not force `on` clause to split with empty body.
 mixin C on A implements B<LongTypeArgument, AnotherLongType> ;
@@ -242,6 +242,6 @@ mixin C on A implements B<LongTypeArgument, AnotherLongType> ;
 mixin C on A
     implements
         B<
-          LongTypeArgument,
-          AnotherLongType
+            LongTypeArgument,
+            AnotherLongType
         >;

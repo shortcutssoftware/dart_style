@@ -164,8 +164,8 @@ class SomeClass extends C<VeryLongType, AnotherLongType> {}
 class SomeClass
     extends
         C<
-          VeryLongType,
-          AnotherLongType
+            VeryLongType,
+            AnotherLongType
         > {}
 >>> Unsplit generic mixin.
 class SomeClass with C<int> {}
@@ -182,8 +182,8 @@ class SomeClass with Mixin<VeryLongType, AnotherLongType> {}
 class SomeClass
     with
         Mixin<
-          VeryLongType,
-          AnotherLongType
+            VeryLongType,
+            AnotherLongType
         > {}
 >>> Unsplit generic superinterface.
 class SomeClass implements C<int> {}
@@ -200,8 +200,8 @@ class SomeClass implements C<VeryLongType, AnotherLongType> {}
 class SomeClass
     implements
         C<
-          VeryLongType,
-          AnotherLongType
+            VeryLongType,
+            AnotherLongType
         > {}
 >>> Split in generic clause forces entire clause list to split.
 class SomeClass with A, B<LongTypeArgument, AnotherLongType>, C {}
@@ -210,8 +210,8 @@ class SomeClass
     with
         A,
         B<
-          LongTypeArgument,
-          AnotherLongType
+            LongTypeArgument,
+            AnotherLongType
         >,
         C {}
 >>> Split in generic `with` clause forces `implements` clause to split.
@@ -220,8 +220,8 @@ class SomeClass with B<LongTypeArgument, AnotherLongType> implements C {}
 class SomeClass
     with
         B<
-          LongTypeArgument,
-          AnotherLongType
+            LongTypeArgument,
+            AnotherLongType
         >
     implements C {}
 >>> Split in generic `implements` clause forces `with` clause to split.
@@ -231,8 +231,8 @@ class SomeClass
     with B
     implements
         C<
-          LongTypeArgument,
-          AnotherLongType
+            LongTypeArgument,
+            AnotherLongType
         > {}
 >>> Split in generic `with` clause does not force `extends` clause to split.
 class C extends A with B<LongTypeArgument, AnotherLongType> {}
@@ -240,8 +240,8 @@ class C extends A with B<LongTypeArgument, AnotherLongType> {}
 class C extends A
     with
         B<
-          LongTypeArgument,
-          AnotherLongType
+            LongTypeArgument,
+            AnotherLongType
         > {}
 >>> Split in generic `implements` clause does not force `extends` clause to split.
 class C extends A implements B<LongTypeArgument, AnotherLongType> {}
@@ -249,23 +249,23 @@ class C extends A implements B<LongTypeArgument, AnotherLongType> {}
 class C extends A
     implements
         B<
-          LongTypeArgument,
-          AnotherLongType
+            LongTypeArgument,
+            AnotherLongType
         > {}
 >>> Split in class type parameters forces clause to split.
 class C<LongTypeParameter, AnotherLongType> extends Other {}
 <<< 3.7
 class C<
-  LongTypeParameter,
-  AnotherLongType
+    LongTypeParameter,
+    AnotherLongType
 >
     extends Other {}
 >>> Split in class type parameters forces clauses to split.
 class C<LongTypeParameter, AnotherLongType> extends Other with Mixin {}
 <<< 3.7
 class C<
-  LongTypeParameter,
-  AnotherLongType
+    LongTypeParameter,
+    AnotherLongType
 >
     extends Other
     with Mixin {}

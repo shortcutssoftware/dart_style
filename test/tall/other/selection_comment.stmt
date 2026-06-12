@@ -7,8 +7,8 @@ foo(/* ‹ */ bar /*›*/);
 someMethod(argument /* long com‹ment that wraps */, other /* last com›ment */);
 <<< 3.7
 someMethod(
-  argument /* long com‹ment that wraps */,
-  other /* last com›ment */,
+    argument /* long com‹ment that wraps */,
+    other /* last com›ment */,
 );
 >>> Before comments.
 1  ‹  /* */ +  ›  /* */ 2;

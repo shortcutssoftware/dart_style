@@ -3,9 +3,9 @@
 {a();b();c();}
 <<< 3.6
 {
-  a();
-  b();
-  c();
+    a();
+    b();
+    c();
 }
 >>> allow an extra newline between statements
 {
@@ -16,10 +16,10 @@
 }
 <<< 3.6
 {
-  a();
+    a();
 
-  b();
-  c();
+    b();
+    c();
 }
 >>> collapse any other newlines
 {
@@ -39,11 +39,11 @@
 }
 <<< 3.6
 {
-  a();
+    a();
 
-  b();
+    b();
 
-  c();
+    c();
 }
 >>> dartbug.com/16810
 {
@@ -51,9 +51,9 @@
 }
 <<< 3.6
 {
-  var a;
-  ;
-  ;
+    var a;
+    ;
+    ;
 }
 >>> force blank line after non-empty local function
 {
@@ -67,31 +67,31 @@
 }
 <<< 3.6
 {
-  a() {
-    ;
-  }
+    a() {
+        ;
+    }
 
-  b();
+    b();
 
-  c() {
-    ;
-  }
+    c() {
+        ;
+    }
 
-  d() {
-    ;
-  }
+    d() {
+        ;
+    }
 }
 >>> do not force blank line after empty local function
 { a() {} b() {} }
 <<< 3.6
 {
-  a() {}
-  b() {}
+    a() {}
+    b() {}
 }
 >>> do not force blank line after => body local function
 { a() => null; b() => null; }
 <<< 3.6
 {
-  a() => null;
-  b() => null;
+    a() => null;
+    b() => null;
 }

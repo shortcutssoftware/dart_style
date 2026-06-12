@@ -22,7 +22,7 @@ var i = value;
 var variableName = [ /* some long comment */ ];
 <<< 3.7
 var variableName = [
-  /* some long comment */
+    /* some long comment */
 ];
 >>> Line comment before `=`.
 var variable // comment

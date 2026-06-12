@@ -17,13 +17,13 @@ e = switch (n) {
 };
 <<< 3.7
 e = switch (n) {
-  // comment
-  0 => a,
+    // comment
+    0 => a,
 
-  // comment
-  1 => b,
+    // comment
+    1 => b,
 
-  // comment
+    // comment
 };
 >>> Line comment between cases does not force case to split after `=>`.
 e = switch (n) {
@@ -33,9 +33,9 @@ e = switch (n) {
 };
 <<< 3.7
 e = switch (n) {
-  0 => zero,
-  // comment
-  1 => one,
+    0 => zero,
+    // comment
+    1 => one,
 };
 >>> Line comment at end of case does not force cases to split.
 e = switch (n) {
@@ -45,9 +45,9 @@ e = switch (n) {
 };
 <<< 3.7
 e = switch (n) {
-  0 => zero, // comment
-  1 => one, // comment
-  2 => two, // comment
+    0 => zero, // comment
+    1 => one, // comment
+    2 => two, // comment
 };
 >>> Line comment before case body.
 e = switch (n) {
@@ -57,9 +57,9 @@ zero
 };
 <<< 3.7
 e = switch (n) {
-  0 =>
-    // comment
-    zero,
+    0 =>
+        // comment
+        zero,
 };
 >>> Line comment in empty switch.
 e = switch (n) {
@@ -67,14 +67,14 @@ e = switch (n) {
 };
 <<< 3.7
 e = switch (n) {
-  // comment
+    // comment
 };
 >>> Line comment on opening line of empty switch.
 e = switch (n) { // comment
 };
 <<< 3.7
 e = switch (n) {
-  // comment
+    // comment
 };
 >>> Non-inline block comment with newlines before and after.
 e = switch (n) {
@@ -82,7 +82,7 @@ e = switch (n) {
 };
 <<< 3.7
 e = switch (n) {
-  /* comment */
+    /* comment */
 };
 >>> Non-inline block comment with trailing newline.
 e = switch (n) {/* comment */
@@ -106,7 +106,7 @@ e = switch (n) {
 };
 <<< 3.7
 e = switch (n) {
-  0 => zero,
-  // comment
-  1 when true => one,
+    0 => zero,
+    // comment
+    1 when true => one,
 };

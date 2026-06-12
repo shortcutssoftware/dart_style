@@ -8,10 +8,6 @@ class SomeLongNameForAComponent {
 }
 <<< 3.6
 class SomeLongNameForAComponent {
-  SomeLongNameForAComponent(
-      DirectiveInjector injector,
-      RenderSyncZoneAccess zoneAccess,
-      this._formatters,
-      this._element,
-      this._scope);
+    SomeLongNameForAComponent(DirectiveInjector injector, RenderSyncZoneAccess zoneAccess, this._formatters,
+        this._element, this._scope);
 }

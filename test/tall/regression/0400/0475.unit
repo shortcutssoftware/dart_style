@@ -6,9 +6,9 @@ class ListResultDescriptor {
 }
 <<< 3.7
 class ListResultDescriptor {
-  factory ListResultDescriptor(
-    String name,
-    List<E> defaultValue, {
-    ResultCachingPolicy<List<E>> cachingPolicy,
-  }) = ListResultDescriptorImpl<E>;
+    factory ListResultDescriptor(
+        String name,
+        List<E> defaultValue, {
+        ResultCachingPolicy<List<E>> cachingPolicy,
+    }) = ListResultDescriptorImpl<E>;
 }

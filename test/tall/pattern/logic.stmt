@@ -15,7 +15,7 @@ if (object
         second ||
         third ||
         fourth) {
-  ;
+    ;
 }
 >>> Chains of different logic operators split separately.
 if (object case first && second || third && fourth && fifth && sixth) {;}
@@ -26,7 +26,7 @@ if (object
             fourth &&
             fifth &&
             sixth) {
-  ;
+    ;
 }
 >>> Chains of different logic operators split separately.
 if (object case first && second && third && fourth || fifth && sixth) {;}
@@ -37,7 +37,7 @@ if (object
             third &&
             fourth ||
         fifth && sixth) {
-  ;
+    ;
 }
 >>> Multiple split variables as logic operands.
 if (object case SomeVeryLongTypeName anAlsoLongVariableName || AnotherLongTypeName anotherLongVariableName) {;}
@@ -47,23 +47,23 @@ if (object
         anAlsoLongVariableName ||
         AnotherLongTypeName
         anotherLongVariableName) {
-  ;
+    ;
 }
 >>> Don't indent subsequent `||` operands when split inside a map key.
 var {key: longOperand2 || longOperand2 || longOperand3} = value;
 <<< 3.7
 var {
-  key:
-      longOperand2 ||
-      longOperand2 ||
-      longOperand3,
+    key:
+        longOperand2 ||
+        longOperand2 ||
+        longOperand3,
 } = value;
 >>> Don't indent subsequent `&&` operands when split inside a map key.
 var {key: longOperand2 && longOperand2 && longOperand3} = value;
 <<< 3.7
 var {
-  key:
-      longOperand2 &&
-      longOperand2 &&
-      longOperand3,
+    key:
+        longOperand2 &&
+        longOperand2 &&
+        longOperand3,
 } = value;

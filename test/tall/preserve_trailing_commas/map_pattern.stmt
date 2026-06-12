@@ -4,7 +4,7 @@
 var {a: x,} = map;
 <<< 3.7
 var {
-  a: x,
+    a: x,
 } = map;
 >>> Doesn't force split without trailing comma.
 var {a:x,b:y,c:z} = map;
@@ -14,7 +14,7 @@ var {a: x, b: y, c: z} = map;
 var {a: element1, b: element2, c: element3} = map;
 <<< 3.7
 var {
-  a: element1,
-  b: element2,
-  c: element3,
+    a: element1,
+    b: element2,
+    c: element3,
 } = map;

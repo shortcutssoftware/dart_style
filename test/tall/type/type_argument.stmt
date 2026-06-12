@@ -7,20 +7,20 @@ Generic<int, String, bool> g;
 Generic  <  LongTypeName  ,  AnotherLongType  ,  ThirdOne  >  g  ;
 <<< 3.7
 Generic<
-  LongTypeName,
-  AnotherLongType,
-  ThirdOne
+    LongTypeName,
+    AnotherLongType,
+    ThirdOne
 >
 g;
 >>> Splitting in type argument forces outer type argument list to split.
 Generic<Map<LongTypeName, AnotherReallyLongType>, ThirdOne> g;
 <<< 3.7
 Generic<
-  Map<
-    LongTypeName,
-    AnotherReallyLongType
-  >,
-  ThirdOne
+    Map<
+        LongTypeName,
+        AnotherReallyLongType
+    >,
+    ThirdOne
 >
 g;
 >>> Nullable type argument.
@@ -35,12 +35,12 @@ Set<(int x, String, {bool b, int i})> s;
 GenericClass<Function(first, second, third, fourth, fifth)> f;
 <<< 3.7
 GenericClass<
-  Function(
-    first,
-    second,
-    third,
-    fourth,
-    fifth,
-  )
+    Function(
+        first,
+        second,
+        third,
+        fourth,
+        fifth,
+    )
 >
 f;

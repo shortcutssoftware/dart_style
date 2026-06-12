@@ -6,7 +6,7 @@ void main() {
 }
 <<< 3.7
 void main() {
-  for (int i; i < 10; print("foo"), ++i, print("bar")) {
-    break;
-  }
+    for (int i; i < 10; print("foo"), ++i, print("bar")) {
+        break;
+    }
 }

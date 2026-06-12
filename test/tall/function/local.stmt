@@ -8,9 +8,11 @@ main() {
 }
 <<< 3.7
 main() {
-  int localFunction(String parameter) {
-    body;
-  }
+    int localFunction(
+        String parameter,
+    ) {
+        body;
+    }
 }
 >>> Force blank line after non-empty local function.
 {
@@ -24,33 +26,33 @@ main() {
 }
 <<< 3.7
 {
-  a() {
-    ;
-  }
+    a() {
+        ;
+    }
 
-  b();
+    b();
 
-  c() {
-    ;
-  }
+    c() {
+        ;
+    }
 
-  d() {
-    ;
-  }
+    d() {
+        ;
+    }
 }
 >>> Do not force blank line after empty local function.
 { a() {} b() {} }
 <<< 3.7
 {
-  a() {}
-  b() {}
+    a() {}
+    b() {}
 }
 >>> Do not force blank line after expression body local function.
 { a() => null; b() => null; }
 <<< 3.7
 {
-  a() => null;
-  b() => null;
+    a() => null;
+    b() => null;
 }
 >>> Don't force a blank line after a function and comment at the end of a block.
 {
@@ -59,8 +61,8 @@ main() {
 }
 <<< 3.7
 {
-  a() {
-    ;
-  }
-  // comment
+    a() {
+        ;
+    }
+    // comment
 }

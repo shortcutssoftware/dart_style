@@ -37,16 +37,16 @@ variableName =
 variableName = [element, element, element];
 <<< 3.7
 variableName = [
-  element,
-  element,
-  element,
+    element,
+    element,
+    element,
 ];
 >>> Prefer block-like splitting for function calls.
 variableName = function(argument, argument);
 <<< 3.7
 variableName = function(
-  argument,
-  argument,
+    argument,
+    argument,
 );
 >>> No block-like splitting for empty argument lists.
 variableNameExactLength____ = function();
@@ -63,8 +63,8 @@ longVariableName = veryLongFunctionName_(argument, another);
 <<< 3.7
 longVariableName =
     veryLongFunctionName_(
-      argument,
-      another,
+        argument,
+        another,
     );
 >>> Prefer to split at `=` over property chain.
 target.property.another = reallyLongValue;
@@ -84,17 +84,17 @@ outer = inner = [element1, element2, element3, element4];
 <<< 3.7
 outer =
     inner = [
-      element1,
-      element2,
-      element3,
-      element4,
+        element1,
+        element2,
+        element3,
+        element4,
     ];
 <<< 3.8
 outer = inner = [
-  element1,
-  element2,
-  element3,
-  element4,
+    element1,
+    element2,
+    element3,
+    element4,
 ];
 >>> Headline format unsplit target of call chain.
 variable = (tar + get).method().another().third();

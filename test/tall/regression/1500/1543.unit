@@ -6,10 +6,10 @@ void main() async {
 }
 <<< 3.7
 void main() async {
-  fn(
-    param1: true,
-    paraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaam2: [
-      ['value'],
-    ],
-  );
+    fn(
+        param1: true,
+        paraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaam2: [
+            ['value'],
+        ],
+    );
 }

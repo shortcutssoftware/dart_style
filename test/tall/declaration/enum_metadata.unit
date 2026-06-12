@@ -10,12 +10,12 @@ enum Primate { bonobo, chimp, gorilla }
 enum Foo { a, @meta b, @meta1 @meta2 c}
 <<< 3.7
 enum Foo {
-  a,
-  @meta
-  b,
-  @meta1
-  @meta2
-  c,
+    a,
+    @meta
+    b,
+    @meta1
+    @meta2
+    c,
 }
 >>> Remove blank lines before enum case with metadata.
 enum Foo { a,
@@ -25,15 +25,15 @@ enum Foo { a,
 @meta b}
 <<< 3.7
 enum Foo {
-  a,
+    a,
 
-  @meta
-  b,
+    @meta
+    b,
 }
 >>> Metadata on enum case forces enum to split.
 enum Foo { @m a }
 <<< 3.7
 enum Foo {
-  @m
-  a,
+    @m
+    a,
 }

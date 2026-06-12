@@ -10,11 +10,20 @@ void allTests() {
 }
 <<< 3.7
 void allTests() {
-  describe('inliner', () {
-    it('should inline `templateUrl` values', () async {
-      expect(
-        view.namedParameters.firstWhere((p) => p.name == 'templateUrl').value,
-      ).toContain('template.html');
+    describe('inliner', () {
+        it('should inline `templateUrl` values', () async {
+            expect(
+                view.namedParameters.firstWhere((p) => p.name == 'templateUrl').value,
+            ).toContain('template.html');
+        });
     });
-  });
+}
+<<< 3.13
+void allTests() {
+    describe('inliner', () {
+        it('should inline `templateUrl` values', () async {
+            expect(view.namedParameters.firstWhere((p) => p.name == 'templateUrl').value)
+                .toContain('template.html');
+        });
+    });
 }

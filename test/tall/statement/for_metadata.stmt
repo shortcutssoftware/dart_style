@@ -5,9 +5,9 @@ main() {
 }
 <<< 3.7
 main() {
-  for (@a var i in list) {
-    ;
-  }
+    for (@a var i in list) {
+        ;
+    }
 }
 >>> Multiple metadata on for-in loop variable.
 main() {
@@ -15,9 +15,9 @@ main() {
 }
 <<< 3.7
 main() {
-  for (@a @b var i in list) {
-    ;
-  }
+    for (@a @b var i in list) {
+        ;
+    }
 }
 >>> Long metadata on for-in loop variable.
 main() {
@@ -25,13 +25,16 @@ main() {
 }
 <<< 3.7
 main() {
-  for (@Annotation
-      @VeryLongMetadataAnnotation(1, 2)
-      var i
-      in veryLong.iterator +
-          expression) {
-    ;
-  }
+    for (@Annotation
+        @VeryLongMetadataAnnotation(
+            1,
+            2,
+        )
+        var i
+        in veryLong.iterator +
+            expression) {
+        ;
+    }
 }
 >>> Single metadata on for loop.
 main() {
@@ -39,9 +42,9 @@ main() {
 }
 <<< 3.7
 main() {
-  for (@a var i = x; ;) {
-    ;
-  }
+    for (@a var i = x; ;) {
+        ;
+    }
 }
 >>> Multiple metadata on for loop.
 main() {
@@ -49,9 +52,9 @@ main() {
 }
 <<< 3.7
 main() {
-  for (@a @b var i = x; ;) {
-    ;
-  }
+    for (@a @b var i = x; ;) {
+        ;
+    }
 }
 >>> Long metadata on for loop.
 main() {
@@ -59,15 +62,19 @@ main() {
 }
 <<< 3.7
 main() {
-  for (
-    @Annotation
-    @VeryLongMetadataAnnotation(1, 2)
-    var i =
-        veryLong.iterator + expression;
-    ;
-  ) {
-    ;
-  }
+    for (
+        @Annotation
+        @VeryLongMetadataAnnotation(
+            1,
+            2,
+        )
+        var i =
+            veryLong.iterator +
+            expression;
+        ;
+    ) {
+        ;
+    }
 }
 >>> Single metadata on pattern for-in loop.
 main() {
@@ -75,9 +82,9 @@ main() {
 }
 <<< 3.7
 main() {
-  for (@a var [i] in list) {
-    ;
-  }
+    for (@a var [i] in list) {
+        ;
+    }
 }
 >>> Multiple metadata on pattern for-in loop.
 main() {
@@ -85,9 +92,9 @@ main() {
 }
 <<< 3.7
 main() {
-  for (@a @b var [i] in list) {
-    ;
-  }
+    for (@a @b var [i] in list) {
+        ;
+    }
 }
 >>> Long metadata on pattern for-in loop.
 main() {
@@ -95,13 +102,16 @@ main() {
 }
 <<< 3.7
 main() {
-  for (@Annotation
-      @VeryLongMetadataAnnotation(1, 2)
-      var [i]
-      in veryLong.iterator +
-          expression) {
-    ;
-  }
+    for (@Annotation
+        @VeryLongMetadataAnnotation(
+            1,
+            2,
+        )
+        var [i]
+        in veryLong.iterator +
+            expression) {
+        ;
+    }
 }
 >>> Single metadata on pattern for loop.
 main() {
@@ -109,9 +119,9 @@ main() {
 }
 <<< 3.7
 main() {
-  for (@a var [i] = x; ;) {
-    ;
-  }
+    for (@a var [i] = x; ;) {
+        ;
+    }
 }
 >>> Multiple metadata on pattern for loop.
 main() {
@@ -119,9 +129,9 @@ main() {
 }
 <<< 3.7
 main() {
-  for (@a @b var [i] = x; ;) {
-    ;
-  }
+    for (@a @b var [i] = x; ;) {
+        ;
+    }
 }
 >>> Long metadata on pattern for loop.
 main() {
@@ -129,15 +139,19 @@ main() {
 }
 <<< 3.7
 main() {
-  for (
-    @Annotation
-    @VeryLongMetadataAnnotation(1, 2)
-    var [i] =
-        veryLong.iterator + expression;
-    ;
-  ) {
-    ;
-  }
+    for (
+        @Annotation
+        @VeryLongMetadataAnnotation(
+            1,
+            2,
+        )
+        var [i] =
+            veryLong.iterator +
+            expression;
+        ;
+    ) {
+        ;
+    }
 }
 >>> Comment after metadata on for-in loop variable.
 main() {
@@ -147,11 +161,11 @@ var i in list) {;}
 }
 <<< 3.7
 main() {
-  for (@a
-      // c
-      var i in list) {
-    ;
-  }
+    for (@a
+        // c
+        var i in list) {
+        ;
+    }
 }
 >>> Comment after metadata on for loop variable.
 main() {
@@ -161,14 +175,14 @@ var i = x;;) {;}
 }
 <<< 3.7
 main() {
-  for (
-    @a
-    // c
-    var i = x;
-    ;
-  ) {
-    ;
-  }
+    for (
+        @a
+        // c
+        var i = x;
+        ;
+    ) {
+        ;
+    }
 }
 >>> Comment after metadata on pattern for-in variable.
 main() {
@@ -178,9 +192,9 @@ var [i] in x) {;}
 }
 <<< 3.7
 main() {
-  for (@a
-      // c
-      var [i] in x) {
-    ;
-  }
+    for (@a
+        // c
+        var [i] in x) {
+        ;
+    }
 }

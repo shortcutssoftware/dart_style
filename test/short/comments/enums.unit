@@ -11,13 +11,13 @@ enum A {
 }
 <<< 3.6
 enum A {
-  // comment
-  B,
+    // comment
+    B,
 
-  // comment
-  C
+    // comment
+    C
 
-  // comment
+    // comment
 }
 >>> block comments
 enum A {
@@ -31,13 +31,13 @@ enum A {
 }
 <<< 3.6
 enum A {
-  /* comment */
-  B,
+    /* comment */
+    B,
 
-  /* comment */
-  C
+    /* comment */
+    C
 
-  /* comment */
+    /* comment */
 }
 >>> remove blank lines before beginning of body
 enum A {
@@ -49,8 +49,8 @@ enum A {
 }
 <<< 3.6
 enum A {
-  // comment
-  B
+    // comment
+    B
 }
 >>> remove blank lines after end of body
 enum A {
@@ -62,8 +62,8 @@ enum A {
 }
 <<< 3.6
 enum A {
-  B
-  // comment
+    B
+    // comment
 }
 >>> ensure blank line above doc comments
 enum Foo {/// doc
@@ -74,17 +74,17 @@ var x = 1;
 void y() {}}
 <<< 3.6
 enum Foo {
-  /// doc
-  a,
+    /// doc
+    a,
 
-  /// doc
-  b;
+    /// doc
+    b;
 
-  /// doc
-  var x = 1;
+    /// doc
+    var x = 1;
 
-  /// doc
-  void y() {}
+    /// doc
+    void y() {}
 }
 >>> line comment after last
 enum Foo {
@@ -93,8 +93,8 @@ enum Foo {
 }
 <<< 3.6
 enum Foo {
-  a,
-  b // comment
+    a,
+    b // comment
 }
 >>> line comment in middle
 enum Foo {
@@ -103,8 +103,8 @@ enum Foo {
 }
 <<< 3.6
 enum Foo {
-  a, // comment
-  b
+    a, // comment
+    b
 }
 >>> line comment in member constructor
 enum Foo {
@@ -113,7 +113,7 @@ enum Foo {
 }
 <<< 3.6
 enum Foo {
-  a(// c
-      ),
-  b()
+    a(// c
+        ),
+    b()
 }

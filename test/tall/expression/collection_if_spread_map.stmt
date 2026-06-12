@@ -4,55 +4,60 @@
 var map = {if (c) ...{1: 1, 2: 2}};
 <<< 3.7
 var map = {
-  if (c) ...{1: 1, 2: 2},
+    if (c) ...{1: 1, 2: 2},
 };
 >>> Spread else stays unsplit if it fits.
 var map = {if (c) 1 else ...{2: 2}};
 <<< 3.7
 var map = {
-  if (c) 1 else ...{2: 2},
+    if (c) 1 else ...{2: 2},
 };
 >>> Spread then and else stay unsplit if they fit.
 var map = {if (c) ...{1: 1, 2: 2} else ...{3: 3}};
 <<< 3.7
 var map = {
-  if (c) ...{1: 1, 2: 2} else ...{3: 3},
+    if (c) ...{
+        1: 1,
+        2: 2,
+    } else ...{
+        3: 3,
+    },
 };
 >>> Spread then formats like block if it splits.
 var map = {if (c) ...{element1: 1, element2: 2, element3: 3}};
 <<< 3.7
 var map = {
-  if (c) ...{
-    element1: 1,
-    element2: 2,
-    element3: 3,
-  },
+    if (c) ...{
+        element1: 1,
+        element2: 2,
+        element3: 3,
+    },
 };
 >>> Both spreads split if then spread splits.
 var map = {if (c) ...{element1: 1, element2: 2, element3: 3} else ...{1: 1, 2: 2}};
 <<< 3.7
 var map = {
-  if (c) ...{
-    element1: 1,
-    element2: 2,
-    element3: 3,
-  } else ...{
-    1: 1,
-    2: 2,
-  },
+    if (c) ...{
+        element1: 1,
+        element2: 2,
+        element3: 3,
+    } else ...{
+        1: 1,
+        2: 2,
+    },
 };
 >>> Both spreads split if else spread splits.
 var map = {if (c) ...{1: 1, 2: 2} else ...{element1: 1, element2: 2, element3: 3}};
 <<< 3.7
 var map = {
-  if (c) ...{
-    1: 1,
-    2: 2,
-  } else ...{
-    element1: 1,
-    element2: 2,
-    element3: 3,
-  },
+    if (c) ...{
+        1: 1,
+        2: 2,
+    } else ...{
+        element1: 1,
+        element2: 2,
+        element3: 3,
+    },
 };
 >>> An empty spread then is not treated like block.
 var map = {
@@ -60,13 +65,13 @@ var map = {
 };
 <<< 3.7
 var map = {
-  if (condition)
-    ...{}
-  else ...{
-    veryLongElement: 1,
-    veryLongElement: 2,
-    veryLongElement: 3,
-  },
+    if (condition)
+        ...{}
+    else ...{
+        veryLongElement: 1,
+        veryLongElement: 2,
+        veryLongElement: 3,
+    },
 };
 >>> An empty spread else is not treated like block.
 var map = {
@@ -74,12 +79,12 @@ var map = {
 };
 <<< 3.7
 var map = {
-  if (condition) ...{
-    veryLongElement: 1,
-    veryLongElement: 2,
-    veryLongElement: 3,
-  } else
-    ...{},
+    if (condition) ...{
+        veryLongElement: 1,
+        veryLongElement: 2,
+        veryLongElement: 3,
+    } else
+        ...{},
 };
 >>> An empty spread then doesn't split.
 var map = {
@@ -87,10 +92,10 @@ var map = {
 };
 <<< 3.7
 var map = {
-  if (condition)
-    ...{}
-  else
-    veryLongIdentifier: 1,
+    if (condition)
+        ...{}
+    else
+        veryLongIdentifier: 1,
 };
 >>> An empty spread else doesn't split.
 var map = {
@@ -98,10 +103,10 @@ var map = {
 };
 <<< 3.7
 var map = {
-  if (condition)
-    veryLongIdentifier: 1
-  else
-    ...{},
+    if (condition)
+        veryLongIdentifier: 1
+    else
+        ...{},
 };
 >>> An empty spread then with a comment is treated like a block.
 var map = {
@@ -110,13 +115,13 @@ var map = {
 };
 <<< 3.7
 var map = {
-  if (condition) ...{
-    // c
-  } else ...{
-    veryLongElement: 1,
-    veryLongElement: 2,
-    veryLongElement: 3,
-  },
+    if (condition) ...{
+        // c
+    } else ...{
+        veryLongElement: 1,
+        veryLongElement: 2,
+        veryLongElement: 3,
+    },
 };
 >>> An empty spread else with a comment treated like a block.
 var map = {
@@ -125,79 +130,79 @@ var map = {
 };
 <<< 3.7
 var map = {
-  if (condition) ...{
-    veryLongElement: 1,
-    veryLongElement: 2,
-    veryLongElement: 3,
-  } else ...{
-    // c
-  },
+    if (condition) ...{
+        veryLongElement: 1,
+        veryLongElement: 2,
+        veryLongElement: 3,
+    } else ...{
+        // c
+    },
 };
 >>> A single-line map that isn't spread.
 var map = {if (a) {b: b}};
 <<< 3.7
 var map = {
-  if (a) {b: b},
+    if (a) {b: b},
 };
 >>> A collection that isn't spread wraps and indents.
 var map = {if (condition) {element1: 1, element2: 2}};
 <<< 3.7
 var map = {
-  if (condition)
-    {element1: 1, element2: 2},
+    if (condition)
+        {element1: 1, element2: 2},
 };
 >>>
 var map = {if (c) {element1: 1, element2: 2, element3: 3}};
 <<< 3.7
 var map = {
-  if (c)
-    {
-      element1: 1,
-      element2: 2,
-      element3: 3,
-    },
+    if (c)
+        {
+            element1: 1,
+            element2: 2,
+            element3: 3,
+        },
 };
 >>>
 var map = {if (c) {element1: 1, element2: 2} else thing: 0};
 <<< 3.7
 var map = {
-  if (c)
-    {element1: 1, element2: 2}
-  else
-    thing: 0,
+    if (c)
+        {element1: 1, element2: 2}
+    else
+        thing: 0,
 };
 >>>
 var map = {if (c) {element1: 1, element2: 2, element3: 3} else thing: 0};
 <<< 3.7
 var map = {
-  if (c)
-    {
-      element1: 1,
-      element2: 2,
-      element3: 3,
-    }
-  else
-    thing: 0,
+    if (c)
+        {
+            element1: 1,
+            element2: 2,
+            element3: 3,
+        }
+    else
+        thing: 0,
 };
 >>>
 var map = {if (c) thing: 0 else {element1: 1, element2: 2}};
 <<< 3.7
 var map = {
-  if (c)
-    thing: 0
-  else
-    {element1: 1, element2: 2},
+    if (c)
+        thing: 0
+    else
+        {element1: 1, element2: 2},
 };
 >>>
 var map = {if (c) thing: 0 else {element1: 1, element2: 2, element3: 3}};
 <<< 3.7
 var map = {
-  if (c)
-    thing: 0
-  else
-    {
-      element1: 1,
-      element2: 2,
-      element3: 3,
-    },
+    if (c)
+        thing: 0
+    else
+        {
+            element1: 1,
+            element2: 2,
+            element3: 3,
+        },
 };

@@ -50,41 +50,41 @@ variableName =
 [first, second, third, fourth, fifth, sixth] = value;
 <<< 3.6
 [
-  first,
-  second,
-  third,
-  fourth,
-  fifth,
-  sixth
+    first,
+    second,
+    third,
+    fourth,
+    fifth,
+    sixth
 ] = value;
 >>> split in map pattern
 {first: second, third: fourth, fifth: sixth} = value;
 <<< 3.6
 {
-  first: second,
-  third: fourth,
-  fifth: sixth
+    first: second,
+    third: fourth,
+    fifth: sixth
 } = value;
 >>> split in record pattern
 (first, second, third, fourth, fifth, sixth) = value;
 <<< 3.6
 (
-  first,
-  second,
-  third,
-  fourth,
-  fifth,
-  sixth
+    first,
+    second,
+    third,
+    fourth,
+    fifth,
+    sixth
 ) = value;
 >>> split in object pattern
 Foo(:first, :second, :third, :fourth, :fifth) = value;
 <<< 3.6
 Foo(
-  :first,
-  :second,
-  :third,
-  :fourth,
-  :fifth
+    :first,
+    :second,
+    :third,
+    :fourth,
+    :fifth
 ) = value;
 >>> split in value
 (first, second, third) = longValueExpression + anotherOperand + aThirdOperand;
@@ -105,38 +105,38 @@ Foo(
 (first, second, third, fourth, fifth, sixth) = (first, second, third, fourth, fifth);
 <<< 3.6
 (
-  first,
-  second,
-  third,
-  fourth,
-  fifth,
-  sixth
+    first,
+    second,
+    third,
+    fourth,
+    fifth,
+    sixth
 ) = (
-  first,
-  second,
-  third,
-  fourth,
-  fifth
+    first,
+    second,
+    third,
+    fourth,
+    fifth
 );
 >>> expression split in pattern, collection-like in value
 (veryLongIdentifier && anotherAlsoLongOne) = (first, second, third, fourth, fifth);
 <<< 3.6
 (veryLongIdentifier &&
     anotherAlsoLongOne) = (
-  first,
-  second,
-  third,
-  fourth,
-  fifth
+    first,
+    second,
+    third,
+    fourth,
+    fifth
 );
 >>> expression split in pattern, collection-like in value
 (veryLongIdentifier && anotherAlsoLongOne) = (first, second, third, fourth, fifth);
 <<< 3.6
 (veryLongIdentifier &&
     anotherAlsoLongOne) = (
-  first,
-  second,
-  third,
-  fourth,
-  fifth
+    first,
+    second,
+    third,
+    fourth,
+    fifth
 );

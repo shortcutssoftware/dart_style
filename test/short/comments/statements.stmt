@@ -6,8 +6,8 @@ while (true) {
 }
 <<< 3.6
 while (true) {
-  continue // comment
-      ;
+    continue // comment
+        ;
 }
 >>> continue with wrapped block comment
 while (true) {
@@ -15,7 +15,7 @@ while (true) {
 }
 <<< 3.6
 while (true) {
-  continue /* a long comment that does not wrap */;
+    continue /* a long comment that does not wrap */;
 }
 >>> do with line comment
 do // comment
@@ -23,7 +23,7 @@ do // comment
 <<< 3.6
 do // comment
     {
-  ;
+    ;
 } while (true);
 >>> remove blank lines before beginning of block
 while (true) {
@@ -34,7 +34,7 @@ while (true) {
 }
 <<< 3.6
 while (true) {
-  // comment
+    // comment
 }
 >>> remove blank lines after end of block
 while (true) {
@@ -45,7 +45,7 @@ while (true) {
 }
 <<< 3.6
 while (true) {
-  // comment
+    // comment
 }
 >>>
 main() {
@@ -53,7 +53,7 @@ main() {
 }
 <<< 3.6
 main() {
-  /* comment */ statement;
+    /* comment */ statement;
 }
 >>>
 main() {
@@ -63,9 +63,9 @@ main() {
 }
 <<< 3.6
 main() {
-  code;
+    code;
 
-  /* comment */ statement;
+    /* comment */ statement;
 }
 >>>
 main() {
@@ -74,5 +74,5 @@ main() {
 }
 <<< 3.6
 main() {
-  while (b) /*unreachable*/ {}
+    while (b) /*unreachable*/ {}
 }

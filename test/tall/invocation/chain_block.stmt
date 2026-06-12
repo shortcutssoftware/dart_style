@@ -5,58 +5,58 @@
 target.method(argument1, argument2, argument3);
 <<< 3.7
 target.method(
-  argument1,
-  argument2,
-  argument3,
+    argument1,
+    argument2,
+    argument3,
 );
 >>> Block format single call with collection argument.
 target.method([element1, element2, element3]);
 <<< 3.7
 target.method([
-  element1,
-  element2,
-  element3,
+    element1,
+    element2,
+    element3,
 ]);
 >>> Block format single call with function argument.
 target.method(() { body; });
 <<< 3.7
 target.method(() {
-  body;
+    body;
 });
 >>> Block format single call with line comment in argument list.
 target.method(// comment
 );
 <<< 3.7
 target.method(
-  // comment
+    // comment
 );
 >>> Block format single call with block comment in argument list.
 target.method(/* a very long comment */);
 <<< 3.7
 target.method(
-  /* a very long comment */
+    /* a very long comment */
 );
 >>> Allow block format chain with leading properties.
 target.property1.property2.method(argument1, argument2);
 <<< 3.7
 target.property1.property2.method(
-  argument1,
-  argument2,
+    argument1,
+    argument2,
 );
 >>> If leading properties split, then don't block format chain.
 target.property1.property2.property3.method(argument1, argument2, argument3);
 <<< 3.7
 target.property1.property2.property3
     .method(
-      argument1,
-      argument2,
-      argument3,
+        argument1,
+        argument2,
+        argument3,
     );
 >>> Block format chain on trailing split argument list with leading unsplittable calls.
 target.zero().one().two().method(argument);
 <<< 3.7
 target.zero().one().two().method(
-  argument,
+    argument,
 );
 >>> No block format chain on split argument list with leading splittable calls.
 target.zero().one(1).two(1, 2).method(argument1, argument2, argument3);
@@ -66,9 +66,9 @@ target
     .one(1)
     .two(1, 2)
     .method(
-      argument1,
-      argument2,
-      argument3,
+        argument1,
+        argument2,
+        argument3,
     );
 >>> Block format chain with splittable calls and function at end.
 compiler
@@ -78,7 +78,7 @@ compiler
     });
 <<< 3.7
 compiler.run(script).then((_) {
-  body;
+    body;
 });
 >>> Block format chain with splittable calls and collection at end.
 compiler
@@ -90,9 +90,9 @@ compiler
     ]);
 <<< 3.7
 compiler.run(script).then([
-  element1,
-  element2,
-  element3,
+    element1,
+    element2,
+    element3,
 ]);
 >>> No block format chain if the preceding calls don't fit on one line.
 compiler
@@ -104,7 +104,7 @@ compiler
 compiler
     .run(longerScriptArgumentHere)
     .then((_) {
-      body;
+        body;
     });
 >>> Split after properties.
 target.property1.property2.property3.method(argument);
@@ -115,15 +115,15 @@ target.property1.property2.property3
 target.method([element1, element2]).property;
 <<< 3.7
 target.method([
-  element1,
-  element2,
+    element1,
+    element2,
 ]).property;
 >>> Allow a trailing empty call after a block-formatted call.
 target.method([element1, element2]).another();
 <<< 3.7
 target.method([
-  element1,
-  element2,
+    element1,
+    element2,
 ]).another();
 >>> Don't allow a trailing property after a regular splittable call.
 target.method(argument1, argument2).property;
@@ -153,44 +153,44 @@ target
 target.prop!.other[1]().method(argument1, argument2);
 <<< 3.7
 target.prop!.other[1]().method(
-  argument1,
-  argument2,
+    argument1,
+    argument2,
 );
 >>> Allow postfix `!` on block call.
 target.method(argument1, argument2, argument3)!;
 <<< 3.7
 target.method(
-  argument1,
-  argument2,
-  argument3,
+    argument1,
+    argument2,
+    argument3,
 )!;
 >>> Postfix index on block call.
 target.method(argument1, argument2, argument3)[index];
 <<< 3.7
 target.method(
-  argument1,
-  argument2,
-  argument3,
+    argument1,
+    argument2,
+    argument3,
 )[index];
 >>> Postfix call on block call.
 target.method(argument1, argument2, argument3)(argument4);
 <<< 3.7
 target.method(
-  argument1,
-  argument2,
-  argument3,
+    argument1,
+    argument2,
+    argument3,
 )(argument4);
 >>> Postfix call on block call.
 target.method(argument1, argument2, argument3)
 (argument4, argument5, argument6, argument7);
 <<< 3.7
 target.method(
-  argument1,
-  argument2,
-  argument3,
+    argument1,
+    argument2,
+    argument3,
 )(
-  argument4,
-  argument5,
-  argument6,
-  argument7,
+    argument4,
+    argument5,
+    argument6,
+    argument7,
 );

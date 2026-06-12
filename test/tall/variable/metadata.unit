@@ -15,9 +15,9 @@ var variable;
 }
 <<< 3.7
 main() {
-  @DomName('DatabaseCallback')
-  @Experimental()
-  var variable;
+    @DomName('DatabaseCallback')
+    @Experimental()
+    var variable;
 }
 >>> Unsplit.
 @a.B<C,D>(e,f,g) int i = 0;
@@ -28,9 +28,9 @@ int i = 0;
 @BigLongClassName<First, Second, Third>() int i = 0;
 <<< 3.7
 @BigLongClassName<
-  First,
-  Second,
-  Third
+    First,
+    Second,
+    Third
 >()
 int i = 0;
 >>> Prefer to split value arguments over type arguments.
@@ -40,7 +40,7 @@ int i = 0;
 int i = 0;
 <<< 3.7
 @SomeBigClass<TypeArgument>(
-  valueArgument,
+    valueArgument,
 )
 int i = 0;
 >>> Split both type and value arguments.
@@ -48,30 +48,30 @@ int i = 0;
   first, second, third, fourth, fifth, sixth) int i = 0;
 <<< 3.7
 @SomeBigClass<
-  First,
-  Second,
-  Third,
-  Fourth,
-  Fifth
+    First,
+    Second,
+    Third,
+    Fourth,
+    Fifth
 >(
-  first,
-  second,
-  third,
-  fourth,
-  fifth,
-  sixth,
+    first,
+    second,
+    third,
+    fourth,
+    fifth,
+    sixth,
 )
 int i = 0;
 >>> Prefer to split at arguments rather than prefix.
 @veryLongPrefix.VeryLongClassName<VeryLongTypeArgument,OtherVeryLongTypeArgument>(veryLongArgument,otherVeryLongArgument,thirdVeryLongArgument) int i = 0;
 <<< 3.7
 @veryLongPrefix.VeryLongClassName<
-  VeryLongTypeArgument,
-  OtherVeryLongTypeArgument
+    VeryLongTypeArgument,
+    OtherVeryLongTypeArgument
 >(
-  veryLongArgument,
-  otherVeryLongArgument,
-  thirdVeryLongArgument,
+    veryLongArgument,
+    otherVeryLongArgument,
+    thirdVeryLongArgument,
 )
 int i = 0;
 >>> Nested type arguments without splitting.
@@ -83,19 +83,19 @@ int i = 0;
 @Aaaa<Bbbb<Cccc,Dddd>,Eeee<Ffff,Gggg>>() int i = 0;
 <<< 3.7
 @Aaaa<
-  Bbbb<Cccc, Dddd>,
-  Eeee<Ffff, Gggg>
+    Bbbb<Cccc, Dddd>,
+    Eeee<Ffff, Gggg>
 >()
 int i = 0;
 >>> Nested type arguments, split at inner level.
 @Aaaaaaaaa<Bbbbbbbbbbb<Ccccccccccc,Dddddddddddd>,Eeeeeeeee<Fffffffff,Ggggggggg>>() int i = 0;
 <<< 3.7
 @Aaaaaaaaa<
-  Bbbbbbbbbbb<
-    Ccccccccccc,
-    Dddddddddddd
-  >,
-  Eeeeeeeee<Fffffffff, Ggggggggg>
+    Bbbbbbbbbbb<
+        Ccccccccccc,
+        Dddddddddddd
+    >,
+    Eeeeeeeee<Fffffffff, Ggggggggg>
 >()
 int i = 0;
 >>> Prefixed type.
@@ -119,8 +119,8 @@ main() {
 }
 <<< 3.7
 main() {
-  @meta
-  var (x, y) = o;
+    @meta
+    var (x, y) = o;
 }
 >>> Split after metadata.
 main() {
@@ -136,15 +136,15 @@ main() {
 }
 <<< 3.7
 main() {
-  @meta
-  var a;
+    @meta
+    var a;
 
-  @meta
-  var b;
+    @meta
+    var b;
 
-  @a
-  @b
-  var c;
+    @a
+    @b
+    var c;
 }
 >>> On external variable.
 @meta  external var x;

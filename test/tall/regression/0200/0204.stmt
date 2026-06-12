@@ -4,25 +4,28 @@ var serverDuration = new Duration(
   .inMilliseconds.toString();
 <<< 3.7
 var serverDuration =
-    new Duration(
-      microseconds: response.requestProcessingTimeUsec.toInt(),
-    ).inMilliseconds.toString();
+    new Duration(microseconds: response.requestProcessingTimeUsec.toInt()).inMilliseconds.toString();
 <<< 3.8
 ### TODO(rnystrom): I think it would look better to split the method chain.
 var serverDuration = new Duration(
-  microseconds: response.requestProcessingTimeUsec.toInt(),
+    microseconds: response.requestProcessingTimeUsec.toInt(),
 ).inMilliseconds.toString();
+<<< 3.13
+var serverDuration = new Duration(microseconds: response.requestProcessingTimeUsec.toInt()).inMilliseconds
+    .toString();
 >>> (indent 8)
         var serverDuration = new Duration(
             microseconds: response.requestProcessingTimeUsec.toInt())
           .inMilliseconds.toString();
 <<< 3.7
         var serverDuration =
-            new Duration(
-              microseconds: response.requestProcessingTimeUsec.toInt(),
-            ).inMilliseconds.toString();
+            new Duration(microseconds: response.requestProcessingTimeUsec.toInt()).inMilliseconds.toString();
 <<< 3.8
 ### TODO(rnystrom): I think it would look better to split the method chain.
         var serverDuration = new Duration(
-          microseconds: response.requestProcessingTimeUsec.toInt(),
+            microseconds: response.requestProcessingTimeUsec.toInt(),
         ).inMilliseconds.toString();
+<<< 3.13
+        var serverDuration = new Duration(microseconds: response.requestProcessingTimeUsec.toInt())
+            .inMilliseconds
+            .toString();

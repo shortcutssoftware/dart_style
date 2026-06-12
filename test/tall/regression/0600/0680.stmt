@@ -16,7 +16,6 @@
         interfaceMember.isGenericContravariant) {
     } else if (identical(interfaceMember, 'call')) {
     } else if (interfaceMember == null) {
-    } else if (interfaceMember is Procedure &&
-        interfaceMember.isGenericContravariant) {
-      return MethodContravarianceCheckKind.checkMethodReturn;
+    } else if (interfaceMember is Procedure && interfaceMember.isGenericContravariant) {
+        return MethodContravarianceCheckKind.checkMethodReturn;
     }

@@ -5,6 +5,6 @@ class Foo {
 }
 <<< 3.6
 class Foo {
-  /// test
-  Foo();
+    /// test
+    Foo();
 }

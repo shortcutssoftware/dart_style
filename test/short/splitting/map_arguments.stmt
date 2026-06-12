@@ -5,8 +5,8 @@ method(first,{key: value, otherKey: otherLongValue},third);
 method(
     first,
     {
-      key: value,
-      otherKey: otherLongValue
+        key: value,
+        otherKey: otherLongValue
     },
     third);
 >>> nothing but map args does not nest
@@ -14,14 +14,14 @@ longFunctionName({key: value, otherKey: otherLongValue},
 {key: value, otherKey: otherLongValue}, {key: value, otherKey: otherLongValue});
 <<< 3.6
 longFunctionName({
-  key: value,
-  otherKey: otherLongValue
+    key: value,
+    otherKey: otherLongValue
 }, {
-  key: value,
-  otherKey: otherLongValue
+    key: value,
+    otherKey: otherLongValue
 }, {
-  key: value,
-  otherKey: otherLongValue
+    key: value,
+    otherKey: otherLongValue
 });
 >>> trailing maps do not nest
 longFunctionName(argument, argument, argument, argument,
@@ -29,22 +29,22 @@ longFunctionName(argument, argument, argument, argument,
 <<< 3.6
 longFunctionName(argument, argument,
     argument, argument, {
-  key: value,
-  otherKey: otherLongValue
+    key: value,
+    otherKey: otherLongValue
 }, {
-  key: value,
-  otherKey: otherLongValue
+    key: value,
+    otherKey: otherLongValue
 });
 >>> leading maps do not nest
 longFunctionName({key: value, otherKey: otherLongValue},
 {key: value, otherKey: otherLongValue}, argument, argument, argument, argument);
 <<< 3.6
 longFunctionName({
-  key: value,
-  otherKey: otherLongValue
+    key: value,
+    otherKey: otherLongValue
 }, {
-  key: value,
-  otherKey: otherLongValue
+    key: value,
+    otherKey: otherLongValue
 }, argument, argument, argument,
     argument);
 >>> arg between maps forces nesting
@@ -53,28 +53,28 @@ longFunctionName({key: value, otherKey: otherLongValue}, argument,
 <<< 3.6
 longFunctionName(
     {
-      key: value,
-      otherKey: otherLongValue
+        key: value,
+        otherKey: otherLongValue
     },
     argument,
     {
-      key: value,
-      otherKey: otherLongValue
+        key: value,
+        otherKey: otherLongValue
     });
 >>> unsplit leading args
 longFunctionName(arg, arg, {key: value, otherKey: otherLongValue});
 <<< 3.6
 longFunctionName(arg, arg, {
-  key: value,
-  otherKey: otherLongValue
+    key: value,
+    otherKey: otherLongValue
 });
 >>> split before leading args
 longFunctionName(argument, argument, argument, {key: value, otherKey: otherLongValue});
 <<< 3.6
 longFunctionName(
     argument, argument, argument, {
-  key: value,
-  otherKey: otherLongValue
+    key: value,
+    otherKey: otherLongValue
 });
 >>> split in middle of leading args
 longFunctionName(argument, argument, argument, argument,
@@ -82,8 +82,8 @@ longFunctionName(argument, argument, argument, argument,
 <<< 3.6
 longFunctionName(argument, argument,
     argument, argument, {
-  key: value,
-  otherKey: otherLongValue
+    key: value,
+    otherKey: otherLongValue
 });
 >>> split before all leading args
 longFunctionName(argument, argument, argument, argument, argument, argument,
@@ -96,31 +96,31 @@ longFunctionName(
     argument,
     argument,
     argument, {
-  key: value,
-  otherKey: otherLongValue
+    key: value,
+    otherKey: otherLongValue
 });
 >>> unsplit trailing args
 longFunctionName({key: value, otherKey: otherLongValue}, argument, argument);
 <<< 3.6
 longFunctionName({
-  key: value,
-  otherKey: otherLongValue
+    key: value,
+    otherKey: otherLongValue
 }, argument, argument);
 >>> split before trailing args
 longFunctionName({key: value, otherKey: otherValue} /* very very long comment */,
 argument, argument);
 <<< 3.6
 longFunctionName({
-  key: value,
-  otherKey: otherValue
+    key: value,
+    otherKey: otherValue
 } /* very very long comment */,
     argument, argument);
 >>> split in middle of trailing args
 longFunctionName({key: value, otherKey: otherLongValue}, argument, argument, argument, argument);
 <<< 3.6
 longFunctionName({
-  key: value,
-  otherKey: otherLongValue
+    key: value,
+    otherKey: otherLongValue
 }, argument, argument, argument,
     argument);
 >>> split before all trailing args
@@ -128,8 +128,8 @@ longFunctionName({key: value, otherKey: otherLongValue}, argument, argument, arg
 argument, argument, argument);
 <<< 3.6
 longFunctionName({
-  key: value,
-  otherKey: otherLongValue
+    key: value,
+    otherKey: otherLongValue
 },
     argument,
     argument,
@@ -194,8 +194,8 @@ longFunctionName(
 outer(inner({key: value, otherKey: otherLongValue}));
 <<< 3.6
 outer(inner({
-  key: value,
-  otherKey: otherLongValue
+    key: value,
+    otherKey: otherLongValue
 }));
 >>> do nest because of nested many-arg fn
 outer(argument, inner({key: value, otherKey: otherLongValue}));
@@ -203,15 +203,15 @@ outer(argument, inner({key: value, otherKey: otherLongValue}));
 outer(
     argument,
     inner({
-      key: value,
-      otherKey: otherLongValue
+        key: value,
+        otherKey: otherLongValue
     }));
 >>> don't nest because of nested 1-arg method call
 obj.outer(obj.inner({key: value, otherKey: otherLongValue}));
 <<< 3.6
 obj.outer(obj.inner({
-  key: value,
-  otherKey: otherLongValue
+    key: value,
+    otherKey: otherLongValue
 }));
 >>> do nest because of nested many-arg method call
 obj.outer(argument, obj.inner({key: value, otherKey: otherLongValue}));
@@ -219,20 +219,20 @@ obj.outer(argument, obj.inner({key: value, otherKey: otherLongValue}));
 obj.outer(
     argument,
     obj.inner({
-      key: value,
-      otherKey: otherLongValue
+        key: value,
+        otherKey: otherLongValue
     }));
 >>> don't force trailing method chain to split
 function({key: value,}).method().method();
 <<< 3.6
 function({
-  key: value,
+    key: value,
 }).method().method();
 >>> if method chain splits, split before first too
 function({key: value,}).method().method().method().method().method();
 <<< 3.6
 function({
-  key: value,
+    key: value,
 })
     .method()
     .method()
@@ -250,7 +250,7 @@ longFunctionName(
     argument,
     argument,
     argumentName: {
-      a: element,
-      b: element,
-      c: element
+        a: element,
+        b: element,
+        c: element
     });

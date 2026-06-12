@@ -5,7 +5,7 @@ main() {
 }
 <<< 3.6
 main() {
-  var s = 'qsmdlfkjqlsdf mlqdskf mlqkds flq fdmlqk mqlfk '
-      'mlfqks dflq sdmlfkjqmlsdkjf mlqks mfdlq smlf '
-      'mqlskdjf mlqksd jfmlqkj dmflkq mdslk jfmqds kf';
+    var s = 'qsmdlfkjqlsdf mlqdskf mlqkds flq fdmlqk mqlfk '
+        'mlfqks dflq sdmlfkjqmlsdkjf mlqks mfdlq smlf '
+        'mqlskdjf mlqksd jfmlqkj dmflkq mdslk jfmqds kf';
 }

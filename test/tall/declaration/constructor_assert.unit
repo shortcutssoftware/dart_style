@@ -5,7 +5,7 @@ class Foo {
 }
 <<< 3.7
 class Foo {
-  Foo() : assert(1), assert(2);
+    Foo() : assert(1), assert(2);
 }
 >>> Split assert initializers.
 class Foo {
@@ -15,16 +15,16 @@ class Foo {
 }
 <<< 3.7
 class Foo {
-  Foo(parameter, another)
-    : assert(
-        condition,
-        'some long message',
-      ),
-      assert(cond),
-      assert(
-        anotherCondition,
-        'another message',
-      );
+    Foo(parameter, another)
+        : assert(
+              condition,
+              'some long message',
+          ),
+          assert(cond),
+          assert(
+              anotherCondition,
+              'another message',
+          );
 }
 >>> Split in assert forces initializers to split.
 class Foo {
@@ -33,10 +33,10 @@ class Foo {
 }
 <<< 3.7
 class Foo {
-  Foo()
-    : assert(
-        veryLongConditionExpression,
-      );
+    Foo()
+        : assert(
+              veryLongConditionExpression,
+          );
 }
 >>> Align split assert argument lists past the `:`.
 class Foo {
@@ -46,18 +46,18 @@ class Foo {
 }
 <<< 3.7
 class Foo {
-  Foo(
-    parameter1,
-    parameter2,
-    parameter3,
-  ) : assert(
-        condition,
-        'some long assert message',
-      ),
-      assert(
-        anotherLongCondition,
-        'a message',
-      );
+    Foo(
+        parameter1,
+        parameter2,
+        parameter3,
+    ) : assert(
+              condition,
+              'some long assert message',
+          ),
+          assert(
+              anotherLongCondition,
+              'a message',
+          );
 }
 >>> Align split assert argument lists past the `:`.
 class Foo {
@@ -67,18 +67,18 @@ class Foo {
 }
 <<< 3.7
 class Foo {
-  Foo(
-    parameter1, [
-    parameter2,
-    parameter3,
-  ]) : assert(
-         condition,
-         'some long assert message',
-       ),
-       assert(
-         anotherLongCondition,
-         'a message',
-       );
+    Foo(
+        parameter1, [
+        parameter2,
+        parameter3,
+    ]) : assert(
+               condition,
+               'some long assert message',
+           ),
+           assert(
+               anotherLongCondition,
+               'a message',
+           );
 }
 >>> Allow block-formatting the assert arguments.
 class Foo {
@@ -91,8 +91,8 @@ class Foo {
 }
 <<< 3.7
 class Foo {
-  Foo()
-    : assert(() {
-        slowComputation();
-      }());
+    Foo()
+        : assert(() {
+              slowComputation();
+          }());
 }

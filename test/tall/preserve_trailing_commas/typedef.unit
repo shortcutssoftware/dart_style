@@ -5,7 +5,7 @@
 typedef Foo(int x,);
 <<< 3.7
 typedef Foo(
-  int x,
+    int x,
 );
 >>> Doesn't force split without trailing comma.
 typedef Foo(int x);
@@ -15,7 +15,7 @@ typedef Foo(int x);
 typedef Foo(parameter1, parameter2, parameter3);
 <<< 3.7
 typedef Foo(
-  parameter1,
-  parameter2,
-  parameter3,
+    parameter1,
+    parameter2,
+    parameter3,
 );

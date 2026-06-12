@@ -4,7 +4,7 @@ when(mockLoader.loadData(expectedRequestMetricInitialDateCTR))
          _buildMinimalResponseFuture(MetricType.CTR, metricRequest));
 <<< 3.7
 when(
-  mockLoader.loadData(expectedRequestMetricInitialDateCTR),
+    mockLoader.loadData(expectedRequestMetricInitialDateCTR),
 ).thenReturn(_buildMinimalResponseFuture(MetricType.CTR, metricRequest));
 <<< 3.13
 when(mockLoader.loadData(expectedRequestMetricInitialDateCTR))

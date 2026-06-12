@@ -31,9 +31,9 @@ a + thing   } more'} text";
 "before ${(){statement();statement();statement();}} after";
 <<< 3.7
 "before ${() {
-  statement();
-  statement();
-  statement();
+    statement();
+    statement();
+    statement();
 }} after";
 >>> Deeply nested interpolation.
 '''a
@@ -88,6 +88,6 @@ ${operand + (){;}}
 <<< 3.7
 var x = f('''
 ${operand + () {
-      ;
+        ;
     }}
 ''');

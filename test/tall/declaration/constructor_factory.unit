@@ -8,8 +8,8 @@ class C {
 }
 <<< 3.13
 class C {
-  factory(int x) {}
-  factory named() {}
+    factory(int x) {}
+    factory named() {}
 }
 >>> Const factory.
 class C {
@@ -18,8 +18,8 @@ class C {
 }
 <<< 3.13
 class C {
-  const factory(int x) {}
-  const factory named() {}
+    const factory(int x) {}
+    const factory named() {}
 }
 >>> Const redirecting factory.
 class C {
@@ -28,6 +28,6 @@ class C {
 }
 <<< 3.13
 class C {
-  const factory(int x) = C.named;
-  const factory named() = C;
+    const factory(int x) = C.named;
+    const factory named() = C;
 }

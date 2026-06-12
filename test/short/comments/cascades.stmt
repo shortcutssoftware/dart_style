@@ -9,17 +9,17 @@ receiver
   ..more(); // c
 <<< 3.6
 receiver
-  ..cascade() // a
-  ..cascade() // b
-  ..more(); // c
+    ..cascade() // a
+    ..cascade() // b
+    ..more(); // c
 >>> comment before first multi-line cascade section stays on line
 receiver // comment
   ..cascade()
   ..more();
 <<< 3.6
 receiver // comment
-  ..cascade()
-  ..more();
+    ..cascade()
+    ..more();
 >>> collapse blank lines before comment before first cascade
 receiver
 
@@ -32,9 +32,9 @@ receiver
 <<< 3.6
 receiver
 
-  // comment
-  ..cascade()
-  ..cascade();
+    // comment
+    ..cascade()
+    ..cascade();
 >>> preserve one blank line before comments on other cascades
 receiver
 
@@ -55,13 +55,13 @@ receiver
 <<< 3.6
 receiver
 
-  // comment
-  ..cascade()
-  // no blank
-  ..cascade()
+    // comment
+    ..cascade()
+    // no blank
+    ..cascade()
 
-  // comment
-  ..cascade()
+    // comment
+    ..cascade()
 
-  // comment
-  ..cascade();
+    // comment
+    ..cascade();

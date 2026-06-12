@@ -28,10 +28,10 @@ enum Primate { bonobo, chimp }
 enum Primate{bonobo,chimp,gorilla,organutan}
 <<< 3.7
 enum Primate {
-  bonobo,
-  chimp,
-  gorilla,
-  organutan,
+    bonobo,
+    chimp,
+    gorilla,
+    organutan,
 }
 >>> Insert blank line before and after enum declaration.
 var x = 1;
@@ -55,10 +55,10 @@ enum E { a, b, c }
 enum Primate{bonobo,chimp,gorilla,organutan;}
 <<< 3.7
 enum Primate {
-  bonobo,
-  chimp,
-  gorilla,
-  organutan,
+    bonobo,
+    chimp,
+    gorilla,
+    organutan,
 }
 >>> Argument lists in values.
 enum Args {
@@ -67,9 +67,9 @@ third(named:1,2,another:3)
 }
 <<< 3.7
 enum Args {
-  first(),
-  second(a, b, c),
-  third(named: 1, 2, another: 3),
+    first(),
+    second(a, b, c),
+    third(named: 1, 2, another: 3),
 }
 >>> Split argument lists in values.
 enum Args {
@@ -81,27 +81,27 @@ LastTypeArgument>(namedArgument: firstValue,anotherNamed:argumentValue)
 }
 <<< 3.7
 enum Args {
-  firstEnumValue(
-    longArgument,
-    anotherArgument,
-  ),
-  secondEnumValue(
-    longArgument,
-    anotherArgument,
-    aThirdArgument,
-    theLastOne,
-  ),
-  thirdGenericOne<
-    FirstTypeArgument,
-    SecondTypeArgument<
-      NestedTypeArgument,
-      AnotherNestedTypeArgument
-    >,
-    LastTypeArgument
-  >(
-    namedArgument: firstValue,
-    anotherNamed: argumentValue,
-  ),
+    firstEnumValue(
+        longArgument,
+        anotherArgument,
+    ),
+    secondEnumValue(
+        longArgument,
+        anotherArgument,
+        aThirdArgument,
+        theLastOne,
+    ),
+    thirdGenericOne<
+        FirstTypeArgument,
+        SecondTypeArgument<
+            NestedTypeArgument,
+            AnotherNestedTypeArgument
+        >,
+        LastTypeArgument
+    >(
+        namedArgument: firstValue,
+        anotherNamed: argumentValue,
+    ),
 }
 >>> Named constructor in value.
 enum Things {
@@ -112,12 +112,12 @@ enum Things {
 }
 <<< 3.7
 enum Things {
-  unsplit.name(argument),
-  private._(argument),
-  splitInArgumentList.longerName(
-    argument,
-  ),
-  generic<int>.name(argument),
+    unsplit.name(argument),
+    private._(argument),
+    splitInArgumentList.longerName(
+        argument,
+    ),
+    generic<int>.name(argument),
 }
 >>> Generic enum type.
 enum MagicNumbers< T    extends num   ,   S> {
@@ -125,20 +125,20 @@ enum MagicNumbers< T    extends num   ,   S> {
 }
 <<< 3.7
 enum MagicNumbers<T extends num, S> {
-  one(1),
-  two(2),
-  pi<double, String>(3.14159),
+    one(1),
+    two(2),
+    pi<double, String>(3.14159),
 }
 >>> Split in type parameters forces body to split.
 enum SomeEnumType<LongTypeParameterName, Another> { a, b, c }
 <<< 3.7
 enum SomeEnumType<
-  LongTypeParameterName,
-  Another
+    LongTypeParameterName,
+    Another
 > {
-  a,
-  b,
-  c,
+    a,
+    b,
+    c,
 }
 >>> Remove blank lines before first and last value. Preserve one between.
 enum E {
@@ -158,11 +158,11 @@ enum E {
 }
 <<< 3.7
 enum E {
-  firstConstant,
+    firstConstant,
 
-  secondConstant,
+    secondConstant,
 
-  thirdConstant,
+    thirdConstant,
 }
 >>> Discard blank lines if doesn't need to split.
 enum E {
@@ -202,6 +202,6 @@ enum MagicNumbers<T extends num, S>;
 enum SomeEnumType<LongTypeParameterName, Another> ;
 <<< 3.7
 enum SomeEnumType<
-  LongTypeParameterName,
-  Another
+    LongTypeParameterName,
+    Another
 >;

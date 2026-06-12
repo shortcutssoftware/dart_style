@@ -10,17 +10,17 @@ receiver
   ..more(); // c
 <<< 3.7
 receiver
-  ..cascade() // a
-  ..cascade() // b
-  ..more(); // c
+    ..cascade() // a
+    ..cascade() // b
+    ..more(); // c
 >>> Line comment before first multi-line cascade section stays on line.
 receiver // comment
   ..cascade()
   ..more();
 <<< 3.7
 receiver // comment
-  ..cascade()
-  ..more();
+    ..cascade()
+    ..more();
 >>> Remove blank lines around comments.
 receiver
 
@@ -42,25 +42,25 @@ receiver
   ..cascade3();
 <<< 3.7
 receiver
-  // comment 1
-  ..cascade1()
-  // comment 2
-  ..cascade2()
-  // comment 3
-  ..cascade3();
+    // comment 1
+    ..cascade1()
+    // comment 2
+    ..cascade2()
+    // comment 3
+    ..cascade3();
 >>> Comment before setter.
 target
   // comment
   ..setter = value;
 <<< 3.7
 target
-  // comment
-  ..setter = value;
+    // comment
+    ..setter = value;
 >>> Comment before single method cascade.
 target
 // comment
   ..method(argument);
 <<< 3.7
 target
-  // comment
-  ..method(argument);
+    // comment
+    ..method(argument);

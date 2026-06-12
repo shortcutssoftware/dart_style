@@ -4,5 +4,5 @@ void _queriesTest(HttpRequest request) {
 }
 <<< 3.6
 void _queriesTest(HttpRequest request) {
-  var queries = _parseInt(request.uri.queryParameters['queries']).clamp(1, 500);
+    var queries = _parseInt(request.uri.queryParameters['queries']).clamp(1, 500);
 }

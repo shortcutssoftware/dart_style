@@ -7,7 +7,7 @@ class A {
 }
 <<< 3.7
 class A {
-  A(int a) : super();
+    A(int a) : super();
 }
 >>>
 class Foo {
@@ -20,5 +20,5 @@ class Foo {
 }
 <<< 3.7
 class Foo {
-  Foo({Bar bar, Baz baz}) : assert(bar != null), super(baz);
+    Foo({Bar bar, Baz baz}) : assert(bar != null), super(baz);
 }

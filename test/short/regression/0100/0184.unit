@@ -16,5 +16,5 @@ abstract class Connection<
     TRollbackRequest,
     TAllocateIdsResponse,
     TAllocateIdsRequest> {
-  // ...
+    // ...
 }

@@ -7,9 +7,9 @@ class C {
 }
 <<< 3.7
 class C {
-  void _SomethingWithAVeryLongName(
-    List<int> sixteenLetterers,
-    String fiver,
-    List<int> eightish,
-  ) native 'SomethingWithAVeryLongName'; // ignore: native_function_body_in_non
+    void _SomethingWithAVeryLongName(
+        List<int> sixteenLetterers,
+        String fiver,
+        List<int> eightish,
+    ) native 'SomethingWithAVeryLongName'; // ignore: native_function_body_in_non
 }

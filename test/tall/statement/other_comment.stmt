@@ -6,8 +6,8 @@ while (true) {
 }
 <<< 3.7
 while (true) {
-  break // comment
-  ;
+    break // comment
+    ;
 }
 >>> Break with comment after semicolon.
 while (true) {
@@ -15,7 +15,7 @@ while (true) {
 }
 <<< 3.7
 while (true) {
-  break; // comment
+    break; // comment
 }
 >>> Continue with comment after keyword.
 while (true) {
@@ -24,8 +24,8 @@ while (true) {
 }
 <<< 3.7
 while (true) {
-  break // comment
-  ;
+    break // comment
+    ;
 }
 >>> Continue with comment after semicolon.
 while (true) {
@@ -33,7 +33,7 @@ while (true) {
 }
 <<< 3.7
 while (true) {
-  break; // comment
+    break; // comment
 }
 >>> Yield with comment after semicolon.
 Stream<String> i(String n) async* {
@@ -41,7 +41,7 @@ Stream<String> i(String n) async* {
 }
 <<< 3.7
 Stream<String> i(String n) async* {
-  yield i; // comment
+    yield i; // comment
 }
 >>> Yield* with comment after semicolon.
 Stream<int> i(int n) async* {
@@ -49,7 +49,7 @@ Stream<int> i(int n) async* {
 }
 <<< 3.7
 Stream<int> i(int n) async* {
-  yield* i(x); // comment
+    yield* i(x); // comment
 }
 >>> Await with comment after semicolon.
 foo() async {
@@ -57,5 +57,5 @@ foo() async {
 }
 <<< 3.7
 foo() async {
-  await i(1 + 2); // comment
+    await i(1 + 2); // comment
 }

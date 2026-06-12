@@ -7,6 +7,6 @@ error(
     ));
 <<< 3.6
 error(offset: 10, (
-  code: 'unclosed-block',
-  message: 'Block was left open',
+    code: 'unclosed-block',
+    message: 'Block was left open',
 ));

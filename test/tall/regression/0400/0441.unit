@@ -6,8 +6,6 @@ getSomeFoo(
   return 'rhubarb';
 }
 <<< 3.7
-getSomeFoo({
-  fooooooooooooooooooooo: const ['baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'],
-}) {
-  return 'rhubarb';
+getSomeFoo({fooooooooooooooooooooo: const ['baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa']}) {
+    return 'rhubarb';
 }

@@ -8,12 +8,12 @@ void main() {
 }
 <<< 3.6
 void main() {
-  try {
-    doSomething();
-  } on Exception catch (e) {
-  } finally {
-    cleanupSomething();
-  }
+    try {
+        doSomething();
+    } on Exception catch (e) {
+    } finally {
+        cleanupSomething();
+    }
 }
 >>>
 void main() {
@@ -25,10 +25,10 @@ void main() {
 }
 <<< 3.6
 void main() {
-  try {
-    doSomething();
-  } on FooException {
-  } on BarException {
-    doSomething();
-  }
+    try {
+        doSomething();
+    } on FooException {
+    } on BarException {
+        doSomething();
+    }
 }

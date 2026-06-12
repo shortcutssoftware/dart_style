@@ -37,7 +37,7 @@ someMethod("""first line does not fit here
 """);
 <<< 3.7
 someMethod(
-  """first line does not fit here
+    """first line does not fit here
 """,
 );
 >>> Block format multiline string with non-block arguments before.
@@ -67,12 +67,12 @@ text
 """, "foo", "bar");
 <<< 3.7
 someMethod(
-  """
+    """
 some
 text
 """,
-  "foo",
-  "bar",
+    "foo",
+    "bar",
 );
 >>> Block format multiline string with non-block arguments before and after.
 someMethod("foo", """
@@ -97,15 +97,15 @@ even more
 """);
 <<< 3.7
 someMethod(
-  """
+    """
 some
 text
 """,
-  """
+    """
 some
 more
 """,
-  """
+    """
 even more
 """,
 );

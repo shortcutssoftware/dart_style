@@ -4,14 +4,14 @@
 var (x,y,) = rec;
 <<< 3.7
 var (
-  x,
-  y,
+    x,
+    y,
 ) = rec;
 >>> Forces split with trailing comma and named field.
 var (a:x,) = rec;
 <<< 3.7
 var (
-  a: x,
+    a: x,
 ) = rec;
 >>> Doesn't force split with single positional field.
 var (x,) = rec;
@@ -25,8 +25,8 @@ var (x, y, z) = rec;
 var (element1, element2, element3, element4) = rec;
 <<< 3.7
 var (
-  element1,
-  element2,
-  element3,
-  element4,
+    element1,
+    element2,
+    element3,
+    element4,
 ) = rec;

@@ -19,7 +19,7 @@ someMethod(
 ];
 <<< 3.6
 [
-  'item' // comment
+    'item' // comment
 ];
 >>> inside argument list
 foo(1 /* bang */, 2);
@@ -83,8 +83,8 @@ someFunction(//
 }
 <<< 3.6
 {
-  // comment
-  1 + 2;
+    // comment
+    1 + 2;
 }
 >>> force named args to split on line comment in positional
 function(argument, //
@@ -106,8 +106,8 @@ someVeryLongFunctionName(
 y) = o;
 <<< 3.6
 (
-  x, // c
-  y
+    x, // c
+    y
 ) = o;
 >>> in infix pattern in pattern assignment
 (x &&// c

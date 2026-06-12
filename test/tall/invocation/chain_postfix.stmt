@@ -105,9 +105,9 @@ someReceiverObject.method1().method2()(argument1, argument2, argument3)
 someReceiverObject
     .method1()
     .method2()(
-      argument1,
-      argument2,
-      argument3,
+        argument1,
+        argument2,
+        argument3,
     )
     .method4();
 >>> Invocation with type arguments.
@@ -115,8 +115,8 @@ target.method()<int, String>(123, 'string').another();
 <<< 3.7
 target
     .method()<int, String>(
-      123,
-      'string',
+        123,
+        'string',
     )
     .another();
 >>> Chained invocations.
@@ -136,13 +136,13 @@ someReceiverObject
     .method1()
     .method2()
     .method3()(argument)(
-      argument,
+        argument,
     )<T, R>(
-      argument,
-      argument,
-      argument,
-      argument,
-      argument,
+        argument,
+        argument,
+        argument,
+        argument,
+        argument,
     )(argument)
     .method4()
     .method5()

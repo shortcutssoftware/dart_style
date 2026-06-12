@@ -3,19 +3,19 @@
 enum Primate{BONOBO,CHIMP,GORILLA,ORANGUTAN}
 <<< 3.6
 enum Primate {
-  BONOBO,
-  CHIMP,
-  GORILLA,
-  ORANGUTAN
+    BONOBO,
+    CHIMP,
+    GORILLA,
+    ORANGUTAN
 }
 >>> multiple lines trailing comma
 enum Primate{BONOBO,CHIMP,GORILLA,ORANGUTAN,}
 <<< 3.6
 enum Primate {
-  BONOBO,
-  CHIMP,
-  GORILLA,
-  ORANGUTAN,
+    BONOBO,
+    CHIMP,
+    GORILLA,
+    ORANGUTAN,
 }
 >>> wrapped argument lists in values
 enum Args {
@@ -27,19 +27,19 @@ LastTypeArgument>(namedArgument: firstValue,anotherNamed:argumentValue)
 }
 <<< 3.6
 enum Args {
-  firstEnumValue(
-      longArgument, anotherArgument),
-  secondEnumValue(
-      longArgument,
-      anotherArgument,
-      aThirdArgument,
-      theLastOne),
-  thirdGenericOne<
-          FirstTypeArgument,
-          SecondTypeArgument<
-              NestedTypeArgument,
-              AnotherNestedTypeArgument>,
-          LastTypeArgument>(
-      namedArgument: firstValue,
-      anotherNamed: argumentValue)
+    firstEnumValue(
+        longArgument, anotherArgument),
+    secondEnumValue(
+        longArgument,
+        anotherArgument,
+        aThirdArgument,
+        theLastOne),
+    thirdGenericOne<
+            FirstTypeArgument,
+            SecondTypeArgument<
+                NestedTypeArgument,
+                AnotherNestedTypeArgument>,
+            LastTypeArgument>(
+        namedArgument: firstValue,
+        anotherNamed: argumentValue)
 }

@@ -9,11 +9,11 @@ main() {
 }
 <<< 3.7
 main() {
-  here + gets + format‹ted;
-  // dart format off
+    here + gets + format‹ted;
+    // dart format off
   here   +   does  ›  +    not   ;
   // dart format on
-  but + here + does;
+    but + here + does;
 }
 >>> Selection end inside disabled formatting.
 main() {
@@ -25,11 +25,11 @@ main() {
 }
 <<< 3.7
 main() {
-  here + gets + formatted;
-  // dart format off
+    here + gets + formatted;
+    // dart format off
   here   +   does  ‹  +    not   ;
   // dart format on
-  but + here + do›es;
+    but + here + do›es;
 }
 >>> Selection inside disabled formatting.
 main() {
@@ -41,11 +41,11 @@ main() {
 }
 <<< 3.7
 main() {
-  here + gets + formatted;
-  // dart format off
+    here + gets + formatted;
+    // dart format off
   here  ‹ +   does    + ›   not   ;
   // dart format on
-  but + here + does;
+    but + here + does;
 }
 >>> Selection around disabled formatting.
 main() {
@@ -57,9 +57,9 @@ main() {
 }
 <<< 3.7
 main() {
-  here + gets + format‹ted;
-  // dart format off
+    here + gets + format‹ted;
+    // dart format off
   here   +   does    +    not   ;
   // dart format on
-  but + here + do›es;
+    but + here + do›es;
 }

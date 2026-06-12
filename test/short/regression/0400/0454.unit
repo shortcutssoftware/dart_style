@@ -5,7 +5,7 @@ class F {
 }
 <<< 3.6
 class F {
-  List<AVeryLongTypeNameTHatTheUserCannotChange____________> aDescriptiveName__;
+    List<AVeryLongTypeNameTHatTheUserCannotChange____________> aDescriptiveName__;
 }
 >>>
 class F {
@@ -14,6 +14,5 @@ class F {
 }
 <<< 3.6
 class F {
-  List<AVeryLongTypeNameTHatTheUserCannotChange_____________>
-      aDescriptiveName__;
+    List<AVeryLongTypeNameTHatTheUserCannotChange_____________> aDescriptiveName__;
 }

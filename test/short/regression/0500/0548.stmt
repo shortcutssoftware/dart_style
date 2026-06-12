@@ -10,21 +10,19 @@
   }
 <<< 3.6
   StatementBuilder assignConst(String variable, [TypeBuilder type]) {
-    return new _AsAssign(
-      this,
-      variable,
-      keyword: _AsAssignType.asConst,
-      type: type,
-    ).asStatement();
+      return new _AsAssign(
+          this,
+          variable,
+          keyword: _AsAssignType.asConst,
+          type: type,
+      ).asStatement();
   }
 >>> (indent 4)
 return new _AsAssign(this, variable,
             keyword: _AsAssignType.asConst, type: type)
         .asStatement();
 <<< 3.6
-    return new _AsAssign(this, variable,
-            keyword: _AsAssignType.asConst, type: type)
-        .asStatement();
+    return new _AsAssign(this, variable, keyword: _AsAssignType.asConst, type: type).asStatement();
 >>> (indent 2)
 StatementBuilder assignConst(String variable, [TypeBuilder type]) =>
       new _AsAssign(
@@ -35,10 +33,9 @@ StatementBuilder assignConst(String variable, [TypeBuilder type]) =>
       )
           .asStatement();
 <<< 3.6
-  StatementBuilder assignConst(String variable, [TypeBuilder type]) =>
-      new _AsAssign(
-        this,
-        variable,
-        keyword: _AsAssignType.asConst,
-        type: type,
+  StatementBuilder assignConst(String variable, [TypeBuilder type]) => new _AsAssign(
+          this,
+          variable,
+          keyword: _AsAssignType.asConst,
+          type: type,
       ).asStatement();

@@ -9,27 +9,27 @@
 (longFunction)<TypeArgument>(valueArgument);
 <<< 3.7
 (longFunction)<TypeArgument>(
-  valueArgument,
+    valueArgument,
 );
 >>> Split both type and value arguments.
 (longFunction)<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth>(first, second, third, fourth, fifth, sixth, seventh, eighth);
 <<< 3.7
 (longFunction)<
-  First,
-  Second,
-  Third,
-  Fourth,
-  Fifth,
-  Sixth,
-  Seventh,
-  Eighth
+    First,
+    Second,
+    Third,
+    Fourth,
+    Fifth,
+    Sixth,
+    Seventh,
+    Eighth
 >(
-  first,
-  second,
-  third,
-  fourth,
-  fifth,
-  sixth,
-  seventh,
-  eighth,
+    first,
+    second,
+    third,
+    fourth,
+    fifth,
+    sixth,
+    seventh,
+    eighth,
 );

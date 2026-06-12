@@ -9,16 +9,16 @@ class B extends A {
 main() {}
 <<< 3.6
 class A {
-  A(int foo<T>(int a));
+    A(int foo<T>(int a));
 }
 
 class B extends A {
-  B.sub1(
-    int super.bar1<T1>(int a1),
-  );
-  B.sub2(
-    int super.bar2<T2>(int a2),
-  );
+    B.sub1(
+        int super.bar1<T1>(int a1),
+    );
+    B.sub2(
+        int super.bar2<T2>(int a2),
+    );
 }
 
 main() {}
@@ -29,10 +29,10 @@ class A {
 }
 <<< 3.6
 class A {
-  A.sub1(
-    int this.bar1<T1>(int a1),
-  );
-  A.sub2(
-    int this.bar2<T2>(int a2),
-  );
+    A.sub1(
+        int this.bar1<T1>(int a1),
+    );
+    A.sub2(
+        int this.bar2<T2>(int a2),
+    );
 }

@@ -8,11 +8,9 @@ class JsonCodec {
 }
 <<< 3.7
 class JsonCodec {
-  const JsonCodec({
-    Object? reviver(Object? key, Object? value)?,
-    Object? toEncodable(dynamic object)?,
-  }) : _reviver = reviver,
-       _toEncodable = toEncodable;
+    const JsonCodec({Object? reviver(Object? key, Object? value)?, Object? toEncodable(dynamic object)?})
+        : _reviver = reviver,
+          _toEncodable = toEncodable;
 }
 >>>
 class JsonUtf8Encoder {
@@ -24,13 +22,10 @@ class JsonUtf8Encoder {
 }
 <<< 3.7
 class JsonUtf8Encoder {
-  JsonUtf8Encoder([
-    String? indent,
-    dynamic toEncodable(dynamic object)?,
-    int? bufferSize,
-  ]) : _indent = _utf8Encode(indent),
-       _toEncodable = toEncodable,
-       _bufferSize = bufferSize ?? _defaultBufferSize;
+    JsonUtf8Encoder([String? indent, dynamic toEncodable(dynamic object)?, int? bufferSize])
+        : _indent = _utf8Encode(indent),
+          _toEncodable = toEncodable,
+          _bufferSize = bufferSize ?? _defaultBufferSize;
 }
 >>> comma between parameters
 mandatory(f()?,i) {}
@@ -54,5 +49,5 @@ class C {
 }
 <<< 3.7
 class C {
-  C(f()?) : field = 3;
+    C(f()?) : field = 3;
 }

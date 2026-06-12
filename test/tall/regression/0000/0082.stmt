@@ -8,8 +8,8 @@ var mymap = {
 };
 <<< 3.7
 var mymap = {
-  // foo
-  'key': '''
+    // foo
+    'key': '''
       value value value value value value value value value value value value
       value value value value value value value value value
 ''',

@@ -4,19 +4,19 @@
 map = {key: [inner]};
 <<< 3.7
 map = {
-  key: [inner],
+    key: [inner],
 };
 >>> Nested non-empty map forces outer map to split.
 map = {key: {key: inner}};
 <<< 3.7
 map = {
-  key: {key: inner},
+    key: {key: inner},
 };
 >>> Nested non-empty set forces outer map to split.
 map = {key: {inner}};
 <<< 3.7
 map = {
-  key: {inner},
+    key: {inner},
 };
 >>> Nested non-empty record does not force outer map to split.
 map = {key: (inner,)};
@@ -30,19 +30,19 @@ map = {a: [], b: {}, c: ()};
 map = {a: function({b: inner})};
 <<< 3.7
 map = {
-  a: function({b: inner}),
+    a: function({b: inner}),
 };
 >>> Multiple nested collections.
 var m = {first: 1, second: [third, fourth], fifth: 5, nested: {sixth: seventh, eighth: nine,
     tenth: eleventh}};
 <<< 3.7
 var m = {
-  first: 1,
-  second: [third, fourth],
-  fifth: 5,
-  nested: {
-    sixth: seventh,
-    eighth: nine,
-    tenth: eleventh,
-  },
+    first: 1,
+    second: [third, fourth],
+    fifth: 5,
+    nested: {
+        sixth: seventh,
+        eighth: nine,
+        tenth: eleventh,
+    },
 };

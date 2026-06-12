@@ -16,11 +16,11 @@ class Foo {}
     selector: 'foo-dialog',
     templateUrl: 'package:path.to.cool.foo/foo_dialog.html',
     exportExpressions: const [
-      'nnnnnnnnState',
-      'mmmmmmmmTypeName',
-      'blockingId',
-      'closeTab',
-      'formIsValid',
-      'zzzzzzzzzNote'
+        'nnnnnnnnState',
+        'mmmmmmmmTypeName',
+        'blockingId',
+        'closeTab',
+        'formIsValid',
+        'zzzzzzzzzNote'
     ])
 class Foo {}

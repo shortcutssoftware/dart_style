@@ -3,21 +3,21 @@
 if (obj case constant when condition) {;}
 <<< 3.6
 if (obj case constant when condition) {
-  ;
+    ;
 }
 >>> prefer to split guard before case
 if (expression case longConstant when condition) {;}
 <<< 3.6
 if (expression case longConstant
     when condition) {
-  ;
+    ;
 }
 >>> can split case and keep guard on same line
 if (veryLongExpression case veryLongConstant when cond) {;}
 <<< 3.6
 if (veryLongExpression
     case veryLongConstant when cond) {
-  ;
+    ;
 }
 >>> split case and guard
 if (veryLongExpression case veryLongConstant when veryLongCondition) {;}
@@ -25,7 +25,7 @@ if (veryLongExpression case veryLongConstant when veryLongCondition) {;}
 if (veryLongExpression
     case veryLongConstant
     when veryLongCondition) {
-  ;
+    ;
 }
 >>> if value expression block splits then case splits
 if (veryLongExpression + anotherVeryLongOne case someCase) {;}
@@ -33,7 +33,7 @@ if (veryLongExpression + anotherVeryLongOne case someCase) {;}
 if (veryLongExpression +
         anotherVeryLongOne
     case someCase) {
-  ;
+    ;
 }
 >>> if value expression block splits then case splits but guard doesn't have to
 if (veryLongExpression + anotherVeryLongOne case someCase when true) {;}
@@ -41,37 +41,37 @@ if (veryLongExpression + anotherVeryLongOne case someCase when true) {;}
 if (veryLongExpression +
         anotherVeryLongOne
     case someCase when true) {
-  ;
+    ;
 }
 >>> if pattern block splits then case splits
 if (obj case const [element,]) {;}
 <<< 3.6
 if (obj
     case const [
-      element,
+        element,
     ]) {
-  ;
+    ;
 }
 >>> if guard condition block splits then guard splits
 if (obj case constant when [element,]) {;}
 <<< 3.6
 if (obj case constant
     when [
-      element,
+        element,
     ]) {
-  ;
+    ;
 }
 >>> block splits in both pattern and guard
 if (obj case const [element,] when [element,]) {;}
 <<< 3.6
 if (obj
     case const [
-      element,
+        element,
     ]
     when [
-      element,
+        element,
     ]) {
-  ;
+    ;
 }
 >>> if pattern splits then case splits
 if (obj case veryLongConstant || longConstant) {;}
@@ -79,7 +79,7 @@ if (obj case veryLongConstant || longConstant) {;}
 if (obj
     case veryLongConstant ||
         longConstant) {
-  ;
+    ;
 }
 >>> if guard condition block splits then guard splits
 if (obj case constant when veryLongExpression + anotherOne) {;}
@@ -87,5 +87,5 @@ if (obj case constant when veryLongExpression + anotherOne) {;}
 if (obj case constant
     when veryLongExpression +
         anotherOne) {
-  ;
+    ;
 }

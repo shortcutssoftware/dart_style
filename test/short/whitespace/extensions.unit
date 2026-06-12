@@ -9,13 +9,13 @@ return true;
 }}}
 <<< 3.6
 extension A on B {
-  z() => 0;
-  inc(int x) => ++x;
-  foo(int x) {
-    if (x == 0) {
-      return true;
+    z() => 0;
+    inc(int x) => ++x;
+    foo(int x) {
+        if (x == 0) {
+            return true;
+        }
     }
-  }
 }
 >>> trailing space inside body
 extension A on B {
@@ -31,7 +31,7 @@ extension A on B {}
 extension A on B  { int meaningOfLife() => 42; }
 <<< 3.6
 extension A on B {
-  int meaningOfLife() => 42;
+    int meaningOfLife() => 42;
 }
 >>>
 extension     A      on      B    {
@@ -42,8 +42,8 @@ extension A on B {}
 extension A on B{z() => 0;inc(int x) => ++x;}
 <<< 3.6
 extension A on B {
-  z() => 0;
-  inc(int x) => ++x;
+    z() => 0;
+    inc(int x) => ++x;
 }
 >>> eats newlines
 extension
@@ -67,21 +67,21 @@ b() {;} c() => null; get d {;} get e => null; set f(value) {;
 } set g(value) => null;}
 <<< 3.6
 extension A on B {
-  b() {
-    ;
-  }
+    b() {
+        ;
+    }
 
-  c() => null;
-  get d {
-    ;
-  }
+    c() => null;
+    get d {
+        ;
+    }
 
-  get e => null;
-  set f(value) {
-    ;
-  }
+    get e => null;
+    set f(value) {
+        ;
+    }
 
-  set g(value) => null;
+    set g(value) => null;
 }
 >>> no required blank line after empty block-bodied members
 extension A on B {
@@ -89,12 +89,12 @@ b() {} c() => null; get d {} get e => null; set f(value) {
 } set g(value) => null;}
 <<< 3.6
 extension A on B {
-  b() {}
-  c() => null;
-  get d {}
-  get e => null;
-  set f(value) {}
-  set g(value) => null;
+    b() {}
+    c() => null;
+    get d {}
+    get e => null;
+    set f(value) {}
+    set g(value) => null;
 }
 >>> blank line before and after extension
 var x = 1;
@@ -129,7 +129,7 @@ extension A on B {
 }
 <<< 3.6
 extension A on B {
-  bar() {}
+    bar() {}
 }
 >>> (experiment primary-constructors) Extension with empty body
 extension A on B;

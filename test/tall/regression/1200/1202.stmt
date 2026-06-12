@@ -9,20 +9,20 @@ SomeLongFunctionName(
 );
 <<< 3.7
 SomeLongFunctionName(
-  argument:
-      () => [
-        listElement,
-        listElement,
-        listElement,
-      ],
+    argument:
+        () => [
+            listElement,
+            listElement,
+            listElement,
+        ],
 );
 <<< 3.8
 SomeLongFunctionName(
-  argument: () => [
-    listElement,
-    listElement,
-    listElement,
-  ],
+    argument: () => [
+        listElement,
+        listElement,
+        listElement,
+    ],
 );
 >>>
 SomeLongFunctionName(
@@ -35,22 +35,13 @@ SomeLongFunctionName(
 );
 <<< 3.7
 SomeLongFunctionName(
-  argument:
-      (longParameterName______) =>
-          <LongTypeArgument>[
-            listElement,
-            listElement,
-            listElement,
-          ],
-);
-<<< 3.8
-SomeLongFunctionName(
-  argument: (longParameterName______) =>
-      <LongTypeArgument>[
-        listElement,
-        listElement,
-        listElement,
-      ],
+    argument:
+        (longParameterName______) =>
+            <LongTypeArgument>[
+                listElement,
+                listElement,
+                listElement,
+            ],
 );
 >>>
 SomeLongFunctionName(
@@ -63,20 +54,11 @@ SomeLongFunctionName(
 );
 <<< 3.7
 SomeLongFunctionName(
-  argument:
-      (longParameterName______) =>
-          switch (e) {
-            1 => listElement,
-            2 => listElement,
-            3 => listElement,
-          },
-);
-<<< 3.8
-SomeLongFunctionName(
-  argument: (longParameterName______) =>
-      switch (e) {
-        1 => listElement,
-        2 => listElement,
-        3 => listElement,
-      },
+    argument:
+        (longParameterName______) =>
+            switch (e) {
+                1 => listElement,
+                2 => listElement,
+                3 => listElement,
+            },
 );

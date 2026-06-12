@@ -4,19 +4,19 @@
 bool doStuff(parameter1, void callback(int i, bool b)) {}
 <<< 3.7
 bool doStuff(
-  parameter1,
-  void callback(int i, bool b),
+    parameter1,
+    void callback(int i, bool b),
 ) {}
 >>> Split inside old style function typed parameter.
 bool doStuff(parameter1,
 void callback(LongTypeName parameter1, AnotherLongType parameter2)) {}
 <<< 3.7
 bool doStuff(
-  parameter1,
-  void callback(
-    LongTypeName parameter1,
-    AnotherLongType parameter2,
-  ),
+    parameter1,
+    void callback(
+        LongTypeName parameter1,
+        AnotherLongType parameter2,
+    ),
 ) {}
 >>> Generic old style function typed parameter.
 function(int   foo  <  T  ,S >(T t, S s)) {}
@@ -30,9 +30,9 @@ function(int? callback()?) {}
 function(var x, final y, final String z) {}
 <<< 3.7
 function(
-  var x,
-  final y,
-  final String z,
+    var x,
+    final y,
+    final String z,
 ) {}
 <<< 3.13 (unsupported)
 >>> Required old style function typed parameter.
@@ -43,5 +43,5 @@ f({required callback()}) {}
 f({required /* c */ int Function() f}) {}
 <<< 3.7
 f({
-  required /* c */ int Function() f,
+    required /* c */ int Function() f,
 }) {}

@@ -7,8 +7,7 @@ void main() {
 }
 <<< 3.6
 void main() {
-  Type___ variable___ = querySelector('                           ')
-    ..setInnerHtml('                                     ',
-        validator: new Validator___________()
-          ..method______('                '));
+    Type___ variable___ = querySelector('                           ')
+        ..setInnerHtml('                                     ',
+            validator: new Validator___________()..method______('                '));
 }

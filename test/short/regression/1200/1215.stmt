@@ -8,7 +8,7 @@ return switch (level) {
 };
 <<< 3.6
 return switch (level) {
-  0 => a,
-  // Comment.
-  1 when flag => b,
+    0 => a,
+    // Comment.
+    1 when flag => b,
 };

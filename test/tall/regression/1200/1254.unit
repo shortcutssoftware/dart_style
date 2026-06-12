@@ -6,7 +6,7 @@ enum EE {
 }
 <<< 3.7
 enum EE {
-  a,
-  b, // 'b'
-  c,
+    a,
+    b, // 'b'
+    c,
 }

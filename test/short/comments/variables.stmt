@@ -29,8 +29,8 @@ var (x,// c
 y) = o;
 <<< 3.6
 var (
-  x, // c
-  y
+    x, // c
+    y
 ) = o;
 >>> in infix pattern in pattern assignment
 var (x &&// c

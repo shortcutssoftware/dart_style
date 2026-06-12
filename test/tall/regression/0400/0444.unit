@@ -12,14 +12,13 @@ class MyComponent {
 }
 <<< 3.7
 class MyComponent {
-  Object firstArgument;
-  Object superDuperLongNamedArgument;
-  Object secondArgument;
+    Object firstArgument;
+    Object superDuperLongNamedArgument;
+    Object secondArgument;
 
-  MyComponent(
-    @Inject(const MyFirstArgument()) this.firstArgument,
-    @Inject(const MySuperDuperLongNamedArgument())
-    this.superDuperLongNamedArgument, // LOOK AT ME
-    @Inject(const MySecondArgument()) this.secondArgument,
-  );
+    MyComponent(
+        @Inject(const MyFirstArgument()) this.firstArgument,
+        @Inject(const MySuperDuperLongNamedArgument()) this.superDuperLongNamedArgument, // LOOK AT ME
+        @Inject(const MySecondArgument()) this.secondArgument,
+    );
 }

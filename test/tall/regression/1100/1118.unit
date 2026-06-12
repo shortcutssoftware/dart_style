@@ -8,16 +8,16 @@ void f(
 }
 <<< 3.7
 @Deprecated(
-  'loooooooooooooooooooooooong text string'
-  'loooooooooooooooooooooooong text string',
-)
-void f(
-  @Deprecated(
     'loooooooooooooooooooooooong text string'
     'loooooooooooooooooooooooong text string',
-  )
-  x,
+)
+void f(
+    @Deprecated(
+        'loooooooooooooooooooooooong text string'
+        'loooooooooooooooooooooooong text string',
+    )
+    x,
 ) {
-  'loooooooooooooooooooooooong text string'
-      'loooooooooooooooooooooooong text string';
+    'loooooooooooooooooooooooong text string'
+        'loooooooooooooooooooooooong text string';
 }

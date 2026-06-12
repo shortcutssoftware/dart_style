@@ -4,7 +4,7 @@
 function(int x,) {}
 <<< 3.7
 function(
-  int x,
+    int x,
 ) {}
 >>> Doesn't force split parameter list without trailing comma.
 function(int x,int y) {}
@@ -14,40 +14,40 @@ function(int x, int y) {}
 function(int parameter1, int parameter2, int parameter3) {}
 <<< 3.7
 function(
-  int parameter1,
-  int parameter2,
-  int parameter3,
+    int parameter1,
+    int parameter2,
+    int parameter3,
 ) {}
 >>> Parameter list splits with trailing comma after optional parameter.
 function(int x, [int y,]) {}
 <<< 3.7
 function(
-  int x, [
-  int y,
+    int x, [
+    int y,
 ]) {}
 >>> Parameter list splits with trailing comma after named parameter.
 function(int x, {int y,}) {}
 <<< 3.7
 function(
-  int x, {
-  int y,
+    int x, {
+    int y,
 }) {}
 >>> Trailing comma in function expression parameter list forces split.
 var f = (int i,) {};
 <<< 3.7
 var f =
     (
-      int i,
+        int i,
     ) {};
 <<< 3.13
 var f = (
-  int i,
+    int i,
 ) {};
 >>> Trailing comma in old style function typed parameter list forces split.
 bool doStuff(void f(int i,)) {}
 <<< 3.7
 bool doStuff(
-  void f(
-    int i,
-  ),
+    void f(
+        int i,
+    ),
 ) {}

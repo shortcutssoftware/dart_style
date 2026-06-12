@@ -27,6 +27,6 @@ main() {×20×20
 }×20×20×20×20
 <<< 3.6
 main() {
-  veryLongExpression +
-      veryLongStatement;
+    veryLongExpression +
+        veryLongStatement;
 }

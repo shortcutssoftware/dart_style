@@ -9,10 +9,8 @@ class PartyOrganizerInterviewer {
 }
 <<< 3.6
 class PartyOrganizerInterviewer {
-  PartyOrganizerInterviewer(@MinimumAgeRequirement int minAge)
-      : isChampaignIncluded =
-            partyModel.isPropertyTrue(Properties.IS_CHAMPAIGN_AVAILABLE) {
-    this.isFoodIncluded =
-        partyModel.isPropertyTrue(Properties.IS_FOOD_AVAILABLE);
-  }
+    PartyOrganizerInterviewer(@MinimumAgeRequirement int minAge)
+        : isChampaignIncluded = partyModel.isPropertyTrue(Properties.IS_CHAMPAIGN_AVAILABLE) {
+        this.isFoodIncluded = partyModel.isPropertyTrue(Properties.IS_FOOD_AVAILABLE);
+    }
 }

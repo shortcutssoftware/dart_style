@@ -6,8 +6,8 @@ variable =
     );
 <<< 3.7
 variable = await function(
-  argument, // Force split in argument list.
-  another,
+    argument, // Force split in argument list.
+    another,
 );
 >>> (indent 4)
     final response =
@@ -16,9 +16,9 @@ variable = await function(
         }, body: json.encode(discordPayload));
 <<< 3.7
     final response = await post(
-      Uri.parse(webhookUrl),
-      headers: {HttpHeaders.contentTypeHeader: ContentType.json.value},
-      body: json.encode(discordPayload),
+        Uri.parse(webhookUrl),
+        headers: {HttpHeaders.contentTypeHeader: ContentType.json.value},
+        body: json.encode(discordPayload),
     );
 >>> (indent 2)
   final token =
@@ -27,10 +27,10 @@ variable = await function(
       }, publicKeysUrl: '<PUBLIC_KEYS_URL>');
 <<< 3.7
   final token = await jwt.verify(
-    '<TOKEN>',
-    issuer: '<ISSUER>',
-    audience: {'<AUDIENCE>'},
-    publicKeysUrl: '<PUBLIC_KEYS_URL>',
+      '<TOKEN>',
+      issuer: '<ISSUER>',
+      audience: {'<AUDIENCE>'},
+      publicKeysUrl: '<PUBLIC_KEYS_URL>',
   );
 >>> (indent 6)
       final connection =
@@ -40,8 +40,4 @@ variable = await function(
             timeout: _socketOptions.timeout,
           );
 <<< 3.7
-      final connection = await connectSocket(
-        uri.host,
-        port: uri.port,
-        timeout: _socketOptions.timeout,
-      );
+      final connection = await connectSocket(uri.host, port: uri.port, timeout: _socketOptions.timeout);

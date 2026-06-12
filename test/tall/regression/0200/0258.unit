@@ -12,20 +12,13 @@ class FakeFFFFFFFConfigurationStore {
 }
 <<< 3.7
 class FakeFFFFFFFConfigurationStore {
-  FakeFFFFFFFConfigurationStore(
-    GGGGGGGGConfigFactory GGGGGGGGConfigFactory,
-    HHHHHHHHHHHHHConfigFactory HHHHHHHHHHHHHConfigFactory,
-  ) : _zzzzzzzzzzzzzConfig = _getzzzzzzzzzzzzzConfig(
-        GGGGGGGGConfigFactory,
-        HHHHHHHHHHHHHConfigFactory,
-      ),
-      _aaaaaaaaaaaConfig = _getaaaaaaaaaaaConfig(
-        GGGGGGGGConfigFactory,
-        HHHHHHHHHHHHHConfigFactory,
-      ),
-      _defaultFFFFFFFConfig =
-          FFFFFFFConfigurationStore._getDefaultFFFFFFFConfig(
-            GGGGGGGGConfigFactory,
-            HHHHHHHHHHHHHConfigFactory,
+    FakeFFFFFFFConfigurationStore(
+        GGGGGGGGConfigFactory GGGGGGGGConfigFactory,
+        HHHHHHHHHHHHHConfigFactory HHHHHHHHHHHHHConfigFactory,
+    ) : _zzzzzzzzzzzzzConfig = _getzzzzzzzzzzzzzConfig(GGGGGGGGConfigFactory, HHHHHHHHHHHHHConfigFactory),
+          _aaaaaaaaaaaConfig = _getaaaaaaaaaaaConfig(GGGGGGGGConfigFactory, HHHHHHHHHHHHHConfigFactory),
+          _defaultFFFFFFFConfig = FFFFFFFConfigurationStore._getDefaultFFFFFFFConfig(
+              GGGGGGGGConfigFactory,
+              HHHHHHHHHHHHHConfigFactory,
           );
 }

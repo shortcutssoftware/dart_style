@@ -7,10 +7,10 @@ class Foo {
 }
 <<< 3.6
 class Foo {
-  Foo({
-    required int x,
-  })  : assert(x != 0),
-        assert(x != -1);
+    Foo({
+        required int x,
+    })  : assert(x != 0),
+          assert(x != -1);
 }
 >>>
 class Foo {
@@ -21,10 +21,10 @@ class Foo {
 }
 <<< 3.6
 class Foo {
-  Foo({
-    int x,
-  })  : assert(x != 0),
-        assert(x != -1);
+    Foo({
+        int x,
+    })  : assert(x != 0),
+          assert(x != -1);
 }
 >>>
 class Foo {
@@ -35,8 +35,8 @@ class Foo {
 }
 <<< 3.6
 class Foo {
-  Foo([
-    int x,
-  ])  : assert(x != 0),
-        assert(x != -1);
+    Foo([
+        int x,
+    ])  : assert(x != 0),
+          assert(x != -1);
 }

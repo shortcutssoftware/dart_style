@@ -5,6 +5,6 @@ for (; i < words.length; i++) {
 }
 <<< 3.7
 for (; i < words.length; i++) {
-  buffer.write(' ');
-  buffer.write(words[i]);
+    buffer.write(' ');
+    buffer.write(words[i]);
 }

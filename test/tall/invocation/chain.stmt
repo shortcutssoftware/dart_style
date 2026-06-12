@@ -17,21 +17,21 @@ target.arguments(argument1, argument2, argument3)
 <<< 3.7
 target
     .arguments(
-      argument1,
-      argument2,
-      argument3,
+        argument1,
+        argument2,
+        argument3,
     )
     .list([
-      element1,
-      element2,
-      element3,
+        element1,
+        element2,
+        element3,
     ])
     .function(() {
-      body;
+        body;
     })
     .operator(
-      someLongOperand +
-          anotherLongOperand,
+        someLongOperand +
+            anotherLongOperand,
     );
 >>> Indent split calls past the target indentation.
 someVeryLongExpression = someVeryLongExpression.someLongMethod();
@@ -108,36 +108,36 @@ receiver.method<First, Second, Third, Fourth, Fifth>
 <<< 3.7
 receiver
     .method<
-      First,
-      Second,
-      Third,
-      Fourth,
-      Fifth
+        First,
+        Second,
+        Third,
+        Fourth,
+        Fifth
     >(
-      first,
-      second,
-      third,
-      fourth,
-      fifth,
+        first,
+        second,
+        third,
+        fourth,
+        fifth,
     )
     .method<
-      First,
-      Second,
-      Third,
-      Fourth,
-      Fifth
+        First,
+        Second,
+        Third,
+        Fourth,
+        Fifth
     >(
-      first,
-      second,
-      third,
-      fourth,
-      fifth,
+        first,
+        second,
+        third,
+        fourth,
+        fifth,
     );
 >>> Prefer to split in target over chain.
 function({key: value}).method().method();
 <<< 3.7
 function({
-  key: value,
+    key: value,
 }).method().method();
 <<< 3.13
 function({key: value})
@@ -147,9 +147,9 @@ function({key: value})
 function([longElement1, longElement2, longElement3]).method().method().method().method().method();
 <<< 3.7
 function([
-      longElement1,
-      longElement2,
-      longElement3,
+        longElement1,
+        longElement2,
+        longElement3,
     ])
     .method()
     .method()

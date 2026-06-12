@@ -16,42 +16,32 @@ class AaaaAaaaAaaaAaaaaaaaAaaaaaaa {
 }
 <<< 3.7
 class AaaaAaaaAaaaAaaaaaaaAaaaaaaa {
-  @aaaaaaaa
-  AaaaaAaaaAaaaAaaaaaaa get aaaaAaaaAaaaaaaa =>
-      aaaaaaaaAaaaaaaaaAaaaaa
-          ? (AaaaaaaaaAaaAaaaaaaa()
-            // AAA/Aaaaa aaaaaaaaa aaaaaaaa aaaa AAAAAAAA aaaaaaaaa aaaaaa aaaaaaaa.
-            ..aaaaAaaaaaaaaAaaaaaAaagetaaa =
-                AaaaAaaaaaaaaAaaaaaAaagetaaa.aaaaAaaaaa(
-                  aaaaaaaa: [
-                    AaaaaaaaAaaaaaa()..aaaaaaaa = AaaaaaaaAA_Aaaaaaaa.AAAAA,
-                  ],
-                  aaaaaaAaaaaa: [
-                    AaaaaaAaaaaaAaaaaaa()
-                      ..aaaaaaAaaaaa = AaaaaaAaaaaa.AAAAAA_AAAAAAAAAA_AAAAAA,
-                    AaaaaaAaaaaaAaaaaaa()
-                      ..aaaaaaAaaaaa = AaaaaaAaaaaa.AAAAAA_AAAA_AAAAAAA,
-                  ],
+    @aaaaaaaa
+    AaaaaAaaaAaaaAaaaaaaa get aaaaAaaaAaaaaaaa =>
+        aaaaaaaaAaaaaaaaaAaaaaa
+            ? (AaaaaaaaaAaaAaaaaaaa()
+                // AAA/Aaaaa aaaaaaaaa aaaaaaaa aaaa AAAAAAAA aaaaaaaaa aaaaaa aaaaaaaa.
+                ..aaaaAaaaaaaaaAaaaaaAaagetaaa = AaaaAaaaaaaaaAaaaaaAaagetaaa.aaaaAaaaaa(
+                    aaaaaaaa: [AaaaaaaaAaaaaaa()..aaaaaaaa = AaaaaaaaAA_Aaaaaaaa.AAAAA],
+                    aaaaaaAaaaaa: [
+                        AaaaaaAaaaaaAaaaaaa()..aaaaaaAaaaaa = AaaaaaAaaaaa.AAAAAA_AAAAAAAAAA_AAAAAA,
+                        AaaaaaAaaaaaAaaaaaa()..aaaaaaAaaaaa = AaaaaaAaaaaa.AAAAAA_AAAA_AAAAAAA,
+                    ],
                 ))
-          : AaaaAaaaaaaAaaaaaaAaaaaaaa();
+            : AaaaAaaaaaaAaaaaaaAaaaaaaa();
 }
 <<< 3.8
 class AaaaAaaaAaaaAaaaaaaaAaaaaaaa {
-  @aaaaaaaa
-  AaaaaAaaaAaaaAaaaaaaa get aaaaAaaaAaaaaaaa => aaaaaaaaAaaaaaaaaAaaaaa
-      ? (AaaaaaaaaAaaAaaaaaaa()
-          // AAA/Aaaaa aaaaaaaaa aaaaaaaa aaaa AAAAAAAA aaaaaaaaa aaaaaa aaaaaaaa.
-          ..aaaaAaaaaaaaaAaaaaaAaagetaaa =
-              AaaaAaaaaaaaaAaaaaaAaagetaaa.aaaaAaaaaa(
-                aaaaaaaa: [
-                  AaaaaaaaAaaaaaa()..aaaaaaaa = AaaaaaaaAA_Aaaaaaaa.AAAAA,
-                ],
-                aaaaaaAaaaaa: [
-                  AaaaaaAaaaaaAaaaaaa()
-                    ..aaaaaaAaaaaa = AaaaaaAaaaaa.AAAAAA_AAAAAAAAAA_AAAAAA,
-                  AaaaaaAaaaaaAaaaaaa()
-                    ..aaaaaaAaaaaa = AaaaaaAaaaaa.AAAAAA_AAAA_AAAAAAA,
-                ],
-              ))
-      : AaaaAaaaaaaAaaaaaaAaaaaaaa();
+    @aaaaaaaa
+    AaaaaAaaaAaaaAaaaaaaa get aaaaAaaaAaaaaaaa => aaaaaaaaAaaaaaaaaAaaaaa
+        ? (AaaaaaaaaAaaAaaaaaaa()
+                // AAA/Aaaaa aaaaaaaaa aaaaaaaa aaaa AAAAAAAA aaaaaaaaa aaaaaa aaaaaaaa.
+                ..aaaaAaaaaaaaaAaaaaaAaagetaaa = AaaaAaaaaaaaaAaaaaaAaagetaaa.aaaaAaaaaa(
+                    aaaaaaaa: [AaaaaaaaAaaaaaa()..aaaaaaaa = AaaaaaaaAA_Aaaaaaaa.AAAAA],
+                    aaaaaaAaaaaa: [
+                        AaaaaaAaaaaaAaaaaaa()..aaaaaaAaaaaa = AaaaaaAaaaaa.AAAAAA_AAAAAAAAAA_AAAAAA,
+                        AaaaaaAaaaaaAaaaaaa()..aaaaaaAaaaaa = AaaaaaAaaaaa.AAAAAA_AAAA_AAAAAAA,
+                    ],
+                ))
+        : AaaaAaaaaaaAaaaaaaAaaaaaaa();
 }

@@ -6,8 +6,8 @@ class A {
 }
 <<< 3.7
 class A {
-  A() // comment
-    : this();
+    A() // comment
+        : this();
 }
 >>> Line comment after redirecting constructor separator.
 class A {
@@ -16,9 +16,9 @@ class A {
 }
 <<< 3.7
 class A {
-  A()
-    : // comment
-      this();
+    A()
+        : // comment
+          this();
 }
 >>> Line comment before redirecting factory constructor separator.
 class A {
@@ -27,8 +27,8 @@ class A {
 }
 <<< 3.7
 class A {
-  factory A() // comment
-  = B;
+    factory A() // comment
+    = B;
 }
 >>> Line comment after redirecting factory constructor separator.
 class A {
@@ -37,8 +37,8 @@ class A {
 }
 <<< 3.7
 class A {
-  factory A() = // comment
-      B;
+    factory A() = // comment
+        B;
 }
 >>> Line comment in parameter list.
 class A {
@@ -47,11 +47,11 @@ class A {
 }
 <<< 3.7
 class A {
-  A(
-    param, // comment
-    param2,
-  ) : b = 1,
-      c = 2;
+    A(
+        param, // comment
+        param2,
+    ) : b = 1,
+          c = 2;
 }
 >>> Line comment before initializer separator.
 class A {
@@ -60,9 +60,9 @@ class A {
 }
 <<< 3.7
 class A {
-  A(param) // comment
-    : b = 1,
-      c = 2;
+    A(param) // comment
+        : b = 1,
+          c = 2;
 }
 >>> Line comment after initializer separator.
 class A {
@@ -71,10 +71,10 @@ class A {
 }
 <<< 3.7
 class A {
-  A(param)
-    : // comment
-      b = 1,
-      c = 2;
+    A(param)
+        : // comment
+          b = 1,
+          c = 2;
 }
 >>> Line comment with newline after initializer separator.
 class A {
@@ -84,10 +84,10 @@ class A {
 }
 <<< 3.7
 class A {
-  A(param)
-    : // comment
-      b = 1,
-      c = 2;
+    A(param)
+        : // comment
+          b = 1,
+          c = 2;
 }
 >>> Line comment before initializer comma.
 class A {
@@ -96,9 +96,9 @@ class A {
 }
 <<< 3.7
 class A {
-  A(param)
-    : b = 1, // comment
-      c = 2;
+    A(param)
+        : b = 1, // comment
+          c = 2;
 }
 >>> Line comment after initializer comma.
 class A {
@@ -107,9 +107,9 @@ class A {
 }
 <<< 3.7
 class A {
-  A(param)
-    : b = 1, // comment
-      c = 2;
+    A(param)
+        : b = 1, // comment
+          c = 2;
 }
 >>> Line comment between initializer lines.
 class A {
@@ -119,10 +119,10 @@ class A {
 }
 <<< 3.7
 class A {
-  A(param)
-    : b = 1,
-      // comment
-      c = 2;
+    A(param)
+        : b = 1,
+          // comment
+          c = 2;
 }
 >>> Line comment before semicolon body.
 class A {
@@ -132,11 +132,11 @@ class A {
 <<< 3.7
 ### It's weird to force the `=` to split, but a comment here is unusual.
 class A {
-  A(param)
-    : b = 1,
-      c =
-          2 // comment
-          ;
+    A(param)
+        : b = 1,
+          c =
+              2 // comment
+              ;
 }
 >>> Line comment after semicolon body.
 class A {
@@ -144,7 +144,7 @@ class A {
 }
 <<< 3.7
 class A {
-  A(param) : b = 1, c = 2; // comment
+    A(param) : b = 1, c = 2; // comment
 }
 >>>
 class A {
@@ -152,9 +152,9 @@ class A {
 }
 <<< 3.7
 class A {
-  A(param)
-    : b = 1,
-      c = 2; // longer comment
+    A(param)
+        : b = 1,
+          c = 2; // longer comment
 }
 >>> Line comment before block body.
 class A {
@@ -164,13 +164,13 @@ class A {
 <<< 3.7
 ### Weird, but users rarely write this.
 class A {
-  A(param)
-    : b = 1,
-      c =
-          2 // comment
-          {
-    body;
-  }
+    A(param)
+        : b = 1,
+          c =
+              2 // comment
+              {
+        body;
+    }
 }
 >>> Line comment after block body.
 class A {
@@ -178,7 +178,7 @@ class A {
 }
 <<< 3.7
 class A {
-  A(param) : b = 1, c = 2 {
-    body;
-  } // comment
+    A(param) : b = 1, c = 2 {
+        body;
+    } // comment
 }

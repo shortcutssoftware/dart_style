@@ -4,19 +4,19 @@
 set = {[inner]};
 <<< 3.7
 set = {
-  [inner],
+    [inner],
 };
 >>> Nested non-empty map forces outer set to split.
 set = {{key: inner}};
 <<< 3.7
 set = {
-  {key: inner},
+    {key: inner},
 };
 >>> Nested non-empty set forces outer set to split.
 set = {{inner}};
 <<< 3.7
 set = {
-  {inner},
+    {inner},
 };
 >>> Nested non-empty record does not force outer set to split.
 set = {(inner,)};
@@ -31,22 +31,22 @@ var s = {a, {b, c}, d, {},
     e, {f, {g, h} }  };
 <<< 3.7
 var s = {
-  a,
-  {b, c},
-  d,
-  {},
-  e,
-  {
-    f,
-    {g, h},
-  },
+    a,
+    {b, c},
+    d,
+    {},
+    e,
+    {
+        f,
+        {g, h},
+    },
 };
 >>> Split indirect outer set.
 var s = {a, function({b, inner})};
 <<< 3.7
 var s = {
-  a,
-  function({b, inner}),
+    a,
+    function({b, inner}),
 };
 >>> Empty literal does not force outer split.
 var s = {a, <int>{}, b, [], c, () {}};
@@ -57,19 +57,19 @@ var s = {first, 1, second, {third, fourth}, fifth, 5, nested, {sixth, seventh, e
     tenth, eleventh}};
 <<< 3.7
 var s = {
-  first,
-  1,
-  second,
-  {third, fourth},
-  fifth,
-  5,
-  nested,
-  {
-    sixth,
-    seventh,
-    eighth,
-    nine,
-    tenth,
-    eleventh,
-  },
+    first,
+    1,
+    second,
+    {third, fourth},
+    fifth,
+    5,
+    nested,
+    {
+        sixth,
+        seventh,
+        eighth,
+        nine,
+        tenth,
+        eleventh,
+    },
 };

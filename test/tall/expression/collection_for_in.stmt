@@ -21,14 +21,14 @@ f() async {
 }
 <<< 3.7
 f() async {
-  var l = [await for (x in y) x];
+    var l = [await for (x in y) x];
 }
 >>> Split inside initializer.
 var list = [for (a in sequenceExpression + thatDoesNotFit) body];
 <<< 3.7
 var list = [
-  for (a
-      in sequenceExpression +
-          thatDoesNotFit)
-    body,
+    for (a
+        in sequenceExpression +
+            thatDoesNotFit)
+        body,
 ];

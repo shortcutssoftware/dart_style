@@ -8,9 +8,9 @@ var set = {
 };
 <<< 3.7
 var set = {
-  // yeah
-  a, b, c, d,
-  e, f, g, h,
+    // yeah
+    a, b, c, d,
+    e, f, g, h,
 };
 >>> Don't preserve newlines if line comment is inside an element.
 var set = {
@@ -21,12 +21,12 @@ var set = {
 };
 <<< 3.7
 var set = {
-  1,
-  2,
-  3,
-  f(
-    arg, // c
-  ),
+    1,
+    2,
+    3,
+    f(
+        arg, // c
+    ),
 };
 >>> Wrap between elements when newlines are preserved if they don't fit.
 var set = {
@@ -39,17 +39,17 @@ var set = {
 };
 <<< 3.7
 var set = {
-  element1,
-  element2,
-  element3,
-  element4,
-  element5,
+    element1,
+    element2,
+    element3,
+    element4,
+    element5,
 
-  element6, element7,
+    element6, element7,
 
-  // comment
-  element8,
-  element9,
-  element10,
-  element11,
+    // comment
+    element8,
+    element9,
+    element10,
+    element11,
 };

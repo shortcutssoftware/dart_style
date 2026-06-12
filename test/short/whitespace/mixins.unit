@@ -19,7 +19,7 @@ mixin    M1    on   UnaryNum     {
   }
 <<< 3.6
 mixin M1 on UnaryNum {
-  member() {}
+    member() {}
 }
 >>> generic
 mixin M<   A  ,B  >on   C  implements    D{ }

@@ -9,13 +9,13 @@ return true;
 }}}
 <<< 3.6
 class A {
-  var z;
-  inc(int x) => ++x;
-  foo(int x) {
-    if (x == 0) {
-      return true;
+    var z;
+    inc(int x) => ++x;
+    foo(int x) {
+        if (x == 0) {
+            return true;
+        }
     }
-  }
 }
 >>> trailing space inside body
 class A {
@@ -31,7 +31,7 @@ class A {}
 class A  { int meaningOfLife() => 42; }
 <<< 3.6
 class A {
-  int meaningOfLife() => 42;
+    int meaningOfLife() => 42;
 }
 >>>
 class      A  {
@@ -42,8 +42,8 @@ class A {}
 class A{var z;inc(int x) => ++x;}
 <<< 3.6
 class A {
-  var z;
-  inc(int x) => ++x;
+    var z;
+    inc(int x) => ++x;
 }
 >>> eats newlines
 abstract
@@ -67,23 +67,23 @@ var a = 1; b() {;} c() => null; get d {;} get e => null; set f(value) {;
 } set g(value) => null; var h = 1;}
 <<< 3.6
 class Foo {
-  var a = 1;
-  b() {
-    ;
-  }
+    var a = 1;
+    b() {
+        ;
+    }
 
-  c() => null;
-  get d {
-    ;
-  }
+    c() => null;
+    get d {
+        ;
+    }
 
-  get e => null;
-  set f(value) {
-    ;
-  }
+    get e => null;
+    set f(value) {
+        ;
+    }
 
-  set g(value) => null;
-  var h = 1;
+    set g(value) => null;
+    var h = 1;
 }
 >>> no required blank line after empty block-bodied members
 class Foo {
@@ -91,14 +91,14 @@ var a = 1; b() {} c() => null; get d {} get e => null; set f(value) {
 } set g(value) => null; var h = 1;}
 <<< 3.6
 class Foo {
-  var a = 1;
-  b() {}
-  c() => null;
-  get d {}
-  get e => null;
-  set f(value) {}
-  set g(value) => null;
-  var h = 1;
+    var a = 1;
+    b() {}
+    c() => null;
+    get d {}
+    get e => null;
+    set f(value) {}
+    set g(value) => null;
+    var h = 1;
 }
 >>>
 class Foo {
@@ -108,10 +108,10 @@ class Foo {
 }
 <<< 3.6
 class Foo {
-  covariant var bar;
-  covariant int baz;
-  @wat
-  covariant int zoop;
+    covariant var bar;
+    covariant int baz;
+    @wat
+    covariant int zoop;
 }
 >>> blank line before and after class
 var x = 1;
@@ -136,14 +136,14 @@ covariant    late   int i;
 }
 <<< 3.6
 class Foo {
-  static late final int i;
-  static late int i;
-  static late var i;
-  covariant late var i;
-  covariant late int i;
-  late final int i;
-  late int i;
-  late var i;
+    static late final int i;
+    static late int i;
+    static late var i;
+    covariant late var i;
+    covariant late int i;
+    late final int i;
+    late int i;
+    late var i;
 }
 >>> abstract fields
 class Foo {
@@ -153,9 +153,9 @@ abstract  covariant     var  a  , b   ;
 }
 <<< 3.6
 class Foo {
-  abstract covariant var a, b;
-  abstract final int c;
-  abstract int i;
+    abstract covariant var a, b;
+    abstract final int c;
+    abstract int i;
 }
 >>> discard trailing newlines in body
 class Foo {
@@ -168,7 +168,7 @@ class Foo {
 }
 <<< 3.6
 class Foo {
-  bar() {}
+    bar() {}
 }
 >>> class modifiers
 class C1 {}

@@ -7,29 +7,29 @@
 class A {void x(){}}
 <<< 3.7
 class A {
-  void x() {}
+    void x() {}
 }
 >>> Non-empty block body.
 class A {void x(){body;}}
 <<< 3.7
 class A {
-  void x() {
-    body;
-  }
+    void x() {
+        body;
+    }
 }
 >>> Expression body.
 class A{int x()=>42+3;}
 <<< 3.7
 class A {
-  int x() => 42 + 3;
+    int x() => 42 + 3;
 }
 >>> Static method.
 class A{static bool x(){return true;}}
 <<< 3.7
 class A {
-  static bool x() {
-    return true;
-  }
+    static bool x() {
+        return true;
+    }
 }
 >>> Covariant.
 class A {
@@ -40,10 +40,13 @@ class A {
 }
 <<< 3.7
 class A {
-  pos(covariant int a, covariant b);
-  opt([covariant int a, covariant b]);
-  named({covariant int a, covariant b});
-  fn(covariant int f(bool b));
+    pos(covariant int a, covariant b);
+    opt([covariant int a, covariant b]);
+    named({
+        covariant int a,
+        covariant b,
+    });
+    fn(covariant int f(bool b));
 }
 >>> Split before `covariant`.
 class A {
@@ -51,9 +54,9 @@ class A {
 }
 <<< 3.7
 class A {
-  longMethod(
-    covariant parameterNameHere,
-  ) {}
+    longMethod(
+        covariant parameterNameHere,
+    ) {}
 }
 >>> Split before `covariant` with multiple parameters.
 class A {
@@ -61,12 +64,12 @@ class A {
 }
 <<< 3.7
 class A {
-  longMethod(
-    covariant first,
-    second,
-    covariant int third(parameter),
-    fourth,
-  ) {}
+    longMethod(
+        covariant first,
+        second,
+        covariant int third(parameter),
+        fourth,
+    ) {}
 }
 >>> Don't split after `covariant`.
 class A {
@@ -74,10 +77,10 @@ class A {
 }
 <<< 3.7
 class A {
-  longMethod(
-    covariant int
-    veryLongParameterNameWow,
-  ) {}
+    longMethod(
+        covariant int
+        veryLongParameterNameWow,
+    ) {}
 }
 >>> Required covariant parameter.
 class A {
@@ -85,7 +88,7 @@ f({   required    covariant   int a}) {}
 }
 <<< 3.7
 class A {
-  f({required covariant int a}) {}
+    f({required covariant int a}) {}
 }
 >>> Don't split between `required` and `covariant`.
 class A {
@@ -93,10 +96,10 @@ class A {
 }
 <<< 3.7
 class A {
-  longMethod({
-    required covariant int
-    veryLongParameterNameWow,
-  }) {}
+    longMethod({
+        required covariant int
+        veryLongParameterNameWow,
+    }) {}
 }
 >>> Getter in type.
 class A {
@@ -105,9 +108,9 @@ class A {
 }
 <<< 3.7
 class A {
-  int get instanceProperty => 1;
-  static String get classProperty =>
-      "value";
+    int get instanceProperty => 1;
+    static String get classProperty =>
+        "value";
 }
 >>> Setter in type.
 class A {
@@ -116,8 +119,8 @@ class A {
 }
 <<< 3.7
 class A {
-  set instanceProperty(int value) {}
-  static set classProperty(
-    String value,
-  ) {}
+    set instanceProperty(int value) {}
+    static set classProperty(
+        String value,
+    ) {}
 }

@@ -5,5 +5,5 @@ foo() async {
 }
 <<< 3.6
 foo() async {
-  await for (var x in y) {}
+    await for (var x in y) {}
 }

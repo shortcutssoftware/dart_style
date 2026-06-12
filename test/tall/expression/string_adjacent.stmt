@@ -43,37 +43,37 @@ var x =
 function(notString, "adjacent" "string");
 <<< 3.7
 function(
-  notString,
-  "adjacent"
-  "string",
+    notString,
+    "adjacent"
+    "string",
 );
 >>> Do indent if another argument is a string.
 function("string",notString,"adjacent" "string");
 <<< 3.7
 function(
-  "string",
-  notString,
-  "adjacent"
-      "string",
+    "string",
+    notString,
+    "adjacent"
+        "string",
 );
 >>> Do indent if another argument is a string interpolation.
 function("${str}${ing}",notString,"adjacent" "string");
 <<< 3.7
 function(
-  "${str}${ing}",
-  notString,
-  "adjacent"
-      "string",
+    "${str}${ing}",
+    notString,
+    "adjacent"
+        "string",
 );
 >>> Do indent if another argument is an adjacent string.
 function("adjacent" "string",notString,"adjacent" "string");
 <<< 3.7
 function(
-  "adjacent"
-      "string",
-  notString,
-  "adjacent"
-      "string",
+    "adjacent"
+        "string",
+    notString,
+    "adjacent"
+        "string",
 );
 >>> Don't indent in assert if other arguments are not strings.
 assert(
@@ -82,24 +82,24 @@ assert(
     "string");
 <<< 3.7
 assert(
-  condition,
-  "adjacent"
-  "string",
+    condition,
+    "adjacent"
+    "string",
 );
 >>> Do indent in assert if other argument is a string.
 assert("condition","adjacent" "string");
 <<< 3.7
 assert(
-  "condition",
-  "adjacent"
-      "string",
+    "condition",
+    "adjacent"
+        "string",
 );
 >>> Do indent adjacent strings in lists.
 var list = ["adjacent""string"];
 <<< 3.7
 var list = [
-  "adjacent"
-      "string",
+    "adjacent"
+        "string",
 ];
 >>> Do indent adjacent strings in lists.
 var list = [
@@ -111,61 +111,61 @@ var list = [
 ];
 <<< 3.7
 var list = [
-  "adjacent"
-      "string",
-  "another"
-      "adjacent"
-      "string",
+    "adjacent"
+        "string",
+    "another"
+        "adjacent"
+        "string",
 ];
 >>> Do indent in map keys.
 var map = {"adjacent" "string": value};
 <<< 3.7
 var map = {
-  "adjacent"
-          "string":
-      value,
+    "adjacent"
+            "string":
+        value,
 };
 >>> Don't indent in map values.
 var map = {key: "adjacent" "string"};
 <<< 3.7
 var map = {
-  key:
-      "adjacent"
-      "string",
+    key:
+        "adjacent"
+        "string",
 };
 >>> Do indent in sets.
 var set = {"adjacent" "string"};
 <<< 3.7
 var set = {
-  "adjacent"
-      "string",
+    "adjacent"
+        "string",
 };
 >>> Do indent positional record fields.
 var record = ("adjacent" "string",);
 <<< 3.7
 var record = (
-  "adjacent"
-      "string",
+    "adjacent"
+        "string",
 );
 >>> Don't indent in named record fields.
 var record = (field: "adjacent" "string",);
 <<< 3.7
 var record = (
-  field:
-      "adjacent"
-      "string",
+    field:
+        "adjacent"
+        "string",
 );
 >>> Indent only positional fields in a mixed record.
 var record = ("adjacent" "string", field: "another" "one", "third" "field");
 <<< 3.7
 var record = (
-  "adjacent"
-      "string",
-  field:
-      "another"
-      "one",
-  "third"
-      "field",
+    "adjacent"
+        "string",
+    field:
+        "another"
+        "one",
+    "third"
+        "field",
 );
 >>> Don't indent in `=>` body.
 main() => "adjacent"
@@ -192,13 +192,13 @@ function(
 another);
 <<< 3.7
 function(
-  (parameter) =>
-      "string"
-      "adjacent",
-  (parameter) =>
-      "long long long long string"
-      "adjacent",
-  another,
+    (parameter) =>
+        "string"
+        "adjacent",
+    (parameter) =>
+        "long long long long string"
+        "adjacent",
+    another,
 );
 >>> Indent in then branch of `?:`.
 var string = condition ? "adjacent"
@@ -212,7 +212,7 @@ var string =
 <<< 3.8
 var string = condition
     ? "adjacent"
-          "string"
+            "string"
     : "other";
 >>> Indent in else branch of `?:`.
 var string = condition ? "other" : "adjacent"
@@ -227,7 +227,7 @@ var string =
 var string = condition
     ? "other"
     : "adjacent"
-          "string";
+            "string";
 >>> Don't indent in initializer.
 var longVariableName = "very long adjacent"
 "string";
@@ -247,9 +247,9 @@ function(variable = "very long adjacent"
 "string");
 <<< 3.7
 function(
-  variable =
-      "very long adjacent"
-      "string",
+    variable =
+        "very long adjacent"
+        "string",
 );
 >>> Don't indent inside named arguments.
 function(named: "adjacent"
@@ -259,13 +259,13 @@ another: "adjacent"
 "more");
 <<< 3.7
 function(
-  named:
-      "adjacent"
-      "string",
-  another:
-      "adjacent"
-      "string"
-      "more",
+    named:
+        "adjacent"
+        "string",
+    another:
+        "adjacent"
+        "string"
+        "more",
 );
 >>> Indent inside `throw` inside assignment.
 variable = throw 'Some very long message '
@@ -281,9 +281,9 @@ variable = await 'Some very long message '
 }
 <<< 3.7
 f() async {
-  variable =
-      await 'Some very long message '
-          'that continues.';
+    variable =
+        await 'Some very long message '
+            'that continues.';
 }
 >>> Indent inside `!` inside assignment.
 variable = !'Some very long message '

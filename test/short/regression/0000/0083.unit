@@ -10,12 +10,9 @@ main() {
 }
 <<< 3.6
 main() {
-  test('some string here', () {
-    return aVeryLongFunctionThatNeedsToWrap(
-            toASecondLine, wrapWap, onThe, argsHere)
-        .then((_) {
-      someLongFunctionHereToo(
-          'value value value value value value valvalue value value value');
+    test('some string here', () {
+        return aVeryLongFunctionThatNeedsToWrap(toASecondLine, wrapWap, onThe, argsHere).then((_) {
+            someLongFunctionHereToo('value value value value value value valvalue value value value');
+        });
     });
-  });
 }

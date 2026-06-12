@@ -13,21 +13,21 @@
                           style: style.Text.largeStyle)))));
 <<< 3.7
           statusBarWidgets.add(
-            new Flexible(
-              flex: 0,
-              child: new GestureDetector(
-                onTap: () {
-                  setState(() {
-                    game.takeTrickUI();
-                  });
-                },
-                child: new Container(
-                  decoration: style.Box.liveBackground,
-                  padding: style.Spacing.smallPadding,
-                  child: new Text("Take Cards", style: style.Text.largeStyle),
-                ),
+              new Flexible(
+                  flex: 0,
+                  child: new GestureDetector(
+                      onTap: () {
+                          setState(() {
+                              game.takeTrickUI();
+                          });
+                      },
+                      child: new Container(
+                          decoration: style.Box.liveBackground,
+                          padding: style.Spacing.smallPadding,
+                          child: new Text("Take Cards", style: style.Text.largeStyle),
+                      ),
+                  ),
               ),
-            ),
           );
 >>> (indent 8)
         statusBarWidgets
@@ -38,12 +38,12 @@
         }));
 <<< 3.7
         statusBarWidgets.add(
-          new IconButton(
-            icon: "action/swap_vert",
-            onPressed: () {
-              setState(() {
-                _showSplitView = !_showSplitView;
-              });
-            },
-          ),
+            new IconButton(
+                icon: "action/swap_vert",
+                onPressed: () {
+                    setState(() {
+                        _showSplitView = !_showSplitView;
+                    });
+                },
+            ),
         );

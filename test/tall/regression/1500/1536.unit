@@ -11,23 +11,22 @@ void main() {
 }
 <<< 3.7
 void main() {
-  DeprecationProcessingLogger deprecationLogger =
-      logger = DeprecationProcessingLogger(
-        logger ?? Logger.stderr(),
-        silenceDeprecations: {...?silenceDeprecations},
-        fatalDeprecations: {...?fatalDeprecations},
-        futureDeprecations: {...?futureDeprecations},
-        limitRepetition: !verbose,
-      );
+    DeprecationProcessingLogger deprecationLogger =
+        logger = DeprecationProcessingLogger(
+            logger ?? Logger.stderr(),
+            silenceDeprecations: {...?silenceDeprecations},
+            fatalDeprecations: {...?fatalDeprecations},
+            futureDeprecations: {...?futureDeprecations},
+            limitRepetition: !verbose,
+        );
 }
 <<< 3.8
 void main() {
-  DeprecationProcessingLogger deprecationLogger = logger =
-      DeprecationProcessingLogger(
+    DeprecationProcessingLogger deprecationLogger = logger = DeprecationProcessingLogger(
         logger ?? Logger.stderr(),
         silenceDeprecations: {...?silenceDeprecations},
         fatalDeprecations: {...?fatalDeprecations},
         futureDeprecations: {...?futureDeprecations},
         limitRepetition: !verbose,
-      );
+    );
 }

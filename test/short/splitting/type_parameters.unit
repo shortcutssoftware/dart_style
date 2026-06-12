@@ -45,7 +45,7 @@ class Foo {
 }
 <<< 3.6
 class Foo {
-  foo<A, B, C, D>() {}
+    foo<A, B, C, D>() {}
 }
 >>> split type parameters
 class Foo extends GenericBaseClass<TypeParameter> {}

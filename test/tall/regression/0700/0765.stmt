@@ -21,29 +21,23 @@
 <<< 3.7
       final listViewChildren =
           <ChronologicalGroup>[
-                ChronologicalGroup.today,
-                ChronologicalGroup.thisWeek,
-                ChronologicalGroup.thisMonth,
-                ChronologicalGroup.lastMonth,
-                ChronologicalGroup.later,
+                  ChronologicalGroup.today,
+                  ChronologicalGroup.thisWeek,
+                  ChronologicalGroup.thisMonth,
+                  ChronologicalGroup.lastMonth,
+                  ChronologicalGroup.later,
               ]
               .map((chronologicalGroup) => viewModel.jobs[chronologicalGroup])
-              .where(
-                (jobsInChronologicalGroup) => jobsInChronologicalGroup != null,
-              )
+              .where((jobsInChronologicalGroup) => jobsInChronologicalGroup != null)
               .expand((jobsInChronologicalGroup) {
-                final header = ListTile(
-                  title: Text(
-                    _headerForChronologicalGroup(
-                      jobsInChronologicalGroup.first.chronologicalGroup,
-                    ),
-                    style: Theme.of(context).textTheme.title,
-                  ),
-                );
+                  final header = ListTile(
+                      title: Text(
+                          _headerForChronologicalGroup(jobsInChronologicalGroup.first.chronologicalGroup),
+                          style: Theme.of(context).textTheme.title,
+                      ),
+                  );
 
-                return <Widget>[header].followedBy(
-                  jobsInChronologicalGroup.map((job) => _JobView(job)),
-                );
+                  return <Widget>[header].followedBy(jobsInChronologicalGroup.map((job) => _JobView(job)));
               })
               .toList();
 >>>
@@ -59,25 +53,8 @@ Stream<dynamic> refreshEpic(
   );
 }
 <<< 3.7
-Stream<dynamic> refreshEpic(
-  Stream<dynamic> actions,
-  EpicStore<AppState> store,
-) {
-  return Observable(actions).ofType(TypeToken<RefreshAction>()).switchMap((
-    action,
-  ) {
-    return Observable.just(RefreshSuccessAction()).delay(Duration(seconds: 2));
-  });
-}
-<<< 3.13
-Stream<dynamic> refreshEpic(
-  Stream<dynamic> actions,
-  EpicStore<AppState> store,
-) {
-  return Observable(actions)
-      .ofType(TypeToken<RefreshAction>())
-      .switchMap((action) {
-        return Observable.just(RefreshSuccessAction())
-            .delay(Duration(seconds: 2));
-      });
+Stream<dynamic> refreshEpic(Stream<dynamic> actions, EpicStore<AppState> store) {
+    return Observable(actions).ofType(TypeToken<RefreshAction>()).switchMap((action) {
+        return Observable.just(RefreshSuccessAction()).delay(Duration(seconds: 2));
+    });
 }

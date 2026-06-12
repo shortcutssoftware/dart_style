@@ -7,7 +7,7 @@ var list = [? /* c */ x];
 var map = {  ?  /* c */  key  :  ?  /* c */  value  };
 <<< 3.8
 var map = {
-  ? /* c */ key: ? /* c */ value,
+    ? /* c */ key: ? /* c */ value,
 };
 >>> Line comment after `?`.
 var list = [  ?  // c
@@ -16,8 +16,8 @@ x  ];
 ### This is an odd place for a comment so the formatting is odd, but we want to
 ### at least pin it down with a test.
 var list = [
-  ? // c
-  x,
+    ? // c
+    x,
 ];
 >>>
 var map = {  ?  // c
@@ -27,10 +27,10 @@ value  };
 ### This is an odd place for a comment so the formatting is odd, but we want to
 ### at least pin it down with a test.
 var map = {
-  ? // c
-      key:
-      ? // c
-      value,
+    ? // c
+        key:
+        ? // c
+        value,
 };
 >>> Comment between `?` and `.` of dot shorthand.
 var list = [
@@ -42,10 +42,10 @@ var list = [
 ];
 <<< 3.10
 var list = [
-  ? /* c */ .property,
-  ? // c
-  .invocation(),
-  ?
-  /// c
-  .new(),
+    ? /* c */ .property,
+    ? // c
+    .invocation(),
+    ?
+    /// c
+    .new(),
 ];

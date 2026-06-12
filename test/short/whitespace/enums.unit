@@ -11,8 +11,8 @@ enum Primate { bonobo, chimp, gorilla }
 enum Primate{bonobo,chimp,}
 <<< 3.6
 enum Primate {
-  bonobo,
-  chimp,
+    bonobo,
+    chimp,
 }
 >>> metadata
 @Awesome @Fierce("really")
@@ -37,11 +37,11 @@ enum Primate {
 }
 <<< 3.6
 enum Primate {
-  bonobo,
+    bonobo,
 
-  chimp,
+    chimp,
 
-  gorilla
+    gorilla
 }
 >>> do not preserve single newline
 enum Primate {
@@ -59,21 +59,21 @@ enum E { a, b, c;
 int x; }
 <<< 3.6
 enum E {
-  a,
-  b,
-  c;
+    a,
+    b,
+    c;
 
-  int x;
+    int x;
 }
 >>> always go multiline if there are members
 enum E { a, b, c; int x; }
 <<< 3.6
 enum E {
-  a,
-  b,
-  c;
+    a,
+    b,
+    c;
 
-  int x;
+    int x;
 }
 >>> indentation
 enum A { a;
@@ -85,15 +85,15 @@ return true;
 }}}
 <<< 3.6
 enum A {
-  a;
+    a;
 
-  var z;
-  inc(int x) => ++x;
-  foo(int x) {
-    if (x == 0) {
-      return true;
+    var z;
+    inc(int x) => ++x;
+    foo(int x) {
+        if (x == 0) {
+            return true;
+        }
     }
-  }
 }
 >>> trailing space inside body
 enum A { a, b
@@ -109,18 +109,18 @@ enum A { a }
 enum A  { a;int meaningOfLife() => 42; }
 <<< 3.6
 enum A {
-  a;
+    a;
 
-  int meaningOfLife() => 42;
+    int meaningOfLife() => 42;
 }
 >>>
 enum A{a;var z;inc(int x) => ++x;}
 <<< 3.6
 enum A {
-  a;
+    a;
 
-  var z;
-  inc(int x) => ++x;
+    var z;
+    inc(int x) => ++x;
 }
 >>> insert blank line after non-empty block-bodied members
 enum Foo {
@@ -129,25 +129,25 @@ var a = 1; b() {;} c() => null; get d {;} get e => null; set f(value) {;
 } set g(value) => null; var h = 1;}
 <<< 3.6
 enum Foo {
-  x;
+    x;
 
-  var a = 1;
-  b() {
-    ;
-  }
+    var a = 1;
+    b() {
+        ;
+    }
 
-  c() => null;
-  get d {
-    ;
-  }
+    c() => null;
+    get d {
+        ;
+    }
 
-  get e => null;
-  set f(value) {
-    ;
-  }
+    get e => null;
+    set f(value) {
+        ;
+    }
 
-  set g(value) => null;
-  var h = 1;
+    set g(value) => null;
+    var h = 1;
 }
 >>> no required blank line after empty block-bodied members
 enum Foo {x;
@@ -155,16 +155,16 @@ var a = 1; b() {} c() => null; get d {} get e => null; set f(value) {
 } set g(value) => null; var h = 1;}
 <<< 3.6
 enum Foo {
-  x;
+    x;
 
-  var a = 1;
-  b() {}
-  c() => null;
-  get d {}
-  get e => null;
-  set f(value) {}
-  set g(value) => null;
-  var h = 1;
+    var a = 1;
+    b() {}
+    c() => null;
+    get d {}
+    get e => null;
+    set f(value) {}
+    set g(value) => null;
+    var h = 1;
 }
 >>> blank line before and after enum
 var x = 1;
@@ -180,8 +180,8 @@ var y = 2;
 enum   E { a, b; }
 <<< 3.6
 enum E {
-  a,
-  b;
+    a,
+    b;
 }
 >>> enhanced with clauses and members
 enum E with M<R, S>, F implements C<T>, D {
@@ -199,21 +199,22 @@ const E.named({String parameter});
 enum E
     with M<R, S>, F
     implements C<T>, D {
-  value;
+    value;
 
-  late final String field;
-  static var staticField = initializer;
-  int method() {
-    body;
-  }
+    late final String field;
+    static var staticField =
+        initializer;
+    int method() {
+        body;
+    }
 
-  static String staticMethod(int x) =>
-      body;
-  List<int> get getter => 3;
-  int operator +(other) => 3;
-  const E([String parameter])
-      : field = parameter;
-  const E.named({String parameter});
+    static String staticMethod(int x) =>
+        body;
+    List<int> get getter => 3;
+    int operator +(other) => 3;
+    const E([String parameter])
+        : field = parameter;
+    const E.named({String parameter});
 }
 >>> argument lists in values
 enum Args {
@@ -222,9 +223,9 @@ third(named:1,2,another:3)
 }
 <<< 3.6
 enum Args {
-  first(),
-  second(a, b, c),
-  third(named: 1, 2, another: 3)
+    first(),
+    second(a, b, c),
+    third(named: 1, 2, another: 3)
 }
 >>> generic enum
 enum MagicNumbers< T    extends num   ,   S> {
@@ -232,9 +233,9 @@ enum MagicNumbers< T    extends num   ,   S> {
 }
 <<< 3.6
 enum MagicNumbers<T extends num, S> {
-  one(1),
-  two(2),
-  pi<double, String>(3.14159)
+    one(1),
+    two(2),
+    pi<double, String>(3.14159)
 }
 >>> trailing commas in value arguments
 enum Numbers {
@@ -243,42 +244,42 @@ enum Numbers {
 }
 <<< 3.6
 enum Numbers {
-  one(
-    1,
-  ),
-  two(
-    1,
-    2,
-  ),
+    one(
+        1,
+    ),
+    two(
+        1,
+        2,
+    ),
 }
 >>> trailing comma and semicolon after constants
 enum E {a,b,c,;}
 <<< 3.6
 enum E {
-  a,
-  b,
-  c,
-  ;
+    a,
+    b,
+    c,
+    ;
 }
 >>> trailing comma and semicolon after constants with member
 enum E {a,b,c,;var x;}
 <<< 3.6
 enum E {
-  a,
-  b,
-  c,
-  ;
+    a,
+    b,
+    c,
+    ;
 
-  var x;
+    var x;
 }
 >>> trailing comma and semicolon after constant with argument list
 enum E {a,b,c(123),;}
 <<< 3.6
 enum E {
-  a,
-  b,
-  c(123),
-  ;
+    a,
+    b,
+    c(123),
+    ;
 }
 >>> discard trailing newlines in body
 enum E {
@@ -291,7 +292,7 @@ enum E {
 }
 <<< 3.6
 enum E {
-  a,
+    a,
 }
 >>> discard trailing newlines in body
 enum E {
@@ -308,9 +309,9 @@ enum E {
 }
 <<< 3.6
 enum E {
-  a;
+    a;
 
-  bar() {}
+    bar() {}
 }
 >>> (experiment primary-constructors) Enum with primary constructor and single constant
 enum E(final int x) { a(1) }
@@ -324,10 +325,10 @@ enum E(final int x) { a(1), b(2) }
 enum E(final int x) { a(1), b(2); void foo() {} }
 <<< 3.6
 enum E(final int x) {
-  a(1),
-  b(2);
+    a(1),
+    b(2);
 
-  void foo() {}
+    void foo() {}
 }
 >>> (experiment primary-constructors) Const enum with primary constructor
 enum const E(final int x) { a(1) }
