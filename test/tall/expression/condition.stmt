@@ -18,11 +18,6 @@ condition
     ? veryLongExpression +
         otherLongExpression
     : elseExpr;
-<<< 3.8
-condition
-    ? veryLongExpression +
-            otherLongExpression
-    : elseExpr;
 >>> Split because of split in else branch.
 condition ? thenExpression
     : veryLongExpression +
@@ -32,11 +27,6 @@ condition
     ? thenExpression
     : veryLongExpression +
         otherLongExpression;
-<<< 3.8
-condition
-    ? thenExpression
-    : veryLongExpression +
-            otherLongExpression;
 >>> Force split all conditionals when nested.
 var kind = a ? b ? c : d : e;
 <<< 3.7
@@ -49,8 +39,8 @@ var kind =
 <<< 3.8
 var kind = a
     ? b
-            ? c
-            : d
+        ? c
+        : d
     : e;
 >>>
 var kind = a ? b : c ? d : e;
@@ -124,15 +114,15 @@ x =
         argument3,
     )
     ? thenBranch(
-            argument1,
-            argument2,
-            argument3,
-        )
+        argument1,
+        argument2,
+        argument3,
+    )
     : elseBranch(
-            argument1,
-            argument2,
-            argument3,
-        );
+        argument1,
+        argument2,
+        argument3,
+    );
 >>> Indent chained block-style then and else branches past the operators.
 ### Note that the condition does not get extra +2 indentation.
 x = condition(argument1, argument2, argument3)
@@ -175,25 +165,25 @@ x =
         argument3,
     )
     ? thenBranch1(
-            argument1,
-            argument2,
-            argument3,
-        )
+        argument1,
+        argument2,
+        argument3,
+    )
     : elseBranch1(
-            argument1,
-            argument2,
-            argument3,
-        )
+        argument1,
+        argument2,
+        argument3,
+    )
     ? thenBranch2(
-            argument1,
-            argument2,
-            argument3,
-        )
+        argument1,
+        argument2,
+        argument3,
+    )
     : elseBranch2(
-            argument1,
-            argument2,
-            argument3,
-        );
+        argument1,
+        argument2,
+        argument3,
+    );
 >>> Indent expression-style then and else branches past the operators.
 x = condition1 && condition2 && condition3
 ? thenBranch1 + thenBranch2 + thenBranch3
@@ -215,11 +205,11 @@ x =
         && condition2
         && condition3
     ? thenBranch1 +
-            thenBranch2 +
-            thenBranch3
+        thenBranch2 +
+        thenBranch3
     : elseBranch1 -
-            elseBranch2 -
-            elseBranch3;
+        elseBranch2 -
+        elseBranch3;
 >>> Indent chained expression-style then and else branches past the operators.
 x = condition1 && condition2 && condition3
 ? thenBranch1 + thenBranch2 + thenBranch3
@@ -249,14 +239,14 @@ x =
         && condition2
         && condition3
     ? thenBranch1 +
-            thenBranch2 +
-            thenBranch3
+        thenBranch2 +
+        thenBranch3
     : elseBranch1 -
-            elseBranch2 -
-            elseBranch3
+        elseBranch2 -
+        elseBranch3
     ? thenBranch4 +
-            thenBranch5 +
-            thenBranch6
+        thenBranch5 +
+        thenBranch6
     : elseBranch4 -
-            elseBranch5 -
-            elseBranch6;
+        elseBranch5 -
+        elseBranch6;

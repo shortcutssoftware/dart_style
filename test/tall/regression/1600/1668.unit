@@ -226,33 +226,3 @@ class StatePanel extends StatelessWidget {
         );
     }
 }
-<<< 3.8
-class StatePanel extends StatelessWidget {
-    const StatePanel({super.key});
-
-    @override
-    Widget build(BuildContext context) {
-        return BlocBuilder<MachineBloc, MachineState>(
-            buildWhen: (previous, current) => current.status != previous.status,
-            builder: (context, state) {
-                return Row(
-                    children: [
-                        state.status.isRefreshable
-                            ? IconButton(
-                                    color: Colors.amber,
-                                    onPressed: () =>
-                                        context.read<MachineBloc>().add(WeatherRefreshRequested()),
-                                    icon: const Icon(Icons.restart_alt),
-                                )
-                            : const IconButton(
-                                    color: Colors.grey,
-                                    onPressed: null,
-                                    icon: Icon(Icons.restart_alt),
-                                ),
-                        StatusIndicator(status: state.status),
-                    ],
-                );
-            },
-        );
-    }
-}

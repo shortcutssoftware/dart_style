@@ -107,16 +107,11 @@ final class _InfixPiece extends InfixPiece {
         for (var i = 1; i < _operands.length; i++) {
             writer.splitIf(state == State.split);
 
-            // If this is a branch of a conditional expression, then indent the
-            // branch's contents past the `?` or `:`.
-            if (_isConditional) writer.pushIndent(Indent.block);
-
             // We can format each operand separately if the operand is on its own
             // line. This happens when the operator is split and we aren't the first
             // or last operand.
             var separate = state == State.split && i < _operands.length - 1;
             writer.format(_operands[i], separate: separate);
-            if (_isConditional) writer.popIndent();
         }
 
         writer.popIndent();

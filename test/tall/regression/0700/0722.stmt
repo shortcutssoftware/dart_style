@@ -39,8 +39,8 @@ Widget(
         : project.taps == null
         ? Icon(Icons.notifications)
         : Text(
-                suffixNumber(project.taps),
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w600),
-            ),
+            suffixNumber(project.taps),
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w600),
+        ),
 );

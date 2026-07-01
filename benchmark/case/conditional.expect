@@ -3,29 +3,29 @@ void securityItem() {
         itemSecurityScheme.securitySchemeType == SecuritySchemeType.QueryAPIKey
             ? Constants.oneTwoThreeTxt
             : itemSecurityScheme.securitySchemeType ==
-                        SecuritySchemeType.HeaderAPIKey
-                    || itemSecurityScheme.securitySchemeType ==
-                        SecuritySchemeType.CookieAPIKey
+                    SecuritySchemeType.HeaderAPIKey
+                || itemSecurityScheme.securitySchemeType ==
+                    SecuritySchemeType.CookieAPIKey
             ? Constants.oneTwoThreeTxt
             : itemSecurityScheme.securitySchemeType ==
-                    SecuritySchemeType.BasicHTTP
+                SecuritySchemeType.BasicHTTP
             ? Constants.demoUsernameTxt
             : itemSecurityScheme.securitySchemeType ==
-                    SecuritySchemeType.BearerHTTP
+                SecuritySchemeType.BearerHTTP
             ? Constants.oneTwoThreeTxt
             : itemSecurityScheme.securitySchemeType ==
-                    SecuritySchemeType.DigestHTTP
+                SecuritySchemeType.DigestHTTP
             ? Constants.digestDemoTxt
             : itemSecurityScheme.securitySchemeType ==
-                        SecuritySchemeType.OAuth2PasswordFlow
-                    || itemSecurityScheme.securitySchemeType ==
-                        SecuritySchemeType.OAuth2ClientFlow
+                    SecuritySchemeType.OAuth2PasswordFlow
+                || itemSecurityScheme.securitySchemeType ==
+                    SecuritySchemeType.OAuth2ClientFlow
             ? Constants.emptyTxt
             : itemSecurityScheme.securitySchemeType ==
-                    SecuritySchemeType.OAuth2ImplicitFlow
+                SecuritySchemeType.OAuth2ImplicitFlow
             ? Constants.emptyTxt
             : itemSecurityScheme.securitySchemeType ==
-                    SecuritySchemeType.OAuth2CodeFlow
+                SecuritySchemeType.OAuth2CodeFlow
             ? Constants.emptyTxt
             : Constants.emptyTxt,
     );
