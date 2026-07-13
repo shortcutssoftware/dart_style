@@ -24,10 +24,17 @@ if (err
         ) when Random().nextInt(100) > 10) {
     return super.onError(err, handler);
 }
+<<< 3.8
+if (err
+    case DioException(type: DioExceptionType.badCertificate || DioExceptionType.cancel) || DioException(
+            type: DioExceptionType.badResponse,
+            response: Response(statusCode: != null && >= 200 && <= 500),
+        ) when Random().nextInt(100) > 10) {
+    return super.onError(err, handler);
+}
 <<< 3.13
 if (err
-    case DioException(type: DioExceptionType.badCertificate || DioExceptionType.cancel) ||
-        DioException(
+    case DioException(type: DioExceptionType.badCertificate || DioExceptionType.cancel) || DioException(
             type: DioExceptionType.badResponse,
             response: Response(statusCode: != null && >= 200 && <= 500),
         )

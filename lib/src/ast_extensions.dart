@@ -124,8 +124,10 @@ extension AstNodeExtensions on AstNode {
         if (node is! SpreadElement) return null;
 
         return switch (node.expression) {
-            ListLiteral(:var elements, :var rightBracket) ||
-            SetOrMapLiteral(:var elements, :var rightBracket) when elements.canSplit(rightBracket) => node,
+            ListLiteral(:var elements, :var rightBracket) || SetOrMapLiteral(
+                :var elements,
+                :var rightBracket,
+            ) when elements.canSplit(rightBracket) => node,
             _ => null,
         };
     }
@@ -221,18 +223,19 @@ extension ExpressionExtensions on Expression {
                 BlockFormat.function,
 
             // Non-empty collection literals can block split.
-            ListLiteral(:var elements, :var rightBracket) || SetOrMapLiteral(:var elements, :var rightBracket)
-                when elements.canSplit(rightBracket) =>
-                BlockFormat.collection,
+            ListLiteral(:var elements, :var rightBracket) || SetOrMapLiteral(
+                :var elements,
+                :var rightBracket,
+            ) when elements.canSplit(rightBracket) => BlockFormat.collection,
             RecordLiteral(:var fields, :var rightParenthesis) when fields.canSplit(rightParenthesis) =>
                 BlockFormat.collection,
             SwitchExpression(:var cases, :var rightBracket) when cases.canSplit(rightBracket) =>
                 BlockFormat.collection,
 
             // Function calls can block split if their argument lists can.
-            InstanceCreationExpression(:var argumentList) || MethodInvocation(:var argumentList)
-                when argumentList.arguments.canSplit(argumentList.rightParenthesis) =>
-                BlockFormat.invocation,
+            InstanceCreationExpression(:var argumentList) || MethodInvocation(
+                :var argumentList,
+            ) when argumentList.arguments.canSplit(argumentList.rightParenthesis) => BlockFormat.invocation,
 
             // Note: Using a separate case instead of `||` for this type because
             // Dart 3.0 reports an error that [argumentList] has a different type
@@ -568,8 +571,10 @@ extension PatternExtensions on DartPattern {
         ConstantPattern(:var expression) => expression.canBlockSplit,
         ListPattern(:var elements, :var rightBracket) => elements.canSplit(rightBracket),
         MapPattern(:var elements, :var rightBracket) => elements.canSplit(rightBracket),
-        ObjectPattern(:var fields, :var rightParenthesis) ||
-        RecordPattern(:var fields, :var rightParenthesis) => fields.canSplit(rightParenthesis),
+        ObjectPattern(:var fields, :var rightParenthesis) || RecordPattern(
+            :var fields,
+            :var rightParenthesis,
+        ) => fields.canSplit(rightParenthesis),
         _ => false,
     };
 }

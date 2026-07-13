@@ -268,9 +268,7 @@ final class FormatCommand extends Command<int> {
             };
         }
 
-        var indent =
-            int.tryParse(argResults.option('indent')!) ??
-            usageException(
+        var indent = int.tryParse(argResults.option('indent')!) ?? usageException(
                 '--indent must be an integer, was '
                 '"${argResults.option('indent')}".',
             );

@@ -543,8 +543,11 @@ mixin PieceFactory {
                     pieces.token(rightParenthesis);
                 });
 
-            case ForEachParts forEachParts &&
-                ForEachPartsWithPattern(:var keyword, :var metadata, :var pattern):
+            case ForEachParts forEachParts && ForEachPartsWithPattern(
+                    :var keyword,
+                    :var metadata,
+                    :var pattern,
+                ):
                 forPartsPiece = pieces.build(() {
                     pieces.token(leftParenthesis);
 
@@ -1096,7 +1099,14 @@ mixin PieceFactory {
             pieces.visit(right);
         });
 
-        pieces.add(InfixPiece([leftPiece, rightPiece], indent: indent, is3Dot7: style.is3Dot7));
+        pieces.add(
+            InfixPiece(
+                [leftPiece, rightPiece],
+                indent: indent,
+                hangingOperator: hanging,
+                is3Dot7: style.is3Dot7,
+            ),
+        );
     }
 
     /// Writes a chained infix operation: a binary operator expression, or
@@ -1193,7 +1203,14 @@ mixin PieceFactory {
             );
         }
 
-        pieces.add(InfixPiece(operands, indent: indent ? Indent.infix : Indent.none, is3Dot7: style.is3Dot7));
+        pieces.add(
+            InfixPiece(
+                operands,
+                indent: indent ? Indent.infix : Indent.none,
+                hangingOperator: !leadingOperator,
+                is3Dot7: style.is3Dot7,
+            ),
+        );
     }
 
     /// Writes a [ListPiece] for the given bracket-delimited set of elements.
